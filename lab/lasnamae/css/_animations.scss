@@ -1,0 +1,63 @@
+/* Animate stars*/
+@keyframes stars-anim {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+/* Animate clouds */
+@keyframes clouds-anim {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX();
+  }
+  to {
+    -webkit-transform: translateX(0);
+    transform: translateX(-1000px);
+  }
+}
+
+/* Starfall animation */
+@keyframes starfall-anim {
+  0% {
+    -webkit-transform: translate(600px, 0) rotate(250deg);
+    transform: translate(600px, 0) rotate(250deg);
+  }
+  2% {
+    -webkit-transform: translate(-2000px, 1400px) rotate(250deg);
+    transform: translate(-2000px, 1400px) rotate(250deg);
+  }
+  100% {
+    -webkit-transform: translate(-2000px, 1400px) rotate(250deg);
+    transform: translate(-2000px, 1400px) rotate(250deg);
+  }
+}
+
+/* Moon animation */
+@keyframes moon-anim {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  40% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+  }
+  60% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}

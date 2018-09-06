@@ -1,0 +1,92 @@
+@mixin shadow($x, $y, $blur, $color) {
+  //-webkit-box-shadow: $x $y $blur $color;
+  //-moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin shadow-inset($x, $y, $blur, $color) {
+  //-webkit-box-shadow: inset $x $y $blur $color;
+  //-moz-box-shadow: inset $x $y $blur $color;
+  box-shadow: inset $x $y $blur $color;
+}
+
+@mixin transition($property: all, $time: .2s, $type: ease, $delay: 0s) {
+  -webkit-transition: $property $time $type $delay;
+  -moz-transition: $property $time $type $delay;
+  -o-transition: $property $time $type $delay;
+  transition: $property $time $type $delay;
+}
+
+@mixin box-sizing {
+  //-webkit-box-sizing: border-box;
+  //-moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin linear-gradient($from, $to) {
+  /* Fallback for sad browsers */
+  background-color: $to;
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient($from, $to);
+  /* Opera */
+  background-image: -o-linear-gradient($from, $to);
+  /* WebKit (Chrome 11+) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+  /* WebKit (Safari 5.1+, Chrome 10+) */
+  background-image: -webkit-linear-gradient($from, $to);
+  /* IE10 */
+  background-image: -ms-linear-gradient($from, $to);
+  /* W3C */
+  background-image: linear-gradient($from, $to);
+}
+
+@mixin responsive($width) {
+  @if $width == wide-screens {
+    @media only screen and (max-width: $width-large) { @content }
+  }
+  @else if $width == medium-screens {
+    @media only screen and (max-width: $width-medium) { @content }
+  }
+  @else if $width == small-screens {
+    @media only screen and (max-width: $width-small) { @content }
+  }
+}
+
+@mixin background-size($width, $height) {
+  -webkit-background-size: $width $height;
+  -moz-background-size: $width $height;
+  background-size: $width $height;
+}
+
+@mixin retinize($file, $type, $width, $height) {
+  background-image: url('../img/' + $file + '.' + $type);
+  @media (-webkit-min-device-pixel-ratio: 1.5),
+  (min--moz-device-pixel-ratio: 1.5),
+  (-o-min-device-pixel-ratio: 3/2),
+  (min-device-pixel-ratio: 1.5),
+  (min-resolution: 1.5dppx) {
+    & {
+      background-image: url('../img/' + $file + '-2x.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+}
+
+@mixin font-smoothing {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin clearfix {
+  .clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+   }
+}

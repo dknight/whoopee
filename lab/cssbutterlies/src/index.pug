@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet" href="/stylesheets/all.css")
+  body
+    main
+      #scene
+        .grass.grass-1
+        .grass.grass-2
+        - for (var cloud = 1; cloud <= 3; ++cloud)
+          .cloud(class='cloud-' + cloud)
+            - for (var c = 0; c < 5; ++c)
+              .c
+      - for (var i = 0; i < 50; ++i)
+         .butterfly

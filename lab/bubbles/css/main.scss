@@ -1,0 +1,126 @@
+$color-bg-1: #63add7;
+$color-bg-2: #1d455c;
+$color-particle-1: #c1deee;
+$color-particle-2: #ffc;
+$color-particle-3: #fff;
+$num: 100;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  background-color: $color-bg-1;
+  background-image: -webkit-radial-gradient($color-bg-1, $color-bg-2);
+  background-image: -o-radial-gradient($color-bg-1, $color-bg-2);
+  background-image: -moz-radial-gradient($color-bg-1, $color-bg-2);
+  background-image: radial-gradient($color-bg-1, $color-bg-2);
+
+  @media screen and (max-width: 1024px) {
+    font-size: 8px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 5px;
+  }
+}
+
+.particle {
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0, 0);
+  -webkit-mix-blend-mode: lighten;
+  mix-blend-mode: lighten;
+ 
+  &.type-1 {
+    width: 3.5em;
+    height: 3.5em;
+    background-color: $color-particle-1;
+    opacity: .8;
+    -webkit-filter: blur(1px); 
+    filter: blur(1px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1'); // Old ie
+    -webkit-mix-blend-mode: lighten;
+    mix-blend-mode: lighten;
+
+    @for $i from 1 through $num {
+      $time: (30 + random(64));
+      $rndSize: (random(3) + 1) * 1em;
+      &:nth-child(#{$i}) {
+        width: $rndSize;
+        height: $rndSize;
+        z-index: 10 - random(1);
+        left: random(100) * 1%;
+        top: random(150) * 1%;
+        -webkit-animation: particleAnimation #{$time}s linear #{random(10)}s infinite;
+        animation: particleAnimation #{$time}s linear #{random(10)}s infinite;
+      }
+    }
+  }
+
+  &.type-2 {
+    background-color: $color-particle-2;
+    opacity: .67;
+    -webkit-filter: blur(3px); 
+    filter: blur(3px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3'); // Old ie
+    border: 1px solid red;
+    -webkit-mix-blend-mode: lighten;
+    mix-blend-mode: lighten;
+
+    @for $i from (1 + $num) through ($num * 2) {
+      $time: (50 + random(84));
+      $rndSize: (random(5) + 5) * 0.1em;
+      &:nth-child(#{$i}) {
+        width: #{$rndSize};
+        height: #{$rndSize};
+        z-index: 8;
+        left: random(100) * 1%;
+        top: random(150) * 1%;
+        -webkit-animation: particleAnimation #{$time}s linear #{random(2)}s infinite;
+        animation: particleAnimation #{$time}s linear #{random(2)}s infinite;
+      }
+    }
+  }
+
+  &.type-3 {
+    background-color: $color-particle-3;
+    opacity: .24;
+    -webkit-filter: blur(10px); 
+    filter: blur(10px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='10'); // Old ie
+    -webkit-mix-blend-mode: lighten;
+    mix-blend-mode: lighten;
+
+    @for $i from (1 + $num * 2) through ($num * 3) {
+      $time: (220 + random(44));
+      $rndSize: (random(4) + 2) * 1em;
+      &:nth-child(#{$i}) {
+        width: $rndSize;
+        height: $rndSize;
+        z-index: 7;
+        left: random(100) * 1%;
+        top: random(200) * 1%;
+        -webkit-animation: particleAnimation #{$time}s linear #{random(2)}s infinite;
+        animation: particleAnimation #{$time}s linear #{random(2)}s infinite;
+      }
+    }
+  }
+}
+
+@keyframes particleAnimation {
+  0% {
+    -webkit-transform: -webkit-translateY(0) -webkit-scale(0, 0);
+    transform: translateY(0) scale(0, 0);
+  }
+  2% {
+    -webkit-transform: -webkit-translateY(-3rem) -webkit-scale(1, 1);
+    transform: translateY(-3rem) scale(1, 1);
+  }
+  100% {
+    -webkit-transform: -webkit-translateY(-150rem) -webkit-scale(1, 1);
+    transform: translateY(-150rem) scale(1, 1);
+  }
+}

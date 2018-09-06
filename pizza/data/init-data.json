@@ -1,0 +1,77 @@
+{
+  "ingredients": [
+    {
+      "id": "1",
+      "name": "Olives",
+      "price": 0.65,
+      "slug": "olive",
+      "used": false
+    },
+    {
+      "id": "2",
+      "name": "Paprika",
+      "price": 0.55,
+      "slug": "paprika",
+      "used": false
+    }, 
+    {
+      "id": "3",
+      "name": "Salami",
+      "price": 1.25,
+      "slug": "salami",
+      "used": false
+    },
+    {
+      "id": "4",
+      "name": "Tomatoes",
+      "price": 0.88,
+      "slug": "tomato",
+      "used": false
+    },
+    {
+      "id": "5",
+      "name": "Mushrooms",
+      "price": 0.55,
+      "slug": "mushroom",
+      "used": false
+    },
+    {
+      "id": "6",
+      "name": "Onion",
+      "price": 0.75,
+      "slug": "onion",
+      "used": false
+    },
+    {
+      "id": "7",
+      "name": "Parsley",
+      "price": 0.25,
+      "slug": "parsley",
+      "used": false
+    },
+    {
+      "id": "8",
+      "name": "Pineapple",
+      "price": 0.54,
+      "slug": "pineapple",
+      "used": false
+    },
+    {
+      "id": "9",
+      "name": "Shrimps",
+      "price": 1.5,
+      "slug": "shrimp",
+      "used": false
+    },
+    {
+      "id": "10",
+      "name": "Red Sauce",
+      "price": 0.4,
+      "slug": "sauce",
+      "used": false
+    }
+  ],
+  "order": {
+    "open": false
+  }
+}

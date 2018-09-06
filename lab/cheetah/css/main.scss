@@ -1,0 +1,159 @@
+@function multiple-box-shadow ($n) {
+  $value: '#{random(1500)}px #{random(1500)}px #fff';
+  @for $i from 2 through $n {
+    $value: '#{$value}, #{random(1500)}px #{random(1500)}px #fff';
+  }
+
+  @return unquote($value);
+}
+
+@mixin full-size() {
+  width: 100%;
+  height: 100%;
+}
+$stars-1: multiple-box-shadow(120);
+$stars-2: multiple-box-shadow(70);
+
+$cheetah-width: 25em;    //496px
+$cheetah-height: 12.5em; //250px
+$cheetah-animation-steps: 7;
+$cheetah-animation-time: .49s;
+
+$ground-animation-time: 10s;
+$forest-animation-time: 30s;
+$mountains-animation-time-1: 90s;
+$mountains-animation-time-2: 270s;
+ 
+// Colors
+$color-sky-1: #1f263b;
+$color-sky-2: #0c0f16;
+
+html, body {
+  @include full-size();
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  background: $color-sky-1;
+  background: linear-gradient($color-sky-1, $color-sky-2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+main {
+  position: absolute;
+  @include full-size();
+}
+
+#cheetah {
+  width:  $cheetah-width;
+  height: $cheetah-height;
+  background: transparent url("http://www.whoop.ee/lab/cheetah/img/cheetah.svg") no-repeat 0 0;
+  background-size: cover;
+  animation: cheetah-run $cheetah-animation-time steps($cheetah-animation-steps) 0s infinite;
+  position:absolute;
+  bottom: 17.1%;
+  left: 50%;
+  margin-left: -$cheetah-width/2 - 2em;
+  z-index: 90;
+  transform-origin: bottom;
+
+  @media screen and (max-width: 1024px) {
+    transform: scale(.5, .5);
+  }
+  @media screen and (max-width: 400px) {
+    transform: scale(.35, .35);
+  }
+} 
+
+#ground {
+  @include full-size();
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: transparent url("http://www.whoop.ee/lab/cheetah/img/ground.svg") repeat 0 100%;
+  background-size: cover;
+  z-index: 100;
+  -webkit-animation: landscape-anim $ground-animation-time linear 0s infinite forwards;
+  animation: landscape-anim $ground-animation-time linear 0s infinite forwards;
+}
+#forest {
+  @include full-size();
+  background: transparent url("http://www.whoop.ee/lab/cheetah/img/forest.svg") repeat-x 0 0;
+  background-size: cover;
+  position: absolute;
+  top: -10%;
+  left: 0;
+  z-index: 80;
+  animation: landscape-anim $forest-animation-time linear 0s infinite;
+}
+#mountains-1 {
+  @include full-size();
+  background: transparent url("http://www.whoop.ee/lab/cheetah/img/mountains1.svg") repeat-x 0 0;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  -webkit-animation: landscape-anim $mountains-animation-time-1 linear 0s infinite;
+  animation: landscape-anim $mountains-animation-time-1 linear 0s infinite;
+}
+#mountains-2 {
+  @include full-size();
+  background: transparent url("http://www.whoop.ee/lab/cheetah/img/mountains2.svg") repeat-x 0 0;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  -webkit-animation: landscape-anim $mountains-animation-time-2 linear 0s infinite;
+  animation: landscape-anim $mountains-animation-time-2 linear 0s infinite;
+}
+#moon {
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  background: #ffc;
+  position: absolute;
+  top: 12%;
+  left: 11%;
+  z-index: 50;
+  -webkit-box-shadow: 0 0 16em #ffc;
+  box-shadow: 0 0 16em #ffc;
+}
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  -webkit-box-shadow: $stars-1;
+  box-shadow: $stars-1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  
+  &:after {
+    display: block;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-box-shadow: $stars-2;
+    box-shadow: $stars-2;
+    content: "";
+  }
+}
+
+@keyframes cheetah-run {
+  100% {
+    background-position: 0 #{-($cheetah-animation-steps * $cheetah-height)};
+  }
+}
+@keyframes landscape-anim {
+  100% {
+    background-position: 100% 100%;
+  }
+}

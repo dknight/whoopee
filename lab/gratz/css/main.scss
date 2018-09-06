@@ -1,0 +1,116 @@
+$fireworks-count: 10;
+$flares-count: 25;
+$colors: (deeppink, orange, yellow, chartreuse, aqua, purple, azure, white, fuchsia);
+$steto-colors: (white, chartreuse, orange);
+$color-glow: #ffc;
+$particle-size: 0.5;
+  
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  overflow: hidden;
+  @media screen and (max-width: 1024px) {
+    font-size: 7px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 5px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 4px;
+  }
+}
+body {
+  background: #000; 
+  background: -webkit-radial-gradient(#222, #000);
+  background: -o-radial-gradient(#222, #000);
+  background: -moz-radial-gradient(#222, #000);
+  background: radial-gradient(#222, #000); // Standard syntax
+}
+
+#wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+h1 { 
+  font: bold 20em/1 'Arial Black', Arial, serif;
+  animation: title 1000ms linear 0s infinite;
+  text-align: center;
+  z-index: 100;
+}
+.firework {
+  position: absolute;
+
+  i {
+    position: absolute;
+    height: $particle-size + em;
+    width: $particle-size + em;
+    top: 0;
+    left: 0; 
+    border-radius: 50%;
+    opacity: 0;
+
+    // Due to crappy performance not webkit browsers, dont use shadow glow effect.
+    -webkit-box-shadow: 0 0 24px $color-glow;
+    //  box-shadow: 0 0 30px $color-glow;
+
+    @for $i from 1 to $flares-count+1 {
+      &:nth-child(#{$i}) {
+        animation: flare-#{random($flares-count)} 1000ms ease-out infinite forwards;
+      }
+    }
+  }
+}
+ 
+@for $i from 0 to $fireworks-count+1 {
+  .firework:nth-child(#{$i}) {
+    content: $i + '';
+    top: (random(70)) * 1%;
+    left: (random(60) + 10) * 1%;
+
+    i { 
+      background-color: lighten(nth($colors, random(9)), 32%);
+      animation-delay: random(1000) * $i * 1ms;
+    }
+  }
+}
+
+@for $x from 1 to $flares-count+1 {
+  $dx: (random(4)-2) * (random(5) + 5) * $x;
+  $dy: (random(16)-8) * $x;
+
+  @keyframes flare-#{$x} {
+    0% { 
+      opacity: 0;
+    }
+    33% {
+      left: $dx + px;
+      top: $dy + px;
+      opacity: .6;
+    }
+    100% {
+      left: $dx + px; 
+      top: $dy + random(100) + px;
+      opacity: 0; 
+    }
+  }
+}
+
+@keyframes title {
+  0%   { color: #f00; }
+  10%  { color: #ff0; }
+  20%  { color: #fff; }
+  30%  { color: #0f0; }
+  40%  { color: #ff0; }
+  50%  { color: #0ff; }
+  60%  { color: #fff; }
+  70%  { color: #00f; }
+  80%  { color: #f0f; }
+  90%  { color: #ff0; }
+  100% { color: #fff; }
+}

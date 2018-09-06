@@ -1,0 +1,456 @@
+@import "vars.scss";
+@import "mixins.scss";
+@import "reset.scss";
+@import "font-face.scss";
+@import "animations.scss";
+@import "font-awesome/font-awesome.scss";
+ 
+@mixin fade-in-intro($delay) {
+  opacity: 0;
+  body.loaded & {
+    -webkit-animation: fade-in-intro .7s ease-in $delay 1 normal forwards;
+    animation: fade-in-intro .7s ease-in $delay 1 normal forwards;
+  }
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 10px; // font base
+  background-color: #fff;
+}
+
+* {
+  @include box-sizing();
+}
+/* ========================= Header ======================== */
+a#burger-button {
+  display: none;
+  height: 40px;
+  width: 46px;
+  padding: 3px 8px 3px;
+  margin: 14px 0 0 8px;
+  @include responsive(small-screens) {
+    display: inline-block;
+  }
+
+  &:hover div {
+    background-color: lighten($color-accent, 10%);
+  }
+  
+  div {
+    @include transition(background-color);
+    height: 5px;
+    background-color: $color-accent;
+    margin-bottom: 5px;
+    border-radius: 2px;
+  }
+}
+header {
+  position: relative;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, .82);
+   
+  body.loaded & {
+    opacity: 1;
+  }
+  
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  @include transition(opacity, .5s, ease, 2.5s);
+  @include responsive(small-screens) {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .85);
+  }
+   
+  #logo {
+    float: left;
+    padding: 15px 8px 3px;
+    font: normal 1.8em 'Amarillo';
+    color: $color-accent;
+    text-decoration: none;
+    @include transition(color);
+    
+    body.android & {
+      position: absolute;
+      top: 12px;
+      left: 0;
+    }
+    
+    &:hover {
+      color: lighten($color-accent, 10%);
+    }
+  }
+
+  nav {
+    text-align: right;
+    
+    #main-navigation {
+      float: right;
+      @include transition(height);
+      @include responsive(small-screens) {
+        display: block;
+        overflow: hidden;
+        height: 0;
+        width: 100%;
+      }
+      
+      &.active {
+        height: auto;
+      }
+      
+      li {
+        float: left;
+        font: 500 1.6em $font-raleway;
+        text-transform: uppercase;
+        @include responsive(medium-screens) {
+          font-size: 1.3em;
+          line-height: 2.3;
+        }
+        @include responsive(small-screens) {
+          display: block;
+          float: none;
+          background: transparent;
+        }
+
+        a {
+          display: block;
+          padding: 1.25em 2em;
+          width: 100%;
+          text-decoration: none;
+          color: #fff;
+          @include transition(all);
+          opacity: 0.75;
+
+          &:hover {
+            color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+}
+/* ========================= Main ======================== */
+main {
+ height: 100%;
+}
+section {
+  margin: 0 0 5em;
+  opacity: 0;
+  @include transition(opacity, .7s, ease-in);
+
+  &.in {
+    opacity: 1;
+  }
+  
+  h2 {
+    font: 300 4em $font-raleway;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 1.7em 0 2em;
+    color: $color-title;
+  }
+  
+  &#home {
+    margin: 0;
+    height: 100%;
+    
+    h1 {
+      color: #fff;
+      color: rgba(255, 255, 255, .95);
+      font: normal 12em/2 $font-amarillo;
+      text-align: center;
+      opacity: .9;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 0;
+      @include font-smoothing;
+      text-shadow: 4px 4px #000;
+      z-index: 1;
+      @include responsive(medium-screens) {
+        font-size: 8em;
+      }
+      @include responsive(small-screens) {
+        font-size: 6em;
+      }
+      @include fade-in-intro(1.6s);
+      
+      // Fix android
+      height: 300px;
+      
+      small {
+        font-size: 30%;
+        font-weight: 300;
+        display: block;
+        text-shadow: 2px 2px #000;
+        line-height: 2.5;
+      }
+    }
+    h5 {
+      color: #fff;
+      font: 500 3em $font-raleway;
+      text-align: center;
+      @include font-smoothing;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;  
+      z-index: 0;
+      background: #fff url("../img/bg.jpg") no-repeat bottom center fixed;
+      background-attachment: fixed;
+      background-size: cover;
+      @include fade-in-intro(.4s);
+    }
+  } // end of home
+  
+  &#services {
+    h3 {
+      @extend %font-thin-larger;
+      margin: 0.2em 0;
+    }
+    
+    .columns {
+      .col {
+        width: 20%;
+        margin: 0 6.5%;
+        float: left;
+        text-align: center;
+        font: 400 1.6em/1.43 $font-raleway;
+        color: $color-text;
+        @include responsive(medium-screens) {
+          width: 80%;
+          margin: 0 10% 3em;
+        }
+      }
+    }
+    
+    .fa {
+      color: #fff;
+      line-height: 150px;
+    }
+
+  } // end of services
+  
+  // ========================== Works section =========================
+  &#works {
+    background: lighten($color-accent, 37%);
+    
+    h2 {
+      margin: 0 0 1.5em;
+      padding: 1.5em 0 0;
+    }
+    
+    .gallery {
+      li {
+        width: 25%;
+        float: left;
+        overflow: hidden;
+        @include responsive(medium-screens) {
+          width: 50%;
+        }
+        @include responsive(small-screens) {
+          width: 100%;
+        }
+      }
+      
+      a:hover img {
+        -webkit-transform: scale(1.25, 1.25);
+        transform: scale(1.25, 1.25);
+        -webkit-filter: brightness(125%) saturate(125%);
+        filter: brightness(125%) saturate(125%);
+      }
+      
+      img {
+        @include transition(all);
+        display: block;
+        max-width: 100%;
+        height: auto;
+       
+      }
+    }
+  } // end of works
+  
+  &#pricelist {
+    text-align: center;
+    
+    h2 {
+      margin-bottom: 1em;
+    }
+    
+    .prices {
+      width: 40%;
+      text-align: left;
+      margin: 0 auto;
+      @extend %font-thin-larger;
+      @include responsive(medium-screens) {
+        width: 80%;
+      }
+      @include responsive(small-screens) {
+        width: 95%;
+      }
+      
+      td {
+        border-bottom: 1px solid #efefef;
+        padding: .2em 0;
+      }
+      .value {
+        font-size: 1.4em;
+        font-weight: 500;
+        color: $color-accent;
+      }
+    }
+  } // end of pricelist
+  
+  &#contact {
+    @include retinize('orchid', 'jpg', 480, 318);
+    background-repeat: no-repeat;
+    background-position: -30px 70%;
+    @include responsive(medium-screens) {
+      background-image: none;
+    }
+    
+    h2 {
+      margin-bottom: 1em;
+    }
+    
+    .columns {
+      width: 90%;
+      margin: 0 auto;
+      
+      .col {
+        width: 42%;
+        margin: 0 1.5%;
+        float: left;
+        @extend %font-thin-larger;
+        @include responsive(small-screens) {
+          width: 100%;
+        }
+      }
+      
+      address {
+        text-align: right;
+        line-height: 1.5;
+        a {
+          text-decoration: none;
+          color: $color-fb;
+          &:hover {
+            border-bottom: 1px solid $color-fb;
+          }
+        }
+      }
+    }
+  } // end of contacts
+}
+
+#map {
+  overflow:hidden;
+  height: 300px;
+  width: 100%;
+  border: 3px solid #ddd;
+}
+
+// Icons animations on hover
+#icon-smile.play {
+  -webkit-animation: smile-icon-animation .8s infinite; 
+  animation: smile-icon-animation .8s infinite;
+}
+#icon-money.play {
+  -webkit-animation: money-icon-animation 0.2s infinite; 
+  animation: money-icon-animation 0.2s infinite;
+}
+#icon-love.play {
+  -webkit-animation: hearth-icon-animation 0.5s infinite; 
+  animation: hearth-icon-animation 0.5s infinite;
+}
+
+.icon-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: $color-accent;
+  margin: 0 auto 1.5em;
+  
+  &:after {
+    display: block;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    content: " ";
+    position: relative;
+    top: -158px;
+    left: -8px;
+    border-width: 3px;
+    border-style: solid;
+  }
+  
+  &.ico-bg-1 {
+    background-color: $color-ico-1;
+    
+    &:after {
+      border-color: $color-ico-1;
+    }
+  }
+  &.ico-bg-2 {
+    background-color: $color-ico-2;
+    
+    &:after {
+      border-color: $color-ico-2;
+    }
+  }
+  &.ico-bg-3 {
+    background-color: $color-ico-3;
+    
+    &:after {
+      border-color: $color-ico-3;
+    }
+  }
+}
+
+footer {
+  background: rgba(0, 0, 0, .95);
+  padding: 4em 0;
+  border-top: 8px solid $color-accent;
+  p {
+    text-align: center;
+    font: normal 1.4em $font-raleway;
+    color: #ddd;
+  }
+}
+
+%font-thin-larger {
+  font: 300 2em $font-raleway;
+}
+
+@include clearfix;
+
+// Loader
+#loader {
+  position: fixed;
+  z-index: 1000;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  
+  .fa {
+    color: $color-accent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+#prebg {
+  display: none;
+  width: 0;
+  height: 0;
+}

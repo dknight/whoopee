@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <title id="title">Cat</title>
+  <desc id="Description">Simple SVG cat looks at mouse cursor.</desc>
+
+  <rect x="0" y="0" width="100%" height="100%" id="bg"/>
+
+  <svg viewBox="0 0 300 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+    <style type="text/css">
+      svg {
+        background-color: #9BC546;
+      }
+      .main-clr {
+        fill:#171717;
+      }
+      .ear-clr {
+        fill: #290000;
+      }
+      .eye-clr {
+        fill: #fff;
+      }
+      .pupil-outer-clr {
+        fill: #000;
+      }
+      .pupil-inner-clr {
+        fill: #fff;
+      }
+      .nose-clr {
+       fill: pink;
+      }
+      .whisker {
+        stroke: #000;
+        stroke-width: 1px;
+        fill: none;
+      }
+      #paw {
+        fill: #61831B;
+      }
+      #bg {
+        fill: url(#bgt);
+      }
+    </style>
+    <defs>
+      <g id="head">
+        <circle cx="0" cy="0" r="100" class="main-clr"/>
+      </g>
+      <g id="ear">
+        <polyline points="0 0,20 70,70 45" class="main-clr"/>
+        <polyline points="10 15,30 64,60 48" class="ear-clr"/>
+      </g>
+      <g id="eye">
+        <circle cx="0" cy="0" r="30" class="eye-clr"/>
+      </g>
+      <g id="pupil">
+        <circle cx="0" cy="0" r="15" class="pupil-outer-clr"/>
+        <circle cx="8" cy="0" r="4" class="pupil-inner-clr"/>
+      </g>
+      <g id="nose">
+        <ellipse cx="0" cy="0" rx="10" ry="5" class="nose-clr"/>
+      </g>
+      <g id="whiskers">
+       <path d="M135 200 C80 180,10 180,10 187" class="whisker"/>
+       <path d="M135 204 C80 188,10 188,10 197" class="whisker"/>
+       <path d="M135 208 C80 196,10 196,10 206" class="whisker"/>
+      </g>
+      <g id="paw">
+        <path d="M7.35 74.03c7.96-20.13 19.07-20.13 26.77 0 2.28 8.75-6.2 2.62-13.3 2.62-7.34.88-16.1 5.25-13.47-2.63z"/>
+        <g transform="matrix(.832-.411 .408 .837-118.125-136.675)">
+          <ellipse cx="28" cy="248" rx="5" ry="8"/>
+        </g>
+        <g transform="matrix(1.067-.258 .252 1.085-77.44-211.75)">
+          <ellipse cx="28" cy="248" rx="5" ry="8"/>
+        </g>
+        <g transform="matrix(1.006 .315-.292 1.111 71.487-234.063)">
+          <ellipse cx="28" cy="248" rx="5" ry="8"/>
+        </g>
+        <g transform="matrix(.846 .454-.413 .91 115.5-179.2)">
+          <ellipse cx="28" cy="248" rx="5" ry="8"/>
+        </g>
+      </g>
+      <pattern id="bgt" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+        <use xlink:href="#paw" x="37" y="-40"/>
+        <use xlink:href="#paw" x="0" y="0"/>
+      </pattern>
+    </defs>
+    <g id="cat">
+      <use xlink:href="#ear" transform="translate(50 30)"/>
+      <use xlink:href="#ear" transform="translate(246 30) scale(-1 1)"/>
+      <use xlink:href="#head" transform="translate(150 150)"/>
+      <use xlink:href="#eye" transform="translate(105 150)"/>
+      <use xlink:href="#pupil" class="pupil" transform="translate(120 150)"/>
+      <use xlink:href="#eye" transform="translate(195 150)"/>
+      <use xlink:href="#pupil" class="pupil" transform="translate(210 150)"/>
+      <use xlink:href="#nose" transform="translate(150 190)"/>
+      <use xlink:href="#whiskers"/>
+      <use xlink:href="#whiskers" transform="translate(300 0) scale(-1 1)"/>
+    </g>
+    <script><![CDATA[
+      function rad2deg(rad) { return rad*(180/Math.PI); }
+
+      var width = document.documentElement.clientWidth,
+          height = document.documentElement.clientHeight,
+          svg = document.querySelector('svg'),
+          pupils = document.querySelectorAll('.pupil'),
+          r=0;
+      
+      document.addEventListener('mousemove', function (event) {
+        var x = event.clientX, y = event.clientY;
+        
+        x = x-(width/2);
+        y = y-(height/2);
+
+        if (y === 0) {
+          r = (x > 0 ? 0 : -1)*Math.PI;
+        } else {
+          r = 2*Math.atan(y / (Math.sqrt(x*x + y*y) + x));
+        }
+
+        pupils[0].setAttribute('transform', 'translate(120, 150) rotate(' + rad2deg(r) + ', -15, 0)');
+        pupils[1].setAttribute('transform', 'translate(210, 150) rotate(' + rad2deg(r) + ', -15, 0)');
+      });]]>
+    </script>
+  </svg>
+</svg>

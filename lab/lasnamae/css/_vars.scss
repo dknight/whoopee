@@ -1,0 +1,55 @@
+// Layout
+$min-width: 800px;
+$width-medium: 760px;
+$width-small: 400px;
+
+// World colors
+$color-sky-1: #000;
+$color-sky-2: #090012;
+$color-sky-3: #17002C;
+
+// City's color
+$color-house-1: #b3b3b3;
+$color-house-2: darken($color-house-1, 30%);
+$color-house-3: darken($color-house-1, 55%);
+$color-house-4: darken($color-house-1, 67%);
+$color-house-5: darken($color-house-1, 70%);
+$color-red-village: #140000;
+
+$window-color-1: #ccc;
+$window-color-2: #666;
+$window-color-3: #ccc;
+$window-color-4: #555;
+$window-color-5: #4a4a4a;
+$window-light-1: #E1BF00;
+$window-light-2: #f60;
+$window-light-3: darken($window-light-1, 8%);
+$window-light-4: darken($window-light-2, 8%);
+$window-light-5: #B07800;
+$window-light-6: #014754;
+$window-light-7: #002F38;
+$window-light-8: #B9035B;
+$window-light-9: #340019;
+
+/* Doodads */
+$tree-trunk-color: #311000;
+$tree-leaves-color: #003102;
+$lamp-base-color: #222;
+$lamp-base-metal: #050505;
+$lamp-light-color: #ff0;
+
+/* Clouds */
+$color-cloud-1: #151515;
+$color-cloud-2: #28262C;
+
+/* Stars */
+$color-star-1: #cff;
+$color-star-2: #ffc;
+$color-star-3: #fcf;
+
+/* Moon */
+$color-moon: #fc3;
+
+$starfield-1: 179px 1521px $color-star-1, 495px 1575px $color-star-1, 646px 130px $color-star-1, 830px 1258px $color-star-1, 501px 1649px $color-star-1, 636px 237px $color-star-1, 89px 1239px $color-star-1, 1207px 1356px $color-star-1, 1283px 225px $color-star-1, 400px 820px $color-star-1, 264px 464px $color-star-1, 126px 1964px $color-star-1, 257px 60px $color-star-1, 60px 718px $color-star-1, 978px 380px $color-star-1, 510px 134px $color-star-1, 966px 1717px $color-star-1, 911px 744px $color-star-1, 1295px 19px $color-star-1, 1373px 127px $color-star-1, 158px 196px $color-star-1, 1164px 1669px $color-star-1, 883px 1528px $color-star-1, 1087px 1989px $color-star-1, 476px 943px $color-star-1, 556px 1415px $color-star-1, 1301px 1678px $color-star-1, 1157px 407px $color-star-1, 954px 192px $color-star-1, 1224px 1311px $color-star-1, 337px 1266px $color-star-1, 752px 1516px $color-star-1, 955px 927px $color-star-1, 1202px 1982px $color-star-1, 287px 214px $color-star-1, 450px 1110px $color-star-1, 800px 970px $color-star-1, 1250px 1137px $color-star-1, 439px 1419px $color-star-1, 510px 1716px $color-star-1, 21px 1270px $color-star-1, 200px 61px $color-star-1, 344px 482px $color-star-1, 216px 876px $color-star-1, 247px 1734px $color-star-1, 499px 344px $color-star-1, 202px 837px $color-star-1, 211px 727px $color-star-1, 598px 1285px $color-star-1, 556px 1705px $color-star-1, 623px 232px $color-star-1, 89px 1980px $color-star-1, 1222px 1026px $color-star-1, 380px 670px $color-star-1, 913px 526px $color-star-1, 983px 1071px $color-star-1, 916px 1725px $color-star-1, 578px 1060px $color-star-1, 591px 1838px $color-star-1, 960px 1379px $color-star-1, 188px 1326px $color-star-1, 1309px 1828px $color-star-1, 945px 1676px $color-star-1, 804px 261px $color-star-1, 125px 1513px $color-star-1, 1px 1393px $color-star-1, 1282px 434px $color-star-1, 856px 186px $color-star-1, 1168px 634px $color-star-1, 503px 1321px $color-star-1, 977px 364px $color-star-1, 644px 136px $color-star-1, 994px 869px $color-star-1, 155px 275px $color-star-1, 1197px 1688px $color-star-1, 1170px 1143px $color-star-1, 982px 156px $color-star-1, 475px 1957px $color-star-1, 8px 546px $color-star-1, 260px 1154px $color-star-1, 715px 1650px $color-star-1, 368px 1550px $color-star-1, 1181px 1879px $color-star-1, 329px 690px $color-star-1, 644px 1337px $color-star-1, 387px 1917px $color-star-1, 456px 1701px $color-star-1, 1197px 818px $color-star-1, 263px 316px $color-star-1, 109px 1655px $color-star-1, 1228px 69px $color-star-1, 1265px 662px $color-star-1, 344px 1258px $color-star-1, 214px 1441px $color-star-1, 918px 1974px $color-star-1, 1010px 135px $color-star-1, 753px 1999px $color-star-1, 1185px 1908px $color-star-1, 1159px 704px $color-star-1, 1165px 549px $color-star-1;
+
+$starfield-2: 773px 1859px $color-star-2, 545px 663px $color-star-2, 1129px 591px $color-star-2, 924px 111px $color-star-2, 340px 1741px $color-star-2, 487px 903px $color-star-2, 592px 1072px $color-star-2, 1273px 602px $color-star-2, 149px 400px $color-star-2, 466px 1790px $color-star-2, 294px 1467px $color-star-2, 1338px 341px $color-star-2, 939px 762px $color-star-2, 1110px 658px $color-star-2, 930px 1077px $color-star-2, 1214px 89px $color-star-2, 436px 1841px $color-star-2, 490px 134px $color-star-2, 93px 1075px $color-star-2, 818px 335px $color-star-2, 838px 504px $color-star-2, 94px 954px $color-star-2, 421px 766px $color-star-2, 607px 1985px $color-star-2, 287px 435px $color-star-2, 765px 222px $color-star-2, 950px 521px $color-star-2, 930px 1956px $color-star-2, 859px 328px $color-star-2, 179px 1389px $color-star-2, 142px 1203px $color-star-2, 660px 663px $color-star-2, 449px 1340px $color-star-2, 161px 1498px $color-star-2, 1337px 484px $color-star-2, 167px 125px $color-star-2, 1178px 1291px $color-star-2, 28px 748px $color-star-2, 874px 1959px $color-star-2, 1256px 480px $color-star-2, 394px 1402px $color-star-2, 181px 1744px $color-star-2, 498px 1838px $color-star-2, 1397px 99px $color-star-2, 970px 903px $color-star-2, 668px 1174px $color-star-2, 419px 997px $color-star-2, 1089px 736px $color-star-2, 174px 1204px $color-star-2, 46px 1157px $color-star-2, 1064px 1376px $color-star-2, 738px 294px $color-star-2, 482px 409px $color-star-2, 258px 882px $color-star-2, 880px 1607px $color-star-2, 1191px 1725px $color-star-2, 1019px 515px $color-star-2, 1226px 322px $color-star-2, 1122px 356px $color-star-2, 957px 224px $color-star-2, 406px 546px $color-star-2, 658px 937px $color-star-2, 620px 853px $color-star-2, 506px 569px $color-star-2, 134px 1025px $color-star-2, 945px 859px $color-star-2, 339px 1697px $color-star-2, 550px 335px $color-star-2, 777px 900px $color-star-2, 595px 643px $color-star-2, 1213px 768px $color-star-2, 932px 305px $color-star-2, 246px 1521px $color-star-2, 1020px 1852px $color-star-2, 517px 1978px $color-star-2, 1026px 1861px $color-star-2, 619px 1644px $color-star-2, 1237px 1959px $color-star-2, 170px 33px $color-star-2, 88px 354px $color-star-2, 1077px 1994px $color-star-2, 657px 1072px $color-star-2, 855px 687px $color-star-2, 663px 197px $color-star-2, 786px 1688px $color-star-2, 245px 607px $color-star-2, 1206px 1638px $color-star-2, 1311px 9px $color-star-2, 207px 1489px $color-star-2, 1397px 36px $color-star-2, 501px 382px $color-star-2, 1197px 1212px $color-star-2, 190px 875px $color-star-2, 120px 1719px $color-star-2, 888px 790px $color-star-2, 844px 849px $color-star-2, 569px 32px $color-star-2, 795px 209px $color-star-2, 797px 701px $color-star-2, 1341px 1145px $color-star-2;
