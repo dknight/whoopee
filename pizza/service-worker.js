@@ -1,1 +1,34 @@
-"use strict";var precacheConfig=[["/pizza/index.html","06d9124066c5fd8d9a3839b29c9f8300"],["/pizza/static/css/main.5ec4f354.css","f0e0b5d79d76d6d7528129c408739616"],["/pizza/static/js/main.4ee595c1.js","97e181859661a3bc5258229c5def602d"],["/pizza/static/media/base-mushroom.e3399c38.svg","e3399c381597c1980375d3188e78b2c5"],["/pizza/static/media/base-olive.9357fdc4.svg","9357fdc40dfa10d57d7cff1024181d03"],["/pizza/static/media/base-onion.964a0b60.svg","964a0b6026a1e824f7de3c621c2eb4f3"],["/pizza/static/media/base-paprika.5f179e47.svg","5f179e477c07df508b77c33068ddba41"],["/pizza/static/media/base-parsley.1d6c9d55.svg","1d6c9d557dc853c1b21e91a1939b484d"],["/pizza/static/media/base-pineapple.67f2b2a5.svg","67f2b2a5e1917450a8f965bd9f5d0c98"],["/pizza/static/media/base-salami.7e63c108.svg","7e63c1087e04ebd5b07e02bd37487bf0"],["/pizza/static/media/base-sauce.3d881fc7.svg","3d881fc7376c8ac6179849a7312437e6"],["/pizza/static/media/base-shrimp.557900c6.svg","557900c6fa4dd2c135b1625852c338cc"],["/pizza/static/media/base-tomato.f58732ba.svg","f58732ba2fae9afe96a363575b809df4"],["/pizza/static/media/list-mushroom.3b475bd3.svg","3b475bd3ec0a22d7c4d25824be2f974d"],["/pizza/static/media/list-olive.26e0b7b8.svg","26e0b7b8f692fc39a423e92c1dcc5cc5"],["/pizza/static/media/list-onion.96d9de88.svg","96d9de88b7fcb7beb8f8e4bfa54863a5"],["/pizza/static/media/list-paprika.e0bb1434.svg","e0bb143485453cdc3de787b1c724bda3"],["/pizza/static/media/list-parsley.4ef87244.svg","4ef872445d4bf1ab529b1e742a53fc2e"],["/pizza/static/media/list-pineapple.08af149f.svg","08af149fc82a7ec084a92d15aea2bc8c"],["/pizza/static/media/list-salami.3f98044d.svg","3f98044d2bbf580c3f47a17791bab6ed"],["/pizza/static/media/list-sauce.539b2492.svg","539b24926dcabf60a0d0d7cfb92053f8"],["/pizza/static/media/list-shrimp.3782e85e.svg","3782e85ea0cff4f540f32c7e119b0c57"],["/pizza/static/media/list-tomato.6008a1d2.svg","6008a1d2d04d03b2a0aa8e937a6b1ef0"],["/pizza/static/media/pizza-base.ba7bf914.svg","ba7bf9146ec3ce05be97fd655ec992e0"],["/pizza/static/media/table.cf22bd5f.jpg","cf22bd5f87137c1a01ce054d4f9ca158"],["/pizza/static/media/top-pizza-img.71fb0744.svg","71fb0744402320d4d80ceaf4e7317ae9"]],cacheName="sw-precache-v3-sw-precache-webpack-plugin-"+(self.registration?self.registration.scope:""),ignoreUrlParametersMatching=[/^utm_/],addDirectoryIndex=function(e,a){var t=new URL(e);return"/"===t.pathname.slice(-1)&&(t.pathname+=a),t.toString()},cleanResponse=function(e){return e.redirected?("body"in e?Promise.resolve(e.body):e.blob()).then(function(a){return new Response(a,{headers:e.headers,status:e.status,statusText:e.statusText})}):Promise.resolve(e)},createCacheKey=function(e,a,t,s){var i=new URL(e);return s&&i.pathname.match(s)||(i.search+=(i.search?"&":"")+encodeURIComponent(a)+"="+encodeURIComponent(t)),i.toString()},isPathWhitelisted=function(e,a){if(0===e.length)return!0;var t=new URL(a).pathname;return e.some(function(e){return t.match(e)})},stripIgnoredUrlParameters=function(e,a){var t=new URL(e);return t.hash="",t.search=t.search.slice(1).split("&").map(function(e){return e.split("=")}).filter(function(e){return a.every(function(a){return!a.test(e[0])})}).map(function(e){return e.join("=")}).join("&"),t.toString()},hashParamName="_sw-precache",urlsToCacheKeys=new Map(precacheConfig.map(function(e){var a=e[0],t=e[1],s=new URL(a,self.location),i=createCacheKey(s,hashParamName,t,/\.\w{8}\./);return[s.toString(),i]}));function setOfCachedUrls(e){return e.keys().then(function(e){return e.map(function(e){return e.url})}).then(function(e){return new Set(e)})}self.addEventListener("install",function(e){e.waitUntil(caches.open(cacheName).then(function(e){return setOfCachedUrls(e).then(function(a){return Promise.all(Array.from(urlsToCacheKeys.values()).map(function(t){if(!a.has(t)){var s=new Request(t,{credentials:"same-origin"});return fetch(s).then(function(a){if(!a.ok)throw new Error("Request for "+t+" returned a response with status "+a.status);return cleanResponse(a).then(function(a){return e.put(t,a)})})}}))})}).then(function(){return self.skipWaiting()}))}),self.addEventListener("activate",function(e){var a=new Set(urlsToCacheKeys.values());e.waitUntil(caches.open(cacheName).then(function(e){return e.keys().then(function(t){return Promise.all(t.map(function(t){if(!a.has(t.url))return e.delete(t)}))})}).then(function(){return self.clients.claim()}))}),self.addEventListener("fetch",function(e){if("GET"===e.request.method){var a,t=stripIgnoredUrlParameters(e.request.url,ignoreUrlParametersMatching),s="index.html";(a=urlsToCacheKeys.has(t))||(t=addDirectoryIndex(t,s),a=urlsToCacheKeys.has(t));var i="/pizza/index.html";!a&&"navigate"===e.request.mode&&isPathWhitelisted(["^(?!\\/__).*"],e.request.url)&&(t=new URL(i,self.location).toString(),a=urlsToCacheKeys.has(t)),a&&e.respondWith(caches.open(cacheName).then(function(e){return e.match(urlsToCacheKeys.get(t)).then(function(e){if(e)return e;throw Error("The cached response that was expected is missing.")})}).catch(function(a){return console.warn('Couldn\'t serve response for "%s" from cache: %O',e.request.url,a),fetch(e.request)}))}});
+/**
+ * Welcome to your Workbox-powered service worker!
+ *
+ * You'll need to register this file in your web app and you should
+ * disable HTTP caching for this file too.
+ * See https://goo.gl/nhQhGp
+ *
+ * The rest of the code is auto-generated. Please don't update this file
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
+ * See https://goo.gl/2aRDsh
+ */
+
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+
+importScripts(
+  "/pizza/precache-manifest.a9c28cf8e9fe543c2c210a2d6a485132.js"
+);
+
+workbox.clientsClaim();
+
+/**
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
+ */
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.routing.registerNavigationRoute("/pizza/index.html", {
+  
+  blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
+});
