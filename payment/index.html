@@ -40,9 +40,13 @@
       pointer-events: none;
     }
     .overlay .content {
+      box-sizing: box-content;
       padding: 50px;
       background-color: #fff;
       border-radius: 20px;
+    }
+    .overlay .content img {
+      max-width: 100%; 
     }
     .overlay.-show {
       opacity: 1;
