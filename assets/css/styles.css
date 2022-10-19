@@ -7,6 +7,7 @@ html,body {
   padding: 0;
   margin: 0;
   font-size: 10px;
+  overflow: hidden;
 }
 main {
   width: 100%;
@@ -24,32 +25,41 @@ main {
 .home > .inner {
   margin: 0 5% 0;  
 }
+
+@media screen and (max-width: 800px) {
+  .home > .inner {
+    transform: translateY(-50%);
+  }
+}
 .home h1 {
   font: normal 7rem/1 'Raleway', sans-serif;
   color: #fff;
   margin: 0 0 0 -80rem;
   text-transform: uppercase;
   position: relative;
-  animation: name-anim 200ms 400ms ease forwards;
+  animation: name-anim .2s .4s ease forwards;
   will-change: margin-left;
 }
-h2 {
+h2, h3 {
   font: normal 3rem/1 'Raleway', sans-serif;
-  color: #333;
+  color: #fff;
   margin: 6rem 0 3rem;
 }
+h3 {
+  text-align: center;
+  font-size: 4.5rem;
+}
 .home h2 {
-  color: #fff;
   font: 100 2.2rem/1.4 'Raleway', Arial, sans-serif;
   margin: 0 0 0 -60rem;
-  animation: name-anim 200ms 600ms ease forwards;
+  animation: name-anim .2s .6s ease forwards;
   will-change: margin-left;
 }
 .links {
   margin-top: 2rem;
 }
 .links a {
-  animation: fade-in 600ms 1200ms 1 ease forwards;
+  animation: fade-in .6s 1.2s 1 ease forwards;
   border: none;
   opacity: 0;
   will-change: opacity;
@@ -62,7 +72,7 @@ h2 {
 .links ins,
 .links img {
   display: inline-block;
-  transition: opacity 200ms;
+  transition: opacity .2s;
   opacity: .5;
   width: 67px;
   will-change: opacity;
@@ -78,13 +88,30 @@ h2 {
   margin-left: 1rem;
 }
 
+.gopher {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(133%, 30%) rotate(0deg);
+  transform-origin: bottom center;
+  animation: gopher .4s 1 2s forwards ease-in-out;
+}
+
+@media screen and (max-width: 400px) {
+  html,body {
+    font-size: 8px;
+  }
+  .gopher {
+    scale: .6;
+  }
+}
+
 /* ------ Header -------- */
 header {
   background: #3a6073;
   padding: 1.5rem 3rem;
 }
-header a {
-  font: normal 3rem/1 'Raleway', sans-serif;
+header a { font: normal 3rem/1 'Raleway', sans-serif;
   color: #fff;
   text-decoration: none;
 }
@@ -95,92 +122,6 @@ h1 {
   margin-left: 5%;
 }
 
-/* ------ Portfolio ----- */
-#portfolio {
-  padding: 0 5% 0;
-}
-#portfolio a {
-  color: #3a6073;
-}
-#portfolio ul {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#portfolio li {
-  flex: 0 1 30%;
-  overflow: hidden;
-  position: relative;
-  margin: 0;
-}
-.lab#portfolio li {
-  margin: 1rem;
-}
-@media screen and (max-width: 1023px) {
-  #portfolio li {
-    flex-basis: 50%;
-  }
-}
-@media screen and (max-width: 767px) {
-  #portfolio li {
-    flex-basis: 100%;
-  }
-  #portfolio figure {
-    max-height: 100%;
-  }
-}
-#portfolio figure {
-  margin: 0;
-  width: 100%;
-  max-height: 240px;
-  text-align: center;
-}
-.lab#portfolio figure {
-  max-height: 100%;
-}
-#portfolio figure img {
-  max-width: 100%;
-  height: auto;
-  transition: transform 170ms ease;
-}
-#portfolio .info {
-  background: #fff;
-  font: normal 1.5rem/1.5 'Raleway', sans-serif;
-  height: 1000px;
-  position: absolute;
-  opacity: 0;
-  padding: 2rem;
-  width: 100%;
-  z-index: 3;
-  transition: opacity 170ms ease;
-}
-#portfolio li:hover .info {
-  opacity: .9;
-}
-#portfolio:not(.lab) li:hover img {
-  transform: scale(1.5);
-}
-#portfolio .copyright {
-  font-size: 1.3rem;
-  color: #333;
-}
-#portfolio .copyright:before {
-  content: "© ";
-}
-#portfolio a {
-  font: normal 1.5rem/1.5 'Raleway', sans-serif;
-  text-decoration: none;
-  color: #333;
-}
-#portfolio .info a {
-  text-decoration: underline;
-}
-#portfolio p {
-  margin: 0;
-}
 /* ------ Animations ------ */
 
 @keyframes name-anim {
@@ -192,3 +133,10 @@ h1 {
   from { opacity: 0; }
   to {opacity: 1; }
 }
+
+@keyframes gopher {
+  to {
+    transform: translate(50%, 30%) rotate(-30deg);
+  }
+}
+
