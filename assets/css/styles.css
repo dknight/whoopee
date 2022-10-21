@@ -94,7 +94,7 @@ h3 {
   bottom: 0;
   transform: translate(133%, 30%) rotate(0deg);
   transform-origin: bottom center;
-  animation: gopher .4s 1 4s forwards ease-in-out;
+  animation: gopher .4s 1 3s forwards ease-in-out;
 }
 
 @media screen and (max-width: 400px) {
