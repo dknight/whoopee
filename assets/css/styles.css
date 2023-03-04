@@ -13,6 +13,7 @@ main {
   width: 100%;
   height: 100%;
   display: flex row;
+  overflow: hidden;
 }
 .home {
   width: 100%;
