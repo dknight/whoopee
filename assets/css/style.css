@@ -18,7 +18,9 @@ main {
 .home {
   width: 100%;
   height: 100%;
-  background: linear-gradient(#16222a, #3a6073);
+  background: linear-gradient(
+    132deg, rgb(2, 106, 122) 0%,
+    rgb(242, 78, 163) 100%);
   display: flex;
   flex-direction: row;
   align-items: center;
