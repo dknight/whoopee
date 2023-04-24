@@ -1,0 +1,3 @@
+[submodule "css-modern-dialog"]
+	path = css-modern-dialog
+	url = git@github.com:dknight/css-modern-dialog.git
