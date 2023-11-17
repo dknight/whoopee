@@ -53,12 +53,12 @@ h3 {
   text-align: center;
 }
 .links {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: min-content;
   align-items: center;
+  display: grid;
   gap: 1.4rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2rem;
+  width: min-content;
 }
 .links a {
   animation: fade-in 0.6s 1.2s 1 ease-in forwards;
@@ -66,11 +66,9 @@ h3 {
 }
 .links img {
   display: inline-block;
-  transition: opacity 0.2s ease-out;
   opacity: 0.5;
-  width: 67px;
-  height: auto;
   text-decoration: none;
+  transition: opacity 0.2s ease-out;
 }
 .links a:hover img {
   opacity: 0.8;
@@ -78,11 +76,11 @@ h3 {
 
 .gopher {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translate(153%, 30%) rotate(0deg);
-  transform-origin: bottom center;
   animation: gopher 0.4s 1 2s forwards ease-out;
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom center;
+  transform: translate(153%, 30%) rotate(0deg);
 }
 
 @media screen and (max-width: 625px) {
