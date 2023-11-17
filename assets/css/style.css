@@ -1,7 +1,13 @@
+:root {
+  --color-grad-1: oklch(48.17% 0.084 212.77);
+  --color-grad-2: oklch(67.43% 0.214 352.48);
+  --color-text: #fff;
+}
 * {
   box-sizing: border-box;
 }
-html,body {
+html,
+body {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -19,14 +25,16 @@ main {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    132deg, rgb(2, 106, 122) 0%,
-    rgb(242, 78, 163) 100%);
+    132deg,
+    var(--color-grad-1) 0%,
+    var(--color-grad-2) 100%
+  );
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .home > .inner {
-  margin: 0 5% 0;  
+  margin: 0 5% 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -36,16 +44,17 @@ main {
 }
 .home h1 {
   font: normal 7rem/1 'Raleway', sans-serif;
-  color: #fff;
+  color: var(--color-text);
   margin: 0 0 0 -80rem;
   text-transform: uppercase;
   position: relative;
-  animation: name-anim .2s .4s ease forwards;
+  animation: name-anim 0.2s 0.4s ease forwards;
   will-change: margin-left;
 }
-h2, h3 {
+h2,
+h3 {
   font: normal 3rem/1 'Raleway', sans-serif;
-  color: #fff;
+  color: var(--color-text);
   margin: 6rem 0 3rem;
 }
 h3 {
@@ -55,35 +64,33 @@ h3 {
 .home h2 {
   font: 100 2.2rem/1.4 'Raleway', Arial, sans-serif;
   margin: 0 0 0 -60rem;
-  animation: name-anim .2s .6s ease forwards;
+  animation: name-anim 0.2s 0.6s ease forwards;
   will-change: margin-left;
 }
 .links {
   margin-top: 2rem;
 }
 .links a {
-  animation: fade-in .6s 1.2s 1 ease forwards;
+  animation: fade-in 0.6s 1.2s 1 ease forwards;
   border: none;
   opacity: 0;
   will-change: opacity;
   text-decoration: none;
-  color: #fff;
+  color: var(--color-text);
 }
 .links a:first-child {
   margin-right: 2rem;
 }
-.links ins,
 .links img {
   display: inline-block;
-  transition: opacity .2s;
-  opacity: .5;
+  transition: opacity 0.2s;
+  opacity: 0.5;
   width: 67px;
   will-change: opacity;
   text-decoration: none;
 }
-.links a:hover ins,
 .links a:hover img {
-  opacity: .8;
+  opacity: 0.8;
 }
 .links a.codepen img {
   width: 272px;
@@ -97,44 +104,37 @@ h3 {
   bottom: 0;
   transform: translate(133%, 30%) rotate(0deg);
   transform-origin: bottom center;
-  animation: gopher .4s 1 2s forwards ease-in-out;
+  animation: gopher 0.4s 1 2s forwards ease-in-out;
 }
 
 @media screen and (max-width: 400px) {
-  html,body {
+  html,
+  body {
     font-size: 8px;
   }
   .gopher {
-    scale: .6;
+    scale: 0.6;
   }
-}
-
-/* ------ Header -------- */
-header {
-  background: #3a6073;
-  padding: 1.5rem 3rem;
-}
-header a { font: normal 3rem/1 'Raleway', sans-serif;
-  color: #fff;
-  text-decoration: none;
-}
-
-h1 {
-  font: normal 4.5rem/1 'Raleway', sans-serif;
-  color: #333;
-  margin-left: 5%;
 }
 
 /* ------ Animations ------ */
 
 @keyframes name-anim {
-  from { margin-left: -60rem; }
-  to { margin-left: 0; }
+  from {
+    margin-left: -60rem;
+  }
+  to {
+    margin-left: 0;
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to {opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes gopher {
@@ -142,4 +142,3 @@ h1 {
     transform: translate(50%, 30%) rotate(-30deg);
   }
 }
-
