@@ -10,3 +10,6 @@
 [submodule "kerge"]
 	path = kerge
 	url = https://github.com/dknight/kerge
+[submodule "puff"]
+	path = puff
+	url = git@github.com:dknight/puff.git
