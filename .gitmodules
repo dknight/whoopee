@@ -7,9 +7,3 @@
 [submodule "xz-image-proxy"]
 	path = xz-image-proxy
 	url = https://github.com/dknight/xz-image-proxy
-[submodule "kerge"]
-	path = kerge
-	url = https://github.com/dknight/kerge
-[submodule "puff"]
-	path = puff
-	url = git@github.com:dknight/puff.git
