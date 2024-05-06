@@ -632,7 +632,7 @@ choose is up to you.
 - [Object-Oriented Programming in Lua using Annotations](https://betterprogramming.pub/oop-in-lua-9962e47ed603)
 
 
-*[LuaLS]:  Lua Language Server
+*[LuaLS]: Lua Language Server
 *[OOP]: Object-Oriented Programming
 *[OO]: Object-Oriented
 *[DX]: Developer Experience
