@@ -16,10 +16,10 @@ cat << _EOF_
         <time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">
           $(date -d "$POST_DATE" +"%B %d, %Y")
         </time>
+        
         $(echo "$POST_CONTENTS")
 
-        <!-- <div class="tags">$(for i in $TAGS; do echo "<a href=\"../tag/$i\">$i</a>"; done;)</div> -->
-
+        <a href="/"><em>&larr; Back to index page</em></a>
         </article>
     </main>
     $( . ./layout/footer.sh )
@@ -27,4 +27,6 @@ cat << _EOF_
   </body>
 </html>
 _EOF_
+
+# <!-- <div class="tags">$(for i in $TAGS; do echo "<a href=\"../tag/$i\">$i</a>"; done;)</div> -->
 
