@@ -110,17 +110,17 @@ sitemap="$sitemap<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\
 while tag in $TAGS; do
   echo $tag"!"
 done
-sitemap="$sitemap<url>\n"
-sitemap="$sitemap\t<loc>/</loc>\n"
-sitemap="$sitemap\t<lastmod>$(date +"%Y-%m-%d")</lastmod>\n"
-sitemap="$sitemap</url>\n"
+sitemap="$sitemap\t<url>\n"
+sitemap="$sitemap\t\t<loc>/</loc>\n"
+sitemap="$sitemap\t\t<lastmod>$(date +"%Y-%m-%d")</lastmod>\n"
+sitemap="$sitemap\t</url>\n"
 for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )); do
   if [ "${array[idx]}" ]; then
     eval "${array[idx]}"
-    sitemap="$sitemap<url>\n"
-    sitemap="$sitemap\t<loc>${POST_URL/"./.."/}</loc>\n"
-    sitemap="$sitemap\t<lastmod>${POST_DATE//\//-}</lastmod>\n"
-    sitemap="$sitemap</url>\n"
+    sitemap="$sitemap\t<url>\n"
+    sitemap="$sitemap\t\t<loc>${BLOG_HOST}${POST_URL/"./.."/}</loc>\n"
+    sitemap="$sitemap\t\t<lastmod>${POST_DATE//\//-}</lastmod>\n"
+    sitemap="$sitemap\t</url>\n"
   fi
 done
 sitemap="$sitemap</urlset>"
