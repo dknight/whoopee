@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+BLOG_HOST="https://www.whoop.ee"
+BLOG_TITLE="Whoopee"
+POSTS_PER_PAGE=1000000
+
+# This is your build directory
+DIST=".dist"
+
+# These directories are copied into your build director
+STATIC_DIRS="assets"
+
+# Use custom template files, see instructions at https://github.com/hmngwy/jenny#customization
+LAYOUT_DIR="layout"
+
+# Use a custom Markdown command
+MARKDOWN_COMMAND="python -m markdown \
+    -x fenced_code \
+    -x codehilite \
+    -x tables \
+    -x abbr \
+    -x toc"
+
+# Commands to run after succesful build
+function post_hook() {
+    mv "$DIST/post/about.html" "$DIST/about.html"
+
+    echo "Minify CSS"
+    lightningcss --minify --bundle "$DIST/assets/css/styles.css" > "$DIST/assets/css/styles.min.css"
+    rm -f \
+        "$DIST/assets/css/styles.css" \
+        "$DIST/assets/css/blog.css" \
+        "$DIST/assets/css/borland.css" \
+        "$DIST/assets/css/native.css"
+    # echo "Minify HTMl"
+    # find "$DIST" -iname "*.html" | xargs -I % sh -c "minify % > {}"
+}
