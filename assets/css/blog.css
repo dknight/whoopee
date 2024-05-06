@@ -10,7 +10,7 @@
 }
 
 body {
-  font: normal 18px/1.5 Helvetica, Arial, sans-serif;
+  font: normal 16px/1.5 Helvetica, Arial, sans-serif;
   margin: 2.5rem;
   background: var(--color-bg);
   color: var(--color-text);
@@ -27,7 +27,7 @@ body {
 }
 header {
   display: flex;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0 2rem;
@@ -184,11 +184,6 @@ blockquote {
   border-left-width: 0.85rem;
   margin: 0;
   padding: 0 2rem 0 1.5rem;
-}
-
-.index-back {
-  font-style: italic;
-  font-size: 1.3rem;
 }
 
 .featured {

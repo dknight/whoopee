@@ -11,7 +11,7 @@ cat << _EOF_
     $( . ./layout/header.sh )
     <main class="post">
       <article>
-        <a href="/" class="index-back">&larr; Back to index page</a>
+        <a href="/"><em>&larr; Back to index page</em></a>
         <h1>$POST_TITLE</h1>
         <time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">
           $(date -d "$POST_DATE" +"%B %d, %Y")
