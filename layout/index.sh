@@ -107,9 +107,6 @@ _EOF_
 # Sitemaps
 sitemap="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 sitemap="$sitemap<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
-while tag in $TAGS; do
-  echo $tag"!"
-done
 sitemap="$sitemap\t<url>\n"
 sitemap="$sitemap\t\t<loc>${BLOG_HOST}</loc>\n"
 sitemap="$sitemap\t\t<lastmod>$(date +"%Y-%m-%d")</lastmod>\n"
