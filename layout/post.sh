@@ -1,28 +1,30 @@
 #!/bin/bash
 
+source "./layout/util.sh"
+
 cat << _EOF_
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    $( . ./layout/head.sh )
+    $(source ./layout/head.sh)
   </head>
   <body>
     <div class="wrap">
-    $( . ./layout/header.sh )
-    <main class="post">
+    $(source ./layout/header.sh)
+    <main>
+      $(to_index)
       <article>
-        <a href="/"><em>&larr; Back to index page</em></a>
         <h1>$POST_TITLE</h1>
         <time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">
           $(date -d "$POST_DATE" +"%B %d, %Y")
         </time>
-        
         $(echo "$POST_CONTENTS")
 
-        <a href="/"><em>&larr; Back to index page</em></a>
-        </article>
+        $(feedback)
+      </article>
+      $(to_index)
     </main>
-    $( . ./layout/footer.sh )
+    $(source ./layout/footer.sh)
     </div>
   </body>
 </html>

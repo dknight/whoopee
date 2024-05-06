@@ -1,24 +1,23 @@
 #!/bin/bash
 
-# space-separated skip pages in index
-SKIP="about.html"
+source "./layout/util.sh"
 
 # Break apart the LIST payload
 IFS='✂︎' read -r -a array <<< "$LIST"
 
-function index_loop {
+function index_loop() {
   for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )) ; do
     [ "${array[idx]}" ] && eval "${array[idx]} list_item $1"
   done
 }
 
-function list_item {
+function list_item() {
   if [[ -n "$1" ]] && [[ "$TAGS" != *"$1"* ]]; then
     return
   fi
   if [ -z "$BREAK" ]; then
-    # Skip about
-    if [[ "$POST_URL" =~ "$SKIP" ]]; then
+    # Skip $SKIP
+    if [[ $(is_skipped) = 1 ]]; then
         return
     fi
 cat << _LOOP_
@@ -36,7 +35,7 @@ _LOOP_
   fi
 }
 
-function nav {
+function nav() {
   # if [ "$PAGE_OLD" ] || [ "$PAGE_NEW" ]; then
 # cat << _NAV_
   #  <nav>
@@ -48,26 +47,53 @@ function nav {
   return
 }
 
+function articles_title() {
+  case "$TAGNAME" in
+    data-structures)
+      echo "Data structures"
+    ;;
+    lua)
+      echo "Lua"
+    ;;
+    featured)
+      echo "Featured articles"
+    ;;
+    *)
+      echo "All articles"
+    ;;
+  esac
+}
+
+function taglink() {
+  if [[ "$TAGNAME" = "$1" ]]; then
+    echo "<strong>$2</strong>"
+  else
+    echo "<a href=\"/tag/$1/\">$2</a>"
+  fi
+}
+
 cat << _EOF_
 <!DOCTYPE html>
 <html lang="en">
   <head>
     $(source ./layout/head.sh)
   </head>
-  <body>
     <div class="wrap">
       $(source ./layout/header.sh)
       <main>
+      $(to_index)
+        <nav class="tags">
+          <strong>Tags:</strong>
+          <ul class="list-reset">
+            <li>$(taglink "lua" "Lua")</li>
+            <li>$(taglink "data-structures" "Data structures")</li>
+            <li>$(taglink "featured" "Featured articles")</li>
+          </ul>
+        </nav>
         <section class="articles">
-          <h2>Articles</h2>
+          <h1>$(articles_title)</h1>
           <ul class="list-reset">
             $(index_loop)
-          </ul>
-        </section>
-        <section class="articles">
-          <h2>Featured articles <span class="featured">&#9733;</span></h2>
-          <ul class="list-reset">
-            $(index_loop "feature")
           </ul>
         </section>
       </main>
@@ -77,3 +103,27 @@ cat << _EOF_
   </body>
 </html>
 _EOF_
+
+# Sitemaps
+sitemap="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+sitemap="$sitemap<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+while tag in $TAGS; do
+  echo $tag"!"
+done
+sitemap="$sitemap<url>\n"
+sitemap="$sitemap\t<loc>/</loc>\n"
+sitemap="$sitemap\t<lastmod>$(date +"%Y-%m-%d")</lastmod>\n"
+sitemap="$sitemap</url>\n"
+for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )); do
+  if [ "${array[idx]}" ]; then
+    eval "${array[idx]}"
+    sitemap="$sitemap<url>\n"
+    sitemap="$sitemap\t<loc>${POST_URL/"./.."/}</loc>\n"
+    sitemap="$sitemap\t<lastmod>${POST_DATE//\//-}</lastmod>\n"
+    sitemap="$sitemap</url>\n"
+  fi
+done
+sitemap="$sitemap</urlset>"
+
+source "./.blogrc"
+echo -e "$sitemap" > "$DIST/sitemap.xml"

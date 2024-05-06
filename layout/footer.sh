@@ -11,9 +11,8 @@ cat << __FOOTER__
     </p>
     <p>
       &copy; 2022&mdash;$(date +%Y) <a href="/about.html">xdknight</a>
-      <a href="https://github.com/dknight/whoopee">Source code</a>.
       Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
-      blog engine.
+      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
     </p>
   </footer>
 __FOOTER__

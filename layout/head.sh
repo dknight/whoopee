@@ -1,11 +1,6 @@
 #!/bin/bash
 
-function get_description() {
-  local descr_line=$(echo "$POST_CONTENTS" | grep -m 1 "^<!-- [Dd]escription: ")
-  echo $descr_line | sed -e 's/<!-- [Dd]escription\:\ *\(.*\)\ *-->/\1/'
-}
-
-TS=$(date +%s)
+source "./layout/util.sh"
 
 if [[ -z "$POST_TITLE" ]]; then
   title="$BLOG_TITLE" # TODO think out title like Blog about lua
@@ -16,7 +11,7 @@ fi
 description=$(get_description)
 
 if [[ -z "$description" ]]; then
-  description="Website about Lua. Tutorials, best practices, development, and everything else related to small amazing Lua language."
+  description=$(get_default_description)
 fi
 
 cat << __HEAD__

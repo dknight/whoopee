@@ -1,4 +1,4 @@
-<!-- Description: OOP Tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. -->
+<!-- Description: Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. -->
 
 tags: lua featured
 
@@ -42,12 +42,10 @@ the `Animal` class and new instances cannot be created. Also please notice the
 
 ### Making instances
 
+Firstly, just create an empty table.
+
 ```lua
-local Animal = {
-	age = 0,
-	kind = "unknown",
-	sound = "silence",
-}
+local Animal = {}
 ```
 
 Next, create a `new()` method which will return the instance of the class.
@@ -75,11 +73,7 @@ end
 Everything together with instances.
 
 ```lua
-local Animal = {
-	age = 0,
-	kind = "unknown",
-	sound = "silence",
-}
+local Animal = {}
 
 function Animal:new(age, kind, sound)
 	local t = {}
@@ -147,11 +141,7 @@ return the class' table to access the methods. After this, `:` method access
 operator can be used to make the syntax more clear.
 
 ```lua
-local Animal = {
-	age = 0,
-	kind = "unknown",
-	sound = "silence",
-}
+local Animal = {}
 Animal.__index = Animal -- this makes "magic"
 
 function Animal:new(age, kind, sound)
@@ -392,11 +382,7 @@ and `Cat` classes with annotations.
 ---@field public age number
 ---@field public kind string
 ---@field public sound string
-local Animal = {
-	age = 0,
-	kind = "unknown",
-	sound = "silence",
-}
+local Animal = {}
 Animal.__index = Animal
 
 ---@param age number
@@ -488,11 +474,7 @@ print(res .. "kb")</pre>
 </details>
 <details>
   <summary>Metatables-based class test code</summary>
-  <pre>local Animal = {
-		age = 0,
-		kind = "unknown",
-		sound = "silence",
-	}
+  <pre>local Animal = {}
 Animal.__index = Animal
 
 function Animal:new(age, kind, sound)

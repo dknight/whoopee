@@ -25,15 +25,14 @@ MARKDOWN_COMMAND="python -m markdown \
 function post_hook() {
 	mv "$DIST/post/about.html" "$DIST/about.html"
 
-	echo "Minify CSS"
+	echo "Bundling CSS..."
 	lightningcss --minify --bundle "$DIST/assets/css/styles.css" > "$DIST/assets/css/styles.min.css"
 	rm -f \
 		"$DIST/assets/css/styles.css" \
 		"$DIST/assets/css/blog.css" \
 		"$DIST/assets/css/borland.css" \
 		"$DIST/assets/css/native.css"
-	# echo "Minify HTMl"
-	# find "$DIST" -iname "*.html" | xargs -I % sh -c "minify % > {}"
-	echo "Making robots.txt"
+	echo "Making robots.txt..."
 	mv "$DIST/assets/robots.txt" "$DIST/robots.txt"
 }
+

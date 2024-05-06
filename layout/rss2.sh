@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "./layout/util.sh"
+
 # Break apart the LIST payload
 IFS='✂︎' read -r -a array <<< "$LIST"
 
@@ -30,7 +32,7 @@ cat << _EOF_
 <channel>
   <title>$(echo $BLOG_TITLE)</title>
   <link>$(echo $BLOG_HOST)</link>
-  <description></description>
+  <description>$(get_default_description)</description>
 
   $(index_loop)
 
