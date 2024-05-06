@@ -4,10 +4,10 @@
 jenny
 
 
-echo "Uploading.."
+echo "[rclone] Uploading..."
 
 # upload
 rclone sync .dist ftp.whoop.ee:/public_html
 
-echo "OK"
+echo "[rclone] OK"
 
