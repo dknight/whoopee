@@ -18,7 +18,7 @@ function get_description() {
 }
 
 function get_default_description() {
-	echo "Website about Lua. Tutorials, best practices, development, and everything else related to small amazing Lua language."
+	echo "Website about Lua. Tutorials, best practices, development, and everything else related to the small, amazing Lua language."
 }
 
 function to_index() {
