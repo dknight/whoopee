@@ -614,6 +614,14 @@ print(res .. "kb")</pre>
 Another comparison opinion can be read in
 [lua-users.org article](https://www.lua-users.org/wiki/ObjectOrientationTutorial).
 
+## Conclusion
+
+In my opinion [metatable](#metametable-based-classes) method is the most optimal
+in performance and maintainability. Of course, everything depends on your task.
+Sometimes maintainability is more important than performance, especially
+if you are working in a large team with different tech skills. What approach to
+choose is up to you.
+
 ## Links
 
 - [Object Orientation Tutorial](https://www.lua-users.org/wiki/ObjectOrientationTutorial)
