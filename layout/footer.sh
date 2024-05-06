@@ -4,10 +4,9 @@ cat << __FOOTER__
   <footer>
     <hr>
     <p>
-      This website <strong>does not</strong> use cookies and
-      any tracking techniques either. Also this page is fully
-      accessible, responsive, readable on any device without any
-      single line of <abbr title="Tool of evil">JavaScript</abbr>.
+      This website <strong>does not</strong> use cookies or any tracking techniques either.
+      Also, this page is fully accessible, responsive, and readable on any
+      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
     </p>
     <p>
       &copy; 2022&mdash;$(date +%Y) <a href="/about.html">xdknight</a>
