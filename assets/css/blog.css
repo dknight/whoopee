@@ -150,7 +150,7 @@ a {
     color: var(--color-pri);
   }
   &:active {
-    color: ActiveText;
+    color: red;
   }
 }
 code {
