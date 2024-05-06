@@ -111,7 +111,7 @@ while tag in $TAGS; do
   echo $tag"!"
 done
 sitemap="$sitemap\t<url>\n"
-sitemap="$sitemap\t\t<loc>/</loc>\n"
+sitemap="$sitemap\t\t<loc>${BLOG_HOST}</loc>\n"
 sitemap="$sitemap\t\t<lastmod>$(date +"%Y-%m-%d")</lastmod>\n"
 sitemap="$sitemap\t</url>\n"
 for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )); do
