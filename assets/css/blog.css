@@ -26,22 +26,16 @@ body {
   }
 }
 header {
-  background: url('/assets/img/moon.png') 0 0 / 3rem 3rem no-repeat;
   display: flex;
   font-size: 1.25rem;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0 2rem;
-  padding-left: 4rem;
 
   @media screen and (max-width: 60rem) {
     margin: 0;
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  @media print {
-    padding-left: 0;
   }
 }
 footer {
@@ -82,15 +76,14 @@ footer {
     display: inline-block;
   }
 
-  /* &::before { */
-  /* content: '{'; */
-  /* margin-right: 0.5rem; */
-  /* margin-left: -0.5rem; */
-  /* padding-right: 2rem; */
-  /* } */
+  &::before {
+    content: '{';
+    margin-right: 0.5rem;
+    margin-left: -0.5rem;
+  }
 
   &::after {
-    content: ' ...)}';
+    content: ' ...)';
     margin-left: 0.5rem;
   }
 
