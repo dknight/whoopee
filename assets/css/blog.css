@@ -205,7 +205,13 @@ table {
   }
 }
 
-/* GFX */
+/* Images */
 img.full-width {
+  max-width: 100%;
+}
+
+img[src*='svg'] {
+  width: 614px;
+  height: 372px;
   max-width: 100%;
 }
