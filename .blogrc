@@ -34,5 +34,7 @@ function post_hook() {
 		"$DIST/assets/css/native.css"
 	echo "Making robots.txt..."
 	mv "$DIST/assets/robots.txt" "$DIST/robots.txt"
+	echo "Making favicon..."
+	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
 }
 

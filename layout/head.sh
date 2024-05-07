@@ -19,7 +19,7 @@ cat << __HEAD__
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="$description">
 <title>$title</title>
-<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/css/styles.min.css?$TS">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 __HEAD__
