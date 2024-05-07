@@ -32,7 +32,7 @@
      showguides="true"
      inkscape:clip-to-page="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="284.25693"
+     inkscape:cx="284.25692"
      inkscape:cy="189.15106"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
@@ -215,7 +215,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="24.769531"
          y="369.33398"
-         id="tspan2">empty stack</tspan></text>
+         id="tspan7">empty stack</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,60.105986,-1.461868)"
@@ -223,7 +223,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-2);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="24.769531"
          y="369.33398"
-         id="tspan3">push
+         id="tspan8">push
 </tspan></text>
     <text
        xml:space="preserve"
@@ -232,7 +232,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-2-6);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="24.769531"
          y="369.33398"
-         id="tspan4">push
+         id="tspan9">push
 </tspan></text>
     <path
        id="rect1-5-2-7"
@@ -246,7 +246,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-2-6-1);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="24.769531"
          y="369.33398"
-         id="tspan5">push</tspan></text>
+         id="tspan10">push</tspan></text>
     <path
        id="rect1-5-2-7-5"
        style="fill:none;stroke:#1a1a1a;stroke-width:1.219"
@@ -259,7 +259,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-2-6-1-3);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="24.769531"
          y="369.33398"
-         id="tspan6">pop</tspan></text>
+         id="tspan11">pop</tspan></text>
     <rect
        style="fill:#0000ff;stroke:none;stroke-width:1.1519;stroke-dasharray:none"
        id="rect37"
@@ -479,7 +479,7 @@
             <rdf:li>stack</rdf:li>
           </rdf:Bag>
         </dc:subject>
-        <dc:description>Illustration of stack data-structure</dc:description>
+        <dc:description>Illustration of stack data structure</dc:description>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
       </cc:Work>
