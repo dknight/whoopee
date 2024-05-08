@@ -50,7 +50,7 @@ function nav() {
 function articles_title() {
   case "$TAGNAME" in
     data-structures)
-      echo "Data structures"
+      echo "Data structures and Algorithms"
     ;;
     lua)
       echo "Lua"
@@ -86,7 +86,7 @@ cat << _EOF_
           <strong>Tags:</strong>
           <ul class="list-reset">
             <li>$(taglink "lua" "Lua")</li>
-            <li>$(taglink "data-structures" "Data structures")</li>
+            <li>$(taglink "data-structures" "Data structures and Algorithms")</li>
             <li>$(taglink "featured" "Featured articles")</li>
           </ul>
         </nav>
