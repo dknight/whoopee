@@ -214,4 +214,8 @@ img[src*='svg'] {
   width: 614px;
   height: 372px;
   max-width: 100%;
+
+  @media screen and (max-width: 60rem) {
+    height: auto;
+  }
 }
