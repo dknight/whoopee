@@ -83,8 +83,8 @@ cat << _EOF_
       <main>
       $(to_index)
         <nav class="tags">
-          <strong>Tags:</strong>
           <ul class="list-reset">
+            <li><strong>Tags:</strong></li>
             <li>$(taglink "lua" "Lua")</li>
             <li>$(taglink "data-structures" "Data structures and Algorithms")</li>
             <li>$(taglink "featured" "Featured articles")</li>
