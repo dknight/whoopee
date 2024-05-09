@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="614.16602"
+   height="372.23001"
+   viewBox="0 0 162.49809 98.48586"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="atan01.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title10">arctangent</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:clip-to-page="false"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="354.99999"
+     inkscape:cy="203.24999"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     labelstyle="default"
+     shape-rendering="auto"
+     showgrid="false">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="162.49809"
+       height="98.485863"
+       id="page38"
+       margin="6.6145835"
+       bleed="0" />
+    <inkscape:grid
+       id="grid3"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458332"
+       spacingy="0.26458334"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowTriangleStylized"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Stylized triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="m 6,0 c -3,1 -7,3 -9,5 0,0 0,-4 2,-5 -2,-1 -2,-5 -2,-5 2,2 6,4 9,5 z"
+         id="path5" />
+    </marker>
+    <color-profile
+       name="Blue"
+       xlink:href="file:///usr/share/color/icc/colord/Bluish.icc"
+       id="color-profile2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-7-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-7-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="186.66635"
+       height="68.015778"
+       id="rect2-26" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-7-0-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="228.16507"
+       height="33.360276"
+       id="rect2-26-9" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.109664,-5.2669141)">
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:2.00163"
+       id="rect3"
+       width="162.49809"
+       height="98.382408"
+       x="21.296753"
+       y="5.0798254"
+       sodipodi:insensitive="true" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,128.10394,-50.628986)"
+       id="text1"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan2">x</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,99.782047,-66.094472)"
+       id="text1-8"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-26);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan12"><tspan
+   style="fill:#0000ff"
+   id="tspan3">α</tspan> ≈ 0.785398 = 45°</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,100.47469,-44.189371)"
+       id="text1-8-7"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-26-9);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan14"><tspan
+   style="fill:#ff6600"
+   id="tspan13">β</tspan> ≈ -1.107149 ≈ -63.4349°</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,80.331163,-97.063595)"
+       id="text1-3"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-7);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan15">y</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,90.60696,-91.562618)"
+       id="text1-3-3"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-7-0);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan16">A (10, 10)</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,77.547886,-29.389577)"
+       id="text1-3-3-7"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-7-0-8);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan17">B (5, -10)</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.31654374,0,0,0.30225942,77.958323,-53.437535)"
+       id="text1-3-1"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-7-2);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan18">O(0, 0)</tspan></text>
+    <ellipse
+       id="path1"
+       style="fill:#008000;stroke:#000000;stroke-width:0.309319"
+       cx="87.029434"
+       cy="8.1937752"
+       rx="0.031622488"
+       ry="0.030195495" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.301586;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowTriangleStylized)"
+       d="M 84.352608,96.497817 V 13.82208"
+       id="path3" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.309319px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 32.181859,54.484311 H 135.6339"
+       id="path4" />
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.301586;stroke-dasharray:none"
+       id="path6"
+       cx="115.3819"
+       cy="24.652416"
+       rx="1.1134577"
+       ry="1.0632119" />
+    <ellipse
+       style="fill:#008000;stroke-width:0.301586;stroke-dasharray:none"
+       id="path6-9"
+       cx="100.28302"
+       cy="74.996864"
+       rx="1.1134577"
+       ry="1.0632119" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:0.309319px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 122.2599,18.154489 -7.41426,7.079688 -65.348871,62.399946"
+       id="path7"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#008000;stroke-width:0.232358px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 108.68832,85.766698 61.683892,25.074476"
+       id="path7-2"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000080;stroke-width:0.439096;stroke-dasharray:none"
+       id="path9"
+       sodipodi:type="arc"
+       sodipodi:cx="84.250923"
+       sodipodi:cy="54.442558"
+       sodipodi:rx="23.452782"
+       sodipodi:ry="22.394453"
+       sodipodi:start="0"
+       sodipodi:end="0.93218474"
+       sodipodi:arc-type="arc"
+       d="M 107.7037,54.442558 A 23.452782,22.394453 0 0 1 98.230686,72.423605"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:0.439096;stroke-dasharray:none"
+       id="path9-3"
+       d="M 107.83203,54.371098 A 23.452782,22.394453 0 0 1 98.359012,72.352144"
+       sodipodi:type="arc"
+       sodipodi:arc-type="arc"
+       sodipodi:start="0"
+       sodipodi:end="0.93218474"
+       sodipodi:ry="22.394453"
+       sodipodi:rx="23.452782"
+       sodipodi:cy="54.371098"
+       sodipodi:cx="84.37925"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.439096;stroke-dasharray:none"
+       id="path9-3-6"
+       d="m 101.09852,38.736646 a 23.452782,22.394453 0 0 1 6.61729,15.66013"
+       sodipodi:type="arc"
+       sodipodi:arc-type="arc"
+       sodipodi:start="5.5130861"
+       sodipodi:end="0.0030796713"
+       sodipodi:ry="22.394453"
+       sodipodi:rx="23.452782"
+       sodipodi:cy="54.327808"
+       sodipodi:cx="84.263138"
+       sodipodi:open="true" />
+    <ellipse
+       style="fill:#000000;stroke-width:0.301586;stroke-dasharray:none"
+       id="path6-9-5"
+       cx="84.380173"
+       cy="54.363201"
+       rx="1.1134577"
+       ry="1.0632119" />
+  </g>
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:language>English</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>arctangent</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>Illustration arctangent function</dc:description>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+        <dc:title>arctangent</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
