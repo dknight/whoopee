@@ -18,7 +18,7 @@ function get_description() {
 }
 
 function get_default_description() {
-	echo "Website about Lua. Tutorials, best practices, development, and everything else related to the small, amazing Lua language."
+	echo "Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more."
 }
 
 function to_index() {
