@@ -90,9 +90,9 @@ cat << _EOF_
           <ul class="list-reset">
             <li><strong>Tags:</strong></li>
             <li>$(taglink "lua")</li>
+            <li>$(taglink "beginner")</li>
             <li>$(taglink "data-structures")</li>
             <li>$(taglink "featured")</li>
-            <li>$(taglink "beginner")</li>
           </ul>
         </nav>
         <section class="articles">
