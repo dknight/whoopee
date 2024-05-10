@@ -1,6 +1,6 @@
 <!-- Description: Definite guide of Lua syntax in one place. -->
 
-tags: lua featured
+tags: lua featured beginner
 
 # Lua cheatsheet
 
@@ -16,9 +16,9 @@ handbook.
 -- Single line comment
 
 --[[
-  This is a multi-line comment.
-  Large comments can be split into many lines,
-  everything inside this block is a comment.
+	This is a multi-line comment.
+	Large comments can be split into many lines,
+	everything inside this block is a comment.
 --]]
 ```
 
@@ -34,14 +34,14 @@ something = nil      -- nil
 condition = true     -- boolean
 data = {}            -- table
 multiString = [[
-  This is the multi-line string
-  Very similar to template
-  literals in JavaScript
+	This is the multi-line string
+	Very similar to template
+	literals in JavaScript
 ]]
 anotherMultiString = [===[
-  After first brackets can you can insert equal number of equal sign '=' (3 in
-  this case).
-  [[ Square brackets inside multi-line string ]]
+	After first brackets can you can insert equal number of equal sign '=' (3 in
+	this case).
+	[[ Square brackets inside multi-line string ]]
 ]===]
 
 local name = "John"  -- string (local variable)
@@ -82,8 +82,8 @@ Consider (error):
 
 ```lua
 text=[[
-  Display found point in the circle
-  Point at points[x[i], y[j]]
+	Display found point in the circle
+	Point at points[x[i], y[j]]
 ]] --> lua: file.lua:4: unexpected symbol near ']'
 ```
 
@@ -91,8 +91,8 @@ With `=` works fine:
 
 ```lua
 text=[==[
-  Display found point in the circle
-  Point at points[x[i], y[j]]
+	Display found point in the circle
+	Point at points[x[i], y[j]]
 ]==]
 ```
 
@@ -143,7 +143,7 @@ Lua's specials:
 
 #### String operators
 
-- `..`: strings concatenation;
+- `..`: strings concatenation (adds strings together);
 
 ```lua
 "Measure twice" .. " " .. "cut once" -- "Measure twice cut once"
@@ -205,17 +205,17 @@ Examples:
 
 ```lua
 if apples == 2 then
-  print("I have 2 apples")
+	print("I have 2 apples")
 end
 
 if apples == 1 and name == "Mike" > 1 then
-   print("Mike has 1 apple")
+	print("Mike has 1 apple")
 elseif apples == 4 and name =="Ann" 1 then
-   print("Ann has 4 apples")
+	print("Ann has 4 apples")
 elseif appels > 5 then
-  print("All othres have more than 5 apples")
+	print("All othres have more than 5 apples")
 else
-  print("Undefined number of apples and who has them")
+	print("Undefined number of apples and who has them")
 end
 ```
 
@@ -223,59 +223,67 @@ end
 
 ```lua
 -- while loop
-local i = 50
+local i = 10
 while i > 0 do
-  print(i)
-  i = i - 1
+	print(i)
+	i = i - 1
 end
 
+-- repeat until loop (executes at least 1 time)
+local i = 10
+repeat
+	print(i)
+	i = i - 1
+until i < 1
+
+
 -- for loop with default increment 1
-for i = 1, 100 do
-  print(i)
-  i = i + 1
+for i = 1, 10 do
+	print(i)
+	i = i + 1
 end
 
 -- for loop witn third parameter incement 10
 for i = 0, 100, 10 do
-  print(i)
-  i = i + 1
+	print(i)
+	i = i + 1
 end
 
 -- for loop witn third incement parameter -10
 for i = 100, 0, -10 do
-  i = i + 1
+	i = i + 1
 end
 
 -- for loop through the table where indexes are number
 for i, n in ipairs(someTable) do
-  print(someTable[i])
+	print(someTable[i])
 end
 
 -- for loop through the table variation 2
 for i = 1, #someTable do
-  print(someTable[i])
+	print(someTable[i])
 end
 
 -- for loop through the table where indexes any allowed type
 -- NB! Output is unsroted order!
 for k, v in pairs(someTable) do
-  print(someTable[k], v)
+	print(someTable[k], v)
 end
 
 -- forced break loop
 for i = 0, 100 do
-  print(i)
-  if i == 42 then
-    print('i is 42 stop loop')
-    break
-  end
+	print(i)
+	if i == 42 then
+		print('i is 42 stop loop')
+		break
+	end
 end
 
 -- Skip iteration, this is probably on one use case of goto operator in Lua
 for i = 1, 10 do
-  if i % 2 == 0 then goto continue end
-  print(i, 'is even')
-  ::continue::
+	if i % 2 == 0 then goto continue end
+	print(i, 'is even')
+	::continue::
 end
 ```
 
@@ -308,8 +316,8 @@ someTable.level = 2 -- equivalent of someTable['level']
 
 -- Iterate table through all its values
 for key, value in ipairs(someTable) do
-   result = result + n
-   print(index, value)
+	result = result + n
+	print(index, value)
 end
 
 -- Get length of the table with # operator
@@ -344,11 +352,11 @@ mutate it and cause a side effect. Keep this in mind!
 ```lua
 -- One-liner function
 function calculateArea(a, b)
-  if a < 0 or b < 0 then
-    print('sides of the shape cannot be negative')
-    return -1
-  end
-  return a * b
+	if a < 0 or b < 0 then
+		print('sides of the shape cannot be negative')
+		return -1
+	end
+	return a * b
 end
 
 function isNegative(n) return n < 0 end
@@ -377,11 +385,11 @@ Consider:
 
 ```lua
 function checkSpeed(mph)
-  if mph > 60 then
-    print('The police chasing you!')
-    return true
-  end
-  return false
+	if mph > 60 then
+		print('The police chasing you!')
+		return true
+	end
+	return false
 end
 
 local ok, value = pcall(checkSpeed, "60")
