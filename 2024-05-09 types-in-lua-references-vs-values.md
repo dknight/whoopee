@@ -1,6 +1,6 @@
 <!-- Description: Explanation of what means "pass by value" and "pass by reference" in Lua language. Difference between simple values and reference types. -->
 
-tags: lua
+tags: lua beginner
 
 # Types in Lua: References vs Values
 

@@ -47,8 +47,8 @@ function nav() {
   return
 }
 
-function articles_title() {
-  case "$TAGNAME" in
+function tag2title() {
+  case "$1" in
     data-structures)
       echo "Data structures and Algorithms"
     ;;
@@ -58,6 +58,9 @@ function articles_title() {
     featured)
       echo "Featured articles"
     ;;
+    beginner)
+      echo "For beginners"
+    ;;
     *)
       echo "All articles"
     ;;
@@ -65,10 +68,11 @@ function articles_title() {
 }
 
 function taglink() {
+  title=$(tag2title "$1")
   if [[ "$TAGNAME" = "$1" ]]; then
-    echo "<strong>$2</strong>"
+    echo "<strong>$title</strong>"
   else
-    echo "<a href=\"/tag/$1/\">$2</a>"
+    echo "<a href=\"/tag/$1/\">$title</a>"
   fi
 }
 
@@ -85,13 +89,14 @@ cat << _EOF_
         <nav class="tags">
           <ul class="list-reset">
             <li><strong>Tags:</strong></li>
-            <li>$(taglink "lua" "Lua")</li>
-            <li>$(taglink "data-structures" "Data structures and Algorithms")</li>
-            <li>$(taglink "featured" "Featured articles")</li>
+            <li>$(taglink "lua")</li>
+            <li>$(taglink "data-structures")</li>
+            <li>$(taglink "featured")</li>
+            <li>$(taglink "beginner")</li>
           </ul>
         </nav>
         <section class="articles">
-          <h1>$(articles_title)</h1>
+          <h1>$(tag2title)</h1>
           <ul class="list-reset">
             $(index_loop)
           </ul>

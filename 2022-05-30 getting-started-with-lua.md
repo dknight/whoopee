@@ -1,6 +1,6 @@
 <!-- Description: A brief introduction to Lua language. Installation, compilation, REPL guide.-->
 
-tags: lua
+tags: lua beginner
 
 # Getting started with Lua
 

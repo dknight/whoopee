@@ -1,6 +1,6 @@
 <!-- Description: math.atan and math.atan2 in Lua. Explanation of arctangent function and why it is inconsistent in different versions of Lua. -->
 
-tags: lua
+tags: lua beginner
 
 # Arctangent function in Lua
 
