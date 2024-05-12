@@ -1,8 +1,9 @@
-<!-- description: Lua has some useful functions for debugging and error handling: print, warn, and error. Here are some tricks to using them. -->
-
-# warn, error, print functions in Lua
+<!-- Description: Lua has some useful functions for debugging and error handling: print, warn, and error. Here are some tricks to using them. -->
 
 tags: lua
+
+# warn, error and print functions in Lua
+
 
 Lua has some useful functions for debugging and error handling: print,  warn,
 and error. Here are some tricks to using them.

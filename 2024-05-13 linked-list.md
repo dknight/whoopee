@@ -1,5 +1,4 @@
-<!-- Description: A linked list is a fundamental data structure in computer science used for
-storing and managing collections of data. Linked list implementation in Lua. -->
+<!-- Description: A linked list is a fundamental data structure in computer science used for storing and managing collections of data. Linked list implementation in Lua. -->
 
 tags: data-structures
 

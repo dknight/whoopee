@@ -13,8 +13,8 @@ function get_description() {
 	if [[ -z "$contents" ]]; then
 		contents="$1"
 	fi
-	local descr_line=$(echo "$contents" | grep -m 1 "^<!-- [Dd]escription: ")
-	echo $descr_line | sed -e 's/<!-- [Dd]escription\:\ *\(.*\)\ *-->/\1/'
+	local descr_line=$(echo "$contents" | grep -m 1 "^ *<!-- *[Dd]escription: *")
+	echo $descr_line | sed -e 's/\ *<!--\ *[Dd]escription\:\ *\(.*\)\ *-->/\1/'
 }
 
 function get_default_description() {

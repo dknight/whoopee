@@ -13,15 +13,16 @@ function index_loop {
 
 function list_item {
   # Skip about
-  if [[ "$POST_URL" =~ "/post/about" ]]; then
+  if [[ $(is_skipped) = 1 ]]; then
     return
   fi
+  POST_CONTENTS=$(cat ".dist/${POST_URL/.\/..\//}")
 cat << _LOOP_
 <item>
-  <title>$(echo $POST_TITLE)</title>
-  <link>$(echo $BLOG_HOST)$(echo $POST_URL)</link>
-  <description></description>
-  <pubDate>$(echo $POST_DATE_RFC822)</pubDate>
+  <title>$POST_TITLE</title>
+  <link>$BLOG_HOST$POST_URL</link>
+  <description>$(get_description)</description>
+  <pubDate>$POST_DATE_RFC822</pubDate>
 </item>
 _LOOP_
 }
@@ -30,8 +31,8 @@ cat << _EOF_
 <?xml version="1.0" ?>
 <rss version="2.0">
 <channel>
-  <title>$(echo $BLOG_TITLE)</title>
-  <link>$(echo $BLOG_HOST)</link>
+  <title>$BLOG_TITLE</title>
+  <link>$BLOG_HOST</link>
   <description>$(get_default_description)</description>
 
   $(index_loop)
