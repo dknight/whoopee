@@ -176,7 +176,11 @@ Arithmetic operators:
 
 ## Control structures
 
-### Conditionals
+## Conditionals
+
+**In Lua falsish values are: `nil` and `false` everything else is truish.**
+
+> Don't be confused with JavaScritpt where `0` is false. In Lua `0` is truish.
 
 Logical operators:
 
