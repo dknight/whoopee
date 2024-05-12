@@ -23,6 +23,7 @@ cat << __HEAD__
 <meta property="og:type" content="website">
 <meta property="og:url" content="$BLOG_HOST$URL_PREFIX$POST_URL">
 <meta property="og:image" content="$BLOG_HOST/assets/img/lua-language.gif">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self', object-src 'none'">
 <title>$title</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/css/styles.min.css?$TS">
