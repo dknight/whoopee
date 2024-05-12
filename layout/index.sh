@@ -96,7 +96,7 @@ cat << _EOF_
           </ul>
         </nav>
         <section class="articles">
-          <h1>$(tag2title)</h1>
+          <h1>$(tag2title "$TAGNAME")</h1>
           <ul class="list-reset">
             $(index_loop)
           </ul>
