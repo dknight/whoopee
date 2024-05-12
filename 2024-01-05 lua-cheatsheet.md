@@ -32,7 +32,7 @@ z = 0x12             -- number (hexadecimal)
 name = "Billy"       -- string
 something = nil      -- nil
 condition = true     -- boolean
-data = {}            -- table
+data = {}            -- tablYoute
 multiString = [[
 	This is the multi-line string
 	Very similar to template
@@ -63,7 +63,7 @@ labels, and functions.
 ### String literals
 
 String literals are enclosed with `"` (double quotes) or `'` single quotes.
-Yout just need to keep in mind that a single type of quotation mark cannot be
+You just need to keep in mind that a single type of quotation mark cannot be
 nested. To avoid errors [escape sequences](#escape-sequences)
 or string blocks should be used.
 
@@ -114,7 +114,7 @@ Without knowledge or lustre or name.
 
 #### Escape sequences
 
-Lua supports same escape sequences as ANSI C language does.
+Lua supports the same escape sequences as ANSI C language does.
 
 - `\a`: alert (beep, bell);
 - `\b`: backspace;
@@ -127,7 +127,7 @@ Lua supports same escape sequences as ANSI C language does.
 - `\'`: apostrophe or single quotation mark;
 - `\"`: double quotation mark;
 - `\?`: question mark (used to avoid trigraphs);
-- `\nnn`: the byte whose numerical value is given by nnn interpreted as an
+- `\nnn`: the byte whose numerical value is given by *nnn* interpreted as an
   octal number;
 - `\xhh...`:  the byte whose numerical value is given by hh… interpreted as a
   hexadecimal number;
@@ -137,7 +137,7 @@ Lua's specials:
 - `\uhhhh`: Unicode code point below 10000 hexadecimal;
 - `\uhhhhhhhh`: Unicode code point below 10000 hexadecimal` Unicode code point
   below 10000 hexadecimal;
-- `\z`: skip following spans of white-spaces untin non-next white-space
+- `\z: skip the following spans of white spaces until the non-next white-space
   character, it is particularly useful to break and indent a long literal
   string;
 
@@ -178,9 +178,9 @@ Arithmetic operators:
 
 ## Conditionals
 
-**In Lua falsish values are: `nil` and `false` everything else is truish.**
+**In Lua false values are: `nil` and `false` everything else is true.**
 
-> Don't be confused with JavaScritpt where `0` is false. In Lua `0` is truish.
+> Don't be confused with JavaScritpt where `0` is false. In Lua `0` is also true.
 
 Logical operators:
 
@@ -192,15 +192,15 @@ Comparison operators:
 
 - `<`: less than;
 - `>`: greater than;
-- `<=`: less than or equals to;
-- `>=`: greater than or equals to;
+- `<=`: less than or equal to;
+- `>=`: greater than or equal to;
 - `==`: equality;
 - `~=`: inequality;
 
 Bitwise operators (starting from Lua 5.3+):
 
-- `&`: birwise AND;
-- `|`: birwise OR;
+- `&`: bitwise AND;
+- `|`: bitwise OR;
 - `~`: unary NOT, or bitwise XOR;
 - `<<`: left bit shift;
 - `>>`: right bit shift;
@@ -333,7 +333,7 @@ print(#fruits) -- 3
 
 Functions are code blocks it is good to put reusable code.
 
-Here are my personal recommendations, based on my experience, for using
+Here are my recommendations, based on my experience, for using
 functions with efficiency and not shooting in the leg.
 
 Try to follow the concept of [pure
@@ -369,8 +369,8 @@ function isNegative(n) return n < 0 end
 
 ### Assertion
 
-f the assertion function `assert()` receives a boolean value that is false,
-the program will be stopped with an error. If true, the program will run
+If the assertion function `assert()` receives a boolean value that is false,
+then the program will be stopped with an error. If true, the program will run
 normally.
 
 ```lua
