@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# build
-jenny
+rm -y .bloglock
 
+# build
+DEPLOY=1 jenny
 
 echo "[rclone] Uploading..."
 

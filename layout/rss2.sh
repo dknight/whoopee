@@ -16,7 +16,9 @@ function list_item {
   if [[ $(is_skipped) = 1 ]]; then
     return
   fi
-  POST_CONTENTS=$(cat ".dist/${POST_URL/.\/..\//}")
+  if [[ ! -z $DEPLOY ]]; then
+    POST_CONTENTS=$(cat ".dist/${POST_URL/.\/..\//}")
+  fi
 cat << _LOOP_
 <item>
   <title>$POST_TITLE</title>
