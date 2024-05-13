@@ -1,5 +1,7 @@
 <!-- Description: Deque or double-ended queue abstract data structure in Lua language. Implementation of push front, push back, pop front and pop back methods. -->
 
+tags: data-structures
+
 # Deque or double-ended queue
 
 Deque is very similar to [queue](/post/queue.html), but with one significant

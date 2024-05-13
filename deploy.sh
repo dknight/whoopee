@@ -11,4 +11,3 @@ echo "[rclone] Uploading..."
 rclone sync .dist ftp.whoop.ee:/public_html
 
 echo "[rclone] OK"
-
