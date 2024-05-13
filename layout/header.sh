@@ -14,10 +14,8 @@ cat << __HEADER__
   <header>
     $(logo)
     <nav class="mainmenu">
-      <ul class="list-reset">
-        <li><a href="/about.html">About</a>
-        <li><a href="/feed.xml">RSS</a>
-      </ul>
+      <a href="/about.html">About</a>
+      <a href="/feed.xml">RSS</a>
     </nav>
   </header>
 __HEADER__

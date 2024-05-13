@@ -31,14 +31,11 @@ header {
   margin: 2rem 0;
 }
 .mainmenu {
+  align-items: center;
+  display: flex;
+  font-style: italic;
+  gap: 2rem;
   justify-self: end;
-
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    font-style: italic;
-  }
 }
 footer {
   margin-top: 2rem;
@@ -49,13 +46,10 @@ footer {
 }
 .tags {
   margin: 1rem 0 0;
-
-  ul {
-    display: inline-flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    white-space: nowrap;
-  }
+  display: inline-flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 .logo {
   font: bold 2.8rem/1 monospace;

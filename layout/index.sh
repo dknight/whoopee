@@ -53,7 +53,7 @@ function tag2title() {
       echo "Data structures and Algorithms"
     ;;
     lua)
-      echo "Lua"
+      echo "Lua general"
     ;;
     featured)
       echo "Featured articles"
@@ -87,13 +87,11 @@ cat << _EOF_
       <main>
       $(to_index)
         <nav class="tags">
-          <ul class="list-reset">
-            <li><strong>Tags:</strong></li>
-            <li>$(taglink "lua")</li>
-            <li>$(taglink "beginner")</li>
-            <li>$(taglink "data-structures")</li>
-            <li>$(taglink "featured")</li>
-          </ul>
+          <strong>Tags:</strong>
+          $(taglink "lua")
+          $(taglink "beginner")
+          $(taglink "data-structures")
+          $(taglink "featured")
         </nav>
         <section class="articles">
           <h1>$(tag2title "$TAGNAME")</h1>
