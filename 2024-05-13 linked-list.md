@@ -24,8 +24,8 @@ Usually liked lists have methods:
 
 - `append` - appends a new node to the end of the list;
 - `prepend` - appends a new node to the beginning of the list;
-- `removeHead (detachHead)` - remove a node from the beginning of the list;
-- `removeAfter (detachAfter)` - removes a now after giving node;
+- `removeHead` - remove a node from the beginning of the list;
+- `removeAfter` - removes a now after giving node;
 - `traverse` - traverse through the list.
 - `insertAfter` - inserts new node after giving value;
 - `removeAfter` - removes a node after giving value;
@@ -171,10 +171,10 @@ function LinkedList:insertAfter(after, value)
 	return node
 end
 
----Detaches and returns the head. Pointer moves to next node. If next node is
+---Removes and returns the head. Pointer moves to next node. If next node is
 ---not exists nil is returned.
 ---@return Node | nil
-function LinkedList:detachHead()
+function LinkedList:removeHead()
 	local tmp = self._head
 	if not tmp then
 		return nil
@@ -183,11 +183,11 @@ function LinkedList:detachHead()
 	return tmp
 end
 
----Detaches and returns a node after given node. If given node not found nil is
+---Removes and returns a node after given node. If given node not found nil is
 ---returned.
 ---@param node Node
 ---@return Node | nil
-function LinkedList:detachAfter(node)
+function LinkedList:removeAfter(node)
 	local tmp = node.next
 	node.next = tmp and tmp.next
 	return tmp
@@ -252,7 +252,7 @@ end
 li:prepend("E")
 found = li:findByValue("D")
 if found then
-	print(li:detachAfter(found).value, "?!")
+	print(li:removeAfter(found).value, "?!")
 end
 
 -- Manual traversing
@@ -274,8 +274,8 @@ end)
 --	"D"
 --	"C"
 
-print(li:detachHead().value) --> "E"
-print(li:detachHead().value) --> "A""
+print(li:removeHead().value) --> "E"
+print(li:removeHead().value) --> "A""
 print(li:head().value) --> "B"
 print(li:size()) --> 2
 print(li:contains("B")) --> true
