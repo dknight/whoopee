@@ -162,10 +162,10 @@ end
 ---@param value any
 ---@return Node | nil
 function LinkedList:insertAfter(after, value)
-	self._size = self._size + 1
 	if after == nil then
 		return nil
 	end
+	self._size = self._size + 1
 	local node = Node:new(value, after.next)
 	after.next = node
 	return node
