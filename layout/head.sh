@@ -3,9 +3,9 @@
 source "./layout/util.sh"
 
 if [[ -z "$POST_TITLE" ]]; then
-  title="$BLOG_TITLE" # TODO think out title like Blog about lua
+  title="$BLOG_TITLE &mdash; Blog about Lua"
 else
-  title="$POST_TITLE &ndash; $BLOG_TITLE"
+  title="$POST_TITLE &mdash; $BLOG_TITLE"
 fi
 
 description=$(get_description)
