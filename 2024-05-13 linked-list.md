@@ -119,6 +119,16 @@ function LinkedList:head()
 	return self._head
 end
 
+---Complexity `O(n)`
+---@return Node | nil
+function LinkedList:tail()
+	local tail = nil
+	self:traverse(function(node)
+		tail = node
+	end)
+	return tail
+end
+
 ---@return number
 function LinkedList:size()
 	return self._size
