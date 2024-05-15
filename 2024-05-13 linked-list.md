@@ -70,9 +70,9 @@ while l do
 	l = l.next
 end
 -- Output:
--- "A"
--- "B"
 -- "C"
+-- "B"
+-- "A"
 ```
 
 ## Linked list class
