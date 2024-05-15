@@ -225,7 +225,7 @@ function LinkedList:findByValue(value)
 end
 
 ---Traversal of a linked list.
------@param fn fun(node: Node)
+---@param fn fun(node: Node)
 function LinkedList:traverse(fn)
 	local node = self._head
 	while node do
