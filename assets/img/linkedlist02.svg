@@ -31,9 +31,9 @@
      inkscape:document-units="px"
      showguides="true"
      inkscape:clip-to-page="false"
-     inkscape:zoom="5.6568548"
-     inkscape:cx="553.311"
-     inkscape:cy="209.74553"
+     inkscape:zoom="2.0000002"
+     inkscape:cx="333.49997"
+     inkscape:cy="161.74998"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -542,7 +542,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.3;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-3-0)"
-       d="M 109.51056,54.48055 135.9423,54.183918"
+       d="m 109.27744,54.805274 26.43174,-0.296632"
        id="path20-6-75"
        sodipodi:nodetypes="cc" />
     <path
@@ -567,7 +567,7 @@
        style="font-style:normal;font-weight:normal;font-size:18.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="610.70703"
          y="170.26761"
-         id="tspan2">nil</tspan></text>
+         id="tspan6">nil</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458334,0,0,0.26458334,-126.68175,28.878051)"
@@ -575,7 +575,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20-2-7);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="610.70703"
          y="167.9082"
-         id="tspan3">head</tspan></text>
+         id="tspan7">head</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458334,0,0,0.26458334,-105.07577,-2.7824423)"
@@ -583,7 +583,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20-2-3);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="610.70703"
          y="167.9082"
-         id="tspan4">remove node B
+         id="tspan8">remove node B
 </tspan></text>
     <text
        xml:space="preserve"
@@ -592,7 +592,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20-2-3-4);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="610.70703"
          y="167.9082"
-         id="tspan5">insert node E
+         id="tspan9">insert node E
 </tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -601,12 +601,14 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#ff0000;stroke-width:1.32292;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="m 122.22464,49.058308 6.23354,10.796807"
-       id="path3" />
+       d="m 119.57568,49.530956 8.8825,10.324159"
+       id="path3"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#ff0000;stroke-width:1.32292;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="m 128.62732,49.018327 -6.23354,10.796807"
-       id="path3-8" />
+       d="m 128.98004,49.665284 -9.94588,10.055504"
+       id="path3-8"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#ff0000;stroke-width:1.32292;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
        d="M 85.876624,44.975924 58.266193,64.778443"
