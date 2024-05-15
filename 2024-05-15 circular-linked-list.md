@@ -15,7 +15,6 @@ To understand what is the linear linked list, please proceed to following
 
 ![Figure 01: Circular linked list example](/assets/img/circular-linkedlist01.svg)
 
-
 ## Circular linked list class
 
 Class implementation with [OOP principles](/post/object-oriented-programming-in-lua.html) and
