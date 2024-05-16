@@ -223,10 +223,11 @@ end
 ---found nil is returned.
 ---@param node Node nil
 ---@return Node | nil
-function DoubleLinkedList:removeNde(node)
+function DoubleLinkedList:removeNode(node)
 	if not node then
 		return nil
 	end
+	self._size = self._size - 1
 	if node.prev == nil then
 		self._head = node.next
 	else
@@ -318,7 +319,7 @@ print(dll:toString()) --> "D -> C -> A -> B"
 print(dll:contains("A"), dll:contains("X")) --> true	false
 local found = dll:findByValue("A")
 if found then
-	print(dll:removeNde(found).value) --> "A""
+	print(dll:removeNode(found).value) --> "A""
 end
 print(dll:toString()) --> "D -> C ->  B"
 ```
