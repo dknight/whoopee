@@ -32,8 +32,8 @@
      showguides="true"
      inkscape:clip-to-page="false"
      inkscape:zoom="1.4142137"
-     inkscape:cx="391.73712"
-     inkscape:cy="174.3018"
+     inkscape:cx="323.14777"
+     inkscape:cy="136.82515"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -513,7 +513,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20-2);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="610.70703"
          y="167.9082"
-         id="tspan4">node</tspan></text>
+         id="tspan2">node</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458334,0,0,0.26458334,-5.4536852,32.714332)"
@@ -521,7 +521,7 @@
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20-2-7);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="610.70703"
          y="167.9082"
-         id="tspan5">last (tail)</tspan></text>
+         id="tspan3">last (tail)</tspan></text>
     <path
        id="path21-1"
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -540,9 +540,9 @@
        r="0.045814909" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-1)"
-       d="M 170.31471,53.794795 V 32.77942 L 39.847081,32.578431 v 12.873007"
+       d="M 170.31471,53.794795 C 171.3017,27.59161 40.182268,27.380899 39.847081,45.451438"
        id="path4"
-       sodipodi:nodetypes="cccc" />
+       sodipodi:nodetypes="cc" />
   </g>
   <metadata
      id="metadata38">

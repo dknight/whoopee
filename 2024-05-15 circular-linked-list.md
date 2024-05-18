@@ -23,6 +23,7 @@ Class implementation with [OOP principles](/post/object-oriented-programming-in-
 `CircularLinkedList.lua`
 
 ```lua
+---TODO check size
 ---@class Node
 ---@field value any
 ---@field next Node | nil
@@ -92,7 +93,7 @@ function CircularLinkedList:append(value)
 	local node = Node:new(value)
 	if self:isEmpty() then
 		node = self:_addToEmpty(value)
-		self._tail = node.next
+		self._tail = node.next -- TODO need?
 	else
 		node.next = self._tail.next
 		self._tail.next = node
@@ -109,7 +110,7 @@ function CircularLinkedList:prepend(value)
 	local node = Node:new(value)
 	if self:isEmpty() then
 		node = self:_addToEmpty(value)
-		self._tail = node
+		self._tail = node -- TODO need?
 	else
 		node.next = self._tail.next
 		self._tail.next = node
@@ -203,20 +204,20 @@ end
 ---Traversal of a linked list.
 ---@param fn fun(node: Node)
 function CircularLinkedList:traverse(fn)
-	local start = self._tail and self._tail.next
+	local node = self._tail and self._tail.next
 	if not start then
 		return
 	end
 	repeat
-		fn(start)
-		start = start.next
-	until start == self._tail.next
+		fn(node)
+		node = node.next
+	until node == self._tail.next
 end
 
 ---@param sep? string
 ---@return string
 function CircularLinkedList:toString(sep)
-	sep = sep or " -> "
+	sep = sep or " <=> "
 	local t = {}
 	self:traverse(function(node)
 		t[#t + 1] = node.value
@@ -245,7 +246,7 @@ cll:insertBefore("G", foundB)
 local foundC = cll:findByValue("C")
 cll:removeNode(foundC)
 cll:removeByValue("E")
-print(cll:toString()) --> "F -> A -> G -> B -> D""
+print(cll:toString()) --> "F <=> A <=> G <=> B <=> D""
 print("Contains B", cll:contains("B")) --> true
 print("Contains X", cll:contains("XX")) --> false
 ```
