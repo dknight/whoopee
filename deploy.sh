@@ -1,8 +1,7 @@
 #!/bin/bash
 
 status=0
-rm -rf .dist
-rm -f .bloglock
+rm -rf .dist .bloglock
 DEPLOY=1 jenny
 echo "[rclone] Uploading..."
 rclone sync .dist ftp.whoop.ee:/public_html
