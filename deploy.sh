@@ -1,6 +1,7 @@
 #!/bin/bash
 
 status=0
+rm -rf .dist
 rm -f .bloglock
 DEPLOY=1 jenny
 echo "[rclone] Uploading..."
