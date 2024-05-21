@@ -4,7 +4,7 @@ tags: lua beginner
 
 # Arctangent function in Lua
 
-Looks like simple mathematical function arctangent is very confusing in Lua.
+Simple trigonometric function arctangent is very confusing in Lua.
 In Lua version 5 this function changed many times. I found such variants:
 
 - `math.atan(x)`: 5.1, 5.2
@@ -17,9 +17,8 @@ It is very confusing. Let's try to figure out what is what.
 
 Time to remind a school math class.
 
-This is a very common function for game developers. It allows us to find the
-angle between a point and X axis. This is how rotations are calculated in
-game development.
+Calculating and finding angles is a very common task for game developers.
+Arctagnent allows to find the angle between a point and X-axis with ease.
 
 ![Figure 01. Arctangent angles with arctangent](/assets/img/atan01.svg)
 
@@ -77,7 +76,8 @@ This should work with every Lua version.
 
 ## Conclusion
 
-Use `math.atan()` not `math.atan2()` everywhere possible.
+- Use `math.atan()` everywhere possible;
+- `math.atan2()` is deprecated.
 
 ## Bonus: converting radians to degrees and vice-versa
 

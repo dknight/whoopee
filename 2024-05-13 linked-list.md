@@ -11,26 +11,23 @@ deletion operations. Each element, known as a node, contains a data field and
 a reference (or pointer) to the next node in the sequence. This dynamic
 structure provides flexibility but may involve more memory overhead due to the
 additional pointers. Nodes are stored in different memory locations, not
-sequentially like in arrays, so access might be slower. The beginning of the
-list is usually called the **head**, and the end of the list is correspondingly
-**tail**.
+sequentially like in arrays, so access might be slower. 
 
 ![Figure 01: Linked list example](/assets/img/linkedlist01.svg)
 
-Usually in Lua linked lists aren't widely used, but these might be great as
-temporary data storage for more complex data structures and algorithms.
+Usually in Lua language linked lists aren't widely used, but these might be
+great as temporary data storage for more complex data structures and algorithms.
 
-Usually liked lists have methods:
+Usually liked list have methods:
 
-- `append` - appends a new node to the end of the list;
-- `prepend` - appends a new node to the beginning of the list;
-- `removeHead` - remove a node from the beginning of the list;
-- `removeAfter` - removes a now after giving node;
-- `traverse` - traverse through the list.
-- `insertAfter` - inserts new node after giving value;
-- `removeAfter` - removes a node after giving value;
-- `contains` - checks that the list has a node with value.
-- More if needed.
+- `append` &ndash; appends a new node to the end of the list;
+- `prepend` &ndash; appends a new node to the beginning of the list;
+- `removeHead` &ndash; remove a node from the beginning of the list;
+- `traverse` &ndash; traverse through the list.
+- `insertAfter` &ndash; inserts new node after giving value;
+- `removeAfter` &ndash; removes a node after giving value;
+- `contains` &ndash; checks that the list has a node with value.
+- More if needed...
 
 Since we can't iterate backward, efficient `insertBefore` or `removeBefore`
 operations are not possible. Inserting to a list before a specific node requires

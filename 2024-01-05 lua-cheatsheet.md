@@ -25,14 +25,14 @@ handbook.
 ## Variables
 
 ```lua
-x = 12               -- number (integer)
-y = 14.3             -- number (float)
-z = 0x12             -- number (hexadecimal)
+x = 12                -- number (integer)
+y = 14.3              -- number (float)
+z = 0x12              -- number (hexadecimal)
 
-name = "Billy"       -- string
-something = nil      -- nil
-condition = true     -- boolean
-data = {}            -- tablYoute
+name = "Billy"        -- string
+something = nil       -- nil
+condition = true      -- boolean
+data = {a = 4, b = 2} -- table
 multiString = [[
 	This is the multi-line string
 	Very similar to template
@@ -116,34 +116,34 @@ Without knowledge or lustre or name.
 
 Lua supports the same escape sequences as ANSI C language does.
 
-- `\a`: alert (beep, bell);
-- `\b`: backspace;
-- `\f`: form feed page break;
-- `\n`: newline (line feed); see below;
-- `\r`: carriage return;
-- `\t`: horizontal tab;
-- `\v`: vertical tab;
-- `\\`: backslash;
-- `\'`: apostrophe or single quotation mark;
-- `\"`: double quotation mark;
-- `\?`: question mark (used to avoid trigraphs);
-- `\nnn`: the byte whose numerical value is given by *nnn* interpreted as an
-  octal number;
-- `\xhh...`:  the byte whose numerical value is given by hh… interpreted as a
-  hexadecimal number;
+- `\a` &ndash; alert (beep, bell);
+- `\b` &ndash; backspace;
+- `\f` &ndash; form feed page break;
+- `\n` &ndash; newline (line feed); see below;
+- `\r` &ndash; carriage return;
+- `\t` &ndash; horizontal tab;
+- `\v` &ndash; vertical tab;
+- `\\` &ndash; backslash;
+- `\'` &ndash; apostrophe or single quotation mark;
+- `\"` &ndash; double quotation mark;
+- `\?` &ndash; question mark (used to avoid trigraphs);
+- `\nnn` &ndash; the byte whose numerical value is given by ***nnn***
+  interpreted as an octal number;
+- `\xhh...` &ndash;  the byte whose numerical value is given by ***hh…***
+  interpreted as a hexadecimal number;
 
 Lua's specials:
 
-- `\uhhhh`: Unicode code point below 10000 hexadecimal;
-- `\uhhhhhhhh`: Unicode code point below 10000 hexadecimal` Unicode code point
+- `\uhhhh` &ndash; Unicode code point below 10000 hexadecimal;
+- `\uhhhhhhhh` &ndash; Unicode code point below 10000 hexadecimal` Unicode code point
   below 10000 hexadecimal;
-- `\z: skip the following spans of white spaces until the non-next white-space
+- `\z` &ndash; skip the following spans of white spaces until the non-next white-space
   character, it is particularly useful to break and indent a long literal
   string;
 
 #### String operators
 
-- `..`: strings concatenation (adds strings together);
+- `..` &ndash; strings concatenation (adds strings together);
 
 ```lua
 "Measure twice" .. " " .. "cut once" -- "Measure twice cut once"
@@ -153,13 +153,13 @@ Lua's specials:
 
 Arithmetic operators:
 
-- `+`: additions;
-- `-`: subtraction;
-- `*`: multiplication;
-- `/`: division;
-- `//`: floor division;
-- `%`: modulus division;
-- `^`: exponent (available since Lua 5.3);
+- `+` &ndash; additions;
+- `-` &ndash; subtraction;
+- `*` &ndash; multiplication;
+- `/` &ndash; division;
+- `//` &ndash; floor division;
+- `%` &ndash; modulus division;
+- `^` &ndash; exponent (available since Lua 5.3);
 
 ```lua
 40 + 2   -- 42
@@ -171,39 +171,41 @@ Arithmetic operators:
 2 ^ 5    -- 32
 ```
 
-> There is not `++` and '--' operators in Lua.
+> There is not `++` and `--` operators in Lua.
   Use form of `x = x + 1`.
 
 ## Control structures
 
 ## Conditionals
 
-**In Lua false values are: `nil` and `false` everything else is true.**
-
-> Don't be confused with JavaScritpt where `0` is false. In Lua `0` is also true.
+> In Lua language _false_ values are: `nil` and `false` everything else
+> is interpreted as `true`.
+>
+> Don't be confused with JavaScritpt where `0` is false. In Lua `0` is also.
+> `true`.
 
 Logical operators:
 
-- `and`: logical AND;
-- `or`: logical OR;
-- `not`: logical NOT;
+- `and` &ndash; logical AND;
+- `or` &ndash; logical OR;
+- `not` &ndash; logical NOT;
 
 Comparison operators:
 
-- `<`: less than;
-- `>`: greater than;
-- `<=`: less than or equal to;
-- `>=`: greater than or equal to;
-- `==`: equality;
-- `~=`: inequality;
+- `<` &ndash; less than;
+- `>` &ndash; greater than;
+- `<=` &ndash; less than or equal to;
+- `>=` &ndash; greater than or equal to;
+- `==` &ndash; equality;
+- `~=` &ndash; inequality;
 
 Bitwise operators (starting from Lua 5.3+):
 
-- `&`: bitwise AND;
-- `|`: bitwise OR;
-- `~`: unary NOT, or bitwise XOR;
-- `<<`: left bit shift;
-- `>>`: right bit shift;
+- `&` &ndash; bitwise AND;
+- `|` &ndash; bitwise OR;
+- `~` &ndash; unary NOT, or bitwise XOR;
+- `<<` &ndash; left bit shift;
+- `>>` &ndash; right bit shift;
 
 Examples:
 
@@ -239,7 +241,6 @@ repeat
 	print(i)
 	i = i - 1
 until i < 1
-
 
 -- for loop with default increment 1
 for i = 1, 10 do
@@ -293,13 +294,14 @@ end
 
 ## Tables
 
-Tables in Lua are the same as dictionaries, associative arrays, and maps data
-structures in other programming languages. But there are some differences in
-comparison with other languages.
+Tables in Lua are the same as dictionaries, associative arrays, and map-like
+data structures in other programming languages. But there are some differences
+in comparison with other languages.
 
 - Tables in Lua start from index 1, not from 0;
 - values in a table stored unsorted;
-- indexes can have a type number, string, boolean, or even another table.
+- indexes can have a type `number`, `string`, `boolean`, or even
+  another `table`.
 - `#`: table length operator.
 
 > Remember! Tables in Lua start at index 1, not from 0.
@@ -349,7 +351,8 @@ programming paradigm. What does it mean to be pure? There are 2 rules:
   example, if tables are large, then such an approach becomes very
   inefficient. It depends on how large your data is.
 
-Tables, userdata, threads, and functions are passed by reference, not by
+Types `tables`, `userdata`, `threads`, and `function` are
+[passed by reference](/post/types-in-lua-references-vs-values.html), not by
 value. If a function changes the table received by an argument, it will
 mutate it and cause a side effect. Keep this in mind!
 
@@ -369,9 +372,9 @@ function isNegative(n) return n < 0 end
 
 ### Assertion
 
-If the assertion function `assert()` receives a boolean value that is false,
-then the program will be stopped with an error. If true, the program will run
-normally.
+If the assertion function `assert()` receives a boolean falsy expression,
+then the program will be stopped with an error. If the expression is truth, the
+program will continue to execute normally.
 
 ```lua
 print('Program started')
@@ -416,8 +419,6 @@ local ok, value = pcall(checkSpeed, debug.traceback, "60")
 -- debug.traceback` is used as error handler
 ```
 
-
 ## Links
 
 - [Lua 5.4 Official Manual](https://www.lua.org/manual/5.4/manual.html)
-

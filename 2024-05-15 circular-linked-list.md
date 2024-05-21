@@ -5,10 +5,11 @@ tags: data-structures
 # Circular linked list
 
 A cicrular linked list is very similar to [linked list](/post/linked-list.html)
-with one significant differences:
+with two significant differences:
 
 1. All nodes are linked in a continuous circle.
-2. There is no `nil` pointer.
+2. There is no pointer to `nil` at the end; last pointer points to the first
+   node.
 
 To understand what is the linear linked list, please proceed to following
 [article](/post/linked-list.html).

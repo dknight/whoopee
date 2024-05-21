@@ -115,6 +115,7 @@ Consider:
 local t = { x = 1 }
 print(t.x) --> 1
 print(t.y) --> nil
+print(t.z) --> nil
 ```
 
 Here `t` table doesn't have `y` key, so `nil` is returned. But, `__index`
@@ -133,7 +134,7 @@ print(t.z) --> 3
 ### Defining metatable
 
 ```lua
-Animage.__index = Animal
+Animal.__index = Animal
 ```
 
 This makes the "magic", if method lookup fails on the instances, then it will
@@ -301,12 +302,12 @@ print(kitty.age, kitty.kind, kitty.makeSound())
 
 ## Prototype-based inheritance
 
-Prototype-based approach doesn't use classes (class-free OOP).
-More exactly it allows prototype programming using cloning and prototype delegation.
-More about [prototype-based object-oriented programming](https://en.wikipedia.org/wiki/Prototype-based_programming).
+Prototype-based approach doesn't use classes (class-free OOP), it uses cloning
+and prototype delegation. More about
+[prototype-based object-oriented programming](https://en.wikipedia.org/wiki/Prototype-based_programming).
 
 Here is the most basic example of the prototype-based approach. First of all need
-to define some functions.
+to define some helper functions.
 
 ```lua
 ---@param a any
@@ -370,7 +371,8 @@ print(dog.age, dog.kind, dog:makeSound(), cat:isPrototypeOf(Animal)) --> 3	"cani
 
 ## Annotations
 
-[Annotations](https://luals.github.io/wiki/annotations/) for [LuaLS](https://luals.github.io)
+[Annotations](https://luals.github.io/wiki/annotations/) for
+[Lua Language Server](https://luals.github.io)
 can be very handy and greatly improve the DX. Here is the example for `Animal`
 and `Cat` classes with annotations.
 
@@ -429,11 +431,11 @@ print(tom.age, tom.kind, tom:makeSound()) --> 2	"feline"	"Meow!Meow!Meow!"
 
 ## Comparison
 
-This is a very rough comparison. The results are average for many runs.
+This is a *very rough* comparison. The results are average for many runs.
 
 Resources consumed:
 
-|           | Memory       | Time      |
+| Approach  | Memory       | Time      |
 | --------- | ------------ | --------- |
 | Closure   | 257833.97 Kb | 0m6.259s  |
 | Metatable | 164843.76 Kb | 0m6.495s  |
@@ -599,10 +601,10 @@ Another comparison opinion can be read in
 ## Conclusion
 
 In my opinion [metatable](#metametable-based-classes) method is the most optimal
-in performance and maintainability. Of course, everything depends on your task.
+in performance and maintainability. Of course, everything depends on the task.
 Sometimes maintainability is more important than performance, especially
-if you are working in a large team with different tech skills. What approach to
-choose is up to you.
+if you are working in a large team with different technical skills. What
+approach to choose is up to you.
 
 ## Links
 

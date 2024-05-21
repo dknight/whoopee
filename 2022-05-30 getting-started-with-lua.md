@@ -1,11 +1,11 @@
-<!-- Description: A brief introduction to Lua language. Installation, compilation, REPL guide.-->
+<!-- Description: Get stared with Lua programming language. A brief introduction to Lua language. Installation, compilation, REPL guide.-->
 
 tags: lua beginner
 
 # Getting started with Lua
 
-This article was originally published on the [Fedora Developer
-Project](https://developer.fedoraproject.org/tech/languages/lua/lua_installation.html),
+This article was originally published on the
+[Fedora Developer Project](https://developer.fedoraproject.org/tech/languages/lua/lua_installation.html),
 but the website appears to be dormant and receives only infrequent updates. So
 I moved this article to my personal blog with minor changes.
 

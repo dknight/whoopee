@@ -9,7 +9,8 @@ Circular doubly linked list is a data structure that is a combination of both
 [doubly linked list](/post/doubly-linked-list.html). It stores 2 pointers,
 one is pointing to the next node, the other to the previous node and the
 first pointer points to the last and correspondingly last to the first. This
-approach makes a continual circular loop.
+approach makes a continual circular loop which can be traversed in both
+directions.
 
 ![Figure 01: Circular doubly linked list example](/assets/img/circular-doubly-linkedlist01.svg)
 

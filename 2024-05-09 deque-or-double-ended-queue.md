@@ -17,7 +17,7 @@ Usually, deque implements 4 methods:
 
 ![Figure 01: Deque illustration](/assets//img/deque01.svg)
 
-Implementation of the deque using `table` module is very simple in Lua.
+Implementation of the deque using `table` is very simple in Lua.
 
 ```lua
 -- create deque as empty table
@@ -32,10 +32,10 @@ table.insert(deque, "C")
 table.insert(deque, "D")
 
 --pop front
-print(table.remove(deque, 1)) -- "A"
+print(table.remove(deque, 1)) --> "A"
 
 --pop back
-print(table.remove(deque)) -- "D"
+print(table.remove(deque)) --> "D"
 
 -- traverse
 for i, v in ipairs(deque) do

@@ -78,13 +78,13 @@ local function addToTable(t, v)
 end
 
 -- initially empty table
-print(#t, t[#t]) -->0	nil
+print(#t, t[#t]) --> 0	nil
 
 -- pass table as the first argument
 addToTable(t, "some value")
 
--- here the initial `t` is changed (mutated)
-print(#t, t[#t]) -->1	"some value"
+-- here the initial t is changed (mutated)
+print(#t, t[#t]) --> 1	"some value"
 ```
 
 The reference type `table` holds the address in memory. After the change,

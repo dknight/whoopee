@@ -5,18 +5,17 @@ tags: lua
 # warn, error and print functions in Lua
 
 
-Lua has some useful functions for debugging and error handling: print,  warn,
-and error. Here are some tricks to using them.
+Lua has some useful built-in functions for debugging and error handling:
+`print`, `warn`, and `error`. Here are some tricks to using them.
 
 ## print
 
 **Never underestimate the power of `print` function in debugging!**
 
-[`print`](https://www.lua.org/manual/5.4/manual.html#pdf-print) is
-one of the simplest ways to debug a program and print the
-intermediate results. The function prints a list of
-tab-separated arguments as strings to `stdout` and adds the line-ending symbol
-to the end of the output.
+[`print`](https://www.lua.org/manual/5.4/manual.html#pdf-print) is one of the
+simplest ways to debug a program and print the intermediate results. The
+function prints a list of tab-separated arguments as strings to `stdout` and
+adds the line-ending symbol to the end of the output.
 
 Consider:
 
@@ -24,15 +23,14 @@ Consider:
 print() --> prints empty line
 print("") --> prints empty line
 print("Hello") --> Hello
-print("Hello", " ", "World", 42) --> Hello  World    42 (tab separated)
+print("Hello", " ", "World", 42) --> Hello	World	42 (tab separated)
 ```
 
 Complex data structures, such as tables, cannot be printed using the `print`
-function. Usually, for complex data structures, it prints the address in the
+function. For the complex data structures, it prints the address in the
 computer's memory. To print out a table, you need to use loops, 3rd party
 libraries, or your homemade solutions. Lua is supposed to be as minimal
-as possible, and there is no magic function like `console.log()` in
-<abbr title="Tool of evil">JavaScript</abbr>.
+as possible, and there is no magic function like `console.log()` in JavaScript.
 
 Consider:
 
@@ -42,6 +40,14 @@ print(t) --> table: 0x557cfeb01d70
 
 local fn = function() return 1 + 1 end
 print(fn) --> function: 0x557cfeb034a0
+
+-- Simple one-level table print
+for k, v in pairs(t) do
+	print(k, v)
+end
+-- Outputs (order changes):
+--	"name"	"John"
+--	"age"	25
 ```
 
 ## warn
@@ -106,7 +112,7 @@ accepts 2 arguments: the message as a string and an error level number (0, 1,
 - Level 0: Skips the addition of error position information to the message.
 - Level 1 (default): The error position is where the `error` function was
   called.
-- Level 2: Level 2: Points the error to where the function that called `error`
+- Level 2: Points to where the function that called `error`
   was called. This level shows the stack of function calls. It might be
   very useful to check the call stack and find what caused the error.
 
@@ -161,9 +167,9 @@ stdin:1: in function 'g'
 
 ### Catch errors with _protected call_
 
-In Lua you can use [pcall()](https://www.lua.org/manual/5.4/manual.html#pdf-pcall)
-function to catch errors. This is called a _protected call_. `pcall()` returns two
-values: the first is a boolean status which determines whether the call was
+In Lua language, you can use [pcall()](https://www.lua.org/manual/5.4/manual.html#pdf-pcall)
+function to catch errors. This is called a _protected call_. `pcall()` returns
+two values: the first is a boolean status which determines whether the call was
 successful or not, and the second value is a return string of an error message.
 When using _protected call_ the program catches the error and continues to execute.
 
@@ -242,3 +248,7 @@ stack traceback:
   [C]: in ?
 --]]
 ```
+
+## Links
+
+- [Lua manual: Error Handling](https://www.lua.org/manual/5.4/manual.html#2.3)

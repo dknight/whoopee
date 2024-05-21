@@ -14,7 +14,7 @@ but for Lua.
 It is extremely easy to set up. StyLua can be installed using Rust's
 [cargo](https://crates.io/crates/stylua) or
 [npm](https://www.npmjs.com/package/@johnnymorganz/stylua). It depends on the
-packaging tools you prefer; the responding commands are:
+packaging tools you prefer; the commands are:
 
 ```sh
 cargo install stylua
@@ -97,6 +97,6 @@ available in the extension settings.
 ## Conclusion
 
 There is no need to think about code style while coding in Lua and
-Concentrate on the tasks; the formatter does its job.
-For more detailed and editors' integration guides
+concentrate on the tasks; the formatter does its job.
+For more detailed editors' integration guides
 Check out [the official GitHub repo of StyLua](https://github.com/JohnnyMorganz/StyLua).
