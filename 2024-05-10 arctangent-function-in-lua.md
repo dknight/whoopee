@@ -70,7 +70,7 @@ The general rule is to use `math.atan()` in the form.
 
 ```lua
 local x, y = 10, 10
-print(math.atan(y / x)) --> 0.78539816339745 radians which equals 45 degrees
+print(math.atan(y / x)) --> 0.78539816339745 radians which equal 45 degrees
 ```
 
 This should work with every Lua version.
@@ -92,7 +92,7 @@ end
 Function to convert degrees to radians:
 
 ```lua
-localfunction deg2rad(d)
+local function deg2rad(d)
 	return d * (math.pi / 180)
 end
 ```
