@@ -292,6 +292,35 @@ for i = 1, 10 do
 end
 ```
 
+## goto
+
+> Avoid using `goto`!
+
+About `goto` there is only one thing, **do not use `goto`** misusing of `goto`
+can lead to "spaghetti" and barely maintainable code. There is only a
+single case where `goto` can be used in Lua language. Lua loops do not have
+`continue` statement, but it can be emulated with `goto`.
+
+Consider:
+
+```lua
+for i = 1, 10 do
+	if i < 6 then
+		goto endloop
+	end
+	print(i)
+	-- do something with i
+	print(i)
+	::endloop::
+end
+-- Output:
+-- 6
+-- 7
+-- 8
+-- 9
+-- 10
+```
+
 ## Tables
 
 Tables in Lua are the same as dictionaries, associative arrays, and map-like
