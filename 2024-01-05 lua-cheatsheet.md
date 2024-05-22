@@ -116,34 +116,34 @@ Without knowledge or lustre or name.
 
 Lua supports the same escape sequences as ANSI C language does.
 
-- `\a` &ndash; alert (beep, bell);
-- `\b` &ndash; backspace;
-- `\f` &ndash; form feed page break;
-- `\n` &ndash; newline (line feed); see below;
-- `\r` &ndash; carriage return;
-- `\t` &ndash; horizontal tab;
-- `\v` &ndash; vertical tab;
-- `\\` &ndash; backslash;
-- `\'` &ndash; apostrophe or single quotation mark;
-- `\"` &ndash; double quotation mark;
-- `\?` &ndash; question mark (used to avoid trigraphs);
-- `\nnn` &ndash; the byte whose numerical value is given by ***nnn***
+- `\a` -- alert (beep, bell);
+- `\b` -- backspace;
+- `\f` -- form feed page break;
+- `\n` -- newline (line feed); see below;
+- `\r` -- carriage return;
+- `\t` -- horizontal tab;
+- `\v` -- vertical tab;
+- `\\` -- backslash;
+- `\'` -- apostrophe or single quotation mark;
+- `\"` -- double quotation mark;
+- `\?` -- question mark (used to avoid trigraphs);
+- `\nnn` -- the byte whose numerical value is given by ***nnn***
   interpreted as an octal number;
-- `\xhh...` &ndash;  the byte whose numerical value is given by ***hh…***
+- `\xhh...` --  the byte whose numerical value is given by ***hh…***
   interpreted as a hexadecimal number;
 
 Lua's specials:
 
-- `\uhhhh` &ndash; Unicode code point below 10000 hexadecimal;
-- `\uhhhhhhhh` &ndash; Unicode code point below 10000 hexadecimal` Unicode code point
+- `\uhhhh` -- Unicode code point below 10000 hexadecimal;
+- `\uhhhhhhhh` -- Unicode code point below 10000 hexadecimal` Unicode code point
   below 10000 hexadecimal;
-- `\z` &ndash; skip the following spans of white spaces until the non-next white-space
+- `\z` -- skip the following spans of white spaces until the non-next white-space
   character, it is particularly useful to break and indent a long literal
   string;
 
 #### String operators
 
-- `..` &ndash; strings concatenation (adds strings together);
+- `..` -- strings concatenation (adds strings together);
 
 ```lua
 "Measure twice" .. " " .. "cut once" -- "Measure twice cut once"
@@ -153,13 +153,13 @@ Lua's specials:
 
 Arithmetic operators:
 
-- `+` &ndash; additions;
-- `-` &ndash; subtraction;
-- `*` &ndash; multiplication;
-- `/` &ndash; division;
-- `//` &ndash; floor division;
-- `%` &ndash; modulus division;
-- `^` &ndash; exponent (available since Lua 5.3);
+- `+` -- additions;
+- `-` -- subtraction;
+- `*` -- multiplication;
+- `/` -- division;
+- `//` -- floor division;
+- `%` -- modulus division;
+- `^` -- exponent (available since Lua 5.3);
 
 ```lua
 40 + 2   -- 42
@@ -186,26 +186,26 @@ Arithmetic operators:
 
 Logical operators:
 
-- `and` &ndash; logical AND;
-- `or` &ndash; logical OR;
-- `not` &ndash; logical NOT;
+- `and` -- logical AND;
+- `or` -- logical OR;
+- `not` -- logical NOT;
 
 Comparison operators:
 
-- `<` &ndash; less than;
-- `>` &ndash; greater than;
-- `<=` &ndash; less than or equal to;
-- `>=` &ndash; greater than or equal to;
-- `==` &ndash; equality;
-- `~=` &ndash; inequality;
+- `<` -- less than;
+- `>` -- greater than;
+- `<=` -- less than or equal to;
+- `>=` -- greater than or equal to;
+- `==` -- equality;
+- `~=` -- inequality;
 
 Bitwise operators (starting from Lua 5.3+):
 
-- `&` &ndash; bitwise AND;
-- `|` &ndash; bitwise OR;
-- `~` &ndash; unary NOT, or bitwise XOR;
-- `<<` &ndash; left bit shift;
-- `>>` &ndash; right bit shift;
+- `&` -- bitwise AND;
+- `|` -- bitwise OR;
+- `~` -- unary NOT, or bitwise XOR;
+- `<<` -- left bit shift;
+- `>>` -- right bit shift;
 
 Examples:
 

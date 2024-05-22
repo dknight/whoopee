@@ -20,13 +20,13 @@ great as temporary data storage for more complex data structures and algorithms.
 
 Usually liked list have methods:
 
-- `append` &ndash; appends a new node to the end of the list;
-- `prepend` &ndash; appends a new node to the beginning of the list;
-- `removeHead` &ndash; remove a node from the beginning of the list;
-- `traverse` &ndash; traverse through the list.
-- `insertAfter` &ndash; inserts new node after giving value;
-- `removeAfter` &ndash; removes a node after giving value;
-- `contains` &ndash; checks that the list has a node with value.
+- `append` -- appends a new node to the end of the list;
+- `prepend` -- appends a new node to the beginning of the list;
+- `removeHead` -- remove a node from the beginning of the list;
+- `traverse` -- traverse through the list.
+- `insertAfter` -- inserts new node after giving value;
+- `removeAfter` -- removes a node after giving value;
+- `contains` -- checks that the list has a node with value.
 - More if needed...
 
 Since we can't iterate backward, efficient `insertBefore` or `removeBefore`

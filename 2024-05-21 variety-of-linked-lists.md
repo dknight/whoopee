@@ -12,15 +12,15 @@ but for some tasks linked lists are irreplaceable.
 
 Here are some variations of linked lists with links to implementation in Lua.
 
-- [Singly linked list](/post/linked-list.html) &ndash; the most simple linked list
+- [Singly linked list](/post/linked-list.html) -- the most simple linked list
   where nodes are connected linearly and sequentially, where a node has its
   value and points to the next node.
-- [Circular singly linked list](/post/circular-linked-list.html) &ndash; same as
+- [Circular singly linked list](/post/circular-linked-list.html) -- same as
   the linear singly linked list, but nodes are connected in a continuous
   circular manner.
-- [Doubly linked list](/post/doubly-linked-list.html) &ndash; linked list with
+- [Doubly linked list](/post/doubly-linked-list.html) -- linked list with
   two pointers: one for the next node and the other for the previous.
-- [Circular doubly linked list](/post/circular-doubly-linked-list.html) &ndash;
+- [Circular doubly linked list](/post/circular-doubly-linked-list.html) --
   same as the doubly linked list with two pointers to the next and previous
   node connected in a continuous circular manner.
 

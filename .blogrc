@@ -19,6 +19,7 @@ MARKDOWN_COMMAND="python -m markdown \
 	-x codehilite \
 	-x tables \
 	-x abbr \
+	-x smarty \
 	-x toc"
 
 # Commands to run after succesful build
