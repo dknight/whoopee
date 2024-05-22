@@ -78,9 +78,7 @@ function taglink() {
 cat << _EOF_
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    $(source ./layout/head.sh)
-  </head>
+  $(source ./layout/head.sh)
   <body>
     $(source ./layout/header.sh)
     <main>
@@ -99,7 +97,7 @@ cat << _EOF_
         </ul>
       </section>
     </main>
-    $(nav)
+    $nav
     $(source ./layout/footer.sh)
   </body>
 </html>

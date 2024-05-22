@@ -15,6 +15,7 @@ if [[ -z "$description" ]]; then
 fi
 
 cat << __HEAD__
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="$description">
@@ -29,5 +30,6 @@ cat << __HEAD__
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/css/styles.min.css?$TS">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+</head>
 __HEAD__
 

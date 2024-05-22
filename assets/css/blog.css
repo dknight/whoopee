@@ -191,6 +191,6 @@ table {
 
 img[src*='svg'] {
   /* width: 614px; */
-  height: auto; /* 372px; */
+  /* height: auto; */ /* 372px; */
   max-width: 100%;
 }
