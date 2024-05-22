@@ -75,7 +75,7 @@ Now we have 2 options:
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.lua" },
 	callback = function()
-		vim.cmd([[silent! --config-path={path-to-stylua.toml} !stylua %]])
+		vim.cmd([[silent! !stylua --config-path={path-to-stylua.toml} %]])
 	end
 })
 ```
@@ -87,8 +87,12 @@ Consider we use [lazy](https://github.com/folke/lazy.nvim) for NeoVim.
 ```lua
 {
 	"ckipp01/stylua-nvim",
-	config_file="path-to-stylua.toml",
-}
+	config = function()
+		require("stylua-nvim").setup({
+			config_file = stylua_cfg,
+		})
+	end,
+	},
 ```
 
 For VSCode it should everything much easier, all configurations should be
