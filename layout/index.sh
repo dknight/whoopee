@@ -82,27 +82,25 @@ cat << _EOF_
     $(source ./layout/head.sh)
   </head>
   <body>
-    <div class="wrap">
-      $(source ./layout/header.sh)
-      <main>
-      $(to_index)
-        <nav class="tags">
-          <strong>Tags:</strong>
-          $(taglink "lua")
-          $(taglink "beginner")
-          $(taglink "data-structures")
-          <!-- $(taglink "featured") -->
-        </nav>
-        <section class="articles">
-          <h1>$(tag2title "$TAGNAME")</h1>
-          <ul class="list-reset">
-            $(index_loop)
-          </ul>
-        </section>
-      </main>
-      $(nav)
-      $(source ./layout/footer.sh)
-    </div>
+    $(source ./layout/header.sh)
+    <main>
+    $(to_index)
+      <nav class="tags">
+        <strong>Tags:</strong>
+        $(taglink "lua")
+        $(taglink "beginner")
+        $(taglink "data-structures")
+        <!-- $(taglink "featured") -->
+      </nav>
+      <section class="articles">
+        <h1>$(tag2title "$TAGNAME")</h1>
+        <ul class="list-reset">
+          $(index_loop)
+        </ul>
+      </section>
+    </main>
+    $(nav)
+    $(source ./layout/footer.sh)
   </body>
 </html>
 _EOF_

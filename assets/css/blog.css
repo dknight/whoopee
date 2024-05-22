@@ -14,6 +14,8 @@ body {
   margin: 1.5rem;
   background: var(--color-bg);
   color: var(--color-text);
+  width: 60rem;
+  max-width: 100%;
 
   @media print {
     color: #000;
@@ -39,10 +41,6 @@ header {
 }
 footer {
   margin-top: 2rem;
-}
-.wrap {
-  width: 60rem;
-  max-width: 100%;
 }
 .tags {
   margin: 1rem 0 0;
