@@ -43,8 +43,9 @@ Lua 5.4.6 Copyright (C) 1994-2023 Lua.org, PUC-Rio
 Congratulations! Lua is already installed on your system and ready to use
 <kbd>&gt;</kbd> means that you can type any Lua command.
 
-> To exit Lua interpreter, press <kbd>Ctrl</kbd> +
-> <kbd>D</kbd> or call `os.exit()` function from `os` module.
+!!! danger
+    To exit Lua interpreter, press <kbd>Ctrl</kbd> +
+    <kbd>D</kbd> or call `os.exit()` function from `os` module.
 
 ## Lua installation
 
@@ -126,4 +127,3 @@ print("enter a number:")
 a = io.read("*n") -- read a number
 print(fact(a))
 ```
-

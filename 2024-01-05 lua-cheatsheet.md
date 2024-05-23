@@ -96,11 +96,12 @@ text=[==[
 ]==]
 ```
 
-> - You cannot use [escape sequences](#escape-sequences) in the string blocks.
-> - Do not misuse `=` signs in the blocks, these are needed really rarely,
->   unless you want to make something cryptic.
+!!! caution
+    - You cannot use [escape sequences](#escape-sequences) in the string blocks.
+    - Do not misuse `=` signs in the blocks, these are needed really rarely,
+      unless you want to make something cryptic.
 
-Same rules apply to block comments:
+The same rules apply to block comments:
 
 ```lua
 --[=====[
@@ -171,18 +172,19 @@ Arithmetic operators:
 2 ^ 5    -- 32
 ```
 
-> There is not `++` and `--` operators in Lua.
-  Use form of `x = x + 1`.
+!!! caution
+    There is no `++` and `--` operators in Lua. Use the form of `x = x + 1`.
 
 ## Control structures
 
 ## Conditionals
 
-> In Lua language _false_ values are: `nil` and `false` everything else
-> is interpreted as `true`.
->
-> Don't be confused with JavaScritpt where `0` is false. In Lua `0` is also.
-> `true`.
+!!! caution
+    In Lua language _false_ values are: `nil` and `false` everything else
+    is interpreted as `true`.
+    
+    Don't be confused with JavaScritpt where `0` is false. In Lua `0` is also
+    `true`.
 
 Logical operators:
 
@@ -294,7 +296,8 @@ end
 
 ## goto
 
-> Avoid using `goto`!
+!!! danger
+    Avoid `goto` as fire!
 
 About `goto` there is only one thing, **do not use `goto`** misusing of `goto`
 can lead to "spaghetti" and barely maintainable code. There is only a
@@ -333,7 +336,8 @@ in comparison with other languages.
   another `table`.
 - `#`: table length operator.
 
-> Remember! Tables in Lua start at index 1, not from 0.
+!!! caution
+    Remember! Tables in Lua start at index 1, not from 0.
 
 ```lua
 someTable = {} -- creates new empty table, aka table constructor

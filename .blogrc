@@ -20,6 +20,7 @@ MARKDOWN_COMMAND="python -m markdown \
 	-x tables \
 	-x abbr \
 	-x smarty \
+	-x admonition \
 	-x toc"
 
 # Commands to run after succesful build

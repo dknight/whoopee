@@ -376,8 +376,9 @@ print(dog.age, dog.kind, dog:makeSound(), cat:isPrototypeOf(Animal)) --> 3	"cani
 can be very handy and greatly improve the DX. Here is the example for `Animal`
 and `Cat` classes with annotations.
 
-> Notice that annotations, are just Lua's comments, but begin
-> with triple dash (`---`).
+!!! tip
+    Notice that annotations are just Lua's comments, but begin witha a triple
+		dash (`---`).
 
 ```lua
 ---@class Animal
