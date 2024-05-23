@@ -5,11 +5,8 @@ source "./layout/util.sh"
 cat << _EOF_
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    $(source ./layout/head.sh)
-  </head>
+  $(source ./layout/head.sh)
   <body>
-    <div class="wrap">
     $(source ./layout/header.sh)
     <main>
       $(to_index)
@@ -18,14 +15,12 @@ cat << _EOF_
         <time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">
           $(date -d "$POST_DATE" +"%B %d, %Y")
         </time>
-        $(echo "$POST_CONTENTS")
-
+        $$POST_CONTENTS
         $(feedback)
       </article>
       $(to_index)
     </main>
     $(source ./layout/footer.sh)
-    </div>
   </body>
 </html>
 _EOF_
