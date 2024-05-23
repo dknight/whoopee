@@ -15,7 +15,7 @@ cat << _EOF_
         <time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">
           $(date -d "$POST_DATE" +"%B %d, %Y")
         </time>
-        $$POST_CONTENTS
+        $POST_CONTENTS
         $(feedback)
       </article>
       $(to_index)
