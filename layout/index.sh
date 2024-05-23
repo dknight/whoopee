@@ -104,21 +104,36 @@ cat << _EOF_
 _EOF_
 
 # Sitemaps
+tags=""
 if [[ -z "$TAGNAME" ]]; then
   sitemap="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
   sitemap="$sitemap<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+
+  # Index
   sitemap="$sitemap\t<url>\n"
   sitemap="$sitemap\t\t<loc>${BLOG_HOST}</loc>\n"
-  sitemap="$sitemap\t\t<lastmod>$(date +"%Y-%m-%d")</lastmod>\n"
+  sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
   sitemap="$sitemap\t</url>\n"
+
+  # Posts
   for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )); do
     if [ "${array[idx]}" ]; then
       eval "${array[idx]}"
+      tags="$tags $TAGS"
       sitemap="$sitemap\t<url>\n"
       sitemap="$sitemap\t\t<loc>${BLOG_HOST}${POST_URL/"./.."/}</loc>\n"
       sitemap="$sitemap\t\t<lastmod>${POST_DATE//\//-}</lastmod>\n"
       sitemap="$sitemap\t</url>\n"
     fi
+  done
+
+  # Tags
+  tags=$(echo $tags | tr " " "\n" | sort -u)
+  for tag in $tags; do
+    sitemap="$sitemap\t<url>\n"
+    sitemap="$sitemap\t\t<loc>${BLOG_HOST}/tag/$tag/</loc>\n"
+    sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
+    sitemap="$sitemap\t</url>\n"
   done
   sitemap="$sitemap</urlset>"
 

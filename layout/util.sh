@@ -49,3 +49,4 @@ function is_skipped() {
 }
 
 TS=$(date +%s)
+DATE_NOW=$(date +"%Y-%m-%d")
