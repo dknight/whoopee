@@ -42,4 +42,3 @@ cat << _EOF_
 </channel>
 </rss>
 _EOF_
-

@@ -23,4 +23,3 @@ cat << __FOOTER__
     </p>
   </footer>
 __FOOTER__
-

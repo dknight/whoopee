@@ -32,4 +32,3 @@ cat << __HEAD__
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 </head>
 __HEAD__
-

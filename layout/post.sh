@@ -26,4 +26,3 @@ cat << _EOF_
 _EOF_
 
 # <!-- <div class="tags">$(for i in $TAGS; do echo "<a href=\"../tag/$i\">$i</a>"; done;)</div> -->
-
