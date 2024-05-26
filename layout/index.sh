@@ -52,13 +52,13 @@ function tag2title() {
       echo "Data structures and Algorithms"
     ;;
     lua)
-      echo "Lua general"
+      echo "Lua common"
     ;;
     featured)
       echo "Featured articles"
     ;;
     beginner)
-      echo "For beginners"
+      echo "For the beginners"
     ;;
     *)
       echo "All articles"
