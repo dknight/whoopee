@@ -9,8 +9,12 @@ cat << __FOOTER__
       blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
     </p>
     <p>
-      Any images on this website may be copied and redistributed under the
+      Any images on this website may be used, copied and redistributed under the
       <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
+    </p>
+    <p>
+      Any code on this website may be used, copied and redistributed under the
+      <a href="https://opensource.org/license/MIT">MIT</a> license.
     </p>
     <p>
       This website <strong>does not</strong> use cookies or any tracking techniques either.
