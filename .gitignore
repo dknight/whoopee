@@ -1,6 +1,0 @@
-.bloglock
-.vscode
-.idea
-.dist
-node_modules
-*.lua
