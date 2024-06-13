@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+BLOG_HOST="https://www.whoop.ee/luablog/"
+BLOG_TITLE="Whoopee"
+POSTS_PER_PAGE=1000000
+
+# This is your build directory
+DIST=".dist"
+
+# These directories are copied into your build director
+STATIC_DIRS="assets"
+
+# Use custom template files, see instructions at https://github.com/hmngwy/jenny#customization
+LAYOUT_DIR="layout"
+
+# Use a custom Markdown command
+MARKDOWN_COMMAND="python -m markdown \
+	-x fenced_code \
+	-x codehilite \
+	-x tables \
+	-x abbr \
+	-x smarty \
+	-x admonition \
+	-x toc"
+
+# Commands to run after succesful build
+function post_hook() {
+	cp -ru "./me" "$DIST"
+
+	echo "Bundling CSS..."
+	lightningcss --minify --bundle "$DIST/assets/css/styles.css" > "$DIST/assets/css/styles.min.css"
+	rm -f \
+		"$DIST/assets/css/styles.css" \
+		"$DIST/assets/css/blog.css" \
+		"$DIST/assets/css/borland.css" \
+		"$DIST/assets/css/native.css"
+	echo "Making robots.txt..."
+	mv "$DIST/assets/robots.txt" "$DIST/robots.txt"
+	echo "Making favicon..."
+	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
+}

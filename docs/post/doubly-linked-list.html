@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Doubly linked list is a data structure similar to a singly linked list. With one significant difference: it stores 2 pointers, one is pointing to the next node, the other to the previous node. Check implementation of doubly linked list in Lua programming language. ">
+<meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal">
+<meta name="author" content="Dmitri Smirnov">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.whoop.ee/luablog//post/doubly-linked-list.html">
+<meta property="og:image" content="https://www.whoop.ee/luablog//assets/img/lua-language.gif">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'">
+<title>Doubly linked list &mdash; Whoopee</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" href="/assets/css/styles.min.css?1718291238">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+</head>
+  <body>
+      <header>
+    <a href="/" class="logo">Whoopee</a>
+    <nav class="mainmenu">
+      <a href="/about.html">About</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+    <main>
+      <a href="/"><em>&larr; Back to the index page</em></a>
+      <article>
+        <h1>Doubly linked list</h1>
+        <time datetime="2024-05-16">
+          May 16, 2024
+        </time>
+        <!-- Description: Doubly linked list is a data structure similar to a singly linked list. With one significant difference: it stores 2 pointers, one is pointing to the next node, the other to the previous node. Check implementation of doubly linked list in Lua programming language. -->
+
+
+<p>Doubly linked list is a data structure similar to a
+<a href="/post/linked-list.html">singly linked list</a>. With one significant difference:
+it stores 2 pointers, one is pointing to the <strong>next node</strong>, other to the
+<strong>previous node</strong>. Such kind of list is useful when there is a need to traverse
+in both directions: backwards or forwards. Such kind of structures are very
+rarely used in Lua, but maybe someone finds this useful. Or learn it for
+educational purposes.</p>
+<p><img alt="Figure 01: Doubly linked list example" src="/assets/img/doubly-linkedlist01.svg" /></p>
+<h2 id="inserting-node">Inserting node</h2>
+<p>Lets assume that a new node is <strong>B</strong>.</p>
+<ol>
+<li>Create node <strong>B</strong>.</li>
+<li>Set the next pointer of <strong>A</strong> to <strong>B</strong>, <strong>A &rarr; B</strong>.</li>
+<li>Set the next pointer of <strong>B</strong> to <strong>C</strong>, <strong>B &rarr; C</strong>.</li>
+<li>Set the previous pointer of <strong>B</strong> to <strong>A</strong>, <strong>B &larr; A</strong>.</li>
+<li>Set the previous pointer of <strong>C</strong> to <strong>B</strong>, <strong>C &larr; B</strong>.</li>
+</ol>
+<p><img alt="Figure 2: Doubly linked list example insertion" src="/assets/img/doubly-linkedlist02.svg" /></p>
+<h2 id="removing-node">Removing node</h2>
+<p>Let&rsquo;s assume that the removed node is <strong>B</strong>.</p>
+<ol>
+<li>Set the next pointer of <strong>A</strong> to <strong>C</strong>, <strong>A &rarr; C</strong>.</li>
+<li>Set the previous pointer of <strong>C</strong> to <strong>A</strong>, <strong>C &larr; A</strong>.</li>
+<li>Nothing pointing to <strong>B</strong> anymore and it should be removed by the garbage
+  collector.</li>
+</ol>
+<p><img alt="Figure 3: Doubly linked list example removing" src="/assets/img/doubly-linkedlist03.svg" /></p>
+<p>Implementation of the most simple doubly linked list in Lua is extremely
+simple. There is a just table with value, previous and next pointers.</p>
+<p>Consider:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">list</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="kd">local</span> <span class="n">head</span><span class="p">,</span> <span class="n">tail</span>
+<span class="n">list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">head</span> <span class="o">=</span> <span class="n">list</span>
+
+<span class="n">list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">list</span><span class="p">,</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">list</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">list</span>
+
+<span class="n">list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">list</span><span class="p">,</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">list</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">list</span>
+<span class="n">tail</span> <span class="o">=</span> <span class="n">list</span>
+
+<span class="c1">-- traverse forwards</span>
+<span class="kd">local</span> <span class="n">l</span> <span class="o">=</span> <span class="n">head</span>
+<span class="kr">while</span> <span class="n">l</span> <span class="kr">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">next</span>
+<span class="kr">end</span>
+<span class="c1">-- output:</span>
+<span class="c1">-- &quot;A&quot;</span>
+<span class="c1">-- &quot;B&quot;</span>
+<span class="c1">-- &quot;C&quot;</span>
+
+<span class="c1">-- traverse backwards</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">tail</span>
+<span class="kr">while</span> <span class="n">l</span> <span class="kr">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">prev</span>
+<span class="kr">end</span>
+<span class="c1">-- output:</span>
+<span class="c1">-- &quot;C&quot;</span>
+<span class="c1">-- &quot;B&quot;</span>
+<span class="c1">-- &quot;A&quot;</span>
+</code></pre></div>
+
+<h2 id="doubly-linked-list-class">Doubly linked list class</h2>
+<p>Class implementation with <a href="/post/object-oriented-programming-in-lua.html">OOP principles</a> and
+<a href="/post/object-oriented-programming-in-lua.html#annotations">annotations</a>.</p>
+<p><code>DoublyinkedList.lua</code></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">---@class Node</span>
+<span class="c1">---@field value any</span>
+<span class="c1">---@field next Node | nil</span>
+<span class="c1">---@field prev Node | nil</span>
+<span class="kd">local</span> <span class="n">Node</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">Node</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Node</span>
+
+<span class="c1">---@param value any</span>
+<span class="c1">---@param next? Node | nil</span>
+<span class="c1">---@param prev? Node | nil</span>
+<span class="c1">---@return Node</span>
+<span class="kr">function</span> <span class="nc">Node</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">prev</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="nb">setmetatable</span><span class="p">({</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span>
+        <span class="nb">next</span> <span class="o">=</span> <span class="nb">next</span><span class="p">,</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span><span class="p">,</span>
+    <span class="p">},</span> <span class="n">self</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">---@class DoubleLinkedList</span>
+<span class="c1">---@field private _head Node | nil</span>
+<span class="c1">---@field private _tail Node | nil</span>
+<span class="c1">---@field private _size number</span>
+<span class="kd">local</span> <span class="n">DoubleLinkedList</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">DoubleLinkedList</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">DoubleLinkedList</span>
+
+<span class="c1">---@return DoubleLinkedList</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">new</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">_head</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="n">_tail</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="kr">return</span> <span class="nb">setmetatable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">---@return Node | nil</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">head</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_head</span>
+<span class="kr">end</span>
+
+<span class="c1">---@return Node | nil</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">tail</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_tail</span>
+<span class="kr">end</span>
+
+<span class="c1">---@return number</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">size</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span>
+<span class="kr">end</span>
+
+<span class="c1">---@return boolean</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">isEmpty</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="kr">end</span>
+
+<span class="c1">---Prepends the node with a value to the beginning of the list.</span>
+<span class="c1">---@param value any</span>
+<span class="c1">---@return Node</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">prepend</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">_head</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_head</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">else</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">self</span><span class="p">:</span><span class="n">insertBefore</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">_head</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="kr">return</span> <span class="n">node</span>
+<span class="kr">end</span>
+
+<span class="c1">---Appends the node with a value to the end of the list.</span>
+<span class="c1">---@param value any</span>
+<span class="c1">---@return Node</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">_tail</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">self</span><span class="p">:</span><span class="n">prepend</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">else</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">self</span><span class="p">:</span><span class="n">insertAfter</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">_tail</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="kr">return</span> <span class="n">node</span>
+<span class="kr">end</span>
+
+<span class="c1">---Inserts a new node with value after given node.</span>
+<span class="c1">---@param after Node</span>
+<span class="c1">---@param value any</span>
+<span class="c1">---@return Node</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">insertAfter</span><span class="p">(</span><span class="n">after</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">after</span>
+    <span class="kr">if</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">else</span>
+        <span class="n">node</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">after</span><span class="p">.</span><span class="n">next</span>
+        <span class="n">after</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">end</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">after</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">return</span> <span class="n">node</span>
+<span class="kr">end</span>
+
+<span class="c1">---Inserts a new node with value before given node.</span>
+<span class="c1">---@param before Node</span>
+<span class="c1">---@param value any</span>
+<span class="c1">---@return Node</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">insertBefore</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">before</span>
+    <span class="kr">if</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_head</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">else</span>
+        <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">before</span><span class="p">.</span><span class="n">prev</span>
+        <span class="n">before</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">end</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">before</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span>
+    <span class="kr">return</span> <span class="n">node</span>
+<span class="kr">end</span>
+
+<span class="c1">---Removes and returns a node after given node. If given node not</span>
+<span class="c1">---found nil is returned.</span>
+<span class="c1">---@param node Node nil</span>
+<span class="c1">---@return Node | nil</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">removeNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">node</span> <span class="kr">then</span>
+        <span class="kr">return</span> <span class="kc">nil</span>
+    <span class="kr">end</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="kr">if</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_head</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+    <span class="kr">else</span>
+        <span class="n">node</span><span class="p">.</span><span class="n">prev</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
+    <span class="kr">else</span>
+        <span class="n">node</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">node</span>
+<span class="kr">end</span>
+
+<span class="c1">---Removes and returns a node after given node. If given node not found nil is</span>
+<span class="c1">---returned.</span>
+<span class="c1">---@param node Node</span>
+<span class="c1">---@return Node | nil</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">removeAfter</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+    <span class="n">node</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">tmp</span> <span class="ow">and</span> <span class="n">tmp</span><span class="p">.</span><span class="n">next</span>
+    <span class="kr">return</span> <span class="n">tmp</span>
+<span class="kr">end</span>
+
+<span class="c1">---Chekcs if the list contins a give value.</span>
+<span class="c1">---@param value any</span>
+<span class="c1">---@return boolean</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">contains</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">:</span><span class="n">findByValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">~=</span> <span class="kc">nil</span>
+<span class="kr">end</span>
+
+<span class="c1">---Finds the first occurrence of the value.</span>
+<span class="c1">---@param value any</span>
+<span class="c1">---@return Node | nil</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">findByValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_head</span>
+    <span class="kr">while</span> <span class="n">node</span> <span class="kr">do</span>
+        <span class="kr">if</span> <span class="n">node</span><span class="p">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span> <span class="kr">then</span>
+            <span class="kr">return</span> <span class="n">node</span>
+        <span class="kr">end</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="kc">nil</span>
+<span class="kr">end</span>
+
+<span class="c1">---Traversal of a linked list in forwards direction.</span>
+<span class="c1">---@param fn fun(node: Node)</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">traverseForwards</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_head</span>
+    <span class="kr">while</span> <span class="n">node</span> <span class="kr">do</span>
+        <span class="n">fn</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">next</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="c1">--</span>
+<span class="c1">---Traversal of a linked list in backwards direction.</span>
+<span class="c1">---@param fn fun(node: Node)</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">traverseBackwards</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_tail</span>
+    <span class="kr">while</span> <span class="n">node</span> <span class="kr">do</span>
+        <span class="n">fn</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">prev</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">---@param sep? string</span>
+<span class="c1">---@return string</span>
+<span class="kr">function</span> <span class="nc">DoubleLinkedList</span><span class="p">:</span><span class="nf">toString</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span>
+    <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span> <span class="ow">or</span> <span class="s2">&quot; -&gt; &quot;</span>
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">self</span><span class="p">:</span><span class="n">traverseForwards</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">value</span>
+    <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">DoubleLinkedList</span>
+</code></pre></div>
+
+<h3 id="usage-of-doublylinkedlist-class">Usage of DoublyLinkedList class</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">dll</span> <span class="o">=</span> <span class="n">DoubleLinkedList</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+<span class="n">dll</span><span class="p">:</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">dll</span><span class="p">:</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">dll</span><span class="p">:</span><span class="n">prepend</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">dll</span><span class="p">:</span><span class="n">prepend</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dll</span><span class="p">:</span><span class="n">toString</span><span class="p">())</span> <span class="c1">--&gt; &quot;D -&gt; C -&gt; A -&gt; B&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dll</span><span class="p">:</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">),</span> <span class="n">dll</span><span class="p">:</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">))</span> <span class="c1">--&gt; true    false</span>
+<span class="kd">local</span> <span class="n">found</span> <span class="o">=</span> <span class="n">dll</span><span class="p">:</span><span class="n">findByValue</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="kr">if</span> <span class="n">found</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dll</span><span class="p">:</span><span class="n">removeNode</span><span class="p">(</span><span class="n">found</span><span class="p">).</span><span class="n">value</span><span class="p">)</span> <span class="c1">--&gt; &quot;A&quot;&quot;</span>
+<span class="kr">end</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dll</span><span class="p">:</span><span class="n">toString</span><span class="p">())</span> <span class="c1">--&gt; &quot;D -&gt; C -&gt;  B&quot;</span>
+</code></pre></div>
+
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia: Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Doubly_linked_list">Wikipedia: Doubly linked list</a></li>
+<li><a href="https://www.lua.org/pil/11.3.html">Programming in Lua: Linked lists</a></li>
+</ul>
+        <h2>Feedback</h2>
+<p>
+For feedback, please check the <a href="/about.html#contacts">contacts</a> section.
+Before writing, please specify where you came from and who you are. Sometimes spammers go insane.
+Thank you in advance for your understanding.
+</p>
+      </article>
+      <a href="/"><em>&larr; Back to the index page</em></a>
+    </main>
+      <footer>
+    <hr>
+    <p>
+      &copy; 2022&mdash;2024 <a href="/about.html">xdknight</a>
+      Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
+      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
+    </p>
+    <p>
+      Any images on this website may be used, copied and redistributed under the
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
+    </p>
+    <p>
+      Any code on this website may be used, copied and redistributed under the
+      <a href="https://opensource.org/license/MIT">MIT</a> license.
+    </p>
+    <p>
+      This website <strong>does not</strong> use cookies or any tracking techniques either.
+      Also, this page is fully accessible, responsive, and readable on any
+      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
+    </p>
+  </footer>
+  </body>
+</html>

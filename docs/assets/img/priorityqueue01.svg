@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="614.16602"
+   height="372.23001"
+   viewBox="0 0 162.49809 98.48586"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="priorityqueue01.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title38">priority queue</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:clip-to-page="false"
+     inkscape:zoom="1.281475"
+     inkscape:cx="417.48767"
+     inkscape:cy="276.63435"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     labelstyle="default"
+     shape-rendering="auto"
+     showgrid="false">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="162.49809"
+       height="98.485863"
+       id="page38"
+       margin="6.6145835"
+       bleed="0" />
+    <inkscape:grid
+       id="grid3"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458332"
+       spacingy="0.26458334"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <color-profile
+       name="Blue"
+       xlink:href="file:///usr/share/color/icc/colord/Bluish.icc"
+       id="color-profile2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6-1-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="151.59375"
+       height="69.811035"
+       id="rect2-29" />
+    <marker
+       style="overflow:visible"
+       id="Triangle-8"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-4" />
+    </marker>
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="166.58895"
+       height="60.762062"
+       id="rect2-29-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-9-0" />
+    <marker
+       style="overflow:visible"
+       id="Triangle-8-9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-4-4" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.109664,-5.2669141)">
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:2.00163"
+       id="rect3"
+       width="162.49809"
+       height="98.382408"
+       x="21.296753"
+       y="5.0798254"
+       sodipodi:insensitive="true" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,119.98335,-64.33857)"
+       id="text1-1"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-29);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan2">remove element
+</tspan><tspan
+         x="24.769531"
+         y="389.33398"
+         id="tspan3">with highest </tspan><tspan
+         x="24.769531"
+         y="409.33398"
+         id="tspan4">priority (4)</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,120.53453,-69.050404)"
+       id="text1-3"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-9);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan6"><tspan
+           style="fill:#d40000"
+           id="tspan5">pull</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,99.514188,-8.7695148)"
+       id="text1-1-3"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-29-1);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan7">(always to the end)</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,127.94991,-13.503839)"
+       id="text1-3-0"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-9-0);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="369.33398"
+         id="tspan9"><tspan
+           style="fill:#008000"
+           id="tspan8">insert</tspan></tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:1.14845"
+       id="rect37-9-8-3-5-5"
+       width="22.823626"
+       height="14.13845"
+       x="53.223694"
+       y="47.090046"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="60.959499"
+       y="59.580769"
+       id="text37-3-4-2-4-4"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="60.959499"
+         y="59.580769">B</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:1.14845"
+       id="rect37-9-8-3-5-5-8"
+       width="22.823626"
+       height="14.13845"
+       x="28.334967"
+       y="47.090046"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="36.131912"
+       y="59.580769"
+       id="text37-3-4-2-4-4-7"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="36.131912"
+         y="59.580769">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="31.71442"
+       y="50.659286"
+       id="text37-3-4-2-4-4-7-5"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3"
+         style="font-size:3.52778px;fill:#f9f9f9;stroke-width:0.264583"
+         x="31.71442"
+         y="50.659286">Priority 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="56.699623"
+       y="50.659286"
+       id="text37-3-4-2-4-4-7-5-9"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-1"
+         style="font-size:3.52778px;fill:#f9f9f9;stroke-width:0.264583"
+         x="56.699623"
+         y="50.659286">Priority 1</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:1.14845"
+       id="rect37-9-8-3-5-5-3"
+       width="22.823626"
+       height="14.13845"
+       x="150.29892"
+       y="79.118141"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="159.09351"
+       y="91.746643"
+       id="text37-3-4-2-4-4-75"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-92"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="159.09351"
+         y="91.746643">F</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:1.14845"
+       id="rect37-9-8-3-5-5-5"
+       width="22.823626"
+       height="14.13845"
+       x="77.308334"
+       y="47.090046"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="80.747017"
+       y="50.659286"
+       id="text37-3-4-2-4-4-7-5-9-6"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-1-1"
+         style="font-size:3.52778px;fill:#f9f9f9;stroke-width:0.264583"
+         x="80.747017"
+         y="50.659286">Priority 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="85.07666"
+       y="59.5756"
+       id="text37-3-4-2-4-4-3"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-5"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="85.07666"
+         y="59.5756">C</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:1.14845"
+       id="rect37-9-8-3-5-5-1"
+       width="22.823626"
+       height="14.13845"
+       x="101.13201"
+       y="25.130571"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="105.665"
+       y="28.588053"
+       id="text37-3-4-2-4-4-7-5-9-6-2"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-1-1-0"
+         style="font-size:3.52778px;fill:#f9f9f9;stroke-width:0.264583"
+         x="105.665"
+         y="28.588053">Priority 4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="109.41845"
+       y="37.509537"
+       id="text37-3-4-2-4-4-2"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-7"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="109.41845"
+         y="37.509537">D</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:1.14845"
+       id="rect37-9-8-3-5-5-6"
+       width="22.823626"
+       height="14.13845"
+       x="124.9335"
+       y="47.090046"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-dasharray:1.19062, 0.396875;stroke-dashoffset:0"
+       id="rect37-9-8-3-5-5-6-3"
+       width="22.823626"
+       height="14.13845"
+       x="101.17741"
+       y="47.090046"
+       rx="1.8820783"
+       ry="1.8864378" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="129.14999"
+       y="50.659286"
+       id="text37-3-4-2-4-4-7-5-9-6-2-9"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-1-1-0-7"
+         style="font-size:3.52778px;fill:#f9f9f9;stroke-width:0.264583"
+         x="129.14999"
+         y="50.659286">Priority 3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="154.37802"
+       y="82.5597"
+       id="text37-3-4-2-4-4-7-5-9-6-2-2"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-1-1-0-9"
+         style="font-size:3.52778px;fill:#f9f9f9;stroke-width:0.264583"
+         x="154.37802"
+         y="82.5597">Priority 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="133.66051"
+       y="59.580769"
+       id="text37-3-4-2-4-4-0"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-6"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="133.66051"
+         y="59.580769">E</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:1.5875, 0.396875;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Triangle-8)"
+       d="m 160.67107,77.649757 c 0,0 0.007,-16.146729 -10.70821,-22.6554"
+       id="path1-0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:1.5875, 0.396875;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Triangle-8-9)"
+       d="m 112.57779,47.295104 0.0128,-6.56012"
+       id="path1-0-8"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>priority queue</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:language>English</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>priority queue</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>Illustration of priority queue data structure</dc:description>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

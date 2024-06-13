@@ -1,8 +1,0 @@
-[submodule "css-modern-dialog"]
-	path = css-modern-dialog
-	url = https://github.com/dknight/css-modern-dialog.git
-	branch = main
-[submodule "luablog"]
-	path = luablog
-	url = https://github.com/dknight/luablog.git
-	branch = main
