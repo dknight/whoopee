@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BLOG_HOST="https://www.whoop.ee/luablog/"
+BLOG_HOST="https://whoop.ee/"
 BLOG_TITLE="Whoopee"
 POSTS_PER_PAGE=1000000
 
