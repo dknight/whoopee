@@ -3,7 +3,7 @@
 source "./layout/util.sh"
 
 if [[ -z "$POST_TITLE" ]]; then
-  title="$BLOG_TITLE &mdash; Blog about Lua programming language"
+  title="$BLOG_TITLE &mdash; Blog about Lua, web-development, etc."
 else
   title="$POST_TITLE &mdash; $BLOG_TITLE"
 fi
