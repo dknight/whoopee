@@ -60,6 +60,9 @@ function tag2title() {
     beginner)
       echo "For the beginners"
     ;;
+    misc)
+      echo "Miscellaneous"
+    ;;
     *)
       echo "All articles"
     ;;
