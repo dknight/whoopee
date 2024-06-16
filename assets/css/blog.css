@@ -14,11 +14,13 @@
 
 body {
   font: normal 16px/1.5 Helvetica, Arial, sans-serif;
-  margin: 1.5rem;
+  padding: 1rem;
+  margin: 0;
+  box-sizing: border-box;
   background: var(--color-bg);
   color: var(--color-text);
-  width: 60rem;
-  max-width: 100%;
+  max-width: 60rem;
+  width: 100%;
 
   @media print {
     color: #000;
@@ -220,7 +222,7 @@ table {
 /* max-width: 100%; */
 /* } */
 
-img[src*='svg'] {
+img {
   /* width: 614px; */
   /* height: auto; */ /* 372px; */
   max-width: 100%;
