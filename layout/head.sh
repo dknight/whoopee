@@ -28,7 +28,7 @@ cat << __HEAD__
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'">
 <title>$title</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/styles.min.css?$TS">
+<link rel="stylesheet" href="/assets/css/styles.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 </head>
 __HEAD__
