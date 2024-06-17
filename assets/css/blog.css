@@ -226,4 +226,5 @@ img {
   /* width: 614px; */
   /* height: auto; */ /* 372px; */
   max-width: 100%;
+  display: block;
 }
