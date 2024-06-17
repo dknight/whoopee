@@ -94,6 +94,7 @@ cat << _EOF_
         $(taglink "lua")
         $(taglink "beginner")
         $(taglink "data-structures")
+        $(taglink "web")
         $(taglink "misc")
         <!-- $(taglink "featured") -->
       </nav>
