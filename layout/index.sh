@@ -63,8 +63,11 @@ function tag2title() {
     misc)
       echo "Miscellaneous"
     ;;
+    web)
+      echo "WebDev"
+    ;;
     *)
-      echo "All articles"
+      echo "Timeline"
     ;;
   esac
 }
