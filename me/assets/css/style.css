@@ -88,6 +88,25 @@ a {
   }
 }
 
+.back-to-blog {
+  background: transparent url('../img/arrow-back-left.svg') no-repeat 0.5rem 0 /
+    2rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font: 100 1.8rem/1.2 'Raleway', Arial, sans-serif;
+  color: var(--color-text);
+  text-decoration: none;
+  padding-left: 3rem;
+  transition: background-position 0.2s ease-in;
+  animation: fade-in 0.2s 1.4s 1 ease-in forwards;
+  opacity: 0;
+}
+.back-to-blog:hover {
+  text-decoration: underline;
+  background-position: 0.2rem 0;
+}
+
 /* ------- Gopher ----------- */
 .gopher {
   position: absolute;
@@ -103,7 +122,6 @@ a {
     scale: 0.5;
   }
 }
-
 @keyframes gopher {
   to {
     transform: translate(70%, 30%) rotate(-30deg);
