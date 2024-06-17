@@ -9,7 +9,7 @@ as possible. The main rules for the project are:
 
 - Keep everything as minimal as possible.
 - Be on the edge, use the latest browser/prototyped technologies.
-- The maximum gzipped bundle size is 2 kilobytes.
+- The maximum gzipped bundle size is about 2 kilobytes.
 - No backward compatibility is needed.
 - Polyfills are not allowed.
 
