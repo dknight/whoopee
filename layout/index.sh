@@ -123,6 +123,24 @@ if [[ -z "$TAGNAME" ]]; then
   sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
   sitemap="$sitemap\t</url>\n"
 
+  # About
+  sitemap="$sitemap\t<url>\n"
+  sitemap="$sitemap\t\t<loc>${BLOG_HOST}/me/</loc>\n"
+  sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
+  sitemap="$sitemap\t</url>\n"
+
+  # Puff
+  sitemap="$sitemap\t<url>\n"
+  sitemap="$sitemap\t\t<loc>${BLOG_HOST}/puff/</loc>\n"
+  sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
+  sitemap="$sitemap\t</url>\n"
+
+  # Dialog
+  sitemap="$sitemap\t<url>\n"
+  sitemap="$sitemap\t\t<loc>${BLOG_HOST}/css-modern-dialog/</loc>\n"
+  sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
+  sitemap="$sitemap\t</url>\n"
+
   # Posts
   for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )); do
     if [ "${array[idx]}" ]; then
