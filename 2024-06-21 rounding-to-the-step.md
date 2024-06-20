@@ -1,6 +1,6 @@
 <!-- Description: Rounding integers to a given step is a very common task, sometimes asked at technical interviews and very often such a task appears in daily jobs. -->
 
-tags: lua
+tags: lua beginner algorithms
 
 # Rounding a number to step
 

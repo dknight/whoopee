@@ -63,6 +63,9 @@ function tag2title() {
     misc)
       echo "Miscellaneous"
     ;;
+    algorithms)
+      echo "Algorithms"
+    ;;
     web)
       echo "WebDev"
     ;;
@@ -94,6 +97,7 @@ cat << _EOF_
         $(taglink "lua")
         $(taglink "beginner")
         $(taglink "data-structures")
+        $(taglink "algorithms")
         $(taglink "web")
         $(taglink "misc")
         <!-- $(taglink "featured") -->
