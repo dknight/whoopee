@@ -13,20 +13,20 @@ technical interviews and very often such a task appears in daily jobs.
 
 1. (optional) Subtract `offset` from `n`;
   ```text
-    x = n - offset    
+    x = n - offset
   ```
 2. divide *step #1 value* by `step`;
   ```text
-    x = x / step    
+    x = x / step
   ```
 3. (optional) to make it work like a round function, then add to the *step
   #3 value* `0.5`; 
   ```text
-    x = x + 0.5    
+    x = x + 0.5
   ```
 4. apply `math.ceil` function to *step #3 value*, 
   ```text
-    x = ceil(x)    
+    x = ceil(x)
   ```
 5. multiply *step #2 value* by `step`;
   ```text
