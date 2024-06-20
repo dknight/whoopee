@@ -4,7 +4,7 @@ tags: lua
 
 # Rounding a number to step
 
-Rounding integers to a given step is a very common task, sometimes asked at
+Rounding integers to a given step is a very common task, often it is asked at
 technical interviews and very often such a task appears in daily jobs.
 
 ## Algorithm
