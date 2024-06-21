@@ -1,0 +1,14 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  background: var(--c-surf);
+  display: none;
+}
+
+.dropdown.open > .dropdown-menu {
+  display: block;
+  position: absolute;
+  transform: translateY(7px);
+}

@@ -1,0 +1,75 @@
+/**
+ * Text
+ */
+.primary {
+  color: var(--c-pri);
+}
+.secondary {
+  color: var(--c-sec);
+}
+.tertiary {
+  color: var(--c-tri);
+}
+.text {
+  color: var(--c-txt);
+}
+.dimmed {
+  color: var(--c-dim);
+  font-size: 90%;
+}
+.invert {
+  color: var(--c-bg);
+}
+.error {
+  color: var(--c-err);
+}
+.success {
+  color: var(--c-suc);
+}
+
+/**
+ * Backgrounds
+ */
+.bg-primary {
+  background-color: var(--c-pri);
+}
+.bg-secondary {
+  background-color: var(--c-sec);
+}
+.bg-tertiary {
+  background-color: var(--c-tri);
+}
+.bg-text {
+  background-color: var(--c-txt);
+}
+.bg-error {
+  background-color: var(--c-err);
+}
+.bg-success {
+  background-color: var(--c-suc);
+}
+
+/**
+ * Borders
+ */
+.b-primary {
+  border-color: var(--c-pri);
+}
+.b-secondary {
+  border-color: var(--c-sec);
+}
+.b-tertiary {
+  border-color: var(--c-tri);
+}
+.b-text {
+  border-color: var(--c-txt);
+}
+.b-invert {
+  border-color: var(--c-bg);
+}
+.b-error {
+  border-color: var(--c-err);
+}
+.b-success {
+  border-color: var(--c-suc);
+}

@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puff css</title>
+    <link rel=" stylesheet" href="../dist/puff.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="module" src="assets/js/puff-theme-switcher.js"></script>
+    <script type="module" src="assets/js/puff-doc-previewer.js"></script>
+    <script type="module" src="assets/js/puff-sidebar.js"></script>
+  </head>
+  <body>
+    <aside class="doc-sidebar p3" id="sidebar">
+      <div class="grid align-center g1 logo">
+        <img src="assets/img/feather.png" alt="puff feather" width="50">
+        <h3 lang="et">puff</h3>
+        <puff-theme-switcher></puff-theme-switcher>
+      </div>
+      <nav>
+        <h4 class="mt1 mb1">Docs</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#install">Install</a></li>
+        </ul>
+
+        <h4 class="mt1 mb1">Layout</h4>
+        <ul>
+          <li><a href="#wrapper">Wrapper</a></li>
+          <li><a href="#grid">Grid</a></li>
+          <li><a href="#breakpoints">Breakpoints</a></li>
+        </ul>
+
+        <h4 class="mt1 mb1">Tokens</h4>
+        <ul>
+          <li><a href="#spacings">Spacing</a></li>
+          <li><a href="#tyography">Typography</a>
+            <ul>
+              <li><a href="#headings">Headings</a></li>
+              <li><a href="#text">Text</a></li>
+              <li><a href="#text-size">Text Size</a></li>
+              <li><a href="#text-alignment">Text alignment</a></li>
+              <li><a href="#text-wrap">Text wrap/nowrap</a></li>
+            </ul>
+          </li>
+          <li><a href="#colors">Colors</a>
+            <ul>
+              <li><a href="#text-colors">Text colors</a></li>
+              <li><a href="#background-colors">Background colors</a></li>
+              <li><a href="#border-colors">Border colors</a></li>
+            </ul>
+          </li>
+          <li><a href="#layout-tokens">Layout</a></li>
+        </ul>
+
+        <h4 class="mt1 mb1">Components</h4>
+        <ul>
+          <li><a href="#alerts">Alerts</a></li>
+          <li><a href="#badges">Badges</a></li>
+          <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#cards">Cards</a></li>
+          <li><a href="#details">Details</a></li>
+          <li><a href="#dialog">Dialog</a></li>
+          <li><a href="#dropdown-menu">Dropdown menu</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#navbar">Navbar</a></li>
+          <li><a href="#ruler">Ruler</a></li>
+          <li><a href="#tables">Tables</a></li>
+          <li><a href="#hero">Hero</a></li>
+        </ul>
+
+        <h4 class="mt1 mb1">Customize</h4>
+        <ul>
+          <li><a href="#customize-props">Custom properties</a></li>
+          <li><a href="#customize-colors">Colors properties</a></li>
+        </ul>
+      </nav>
+      <button class="burger" onclick="window.location.hash = '#sidebar'">
+        <ins></ins>
+        <ins></ins>
+        <ins></ins>
+      </button>
+      <hr class="mt2 mb2">
+    </aside>
+
+    <main class="wrap">
+      <h2 id="about">About</h2>
+      <p>
+        <em>puff</em> is a micro full-featured CSS framework for quick UI
+        prototyping.
+        <em>puff</em>
+        is based on design <a href="#tokens">tokens</a>. Combining just several tokens gives an almost limitless
+        number
+        of UI combinations.
+      </p>
+
+      <h2 id="features">Features</h2>
+      <ul class="reset">
+        <li>🪶 Lightweight ~2kb (minified + gzipped)</li>
+        <li>🚀 Easy to install and launch</li>
+        <li>🚂 No dependencies</li>
+        <li>🌐 Supports all modern browsers</li>
+        <li>📐 Classic <a href="#grid">12-column grid</a></li>
+        <li>🧱 Design <a href="#tokens">tokens</a> based</li>
+        <li>🔩 <a href="#customize">Customize</a> with CSS custom properties</li>
+        <li>🌙 Dark them included</li>
+        <li>💬 <a href="#dialog">Dialog</a> and <a href="#dropdown-menu">dropdown</a> out-of-box</li>
+        <li>🟩 Valid semantics</li>
+        <li>👨‍👩‍👦‍👦 Accessible</li>
+        <li>🖨️ Sustainable printing</li>
+      </ul>
+
+      <h2 id="install">Install</h2>
+      <p>Installation is straightforward; just include the CSS file into your HTML page in any possible way.</p>
+      <pre><code>&lt;link rel="stylesheet" href="puff.min.css"></code></pre>
+
+      <p>or install it from <a href="https://www.npmjs.com/package/puff">NPM</a>.</p>
+      <pre><code>npm install @dknight/puff</code></pre>
+
+      <h2>Layout</h2>
+      <h3 id="wrapper">Wrapper</h3>
+      <p>
+        The wrapper centers the content and adds padding to the sides. Usually, a page has one main
+        wrapper that wraps everything, but you are not limited to using multiple wrappers.
+      </p>
+      <puff-doc-previewer>
+        <div class="wrap">
+          Wrapper example
+        </div>
+      </puff-doc-previewer>
+
+      <h3 id="grid">Grid</h3>
+      <p>
+        Classic 12-column layout based on Flexbox. Each grid has a size of 1/12 of
+        the width of the container. If no size is specified, then the grid takes all
+        remaining space. On small screens, grids collapse into column layout.
+      </p>
+      <div class="doc-grid">
+        <puff-doc-previewer>
+          <div class="grid g1">
+            <div class="1">1 column</div>
+            <div class="11">11 column</div>
+            <div class="2">2 column</div>
+            <div class="10">10 column</div>
+            <div class="3">3 column</div>
+            <div class="9">9 column</div>
+            <div class="4">4 column</div>
+            <div class="8">8 column</div>
+            <div class="5">5 column</div>
+            <div class="7">7 column</div>
+            <div class="6">6 column</div>
+            <div class="6">6 column</div>
+            <div class="12">
+              Lorem ipsum dolor sit amet, consectetur.
+            </div>
+            <div class="12">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Similique, molestiae! Natus ipsum id sit dicta,
+              rem expedita deserunt voluptates. Amet voluptas officia atque
+              laborum nam architecto distinctio magnam! Maiores, cum?
+            </div>
+          </div>
+        </puff-doc-previewer>
+      </div>
+
+      <h2 id="breakpoints">Breakpoints</h2>
+      <p>There is only one breakpoint, which equals the default>.</p>
+      <pre><code>@media screen and (max-width: 36rem) {
+  ...
+}</code></pre>
+
+      <h2 id="tokens">Tokens</h2>
+      <p>
+        Tokens are very small parts of the design. Combining tokens helps achieve a huge amount of design variation.
+      </p>
+      <h3 id="spacings">Spacing tokens</h3>
+      <p>
+        These make it possible to make margins and paddings. There are 4 stops for using the margin.
+        By default, each step has a size <strong>0.5rem</strong>.
+      </p>
+
+      <h4>Examples</h4>
+      <div class="border mb1">
+        <div class="mt2 mb2">
+          mt2 mb2 (margin-top: 2 * 0.5rem; margin-bottom: 2 * 0.5rem)
+        </div>
+      </div>
+
+      <div class="border mb1">
+        <div class="pv2 ph4">
+          pv2 ph4 (vertical padding: 2 * 0.5rem; horizontal padding: 4 * 0.5rem)
+        </div>
+      </div>
+
+      <div class="border mb1">
+        <div class="m4 p1">
+          m4 p1 (margin: 4 * 0.5rem; padding: 1 * 0.5rem)
+        </div>
+      </div>
+
+      <div class="border mb1">
+        <div class="p0 m0">
+          p0 - resets padding to 0; m0 - resets margins to 0.
+        </div>
+      </div>
+
+      <h4>List of spacing tokens</h4>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Classes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Top margins</td>
+              <td>mt1, mt2, mt3, mt4</td>
+            </tr>
+            <tr>
+              <td>Bottom margins</td>
+              <td>mb1, mb2, mb3, mb4</td>
+            </tr>
+            <tr>
+              <td>All margins</td>
+              <td>m0, m1, m2, m3, m4</td>
+            </tr>
+            <tr>
+              <td>Vertical padding</td>
+              <td>pv1, pv2, pv3, pv4</td>
+            </tr>
+            <tr>
+              <td>Horizontal padding</td>
+              <td>ph1, ph2, ph3, ph4</td>
+            </tr>
+            <tr>
+              <td>All padding</td>
+              <td>p0, p1, p2, p3, p4</td>
+            </tr>
+            <tr>
+              <td>Gaps</td>
+              <td>g0, g1, g2, g3, g4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="tyography">Typography</h3>
+      <h3 id="headings">Headings</h3>
+      <puff-doc-previewer>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </puff-doc-previewer>
+
+      <h3 id="text">Text</h3>
+      <puff-doc-previewer>
+        <p>
+          Common paragraph with text. The default font family is <a href="#!">sans-serif</a> and
+          can be overridden with <code>--ff</code> CSS custom property.
+          Examples of <b>bold text</b>, <em>italics</em> and <u>underline</u> text.
+          You can <mark>mark</mark> important things.
+        </p>
+        <p class="dimmed">
+          Dimmed text used for less imporant information or disclaimers.
+        </p>
+      </puff-doc-previewer>
+
+      <h3 id="text-size">Text size</h3>
+      <p>
+        The size of the text is <strong>16px</strong> which is the standard for all modern browsers.
+        The line height is a bit higher and equals <strong>1.6</strong>. There are some text
+        size tokens: xs, s, l, xl, xxl (plus one more xxxl which is very huge and useful only for the
+        <a href="#hero">hero</a> component).
+      </p>
+      <puff-doc-previewer>
+        <p class="xs">Extra-small</p>
+        <p class="s">Small</p>
+        <p class="">Normal</p>
+        <p class="l">Large</p>
+        <p class="xl">Extra-large</p>
+        <p class="xxl">Super extra-large</p>
+        <p>* Triple X for <code>.xxxl</code> <a href="#hero">hero component</a> only.</p>
+      </puff-doc-previewer>
+
+      <h3 id="text-alignment">Text alignment</h3>
+      <puff-doc-previewer>
+        <p class="border p1 ts">
+          ts - text align start (left)
+        </p>
+        <p class="border p1 te">
+          te - text align end (right)
+        </p>
+        <p class="border p1 tc">
+          tc - text align center
+        </p>
+      </puff-doc-previewer>
+
+      <h3 id="text-wrap">Text wrap/nowrap</h3>
+      <puff-doc-previewer>
+        <p class="nowrap">All words are on line line, useful for headers, brand.</p>
+      </puff-doc-previewer>
+
+      <h3 id="colors">Colors</h3>
+      <h4 id="text-colors">Text colors</h4>
+      <puff-doc-previewer>
+        <span class="p1 text">text</span>
+        <span class="p1 dimmed">dimmed text</span>
+        <span class="p1 primary">primary</span>
+        <span class="p1 secondary">secondary</span>
+        <span class="p1 tertiary">tertiary</span>
+        <span class="p1 error">error</span>
+        <span class="p1 success">success</span>
+        <span class="p1 invert bg-text">invert</span>
+      </puff-doc-previewer>
+
+      <h4 id="background-colors">Background colors</h4>
+      <puff-doc-previewer>
+        <div class="p1 invert bg-text mb1 round">bg-text</div>
+        <div class="p1 invert bg-primary mb1 round">bg-primary</div>
+        <div class="p1 invert bg-secondary mb1 round">bg-secondary</div>
+        <div class="p1 invert bg-tertiary mb1 round">bg-tertiary</div>
+        <div class="p1 invert bg-error mb1 round">bg-error</div>
+        <div class="p1 invert bg-success mb1 round">bg-success</div>
+        <div class="p1 text bg-invert mb1 round">bg-invert</div>
+      </puff-doc-previewer>
+
+      <h4 id="border-colors">Border colors</h4>
+      <puff-doc-previewer>
+        <div class="border p1 b-primary mb1 round">b-primary</div>
+        <div class="border p1 b-secondary mb1 round">b-secondary</div>
+        <div class="border p1 b-tertiary mb1 round">b-tertiary</div>
+        <div class="border p1 b-error mb1 round">b-error</div>
+        <div class="border p1 b-text mb1 round">b-text</div>
+        <div class="border p1 b-invert mb1 round">invert</div>
+      </puff-doc-previewer>
+
+      <h3 id="layout-tokens">Layout</h3>
+      <p>
+        Layout tokens are used for various uncategorized purposes. Sometimes
+        in the CSS world, they might be called modifiers.
+      </p>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>CSS equivalent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>round</td>
+              <td>Adds round corners to the element.</td>
+            </tr>
+            <tr>
+              <td>border</td>
+              <td>Adds a border to the element.</td>
+            </tr>
+            <tr>
+              <td>w100</td>
+              <td><code>width: 100%</code></td>
+            </tr>
+            <tr>
+              <td>vh100</td>
+              <td><code>height: 100vh;</code></td>
+            </tr>
+            <tr>
+              <td>reset</td>
+              <td>Resets the element's styles so it looks like a standard unstyled HTML element.</td>
+            </tr>
+            <tr>
+              <td>d-block</td>
+              <td><code>display: block</code></td>
+            </tr>
+            <tr>
+              <td>d-inline</td>
+              <td><code>display: inline</code></td>
+            </tr>
+            <tr>
+              <td>d-inline-block</td>
+              <td><code>display: inline-block</code></td>
+            </tr>
+            <tr>
+              <td>d-flex</td>
+              <td><code>display: flex</code></td>
+            </tr>
+            <td>d-inline-flex</td>
+            <td><code>display: inline-flex</code></td>
+            </tr>
+            <tr>
+              <td>f-col</td>
+              <td><code>flex-direction: column</code></td>
+            </tr>
+            <tr>
+              <td>f-wrap</td>
+              <td><code>flex-wrap: wrap</code></td>
+            </tr>
+            <tr>
+              <td>f-row</td>
+              <td><code>flex-direction: row</code></td>
+            </tr>
+            <tr>
+              <td>justify-start</td>
+              <td><code>justify-content: start</code></td>
+            </tr>
+            <tr>
+              <td>justify-end</td>
+              <td><code>justify-content: end</code></td>
+            </tr>
+            <tr>
+              <td>justify-center</td>
+              <td><code>justify-content: center</code></td>
+            </tr>
+            <tr>
+              <td>justify-around</td>
+              <td><code>justify-content: space-around</code></td>
+            </tr>
+            <tr>
+              <td>justify-between</td>
+              <td><code>justify-content: space-between</code></td>
+            </tr>
+            <tr>
+              <td>justify-evenly</td>
+              <td><code>justify-content: space-evenly</code></td>
+            </tr>
+            <tr>
+              <td>align-start</td>
+              <td><code>align-items: start</code></td>
+            </tr>
+            <tr>
+              <td>align-end</td>
+              <td><code>align-items: end</code></td>
+            </tr>
+            <tr>
+              <td>align-center</td>
+              <td><code>align-items: center</code></td>
+            </tr>
+            <tr>
+              <td>hide-small</td>
+              <td>Hide content on the small screen after the <a href="#breakpoints">breakpoint</a>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <h2>Components</h2>
+      <h3 id="alerts">Alerts</h3>
+      <puff-doc-previewer>
+        <p>The combination of design tokens helps create alert elements.</p>
+        <div class="alert mb1 bg-primary">
+          <p>Thanks for updating your data.</p>
+        </div>
+        <div class="alert mb1 bg-secondary">
+          <p>This is the final call to update your data.</p>
+        </div>
+        <div class="alert mb1 bg-tertiary">
+          <p>
+            Warning! This can be use as warning, but have accessility issues.
+            <br>At this version isn't recommended to use.
+          </p>
+        </div>
+        <div class="alert mb1 bg-error">
+          <p>Due to technical reasons, your data cannot be updated.</p>
+          <p>Please try again later.</p>
+        </div>
+        <div class="alert mb1 bg-success">
+          <p>Operation successful, you are save to quit.</p>
+        </div>
+      </puff-doc-previewer>
+
+      <h3 id="badges">Badges</h3>
+      <puff-doc-previewer>
+        <span class="badge bg-primary">Great!</span>
+        <span class="badge bg-secondary">Something</span>
+        <span class="badge bg-tertiary">Hello</span>
+        <span class="badge bg-success">OK</span>
+        <strong class="badge bg-error">5</strong>
+      </puff-doc-previewer>
+
+      <h3 id="buttons">Buttons</h3>
+      <puff-doc-previewer class="grid">
+        <button class="button">Cool button</button>
+        <button class="button" disabled>Disabled button</button>
+      </puff-doc-previewer>
+
+      <h4 id="carets">Carets</h4>
+      <p>Caret is a small triangle-arrow, which is very useful for dropdowns. Also, they can be added to the links.
+      </p>
+      <puff-doc-previewer>
+        <button class="button caret">Caret down</button>
+        <button class="button caret up">Caret up</button>
+        <a href="#!" class="caret">Pandora box</a>
+      </puff-doc-previewer>
+
+      <h3 id="cards">Cards</h3>
+      <puff-doc-previewer>
+        <div class="grid g1">
+          <div class="6 card">
+            <img src="https://picsum.photos/400/300/?random" alt="Just random image" class="w100">
+            <h4>Card Title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Consectetur adipisci, asperiores odit repellat, explicabo expedita atque aut illum. </p>
+            <button class="button">Okay</button>
+            <button class="button">Cancel</button>
+          </div>
+          <div class="6 card">
+            <img src="https://picsum.photos/400/299/?random" alt="ust random image" class="w100">
+            <h4>Card Title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Consectetur adipisci, asperiores odit repellat, explicabo expedita atque aut illum. </p>
+            <button class="button">Okay</button>
+            <button class="button">Cancel</button>
+          </div>
+        </div>
+      </puff-doc-previewer>
+
+      <h3 id="details">Details</h3>
+      <puff-doc-previewer>
+        <details>
+          <summary>Click to expand</summary>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium expedita quas corrupti tempora
+            veritatis
+            magnam distinctio nam cupiditate totam laudantium.</p>
+        </details>
+      </puff-doc-previewer>
+
+      <h3 id="dialog">Dialog</h3>
+      <puff-doc-previewer>
+        <button class="button" id="open-dialog-btn">Open dialog</button>
+        <dialog id="demo-dialog" class="dialog round ph3">
+          <h2>Dialog</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ab dolorum rerum warn vero
+            laboriosam
+            modi quos quia eaque molestiae. Eaque facilis, voluptas magnam possimus beatae reiciendis sunt doloribus
+            nostrum?
+          </p>
+          <hr>
+          <div class="grid">
+            <form method="dialog" class="12 mt1 d-flex justify-end">
+              <button type="button" class="button">Submit</button>
+              <button type="submit" class="button">Close</button>
+            </form>
+          </div>
+        </dialog>
+        <script type="module">
+          const btnDialog = document.getElementById('open-dialog-btn');
+          const dialog = document.getElementById('demo-dialog');
+          btnDialog.addEventListener('click', () => {
+            dialog.showModal();
+          });
+        </script>
+      </puff-doc-previewer>
+
+      <h3 id="dropdown-menu">Dropdown menu</h3>
+      <p>This is an extremely simple dropdown menu. There is also a script on how to open the menu.</p>
+      <puff-doc-previewer>
+        <div class="dropdown" id="demo-dropdown">
+          <button id="expand-dropdown-dialog" class="button caret dropdown-trigger">Open menu</button>
+          <menu class="menu dropdown-menu">
+            <li class="pv1 ph2"><a href="#!">First item</a></li>
+            <li class="pv1 ph2"><a href="#!">Second item</a></li>
+            <li class="pv1 ph2"><a href="#!">Third item</a></li>
+          </menu>
+        </div>
+        <script type="module">
+          const dropdown = document.getElementById('demo-dropdown');
+          const openDropdownButton = document.getElementById('expand-dropdown-dialog');
+          const menu = dropdown.querySelector('.dropdown-menu');
+          openDropdownButton.addEventListener('click', (e) => {
+            const isOpen = dropdown.classList.contains('open');
+            dropdown.classList.toggle('open', !isOpen);
+            menu.setAttribute('aria-expanded', String(!isOpen));
+            e.target.classList.toggle('up');
+          });
+        </script>
+      </puff-doc-previewer>
+
+      <h3 id="forms">Forms</h3>
+      <puff-doc-previewer>
+        <form name="demo-form" id="demo-form">
+          <div class="grid">
+            <div class="12 mb1">
+              <label for="name">Name</label>
+              <input type="text" class="input w100" name="name" id="name" placeholder="John Doe" required>
+            </div>
+            <div class="12 mb1">
+              <label for="hobbies">Hobbies</label>
+              <select id="hobbies" class="input w100">
+                <option disabled selected>-- select --</option>
+                <option>Sport</option>
+                <option>Fishing</option>
+                <option>Cooking</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="12">
+              <label for="message">Message</label>
+              <textarea id="message" class="input w100" placeholder="Your message..." cols="3" required></textarea>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="12">
+              <label for="age">Age</label>
+              <input type="range" min="1" max="100" value="25" id="age" class="input w100">
+            </div>
+          </div>
+          <div class="grid g1">
+            <div class="6">
+              <label for="invalid">Invalid field</label>
+              <input type="text" class="input b-error w100" name="invalid" id="invalid" required>
+            </div>
+            <div class="6">
+              <label for="success">Valid field</label>
+              <input type="text" class="input b-success w100" name="success" id="success" required>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="12 mt1 mb1">
+              <label>
+                <input type="checkbox" class="input" name="agree" id="agree">
+                I agree on everything
+              </label>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="12">
+              <button type="submit" class="button">Submit</button>
+              <button type="reset" class="button">Reset</button>
+            </div>
+          </div>
+        </form>
+      </puff-doc-previewer>
+
+      <h3 id="lists">Lists</h3>
+      <p>Lists are very close to the default browser styles.</p>
+      <puff-doc-previewer>
+        <ul>
+          <li>First Item</li>
+          <li>
+            Second Item
+            <ul>
+              <li>Sub Item 1</li>
+              <li>Sub Item 2</li>
+            </ul>
+          </li>
+          <li>Third Item</li>
+        </ul>
+      </puff-doc-previewer>
+
+      <h3 id="navbar">Navbar</h3>
+      <puff-doc-previewer>
+        <nav class="grid p1 border round justify-between">
+          <div class="6 pv1">
+            <a href="#!" class="ph2">Main menu</a>
+            <a href="#!" class="ph2">Products</a>
+            <a href="#!" class="ph2">List</a>
+          </div>
+          <div class="6 pv1 d-flex justify-end">
+            <a href="#!" class="ph2 caret">Manage</a>
+            <a href="#!" class="ph2">Login</a>
+          </div>
+        </nav>
+      </puff-doc-previewer>
+
+      <h3 id="ruler">Ruler</h3>
+      <p>Ruler is just a <code>&lt;hr></code> tag. It is helpful to separate sections.</p>
+      <puff-doc-previewer>
+        <hr>
+      </puff-doc-previewer>
+
+      <h3 id="tables">Tables</h3>
+      <p>To make tables responsive with horizontal scroll, wrap a table into a <code>div.table</code> container.</p>
+      <puff-doc-previewer>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Region</th>
+                <th>Country</th>
+                <th>Currency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>September Holloway</td>
+                <td>Flevoland</td>
+                <td>Germany</td>
+                <td>$60.69</td>
+              </tr>
+              <tr>
+                <td>Christen Alvarado</td>
+                <td>North Region</td>
+                <td>Lithuania</td>
+                <td>$72.39</td>
+              </tr>
+              <tr>
+                <td>Josiah Mercer</td>
+                <td>Andaman and Nicobar Islands</td>
+                <td>Colombia</td>
+                <td>$52.71</td>
+              </tr>
+              <tr>
+                <td>Shaeleigh Bruce</td>
+                <td>Piura</td>
+                <td>Singapore</td>
+                <td>$68.08</td>
+              </tr>
+              <tr>
+                <td>Basil Munoz</td>
+                <td>Limón</td>
+                <td>Philippines</td>
+                <td>$56.77</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"></td>
+                <td><b>Total</b></td>
+                <td><b>$310.64</b></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </puff-doc-previewer>
+
+      <puff-doc-previewer>
+        <div class="tc vh100 d-flex m0" id="hero">
+          <div class="wrap">
+            <h2 class="m1 mb0 xxxl">Hero Component</h2>
+            <h3 class="xxl mb2">Centered full width and height component</h3>
+            <button class="button ph4 mt4">Button</button>
+          </div>
+        </div>
+      </puff-doc-previewer>
+
+      <h2 id="customize">Customize</h2>
+      <p>There are only several global, customizable custom properties.</p>
+      <h3 id="customize-props">Custom properties</h3>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>--maxw</td>
+              <td>60rem</td>
+              <td>Maximum width of the <a href="#wrapper">wrapper</a>.</td>
+            </tr>
+            <tr>
+              <td>--ff</td>
+              <td>ui-sans-serif, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif</td>
+              <td>Font family with font stack fallbacks.</td>
+            </tr>
+            <tr>
+              <td>--fs</td>
+              <td>18px/1.6</td>
+              <td>Font size and line height.</td>
+            </tr>
+            <tr>
+              <td>--fw</td>
+              <td>400</td>
+              <td>Font weight value.</td>
+            </tr>
+            <tr>
+              <td>--bw</td>
+              <td>0.0625rem</td>
+              <td>Border width</td>
+            </tr>
+            <tr>
+              <td>--brd</td>
+              <td>var(--bw) solid var(--c-line)</td>
+              <td>Border</td>
+            </tr>
+            <tr>
+              <td>--br</td>
+              <td>0.25rem</td>
+              <td>Border radius for rounded elements.</td>
+            </tr>
+            <tr>
+              <td>--s</td>
+              <td>0.5rem</td>
+              <td>The spacing step is used for padding, margins, and gaps.</td>
+            </tr>
+            <tr>
+              <td>--ls</td>
+              <td>0</td>
+              <td>Letter spacing.</td>
+            </tr>
+            <tr>
+              <td>--img-filter</td>
+              <td>(empty)</td>
+              <td>Filter for images used for dark themeing or images effers.</td>
+            </tr>
+            <tr>
+              <td>--grad</td>
+              <td>linear-gradient(45deg, var(--c-pri), var(--c-sec))</td>
+              <td>Gradient with 45 degree angle, used for decorations and common styling.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="customize-colors">Colors properties</h3>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Light</th>
+              <th>Dark</th>
+              <th>Description / preview</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>--c-pri</td>
+              <td>#8a00d4</td>
+              <td>#b86ce4</td>
+              <td><span class="primary">Primary color</span></td>
+            </tr>
+            <tr>
+              <td>--c-sec</td>
+              <td>#c224a8</td>
+              <td>#db7ac5</td>
+              <td><span class="secondary">Secondary color</span></td>
+            </tr>
+            <tr>
+              <td>--c-tri</td>
+              <td>#f7b23b</td>
+              <td>#f9c46b</td>
+              <td>
+                <span class="tertiary">Tertiary color</span>.
+                Used only for minor elemets.
+              </td>
+            </tr>
+            <tr>
+              <td>--c-err</td>
+              <td>#f33</td>
+              <td>#ff8672</td>
+              <td><span class="error">Error color</span></td>
+            </tr>
+            <tr>
+              <td>--c-suc</td>
+              <td>#007800</td>
+              <td>#6ba55d</td>
+              <td><span class="success">Success color</span></td>
+            </tr>
+            <tr>
+              <td>--c-txt</td>
+              <td>#202124</td>
+              <td>#e8eaed</td>
+              <td><span style="color: var(--c-txt)">Color for text</span></td>
+            </tr>
+            <tr>
+              <td>--c-dim</td>
+              <td>#4d5156</td>
+              <td>#bdc1c6</td>
+              <td><span style="color: var(--c-dim)">Color for dimmed text</span></td>
+            </tr>
+            <tr>
+              <td>--c-bg</td>
+              <td>#fff</td>
+              <td>#202124</td>
+              <td>
+                <span style="color: var(--c-bg);background-color: var(--c-txt);">
+                  Inverted text color (background)</span>&nbsp;*
+              </td>
+            </tr>
+            <tr>
+              <td>--c-line</td>
+              <td>#d3d3d3</td>
+              <td>#413e46</td>
+              <td>
+                <span style="color: var(--c-line);background-color: var(--c-txt);">Color for outline</span>.
+                Used for borders and outlines. *
+              </td>
+            </tr>
+            <tr>
+              <td>--c-surf</td>
+              <td>#f3f3f3</td>
+              <td>#151417</td>
+              <td>
+                <span style="color: var(--c-surf);background-color: var(--c-txt);">Color for surface</span>.
+                Used for dimmed backgrounds. *
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" class="s dimmed">
+                * Inverted background because text has similar or the same color as background.
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <footer class="d-flex f-col align-center mt3">
+        <p>
+          &copy; 2023&mdash;2024 MIT
+          <a href="https://github.com/dknight/puff">GitHub</a>
+        </p>
+        <p class="dimmed">v0.7.2</p>
+      </footer>
+    </main>
+  </body>
+</html>

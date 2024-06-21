@@ -1,0 +1,15 @@
+.table {
+  overflow-x: auto;
+}
+
+.table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border-bottom: var(--bw) solid var(--c-line);
+  padding: calc(var(--s) * 2);
+  text-align: left;
+}

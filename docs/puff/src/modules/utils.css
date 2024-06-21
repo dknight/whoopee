@@ -1,0 +1,24 @@
+.caret {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--s);
+  text-decoration: none;
+}
+.caret::after {
+  content: '▾';
+}
+.caret.up::after {
+  content: '▴';
+}
+
+.round {
+  border-radius: var(--br);
+}
+
+.border {
+  border: var(--brd);
+}
+
+.nowrap {
+  white-space: nowrap;
+}

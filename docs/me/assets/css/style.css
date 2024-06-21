@@ -1,0 +1,129 @@
+:root {
+  --color-grad-1: oklch(48.17% 0.084 212.77);
+  --color-grad-2: oklch(67.43% 0.214 352.48);
+  --color-text: #fff;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100vh;
+}
+body {
+  background: linear-gradient(
+    132deg,
+    var(--color-grad-1) 0%,
+    var(--color-grad-2) 100%
+  );
+  color: var(--color-text);
+  height: inherit;
+  margin: 0;
+  overflow: hidden;
+  font-size: calc(max(16px, 10vw) * 1px);
+}
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  padding: 5%;
+  gap: 1rem;
+}
+
+h1 {
+  animation: fade-in 0.2s 0.4s ease-in forwards;
+  font: normal 4.5rem/1 'Raleway', sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  opacity: 0;
+}
+h2 {
+  animation: fade-in 0.2s 0.8s ease-in forwards;
+  font: 100 1.8rem/1.2 'Raleway', Arial, sans-serif;
+  margin: 0;
+  opacity: 0;
+}
+h3 {
+  font: normal 2.8125rem/1 'Raleway', sans-serif;
+  margin: 6rem 0 3rem;
+  text-align: center;
+}
+a {
+  color: var(--color-text);
+}
+.links {
+  align-items: center;
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(3, 1fr);
+  width: min-content;
+  margin-top: 0.9rem;
+}
+.links a {
+  animation: fade-in 0.2s 1.2s 1 ease-in forwards;
+  opacity: 0;
+}
+.links img {
+  display: inline-block;
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.2s ease-out;
+}
+.links a:hover img {
+  opacity: 0.8;
+}
+
+/* ------ Animations ------ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.back-to-blog {
+  background: transparent url('../img/arrow-back-left.svg') no-repeat 0.5rem 0 /
+    2rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font: 100 1.8rem/1.2 'Raleway', Arial, sans-serif;
+  color: var(--color-text);
+  text-decoration: none;
+  padding-left: 3rem;
+  transition: background-position 0.2s ease-in;
+  animation: fade-in 0.2s 1.4s 1 ease-in forwards;
+  opacity: 0;
+}
+.back-to-blog:hover {
+  text-decoration: underline;
+  background-position: 0.2rem 0;
+}
+
+/* ------- Gopher ----------- */
+.gopher {
+  position: absolute;
+  animation: gopher 0.4s 1 2s forwards ease-out;
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom center;
+  transform: translate(153%, 30%) rotate(0deg);
+}
+
+@media screen and (max-width: 625px) {
+  .gopher {
+    scale: 0.5;
+  }
+}
+@keyframes gopher {
+  to {
+    transform: translate(70%, 30%) rotate(-30deg);
+  }
+}
