@@ -228,3 +228,7 @@ img {
   max-width: 100%;
   display: block;
 }
+
+@view-transition {
+  navigation: auto;
+}
