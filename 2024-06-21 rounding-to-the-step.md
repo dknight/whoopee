@@ -32,7 +32,7 @@ technical interviews and very often such a task appears in daily jobs.
   ```text
     x = x * 2
   ```
-6. (optional) After adding `offset` to the final result.
+6. (optional) After adding an `offset` to the final result.
   ```text
     x = x + offset
   ```
