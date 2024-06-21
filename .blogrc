@@ -26,8 +26,8 @@ MARKDOWN_COMMAND="python -m markdown \
 # Commands to run after succesful build
 function post_hook() {
 	cp -ru ./me ./css-modern-dialog ./puff "$DIST"
-	cp "$DIST/assets/googlebb7539f50c5e493c.html" ./CNAME "$DIST"
-	mv "$DIST/assets/404.html" "$DIST"
+	cp ./CNAME "$DIST"
+	mv "$DIST/assets/googlebb7539f50c5e493c.html" "$DIST/assets/404.html" "$DIST"
 
 	echo "Bundling CSS..."
 	lightningcss --minify --bundle "$DIST/assets/css/styles.css" > "$DIST/assets/css/styles.min.css"
