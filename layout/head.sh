@@ -30,5 +30,6 @@ cat << __HEAD__
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/css/styles.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+<link rel="canonical" href="$BLOG_HOST$URL_PREFIX$POST_URL">
 </head>
 __HEAD__
