@@ -157,7 +157,7 @@ are one million records (10<sup>6</sup>), every index will be recalculated
     <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span> <span class="ow">or</span> <span class="s2">&quot;,&quot;</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_first</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">_last</span> <span class="kr">do</span>
-        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="kr">end</span>
     <span class="kr">return</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
 <span class="kr">end</span>

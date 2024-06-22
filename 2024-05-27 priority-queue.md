@@ -108,7 +108,7 @@ function PriorityQueue:toString(sep)
 	sep = sep or ","
 	local t = {}
 	for i in ipairs(self) do
-		t[#t + 1] = "{" .. self[i].value .. ", " .. self[i].priority .. "}"
+		t[#t + 1] = "{" .. tostring(self[i].value) .. ", " .. self[i].priority .. "}"
 	end
 	return table.concat(t, sep)
 end

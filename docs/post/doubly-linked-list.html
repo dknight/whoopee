@@ -317,7 +317,7 @@ simple. There is a just table with value, previous and next pointers.</p>
     <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span> <span class="ow">or</span> <span class="s2">&quot; -&gt; &quot;</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">self</span><span class="p">:</span><span class="n">traverseForwards</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">value</span>
+        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
     <span class="kr">end</span><span class="p">)</span>
     <span class="kr">return</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
 <span class="kr">end</span>

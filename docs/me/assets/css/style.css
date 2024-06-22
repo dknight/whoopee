@@ -127,3 +127,7 @@ a {
     transform: translate(70%, 30%) rotate(-30deg);
   }
 }
+
+@view-transition {
+  navigation: auto;
+}

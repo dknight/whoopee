@@ -293,7 +293,7 @@ Check the manual for <a href="https://www.lua.org/manual/5.4/manual.html#pdf-pai
     <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span> <span class="ow">or</span> <span class="s2">&quot;,&quot;</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="kr">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">_</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">_storage</span><span class="p">)</span> <span class="kr">do</span>
-        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
     <span class="kr">end</span>
     <span class="kr">return</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
 <span class="kr">end</span>

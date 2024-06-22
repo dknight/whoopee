@@ -240,7 +240,7 @@ function CircularDoublyLinkedList:toString(sep)
 	sep = sep or " <=> "
 	local t = {}
 	self:traverseForwards(function(node)
-		t[#t + 1] = node.value
+		t[#t + 1] = tostring(node.value)
 	end)
 	return table.concat(t, sep)
 end
