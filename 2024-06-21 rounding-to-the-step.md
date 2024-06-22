@@ -11,9 +11,9 @@ technical interviews and very often such a task appears in daily jobs.
 
 ![Figure 01: Rounding to step ](/assets/img/rounding-step.svg)
 
-1. (optional) Subtract `offset` from `n`;
+1. (optional) Subtract `offset` from `x`;
   ```text
-    x = n - offset
+    x = x - offset
   ```
 2. divide *step #1 value* by `step`;
   ```text
@@ -43,9 +43,9 @@ technical interviews and very often such a task appears in daily jobs.
 ---@param n number
 ---@param step number
 ---@param offset? number is added to the result
-local function round(n, step, offset)
+local function round(x, step, offset)
 	offset = offset or 0
-	return math.ceil((n - offset) / step + 0.5) * step + offset
+	return math.ceil((x - offset) / step + 0.5) * step + offset
 end
 ```
 
