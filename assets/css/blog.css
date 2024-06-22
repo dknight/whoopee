@@ -180,18 +180,28 @@ blockquote {
   margin: 0;
   padding: 0 2rem 0 1.5rem;
 
+  + .admonition {
+    margin-top: 1rem;
+  }
+
   .admonition-title {
     display: none;
   }
 
+  &.important,
+  &.hint,
+  &.note,
   &.tip {
     border-color: var(--color-tip);
   }
 
+  &.attention,
+  &.warning,
   &.caution {
     border-color: var(--color-caution);
   }
 
+  &.error,
   &.danger {
     border-color: var(--color-danger);
   }
