@@ -4,7 +4,7 @@ cat << __FOOTER__
   <footer>
     <hr>
     <p>
-      &copy; 2022&mdash;$(date +%Y) <a href="/about.html">xdknight</a>
+      &copy; 2022&mdash;$(date +%Y) <a href="/me/">xdknight</a>
       Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
       blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
     </p>
