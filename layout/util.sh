@@ -31,7 +31,7 @@ function feedback() {
 	if [[ $(is_skipped) = 0 ]]; then
 		echo "<h2>Feedback</h2>"
 		echo "<p>"
-		echo "For feedback, please check the <a href=\"/about.html#contacts\">contacts</a> section."
+		echo "For feedback, please check the <a href=\"/me/\">contacts</a> section."
 		echo "Before writing, please specify where you came from and who you are. Sometimes spammers go insane."
 		echo "Thank you in advance for your understanding."
 		echo "</p>"
