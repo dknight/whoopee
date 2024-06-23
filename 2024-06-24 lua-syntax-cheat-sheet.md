@@ -1,4 +1,4 @@
-<!-- Description: Very brief syntax cheat sheet of Lua language syntax. -->
+<!-- Description: Very brief syntax cheat sheet of Lua language syntax. Download PDF of Lua cheat sheet. -->
 
 tags: lua
 
