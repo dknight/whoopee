@@ -2,11 +2,11 @@
 
 tags: lua
 
-# Lua Syntax Cheat Sheet
+# Lua Syntax Cheat Sheet (Short Version)
 
 [TOC]
 
-This is short version of the [full Lua cheatsheet](/post/lua-cheatsheet.html).
+This is a short version of the [full Lua cheatsheet](/post/lua-cheatsheet.html).
 
 [PDF Version](/assets/docs/Whoopee-Lua-Cheetsheat.pdf)
 
