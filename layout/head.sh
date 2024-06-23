@@ -2,8 +2,10 @@
 
 source "./layout/util.sh"
 
-if [[ -z "$POST_TITLE" ]]; then
-  title="$BLOG_TITLE &mdash; Blog about Lua, web-development, etc."
+if [[ -n "$TAGNAME" ]]; then
+  title="$(tag2title $TAGNAME) &mdash; $BLOG_TITLE"
+elif [[ -z "$POST_TITLE" ]]; then
+  title="$BLOG_TITLE &mdash; $BLOG_SUBTITLE"
 else
   title="$POST_TITLE &mdash; $BLOG_TITLE"
 fi
