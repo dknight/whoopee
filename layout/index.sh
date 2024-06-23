@@ -142,7 +142,7 @@ if [[ -z "$TAGNAME" ]]; then
   # Dialog
   sitemap="$sitemap\t<url>\n"
   sitemap="$sitemap\t\t<loc>${BLOG_HOST}/css-modern-dialog/</loc>\n"
-  sitemap="$sitemap\t\t<lastmod>2024-17-06</lastmod>\n"
+  sitemap="$sitemap\t\t<lastmod>2024-06-17</lastmod>\n"
   sitemap="$sitemap\t</url>\n"
 
   # Posts
