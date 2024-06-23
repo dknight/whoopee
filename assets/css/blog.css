@@ -10,6 +10,8 @@
   --color-caution: var(--color-sec);
   --color-danger: #cc0000;
   --border-radius: 3px;
+
+  scroll-behavior: smooth;
 }
 
 body {
