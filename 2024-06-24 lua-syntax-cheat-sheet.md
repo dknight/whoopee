@@ -8,7 +8,7 @@ tags: lua
 
 This is a short version of the [full Lua cheatsheet](/post/lua-cheatsheet.html).
 
-[PDF Version](/assets/docs/Whoopee-Lua-Cheetsheat.pdf)
+[Download PDF Version](/assets/docs/Whoopee-Lua-Cheetsheat.pdf)
 
 ## Comments
 
