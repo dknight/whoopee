@@ -324,7 +324,7 @@ end
 print(dll:toString()) --> "D -> C ->  B"
 ```
 
-## Links
+## References
 
 - [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)
 - [Wikipedia: Doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list)

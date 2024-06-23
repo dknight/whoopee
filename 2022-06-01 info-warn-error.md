@@ -249,6 +249,6 @@ stack traceback:
 --]]
 ```
 
-## Links
+## References
 
 - [Lua manual: Error Handling](https://www.lua.org/manual/5.4/manual.html#2.3)

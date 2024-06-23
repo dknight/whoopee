@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Definitive guide and implementation of the graphs in Lua language. Graph is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. ">
+<meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal">
+<meta name="author" content="Dmitri Smirnov">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whoop.ee/post/graph.html">
+<meta property="og:image" content="https://whoop.ee/assets/img/lua-language.gif">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'">
+<title>Graph &mdash; Whoopee</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" href="/assets/css/styles.min.css">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+<link rel="canonical" href="https://whoop.ee/post/graph.html">
+</head>
+  <body>
+      <header>
+    <a href="/" class="logo">Whoopee</a>
+    <nav class="mainmenu">
+      <a href="/me/">About</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+    <main>
+      <a href="/"><em>&larr; Back to the index page</em></a>
+      <article>
+        <h1>Graph</h1>
+        <time datetime="2024-06-24">
+          June 24, 2024
+        </time>
+        <!-- Description: Definitive guide and implementation of the graphs in Lua language. Graph is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. -->
+
+<div class="toc">
+<ul>
+<li><a href="#graph">Graph</a><ul>
+<li><a href="#anatomy-of-the-graph">Anatomy of the graph</a></li>
+<li><a href="#graph-operations">Graph operations</a></li>
+<li><a href="#types-of-graphs">Types of graphs</a><ul>
+<li><a href="#finite-graphs">Finite Graphs</a></li>
+<li><a href="#infinite-graph">Infinite Graph</a></li>
+<li><a href="#trivial-graph">Trivial Graph:</a></li>
+<li><a href="#simple-graph">Simple Graph</a></li>
+<li><a href="#multi-graph">Multi Graph</a></li>
+<li><a href="#null-graph">Null Graph</a></li>
+<li><a href="#complete-full-graph">Complete (Full) Graph</a></li>
+<li><a href="#pseudo-graph">Pseudo Graph</a></li>
+<li><a href="#regular-graph">Regular Graph</a></li>
+<li><a href="#bipartite-graph">Bipartite Graph</a></li>
+<li><a href="#labeled-graph">Labeled Graph</a></li>
+<li><a href="#directed-graph-digraph">Directed Graph (Digraph)</a></li>
+<li><a href="#subgraph">Subgraph</a></li>
+<li><a href="#connected-and-disconnected-graph">Connected and Disconnected Graph</a></li>
+<li><a href="#cyclic-graph">Cyclic Graph</a></li>
+</ul>
+</li>
+<li><a href="#graph-class-implementation-in-lua">Graph class implementation in Lua</a><ul>
+<li><a href="#usage-of-graph-class">Usage of Graph class</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p>The graph is a data structure that represents vertices connected by edges and
+the relationship between them. The graph is one of the more fundamental and advanced
+data structures. Graphs are widely used for pathfinding, detecting cycles, making maps,
+social and computer networking, etc.</p>
+<p>In mathematics, there is a large discipline&mdash;<strong>graph theory</strong>.</p>
+<p><img alt="Figure 01: Graph Example" src="/assets/img/graph01.svg" /></p>
+<h2 id="anatomy-of-the-graph">Anatomy of the graph</h2>
+<ul>
+<li><strong>Vertices (nodes)</strong> &ndash; main units of the graph, every vertex can have a
+  value or label, also it might be an object (table) with extra fields like,
+    weightd, dates, object, etc.</li>
+<li><strong>Edges</strong> &ndash; an imaginable line that connects two vertices (nodes). Edges
+  can connect nodes in any order and any direction. Edges also can be labelled.</li>
+</ul>
+<h2 id="graph-operations">Graph operations</h2>
+<ul>
+<li><strong>Add vertices and/or edges (connect vertices)</strong></li>
+<li><strong>Delete vertices and/or edges (disconnect vertices)</strong></li>
+<li><strong>Search the vertex of a value</strong></li>
+<li><strong>Traversing graph</strong></li>
+</ul>
+<p>Usually, DFS (Deep-First Search) and BFS (Breadth-First Search) methods are
+used to search and traverse the graph. For even more complex cases, there
+might be more advanced algorithms (e.g., taking into account the weight of vertices).</p>
+<h2 id="types-of-graphs">Types of graphs</h2>
+<p>There are lots of graph types, some of which are pretty rarely used, especially in Lua.
+language, because Lua is an interpreted language and might have performance issues.
+For analysis of the graph, it is better to use more performant languages like
+C/C++, Rust, Go, Java, etc., and use computers with high calculation power.</p>
+<h3 id="finite-graphs">Finite Graphs</h3>
+<p>It is a graph with a finite number of vertices and edges. The number of edges
+and vertices can be calculated.</p>
+<p><img alt="Finite Graph" src="/assets/img/graph-finite.svg" /></p>
+<h3 id="infinite-graph">Infinite Graph</h3>
+<p>It is a graph with infinite numbers of vertices and edges. The size of the
+graph cannot be calculated and is infinite.</p>
+<p><img alt="Infinite Graph" src="/assets/img/graph-infinite.svg" /></p>
+<h3 id="trivial-graph">Trivial Graph:</h3>
+<p>It is the simplest graph, with only one vertex and no edges. Usually,
+The trial graph is the first step when more complex graphs start to build. 
+Later, more edges and vertices can be added.</p>
+<p><img alt="Trivial Graph" src="/assets/img/graph-trivial.svg" /></p>
+<h3 id="simple-graph">Simple Graph</h3>
+<p>It is a graph that contains only one edge between the pair of vertices. </p>
+<p><img alt="Simple Graph" src="/assets/img/graph-simple.svg" /></p>
+<h3 id="multi-graph">Multi Graph</h3>
+<p>Any graph that contains some parallel edges but doesn’t contain any self-loops.
+Maps are a good example of multi-graphs, where you can achieve point <strong>B</strong> from
+point <strong>A</strong> in different ways.</p>
+<p><img alt="Multi Graph" src="/assets/img/graph-multi.svg" /></p>
+<h3 id="null-graph">Null Graph</h3>
+<p>It is a graph where all vertices are isolated and have no edges. There is no
+connection between vertices.</p>
+<p><img alt="Null Graph" src="/assets/img/graph-null.svg" /></p>
+<h3 id="complete-full-graph">Complete (Full) Graph</h3>
+<p>A graph with <strong>n</strong> vertices is called a complete graph if one vertex is
+attached with <strong>n-1</strong> edges or the rest of the vertices in the graph.
+In other words, each vertex is connected to others with one edge. A pentagram
+is an example of the complete graph.</p>
+<p><img alt="Complete Graph" src="/assets/img/graph-complete.svg" /></p>
+<h3 id="pseudo-graph">Pseudo Graph</h3>
+<p>A graph with a self-loop and multiple edges is called a pseudo-graph.
+In comparison to a simple graph, a simple graph does not allow loops. </p>
+<p><img alt="Pseudo Graph" src="/assets/img/graph-pseudo.svg" /></p>
+<h3 id="regular-graph">Regular Graph</h3>
+<p>A graph is regular if all vertices are of equal degree. In regular
+graphs, every vertex has the same number of edges or neighbors. All complete
+graphs are regular.</p>
+<p><img alt="Regular Graph" src="/assets/img/graph-regular.svg" /></p>
+<h3 id="bipartite-graph">Bipartite Graph</h3>
+<p>A graph <strong>G=(V, E)</strong> is a bipartite graph where its vertices set <strong>V(G)</strong>
+can be partitioned into two non-empty disjoint subsets, <strong>V1(G)</strong> and <strong>V2(G)</strong>
+in such a way that each edge of <strong>E(G)</strong> has one end in <strong>V1(G)</strong> and another
+end in <strong>V2(G)</strong>. The partition <strong>V1 ∪ V2 = V</strong> is called the bipartite of <strong>G</strong>.</p>
+<p>Here in the figure: <strong>V1(G)={C, D, E, F} and V2(G)={A, B}</strong></p>
+<p><img alt="Bipartite Graph" src="/assets/img/graph-bipartite.svg" /></p>
+<h3 id="labeled-graph">Labeled Graph</h3>
+<p>It is any graph where vertices and/or edges have labels, dates, weights, or
+any other kind of label.</p>
+<p><img alt="Labeled Graph" src="/assets/img/graph-labelled.svg" /></p>
+<h3 id="directed-graph-digraph">Directed Graph (Digraph)</h3>
+<p>The ordered pair of <strong>(V<sub>i</sub>, V<sub>j</sub>)</strong> means an edge between <strong>V<sub>i</sub></strong> and
+<strong>V<sub>ij</sub></strong> with an arrow directed from <strong>V<sub>i</sub></strong> to <strong>V<sub>j</sub></strong>.</p>
+<p>Edges in figure: <strong>E1(A, B), E2(B, C), E3(C, D), E4(D, E), E5(B, E), E6(B, D)</strong></p>
+<p><img alt="Directed Graph" src="/assets/img/graph-directed.svg" /></p>
+<h3 id="subgraph">Subgraph</h3>
+<p>A graph <strong>G1=(V1, E1)</strong> is called a subgraph of a graph <strong>G(V, E)</strong> if
+<strong>V1(G)</strong> is a subset of <strong>V(G)</strong> and <strong>E1(G)</strong> is a subset of <strong>E(G)</strong> such
+that each edge of <strong>G1</strong> has same end vertices as in <strong>G</strong>. In other words,
+a subgraph is a part of a graph.</p>
+<p>Mathematical equivalent: <strong>G1(V1, E1) ⊆ G(V, E)</strong> or vice versa supergraph
+<strong>G(V, E) ⊇ G1(V1, E1)</strong>.</p>
+<p><img alt="Subgraphs Examples" src="/assets/img/graph-subgraph.svg" /></p>
+<h3 id="connected-and-disconnected-graph">Connected and Disconnected Graph</h3>
+<p>The graph is connected if there is at least one path between every pair of
+vertices, otherwise the graph is disconnected.</p>
+<p><img alt="Connected Graph" src="/assets/img/graph-connected.svg" />
+Connected Graph</p>
+<p><img alt="Disconnected Graph" src="/assets/img/graph-disconnected.svg" />
+Disconnected Graph</p>
+<h3 id="cyclic-graph">Cyclic Graph</h3>
+<p>In a cyclic graph, the number of vertices should be more than 3, otherwise
+cyclic graph is impossible.</p>
+<p>Common rule</p>
+<p>Vertices:
+<strong>V<sub>1</sub>, V<sub>2</sub>&hellip;V<sub>n</sub></strong></p>
+<p>Edges:
+<strong>(V<sub>1</sub>, V<sub>2</sub>), (V<sub>2</sub>, V<sub>3</sub>), (V<sub>3</sub>, V<sub>4</sub>)&hellip;(V<sub>n</sub>, V<sub>n+1</sub>)</strong></p>
+<p><img alt="Cyclic Graph" src="/assets/img/graph-cyclic.svg" /></p>
+<h2 id="graph-class-implementation-in-lua">Graph class implementation in Lua</h2>
+<p>Here is a simple implementation of the generic graph with some basic methods.</p>
+<p>Class implementation with <a href="/post/object-oriented-programming-in-lua.html">OOP principles</a> and
+<a href="/post/object-oriented-programming-in-lua.html#annotations">annotations</a>.</p>
+<p>Methods implemented:</p>
+<ul>
+<li>Add vertices</li>
+<li>Add edge</li>
+<li>DFS</li>
+<li>BFS</li>
+<li>Is empty</li>
+<li>Is bipartite</li>
+<li>Is trivial</li>
+<li>size</li>
+<li>Contains vertex</li>
+<li>Calculate adjacency matrix</li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Due to Lua language features in the implementation below a graph&rsquo;s vertex 
+cannot be <code>nil</code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the large graphs, there might be issues with performance using
+<code>Graph:BFS()</code> method. Due to implementation uses <code>table</code> module.
+To avoid performance issues with elements shifting try <a href="/post/queue.html"><code>Queue class</code></a>.</p>
+</div>
+<p><code>Graph.lua</code></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">---@class Graph</span>
+<span class="c1">---@field public adjencyList table</span>
+<span class="c1">---@field public vertices table</span>
+<span class="c1">---@field private _size number</span>
+<span class="kd">local</span> <span class="n">Graph</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">Graph</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Graph</span>
+
+<span class="c1">---Creates a new graph and returns the pointer // to it.</span>
+<span class="c1">---@return Graph</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">new</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">vertices</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">adjencyList</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="p">}</span>
+    <span class="kr">return</span> <span class="nb">setmetatable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">---Adds 2 vertices and an edge between them.</span>
+<span class="c1">---@param u any</span>
+<span class="c1">---@param v any</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">self</span><span class="p">:</span><span class="n">addVertices</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">adjencyList</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nb">next</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">adjencyList</span><span class="p">[</span><span class="n">u</span><span class="p">],</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="kr">end</span>
+
+<span class="c1">---Adds vertices to the graph, also create adjacency list for each</span>
+<span class="c1">---vertex. Later adjacency list can be empty, if vertex does not connect</span>
+<span class="c1">---to any other vertices.</span>
+<span class="c1">---@param ...any</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">addVertices</span><span class="p">(...)</span>
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">({</span> <span class="p">...</span> <span class="p">})</span> <span class="kr">do</span>
+        <span class="kr">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="kr">then</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="kr">end</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">---Gets number of vertices in the graph.</span>
+<span class="c1">---@return number</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">size</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span>
+<span class="kr">end</span>
+
+<span class="c1">---Len gets number of vertices in the graph.</span>
+<span class="c1">---@return boolean</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">isEmpty</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="kr">end</span>
+
+<span class="c1">---DFS (Deep-First Search) is an algorithm for searching all vertices</span>
+<span class="c1">---of the graph or tree data structure. Visiting all rtices of the</span>
+<span class="c1">---graph. Returns table of vertices in the order or visiting.</span>
+<span class="c1">---@param v any</span>
+<span class="c1">---@param fn? fun(vert: any) Callback when visiting the vertex.</span>
+<span class="c1">---@return table</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">DFS</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">path</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">:</span><span class="n">containsVertex</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="nb">warn</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%s is not in the graph&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+        <span class="kr">return</span> <span class="n">path</span>
+    <span class="kr">end</span>
+    <span class="kd">local</span> <span class="n">stack</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">instack</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+    <span class="n">stack</span><span class="p">[</span><span class="o">#</span><span class="n">stack</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">instack</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+
+    <span class="kr">while</span> <span class="o">#</span><span class="n">stack</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">stack</span><span class="p">[</span><span class="o">#</span><span class="n">stack</span><span class="p">]</span>
+        <span class="n">stack</span><span class="p">[</span><span class="o">#</span><span class="n">stack</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+        <span class="n">instack</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">path</span><span class="p">[</span><span class="o">#</span><span class="n">path</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="kr">if</span> <span class="n">fn</span> <span class="kr">then</span>
+            <span class="n">fn</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="kr">end</span>
+        <span class="kd">local</span> <span class="n">li</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">adjencyList</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+        <span class="kr">while</span> <span class="n">li</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">do</span>
+            <span class="kd">local</span> <span class="n">val</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">value</span>
+            <span class="kr">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">instack</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="kr">then</span>
+                <span class="n">stack</span><span class="p">[</span><span class="o">#</span><span class="n">stack</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+                <span class="n">instack</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+            <span class="kr">end</span>
+            <span class="n">li</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">next</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">path</span>
+<span class="kr">end</span>
+
+<span class="c1">---BFS (Breadth-First Search) is an algorithm for searching all vertices</span>
+<span class="c1">---of the graph or tree data structure. Visiting all vertices of the graph.</span>
+<span class="c1">---Returns table of vertices in the order or visiting.</span>
+<span class="c1">---@param v any</span>
+<span class="c1">---@param fn? fun(vert: any) Callback when visiting the vertex.</span>
+<span class="c1">---@return table</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">BFS</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">path</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">:</span><span class="n">containsVertex</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="nb">warn</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%s is not in the graph&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+        <span class="kr">return</span> <span class="n">path</span>
+    <span class="kr">end</span>
+    <span class="kd">local</span> <span class="n">queue</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">inqueue</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+    <span class="nb">table.insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">inqueue</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+
+    <span class="kr">while</span> <span class="o">#</span><span class="n">queue</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">queue</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="nb">table.remove</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">inqueue</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">path</span><span class="p">[</span><span class="o">#</span><span class="n">path</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="kr">if</span> <span class="n">fn</span> <span class="kr">then</span>
+            <span class="n">fn</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="kr">end</span>
+        <span class="kd">local</span> <span class="n">li</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">adjencyList</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+        <span class="kr">while</span> <span class="n">li</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">do</span>
+            <span class="kd">local</span> <span class="n">val</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">value</span>
+            <span class="kr">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">inqueue</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="kr">then</span>
+                <span class="n">queue</span><span class="p">[</span><span class="o">#</span><span class="n">queue</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+                <span class="n">inqueue</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+            <span class="kr">end</span>
+            <span class="n">li</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">next</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">path</span>
+<span class="kr">end</span>
+
+<span class="c1">---Calculates and returns the adjacency matrix of the graph.</span>
+<span class="c1">---@return table</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">calculateAdjacencyMatrix</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">matrix</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">_</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="n">matrix</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="kr">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">_</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">)</span> <span class="kr">do</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="kd">local</span> <span class="n">li</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">adjencyList</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+            <span class="kr">while</span> <span class="n">li</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">do</span>
+                <span class="n">matrix</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">li</span><span class="p">.</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">li</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">next</span>
+            <span class="kr">end</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">matrix</span>
+<span class="kr">end</span>
+
+<span class="c1">---Checks is graph is bipartite.</span>
+<span class="c1">---@return boolean</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">isBipartite</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">queue</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kd">local</span> <span class="n">blue</span><span class="p">,</span> <span class="n">red</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="c1">-- &quot;Paint&quot; the graph</span>
+    <span class="kd">local</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">_</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="n">colors</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">blue</span>
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">start</span>
+    <span class="kr">for</span> <span class="n">k</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="kr">break</span>
+    <span class="kr">end</span>
+    <span class="n">colors</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
+    <span class="nb">table.insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+
+    <span class="kr">while</span> <span class="o">#</span><span class="n">queue</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">v</span> <span class="o">=</span> <span class="n">queue</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="nb">table.remove</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="kd">local</span> <span class="n">li</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">adjencyList</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+        <span class="kr">while</span> <span class="n">li</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">do</span>
+            <span class="kd">local</span> <span class="n">u</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">value</span>
+            <span class="kr">if</span> <span class="n">colors</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">colors</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="kr">then</span>
+                <span class="kr">return</span> <span class="kc">false</span>
+            <span class="kr">end</span>
+            <span class="kr">if</span> <span class="n">colors</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">blue</span> <span class="kr">then</span>
+                <span class="n">colors</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">colors</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+                <span class="nb">table.insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+            <span class="kr">end</span>
+            <span class="n">li</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">next</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="c1">---@return boolean</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">isTrivial</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="o">#</span><span class="n">self</span><span class="p">.</span><span class="n">vertices</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="kr">end</span>
+
+<span class="c1">---Checks the graph contains vertex v.</span>
+<span class="c1">---@param v any</span>
+<span class="c1">---@return boolean</span>
+<span class="kr">function</span> <span class="nc">Graph</span><span class="p">:</span><span class="nf">containsVertex</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="ow">not</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">Graph</span>
+</code></pre></div>
+
+<h3 id="usage-of-graph-class">Usage of Graph class</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">DFS</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<span class="kr">end</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">table.concat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">))</span> <span class="c1">--&gt; A-B-C-G-F-E-H-I-J-K-D</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">graph</span><span class="p">:</span><span class="n">BFS</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<span class="kr">end</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">table.concat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">))</span> <span class="c1">--&gt; A-D-B-E-C-F-G-H-J-I-K</span>
+
+<span class="c1">-- Check if a graph is bipartite</span>
+<span class="kd">local</span> <span class="n">biparteGraph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="n">biparteGraph</span><span class="p">:</span><span class="n">addEdge</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">biparteGraph</span><span class="p">:</span><span class="n">isBipartite</span><span class="p">())</span> <span class="c1">--&gt; true</span>
+</code></pre></div>
+
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Graph_theory">Wikipedia: Graph theory</a></li>
+<li><a href="https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/">GeeksForGeeks: Graph Data Structure And Algorithms</a></li>
+<li><a href="https://www.geeksforgeeks.org/graph-types-and-applications/?ref=lbp">GeeksForGeeks: Types of Graphs with Examples</a></li>
+<li>Panos Louridas; &ldquo;Graphs&rdquo;. MIT Press (Moscow 2018) <span lang="ru">&ldquo;Алгоритмы для начинающих&rdquo;</span>. pp. 47-83.</li>
+</ul>
+        <h2>Feedback</h2>
+<p>
+For feedback, please check the <a href="/about.html#contacts">contacts</a> section.
+Before writing, please specify where you came from and who you are. Sometimes spammers go insane.
+Thank you in advance for your understanding.
+</p>
+      </article>
+      <a href="/"><em>&larr; Back to the index page</em></a>
+    </main>
+      <footer>
+    <hr>
+    <p>
+      &copy; 2022&mdash;2024 <a href="/me/">xdknight</a>
+      Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
+      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
+    </p>
+    <p>
+      Any images on this website may be used, copied and redistributed under the
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
+    </p>
+    <p>
+      Any code on this website may be used, copied and redistributed under the
+      <a href="https://opensource.org/license/MIT">MIT</a> license.
+    </p>
+    <p>
+      This website <strong>does not</strong> use cookies or any tracking techniques either.
+      Also, this page is fully accessible, responsive, and readable on any
+      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
+    </p>
+  </footer>
+  </body>
+</html>

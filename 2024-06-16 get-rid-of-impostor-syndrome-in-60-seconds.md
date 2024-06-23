@@ -8,7 +8,8 @@ tags: misc
 > psychological experience of intellectual and professional infraudulence. It
 > is "the subjective experience of perceived self-doubt in one's abilities
 > and accomplishments compared with others, despite evidence to suggest the
-> contrary."<sup>[[1](#links)]</sup>
+> contrary."[^1]
+>
 > - Wikipedia
 
 If you read this post, then most probably you have already read a lot of
@@ -61,6 +62,6 @@ language, job position, etc.)
 
 Easy enough? I spent years to understand this.
 
-## Links
+## References
 
-- [Wikipedia: Impostor syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome)
+[^1]: [Wikipedia: Impostor syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome)

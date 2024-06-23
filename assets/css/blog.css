@@ -229,6 +229,10 @@ table {
   }
 }
 
+.footnote hr {
+  display: none;
+}
+
 /* Images */
 /* img.wide { */
 /* max-width: 100%; */

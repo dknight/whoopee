@@ -104,3 +104,8 @@ There is no need to think about code style while coding in Lua and
 concentrate on the tasks; the formatter does its job.
 For more detailed editors' integration guides
 Check out [the official GitHub repo of StyLua](https://github.com/JohnnyMorganz/StyLua).
+
+## References
+
+- [Github: StyLua](https://github.com/JohnnyMorganz/StyLua)
+- [Roblox Lua Style Guide](https://roblox.github.io/lua-style-guide/)

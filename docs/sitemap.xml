@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://whoop.ee</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/me/</loc>
@@ -15,6 +15,10 @@
 	<url>
 		<loc>https://whoop.ee/css-modern-dialog/</loc>
 		<lastmod>2024-17-06</lastmod>
+	</url>
+	<url>
+		<loc>https://whoop.ee/post/graph.html</loc>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/post/rounding-to-the-step.html</loc>
@@ -110,30 +114,30 @@
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/algorithms/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/beginner/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/data-structures/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/featured/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/lua/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/misc/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/web/</loc>
-		<lastmod>2024-06-22</lastmod>
+		<lastmod>2024-06-24</lastmod>
 	</url>
 </urlset>

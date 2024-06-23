@@ -39,7 +39,7 @@ now with a few lines of HTML, CSS and JavaScript. No need for more bloated, ugly
 Also worth looking at [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
 which works perfectly in tandem with `<dialog>`.
 
-## Links
+## References
 
 - [Source code on Github](https://github.com/dknight/css-modern-dialog).
 - [HTML5 Specification](https://html.spec.whatwg.org/#the-dialog-element)

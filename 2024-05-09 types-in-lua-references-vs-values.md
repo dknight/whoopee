@@ -103,6 +103,6 @@ The reference type `table` holds the address in memory. After the change,
 For a better understanding of this topic it is strongly recommended (maybe read even
 several times) [the corresponding topic in Lua manual](https://www.lua.org/manual/5.4/manual.html#2.1).
 
-## Links
+## References
 
 - [Lua manual: Values and Types](https://www.lua.org/manual/5.4/manual.html#2.1)

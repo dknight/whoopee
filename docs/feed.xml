@@ -6,6 +6,12 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
 
   <item>
+  <title>Graph</title>
+  <link>https://whoop.ee/post/graph.html</link>
+  <description></description>
+  <pubDate>Sun, 23 Jun 2024 23:49:48 +0300</pubDate>
+</item>
+<item>
   <title>Rounding a number to step</title>
   <link>https://whoop.ee/post/rounding-to-the-step.html</link>
   <description></description>
@@ -21,19 +27,19 @@
   <title>HTML modern native dialog</title>
   <link>https://whoop.ee/post/html-modern-native-dialog.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:43:23 +0300</pubDate>
 </item>
 <item>
   <title>Get rid of impostor syndrome in 60 seconds</title>
   <link>https://whoop.ee/post/get-rid-of-impostor-syndrome-in-60-seconds.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Mon, 24 Jun 2024 00:03:50 +0300</pubDate>
 </item>
 <item>
   <title>Priority queue</title>
   <link>https://whoop.ee/post/priority-queue.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:13:42 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:43:13 +0300</pubDate>
 </item>
 <item>
   <title>Variety of linked lists</title>
@@ -45,97 +51,97 @@
   <title>Tuple</title>
   <link>https://whoop.ee/post/tuple.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:43:10 +0300</pubDate>
 </item>
 <item>
   <title>Set</title>
   <link>https://whoop.ee/post/set.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:13:15 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:43:07 +0300</pubDate>
 </item>
 <item>
   <title>Circular doubly linked list</title>
   <link>https://whoop.ee/post/circular-doubly-linked-list.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:14:10 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:43:04 +0300</pubDate>
 </item>
 <item>
   <title>Doubly linked list</title>
   <link>https://whoop.ee/post/doubly-linked-list.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:14:34 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:43:02 +0300</pubDate>
 </item>
 <item>
   <title>Circular linked list</title>
   <link>https://whoop.ee/post/circular-linked-list.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:14:43 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:59 +0300</pubDate>
 </item>
 <item>
   <title>Linked list</title>
   <link>https://whoop.ee/post/linked-list.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:14:50 +0300</pubDate>
+  <pubDate>Mon, 24 Jun 2024 00:12:01 +0300</pubDate>
 </item>
 <item>
   <title>List</title>
   <link>https://whoop.ee/post/list.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:57 +0300</pubDate>
 </item>
 <item>
   <title>Arctangent function in Lua</title>
   <link>https://whoop.ee/post/arctangent-function-in-lua.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:51 +0300</pubDate>
 </item>
 <item>
   <title>Types in Lua: References vs Values</title>
   <link>https://whoop.ee/post/types-in-lua-references-vs-values.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:53 +0300</pubDate>
 </item>
 <item>
   <title>Deque or double-ended queue</title>
   <link>https://whoop.ee/post/deque-or-double-ended-queue.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:48 +0300</pubDate>
 </item>
 <item>
   <title>Queue</title>
   <link>https://whoop.ee/post/queue.html</link>
   <description></description>
-  <pubDate>Sat, 22 Jun 2024 22:15:09 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:46 +0300</pubDate>
 </item>
 <item>
   <title>Stack</title>
   <link>https://whoop.ee/post/stack.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:44 +0300</pubDate>
 </item>
 <item>
   <title>Object-oriented programming in Lua</title>
   <link>https://whoop.ee/post/object-oriented-programming-in-lua.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:41 +0300</pubDate>
 </item>
 <item>
   <title>StyLua is an optimized code formatter for Lua</title>
   <link>https://whoop.ee/post/stylua-opinionated-code-formatter-for-lua.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 23:24:11 +0300</pubDate>
 </item>
 <item>
   <title>Lua cheatsheet</title>
   <link>https://whoop.ee/post/lua-cheatsheet.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:39 +0300</pubDate>
 </item>
 <item>
   <title>warn, error and print functions in Lua</title>
   <link>https://whoop.ee/post/info-warn-error.html</link>
   <description></description>
-  <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
+  <pubDate>Sun, 23 Jun 2024 19:42:37 +0300</pubDate>
 </item>
 <item>
   <title>Getting started with Lua</title>

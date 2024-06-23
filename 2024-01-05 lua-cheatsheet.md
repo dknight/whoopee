@@ -452,6 +452,6 @@ local ok, value = pcall(checkSpeed, debug.traceback, "60")
 -- debug.traceback` is used as error handler
 ```
 
-## Links
+## References
 
 - [Lua 5.4 Official Manual](https://www.lua.org/manual/5.4/manual.html)

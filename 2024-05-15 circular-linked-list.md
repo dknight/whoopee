@@ -252,7 +252,7 @@ print("Contains B", cll:contains("B")) --> true
 print("Contains X", cll:contains("XX")) --> false
 ```
 
-## Links
+## References
 
 - [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)</sup>
 - [Linked List in Lua](/post/linked-list.html)

@@ -130,6 +130,6 @@ print(pq:peek()) --> "B"	2
 print(pq:toString()) --> "{A, 1},{B, 2}"
 ```
 
-## Links
+## References
 
 - [Wikipedia: Priority Queue](https://en.wikipedia.org/wiki/Priority_queue)

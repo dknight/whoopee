@@ -161,6 +161,6 @@ print(dq:popBack()) --> "F""
 print(dq:toString()) --> "B,C,D,E""
 ```
 
-## Links
+## References
 
 - [Wikipedia: Double-ended queue](https://en.wikipedia.org/wiki/Double-ended_queue)

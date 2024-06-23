@@ -262,7 +262,7 @@ cdll:removeNode(foundA)
 print(cdll:toString(), cdll:size()) --> "B <=> D <=> E <=> C"	4
 ```
 
-## Links
+## References
 
 - [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)
 - [Wikipedia: Doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list)

@@ -35,7 +35,7 @@
         <!-- Description: A linked list is a fundamental data structure in computer science used for storing and managing collections of data. Linked list implementation in Lua. -->
 
 
-<p>A linked list is a fundamental data structure in computer science used for
+<p>A linked list<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> is a fundamental data structure in computer science used for
 storing and managing collections of data. Unlike arrays, linked lists do not
 require contiguous memory allocation, allowing for efficient insertion and
 deletion operations. Each element, known as a node, contains a data field and
@@ -59,8 +59,7 @@ great as temporary data storage for more complex data structures and algorithms.
 </ul>
 <p>Since we can&rsquo;t iterate backward, efficient <code>insertBefore</code> or <code>removeBefore</code>
 operations are not possible. Inserting to a list before a specific node requires
-traversing the list, which would have a worst-case running time of <code>O(n)</code>.
-<sup><a href="#link-1">[1]</a></sup></p>
+traversing the list, which would have a worst-case running time of <code>O(n)</code>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <p>When removing and inserting the nodes need to care about pointers. The next
 figure shows how pointers are re-assigned on the removing and inserting the
 node.</p>
@@ -305,11 +304,18 @@ a table with value and next pointer.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">:</span><span class="n">toString</span><span class="p">())</span> <span class="c1">--&gt; &quot;B -&gt; D&quot;</span>
 </code></pre></div>
 
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia: Linked list</a> <sup id="link-1">[1]</sup></li>
-<li><a href="https://www.lua.org/pil/11.3.html">Programming in Lua: Linked lists</a></li>
-</ul>
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.lua.org/pil/11.3.html">Programming in Lua: Linked lists</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia: Linked list</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
         <h2>Feedback</h2>
 <p>
 For feedback, please check the <a href="/about.html#contacts">contacts</a> section.

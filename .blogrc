@@ -21,6 +21,8 @@ MARKDOWN_COMMAND="python -m markdown \
 	-x abbr \
 	-x smarty \
 	-x admonition \
+	-x footnotes \
+	-x sane_lists \
 	-x toc"
 
 # Commands to run after succesful build

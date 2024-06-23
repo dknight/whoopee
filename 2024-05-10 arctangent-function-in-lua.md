@@ -99,7 +99,7 @@ local function deg2rad(d)
 end
 ```
 
-## Links
+## References
 
 - [Lua manual: math.atan()](https://www.lua.org/manual/5.4/manual.html#pdf-math.atan)
 - [Wikipedia: Inverse trigonometric functions](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions)

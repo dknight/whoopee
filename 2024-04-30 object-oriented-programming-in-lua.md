@@ -607,7 +607,7 @@ Sometimes maintainability is more important than performance, especially
 if you are working in a large team with different technical skills. What
 approach to choose is up to you.
 
-## Links
+## References
 
 - [Object Orientation Tutorial](https://www.lua-users.org/wiki/ObjectOrientationTutorial)
 - [Object Oriented Programming](https://www.lua-users.org/wiki/ObjectOrientedProgramming)

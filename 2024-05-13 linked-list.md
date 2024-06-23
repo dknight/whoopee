@@ -4,7 +4,7 @@ tags: data-structures
 
 # Linked list
 
-A linked list is a fundamental data structure in computer science used for
+A linked list[^1] is a fundamental data structure in computer science used for
 storing and managing collections of data. Unlike arrays, linked lists do not
 require contiguous memory allocation, allowing for efficient insertion and
 deletion operations. Each element, known as a node, contains a data field and
@@ -31,8 +31,7 @@ Usually liked list have methods:
 
 Since we can't iterate backward, efficient `insertBefore` or `removeBefore`
 operations are not possible. Inserting to a list before a specific node requires
-traversing the list, which would have a worst-case running time of `O(n)`.
-<sup><a href="#link-1">[1]</a></sup>
+traversing the list, which would have a worst-case running time of `O(n)`.[^2]
 
 When removing and inserting the nodes need to care about pointers. The next
 figure shows how pointers are re-assigned on the removing and inserting the
@@ -289,7 +288,7 @@ print(li:contains("B")) --> true
 print(li:toString()) --> "B -> D"
 ```
 
-## Links
+## References
 
-- [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list) <sup id="link-1">[1]</sup>
-- [Programming in Lua: Linked lists](https://www.lua.org/pil/11.3.html)
+[^1]: [Programming in Lua: Linked lists](https://www.lua.org/pil/11.3.html)
+[^2]: [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)
