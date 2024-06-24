@@ -69,6 +69,12 @@ function tag2title() {
     web)
       echo "WebDev"
     ;;
+    love2d)
+      echo "Löve2D"
+    ;;
+    gamedev)
+      echo "Game Development"
+    ;;
     *)
       echo "Timeline"
     ;;
@@ -100,6 +106,8 @@ cat << _EOF_
         $(taglink "algorithms")
         $(taglink "web")
         $(taglink "misc")
+        $(taglink "gamedev")
+        $(taglink "love2d")
         <!-- $(taglink "featured") -->
       </nav>
       <section class="articles">

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<rss version="2.0">
+<channel>
+  <title>Whoopee</title>
+  <link>https://whoop.ee</link>
+  <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
+
+  <item>
+  <title>LoveProfile for Löve2D</title>
+  <link>https://whoop.ee./../post/love-profiler.html</link>
+  <description></description>
+  <pubDate>Mon, 24 Jun 2024 15:01:17 +0300</pubDate>
+</item>
+
+</channel>
+</rss>
