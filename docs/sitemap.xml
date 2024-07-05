@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://whoop.ee</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/me/</loc>
@@ -15,6 +15,10 @@
 	<url>
 		<loc>https://whoop.ee/css-modern-dialog/</loc>
 		<lastmod>2024-06-17</lastmod>
+	</url>
+	<url>
+		<loc>https://whoop.ee/post/single-vs-double-quotes-in-lua.html</loc>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/post/lua-syntax-cheat-sheet.html</loc>
@@ -122,38 +126,38 @@
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/algorithms/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/beginner/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/data-structures/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/featured/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/gamedev/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/love2d/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/lua/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/misc/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 	<url>
 		<loc>https://whoop.ee/tag/web/</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>2024-07-06</lastmod>
 	</url>
 </urlset>

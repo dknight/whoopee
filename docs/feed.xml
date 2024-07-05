@@ -6,10 +6,16 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
 
   <item>
+  <title>Single vs double quotes in Lua</title>
+  <link>https://whoop.ee/post/single-vs-double-quotes-in-lua.html</link>
+  <description></description>
+  <pubDate>Sat, 06 Jul 2024 02:47:15 +0300</pubDate>
+</item>
+<item>
   <title>Lua Syntax Cheat Sheet (Short Version)</title>
   <link>https://whoop.ee/post/lua-syntax-cheat-sheet.html</link>
   <description></description>
-  <pubDate>Mon, 24 Jun 2024 02:05:25 +0300</pubDate>
+  <pubDate>Sat, 06 Jul 2024 02:29:25 +0300</pubDate>
 </item>
 <item>
   <title>LoveProfile for Löve2D</title>
@@ -21,7 +27,7 @@
   <title>Graph</title>
   <link>https://whoop.ee/post/graph.html</link>
   <description></description>
-  <pubDate>Sun, 23 Jun 2024 23:49:48 +0300</pubDate>
+  <pubDate>Sat, 06 Jul 2024 02:29:35 +0300</pubDate>
 </item>
 <item>
   <title>Rounding a number to step</title>
@@ -147,7 +153,7 @@
   <title>Lua cheatsheet</title>
   <link>https://whoop.ee/post/lua-cheatsheet.html</link>
   <description></description>
-  <pubDate>Sun, 23 Jun 2024 19:42:39 +0300</pubDate>
+  <pubDate>Sat, 06 Jul 2024 02:30:52 +0300</pubDate>
 </item>
 <item>
   <title>warn, error and print functions in Lua</title>

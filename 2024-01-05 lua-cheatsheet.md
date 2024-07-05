@@ -4,12 +4,14 @@ tags: lua featured beginner
 
 # Lua cheatsheet
 
+[TOC]
+
+[Shorter version of this page and PDF](/post/lua-syntax-cheat-sheet.html).
+
 A definitive short guide for Lua, including syntax, basic syntax constructs,
 and some useful techniques. Probably the content of this article is enough to
 start writing programs in Lua. Also, this page can be used for reference as a
 handbook.
-
-[TOC]
 
 ## Comments
 ```lua
