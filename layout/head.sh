@@ -21,6 +21,10 @@ if [[ -n "$TAGNAME" ]]; then
   canonical="$BLOG_HOST/tag/$TAGNAME/"
 fi
 
+if [[ "$canonical" = "$BLOG_HOST" ]]; then
+  canonical="$canonical/"
+fi
+
 cat << __HEAD__
 <head>
 <meta charset="utf-8">
