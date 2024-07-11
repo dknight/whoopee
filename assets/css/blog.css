@@ -117,12 +117,12 @@ h4,
 h5,
 h6 {
   color: var(--color-pri);
-  @supports (text-wrap: balance) {
-    text-wrap: balance;
-  }
-  @supports (text-wrap: pretty) {
-    text-wrap: pretty;
-  }
+  /* @supports (text-wrap: balance) { */
+  /* text-wrap: balance; */
+  /* } */
+  /* @supports (text-wrap: pretty) { */
+  /* text-wrap: pretty; */
+  /* } */
 }
 h2,
 h3 {
