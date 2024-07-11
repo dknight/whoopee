@@ -49,7 +49,7 @@ function nav() {
 function tag2title() {
   case "$1" in
     data-structures)
-      echo "Data structures and Algorithms"
+      echo "Data structures"
     ;;
     lua)
       echo "Lua common"

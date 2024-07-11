@@ -6,6 +6,12 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
 
   <item>
+  <title>A definitive guide for compiling Lua from source code</title>
+  <link>https://whoop.ee./../post/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
+  <description></description>
+  <pubDate>Thu, 11 Jul 2024 19:40:15 +0300</pubDate>
+</item>
+<item>
   <title>Rounding a number to step</title>
   <link>https://whoop.ee./../post/rounding-to-the-step.html</link>
   <description></description>
