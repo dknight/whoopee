@@ -18,7 +18,7 @@ fi
 
 canonical="$BLOG_HOST$POST_URL"
 if [[ -n "$TAGNAME" ]]; then
-  canonical="$BLOG_HOST/tag/$TAGNAME"
+  canonical="$BLOG_HOST/tag/$TAGNAME/"
 fi
 
 cat << __HEAD__
