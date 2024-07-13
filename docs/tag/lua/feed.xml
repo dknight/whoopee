@@ -2,72 +2,72 @@
 <rss version="2.0">
 <channel>
   <title>Whoopee</title>
-  <link>https://whoop.ee</link>
+  <link>https://www.whoop.ee</link>
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
 
   <item>
   <title>A definitive guide for compiling Lua from source code</title>
-  <link>https://whoop.ee./../post/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
+  <link>https://www.whoop.ee./../post/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
   <description></description>
   <pubDate>Thu, 11 Jul 2024 19:40:15 +0300</pubDate>
 </item>
 <item>
   <title>Single vs double quotes in Lua</title>
-  <link>https://whoop.ee./../post/single-vs-double-quotes-in-lua.html</link>
+  <link>https://www.whoop.ee./../post/single-vs-double-quotes-in-lua.html</link>
   <description></description>
   <pubDate>Sat, 06 Jul 2024 02:48:13 +0300</pubDate>
 </item>
 <item>
   <title>Lua Syntax Cheat Sheet (Short Version)</title>
-  <link>https://whoop.ee./../post/lua-syntax-cheat-sheet.html</link>
+  <link>https://www.whoop.ee./../post/lua-syntax-cheat-sheet.html</link>
   <description></description>
   <pubDate>Sat, 06 Jul 2024 02:29:25 +0300</pubDate>
 </item>
 <item>
   <title>Rounding a number to step</title>
-  <link>https://whoop.ee./../post/rounding-to-the-step.html</link>
+  <link>https://www.whoop.ee./../post/rounding-to-the-step.html</link>
   <description></description>
   <pubDate>Sat, 22 Jun 2024 11:15:54 +0300</pubDate>
 </item>
 <item>
   <title>Arctangent function in Lua</title>
-  <link>https://whoop.ee./../post/arctangent-function-in-lua.html</link>
+  <link>https://www.whoop.ee./../post/arctangent-function-in-lua.html</link>
   <description></description>
   <pubDate>Sun, 23 Jun 2024 19:42:51 +0300</pubDate>
 </item>
 <item>
   <title>Types in Lua: References vs Values</title>
-  <link>https://whoop.ee./../post/types-in-lua-references-vs-values.html</link>
+  <link>https://www.whoop.ee./../post/types-in-lua-references-vs-values.html</link>
   <description></description>
   <pubDate>Sun, 23 Jun 2024 19:42:53 +0300</pubDate>
 </item>
 <item>
   <title>Object-oriented programming in Lua</title>
-  <link>https://whoop.ee./../post/object-oriented-programming-in-lua.html</link>
+  <link>https://www.whoop.ee./../post/object-oriented-programming-in-lua.html</link>
   <description></description>
   <pubDate>Sun, 23 Jun 2024 19:42:41 +0300</pubDate>
 </item>
 <item>
   <title>StyLua is an optimized code formatter for Lua</title>
-  <link>https://whoop.ee./../post/stylua-opinionated-code-formatter-for-lua.html</link>
+  <link>https://www.whoop.ee./../post/stylua-opinionated-code-formatter-for-lua.html</link>
   <description></description>
   <pubDate>Sun, 23 Jun 2024 23:24:11 +0300</pubDate>
 </item>
 <item>
   <title>Lua cheatsheet</title>
-  <link>https://whoop.ee./../post/lua-cheatsheet.html</link>
+  <link>https://www.whoop.ee./../post/lua-cheatsheet.html</link>
   <description></description>
   <pubDate>Sat, 06 Jul 2024 02:30:52 +0300</pubDate>
 </item>
 <item>
   <title>warn, error and print functions in Lua</title>
-  <link>https://whoop.ee./../post/info-warn-error.html</link>
+  <link>https://www.whoop.ee./../post/info-warn-error.html</link>
   <description></description>
   <pubDate>Sun, 23 Jun 2024 19:42:37 +0300</pubDate>
 </item>
 <item>
   <title>Getting started with Lua</title>
-  <link>https://whoop.ee./../post/getting-started-with-lua.html</link>
+  <link>https://www.whoop.ee./../post/getting-started-with-lua.html</link>
   <description></description>
   <pubDate>Mon, 17 Jun 2024 16:24:45 +0300</pubDate>
 </item>
