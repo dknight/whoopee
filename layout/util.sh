@@ -49,4 +49,4 @@ function is_skipped() {
 }
 
 DATE_NOW=$(date +"%Y-%m-%d")
-BLOG_SUBTITLE="Personal blog about Lua, web, etc."
+BLOG_SUBTITLE="Personal blog about Lua and ITs"
