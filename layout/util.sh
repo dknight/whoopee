@@ -39,7 +39,7 @@ function feedback() {
 }
 
 # space-separated skip pages on the index page, like SKIP="about.html"
-SKIP=""
+SKIP="lua-toolbox.html"
 function is_skipped() {
 	if [[ "$POST_URL" =~ "$SKIP" ]]; then
 		echo 1
