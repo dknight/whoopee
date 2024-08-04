@@ -38,8 +38,8 @@ function feedback() {
 	fi
 }
 
-# space-separated skip pages in index
-SKIP="about.html"
+# space-separated skip pages on the index page, like SKIP="about.html"
+SKIP=""
 function is_skipped() {
 	if [[ "$POST_URL" =~ "$SKIP" ]]; then
 		echo 1
