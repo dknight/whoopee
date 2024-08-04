@@ -76,10 +76,10 @@ deque and queue are very similar and usually serve the same purposes.</p>
 <p>But it also has the same disadvantage as <a href="/post/queue.html">queue</a>
 does. If we remove or add a new element to the front, the next elements after
 the first should be recalculated. This is how <code>table.remove</code>
-method works. In this case, the complexity will be <code>O(n-1)</code>. Let&rsquo;s assume there
+method works. In this case, the complexity will be <em>O(n-1)</em>. Let&rsquo;s assume there
 are one million records (10<sup>6</sup>), every index will be recalculated
 10<sup>6</sup>-1 times. This is very inefficient. Let&rsquo;s implement a wrapper
-class for the queue with complexity <code>O(1)</code>.</p>
+class for the queue with complexity <em>O(1)</em>.</p>
 <h2 id="deque-class">Deque class</h2>
 <p>Class implementation with <a href="/post/object-oriented-programming-in-lua.html">OOP principles</a> and
 <a href="/post/object-oriented-programming-in-lua.html#annotations">annotations</a>.</p>

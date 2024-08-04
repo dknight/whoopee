@@ -59,7 +59,7 @@ great as temporary data storage for more complex data structures and algorithms.
 </ul>
 <p>Since we can&rsquo;t iterate backward, efficient <code>insertBefore</code> or <code>removeBefore</code>
 operations are not possible. Inserting to a list before a specific node requires
-traversing the list, which would have a worst-case running time of <code>O(n)</code>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+traversing the list, which would have a worst-case running time of <em>O(n)</em>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <p>When removing and inserting the nodes need to care about pointers. The next
 figure shows how pointers are re-assigned on the removing and inserting the
 node.</p>
@@ -133,7 +133,7 @@ a table with value and next pointer.</p>
     <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_head</span>
 <span class="kr">end</span>
 
-<span class="c1">---Complexity `O(n)`</span>
+<span class="c1">---Complexity O(n)</span>
 <span class="c1">---@return Node | nil</span>
 <span class="kr">function</span> <span class="nc">LinkedList</span><span class="p">:</span><span class="nf">tail</span><span class="p">()</span>
     <span class="kd">local</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">nil</span>

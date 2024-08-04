@@ -49,10 +49,10 @@ end
 But it also has the same disadvantage as [queue](/post/queue.html)
 does. If we remove or add a new element to the front, the next elements after
 the first should be recalculated. This is how `table.remove`
-method works. In this case, the complexity will be `O(n-1)`. Let's assume there
+method works. In this case, the complexity will be *O(n-1)*. Let's assume there
 are one million records (10<sup>6</sup>), every index will be recalculated
 10<sup>6</sup>-1 times. This is very inefficient. Let's implement a wrapper
-class for the queue with complexity `O(1)`.
+class for the queue with complexity *O(1)*.
 
 ## Deque class
 

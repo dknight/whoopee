@@ -14,8 +14,7 @@ different implementations of handling priority.
 ## Priority queue class
 
 Here is a demonstration of the most simple using ***unsorted list*** class
-O(1) where the insertion time is `O(1)` and the pulling time is
-`O(n)`.
+where the insertion time is *O(1)* and the pulling time is *O(n)*.
 
 There are different possible implementations:
 

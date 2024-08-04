@@ -31,7 +31,7 @@ Usually liked list have methods:
 
 Since we can't iterate backward, efficient `insertBefore` or `removeBefore`
 operations are not possible. Inserting to a list before a specific node requires
-traversing the list, which would have a worst-case running time of `O(n)`.[^2]
+traversing the list, which would have a worst-case running time of *O(n)*.[^2]
 
 When removing and inserting the nodes need to care about pointers. The next
 figure shows how pointers are re-assigned on the removing and inserting the
@@ -115,7 +115,7 @@ function LinkedList:head()
 	return self._head
 end
 
----Complexity `O(n)`
+---Complexity O(n)
 ---@return Node | nil
 function LinkedList:tail()
 	local tail = nil

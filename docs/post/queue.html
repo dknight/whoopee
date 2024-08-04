@@ -37,7 +37,7 @@
 
 <p>Queue is one of the simple data structures, usually used in more complex
 algorithms as temporary data storage. The queue is the linear <abbr title="First-In-First-Out">FIFO</abbr> data
-structure, all operations with the queue have <code>O(1)</code> complexity. Entries in
+structure, all operations with the queue have <em>O(1)</em> complexity. Entries in
 the queue in a sequence can be modified by the enqueueing of entities at
 one end of the sequence and the removal of entities from the other end of the
 sequence.</p>
@@ -93,10 +93,10 @@ values inside any table or structure.</p>
 
 <p>In the above example, there is a large drawback. On the enqueue indexes for the
 next elements after the first should be recalculated. This is how <code>table.remove</code>
-method works. In this case, the complexity will be <code>O(n-1)</code>. Let&rsquo;s assume there
+method works. In this case, the complexity will be <em>O(n-1)</em>. Let&rsquo;s assume there
 are one million records (10<sup>6</sup>), every index will be recalculated
 10<sup>6</sup>-1 times. This is very inefficient.</p>
-<p>Let&rsquo;s implement a wrapper class for the queue with complexity <code>O(1)</code>.</p>
+<p>Let&rsquo;s implement a wrapper class for the queue with complexity <em>O(1)</em>.</p>
 <h2 id="queue-class">Queue class</h2>
 <p>Class implementation with <a href="/post/object-oriented-programming-in-lua.html"><abbr title="Object-Oriented Programming">OOP</abbr> principles</a> and
 <a href="/post/object-oriented-programming-in-lua.html#annotations">annotations</a>.</p>
