@@ -6,6 +6,12 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
 
   <item>
+  <title>Binary Search Algorithm</title>
+  <link>https://www.whoop.ee/post/binary-search-algorithm.html</link>
+  <description></description>
+  <pubDate>Sun, 04 Aug 2024 23:57:01 +0300</pubDate>
+</item>
+<item>
   <title>A definitive guide for compiling Lua from source code</title>
   <link>https://www.whoop.ee/post/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
   <description></description>
