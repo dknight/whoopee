@@ -7,14 +7,14 @@
 
   <item>
   <title>Object-oriented programming in Lua</title>
-  <link>https://www.whoop.ee./../post/object-oriented-programming-in-lua.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/object-oriented-programming-in-lua.html</link>
+  <description>Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Lua cheatsheet</title>
-  <link>https://www.whoop.ee./../post/lua-cheatsheet.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/lua-cheatsheet.html</link>
+  <description>Definite guide of Lua syntax in one place. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 

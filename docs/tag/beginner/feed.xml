@@ -7,44 +7,44 @@
 
   <item>
   <title>Binary Search Algorithm</title>
-  <link>https://www.whoop.ee./../post/binary-search-algorithm.html</link>
+  <link>https://www.whoop.eepost/binary-search-algorithm.html</link>
   <description></description>
   <pubDate>Sun, 04 Aug 2024 23:57:01 +0300</pubDate>
 </item>
 <item>
   <title>A definitive guide for compiling Lua from source code</title>
-  <link>https://www.whoop.ee./../post/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
+  <description>Compiling Lua from the source code is an extremely easy procedure and every beginner in programming can do it, without any problems. Here is a detailed guide on how to compile Lua from the source code. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Rounding a number to step</title>
-  <link>https://www.whoop.ee./../post/rounding-to-the-step.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/rounding-to-the-step.html</link>
+  <description>Rounding integers to a given step is a very common task, sometimes asked at technical interviews and very often such a task appears in daily jobs. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Arctangent function in Lua</title>
-  <link>https://www.whoop.ee./../post/arctangent-function-in-lua.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/arctangent-function-in-lua.html</link>
+  <description>math.atan and math.atan2 in Lua. Explanation of arctangent function and why it is inconsistent in different versions of Lua. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Types in Lua: References vs Values</title>
-  <link>https://www.whoop.ee./../post/types-in-lua-references-vs-values.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/types-in-lua-references-vs-values.html</link>
+  <description>Explanation of what means 'pass by value' and 'pass by reference' in Lua language. Difference between simple values and reference types. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Lua cheatsheet</title>
-  <link>https://www.whoop.ee./../post/lua-cheatsheet.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/lua-cheatsheet.html</link>
+  <description>Definite guide of Lua syntax in one place. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Getting started with Lua</title>
-  <link>https://www.whoop.ee./../post/getting-started-with-lua.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/getting-started-with-lua.html</link>
+  <description>Get stared with Lua programming language. A brief introduction to Lua language. Installation, compilation, REPL guide.</description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 

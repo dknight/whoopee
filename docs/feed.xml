@@ -14,43 +14,43 @@
 <item>
   <title>A definitive guide for compiling Lua from source code</title>
   <link>https://www.whoop.ee/post/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
-  <description></description>
+  <description>Compiling Lua from the source code is an extremely easy procedure and every beginner in programming can do it, without any problems. Here is a detailed guide on how to compile Lua from the source code. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Single vs double quotes in Lua</title>
   <link>https://www.whoop.ee/post/single-vs-double-quotes-in-lua.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>There is no technical difference between single and double quotes in strings in Lua language. Just choose the style of quotes that you like and use it.</description>
+  <pubDate>Mon, 05 Aug 2024 00:06:21 +0300</pubDate>
 </item>
 <item>
   <title>Lua Syntax Cheat Sheet (Short Version)</title>
   <link>https://www.whoop.ee/post/lua-syntax-cheat-sheet.html</link>
-  <description></description>
+  <description>Very brief syntax cheat sheet of Lua language syntax. Download PDF of Lua cheat sheet. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>LoveProfile for Löve2D</title>
   <link>https://www.whoop.ee/post/love-profiler.html</link>
-  <description></description>
+  <description>LoveProfiler is an extremely simple logger and profiler for Löve2D framework. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Graph</title>
   <link>https://www.whoop.ee/post/graph.html</link>
-  <description></description>
+  <description>Definitive guide and implementation of the graphs in Lua language. Graph is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Rounding a number to step</title>
   <link>https://www.whoop.ee/post/rounding-to-the-step.html</link>
-  <description></description>
+  <description>Rounding integers to a given step is a very common task, sometimes asked at technical interviews and very often such a task appears in daily jobs. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Puff lightweight CSS framework</title>
   <link>https://www.whoop.ee/post/puff-css-framework.html</link>
-  <description></description>
+  <description>Full-featured CSS micro framework (~2kb gzip) that is maintained. Extremely light CSS framework for rapid user interface prototyping. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
@@ -62,121 +62,121 @@
 <item>
   <title>Get rid of impostor syndrome in 60 seconds</title>
   <link>https://www.whoop.ee/post/get-rid-of-impostor-syndrome-in-60-seconds.html</link>
-  <description></description>
+  <description>The most effective way to get rid of impostor syndrome in 60 seconds. Technique based on imaginary and associative thinking. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Priority queue</title>
   <link>https://www.whoop.ee/post/priority-queue.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>Implementation of the priority queue in Lua. Priority queue is an abstract data type similar to queue and stack. The difference is that each element has a priority value. Values with higher priority are pulled first. </description>
+  <pubDate>Mon, 05 Aug 2024 00:08:43 +0300</pubDate>
 </item>
 <item>
   <title>Variety of linked lists</title>
   <link>https://www.whoop.ee/post/variety-of-linked-lists.html</link>
-  <description></description>
+  <description>Linked list is a classical data structure that can be used as data storage for different algorithms and efficient data management. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Tuple</title>
   <link>https://www.whoop.ee/post/tuple.html</link>
-  <description></description>
+  <description>Tuple is a data structure where values are ordered and unchangeable. In Lua, tuples are implemented as tables. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Set</title>
   <link>https://www.whoop.ee/post/set.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>Set is a data structure with a collection of values where the value in the set may only occur once; it is unique in the set's collection. Check set implementation in Lua. -</description>
+  <pubDate>Mon, 05 Aug 2024 00:08:08 +0300</pubDate>
 </item>
 <item>
   <title>Circular doubly linked list</title>
   <link>https://www.whoop.ee/post/circular-doubly-linked-list.html</link>
-  <description></description>
+  <description>Circular doubly linked list is a data structure that is a combination of both circular singly linked list and doubly linked list. It stores 2 pointers, one is pointing to the next node, the other to the previous node and the first pointer points to the last and correspondingly last to the first. This approach makes a continual circular loop. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Doubly linked list</title>
   <link>https://www.whoop.ee/post/doubly-linked-list.html</link>
-  <description></description>
+  <description>Doubly linked list is a data structure similar to a singly linked list. With one significant difference: it stores 2 pointers, one is pointing to the next node, the other to the previous node. Check implementation of doubly linked list in Lua programming language. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Circular linked list</title>
   <link>https://www.whoop.ee/post/circular-linked-list.html</link>
-  <description></description>
+  <description>A cicrular linked list is a data structure similar to linear singly linked list for storing and managing collections of data. All nodes are linked in a continuous circle. Circular linked list implementation in Lua. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Linked list</title>
   <link>https://www.whoop.ee/post/linked-list.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>A linked list is a fundamental data structure in computer science used for storing and managing collections of data. Linked list implementation in Lua. </description>
+  <pubDate>Mon, 05 Aug 2024 00:08:02 +0300</pubDate>
 </item>
 <item>
   <title>List</title>
   <link>https://www.whoop.ee/post/list.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>List abstract data structure in Lua language. Implementation of append, prepend, contains and find methods. </description>
+  <pubDate>Mon, 05 Aug 2024 00:07:45 +0300</pubDate>
 </item>
 <item>
   <title>Arctangent function in Lua</title>
   <link>https://www.whoop.ee/post/arctangent-function-in-lua.html</link>
-  <description></description>
+  <description>math.atan and math.atan2 in Lua. Explanation of arctangent function and why it is inconsistent in different versions of Lua. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Types in Lua: References vs Values</title>
   <link>https://www.whoop.ee/post/types-in-lua-references-vs-values.html</link>
-  <description></description>
+  <description>Explanation of what means 'pass by value' and 'pass by reference' in Lua language. Difference between simple values and reference types. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Deque or double-ended queue</title>
   <link>https://www.whoop.ee/post/deque-or-double-ended-queue.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>Deque or double-ended queue abstract data structure in Lua language. Implementation of push front, push back, pop front and pop back methods. </description>
+  <pubDate>Mon, 05 Aug 2024 00:07:29 +0300</pubDate>
 </item>
 <item>
   <title>Queue</title>
   <link>https://www.whoop.ee/post/queue.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>Queue abstract data structure in Lua language. Implementation of enqueue, dequeue, isEmpty, front and rear methods. </description>
+  <pubDate>Mon, 05 Aug 2024 00:07:18 +0300</pubDate>
 </item>
 <item>
   <title>Stack</title>
   <link>https://www.whoop.ee/post/stack.html</link>
-  <description></description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <description>Stack abstract data structure in Lua language. Implementation of push, pop and isEmpty methods. </description>
+  <pubDate>Mon, 05 Aug 2024 00:06:59 +0300</pubDate>
 </item>
 <item>
   <title>Object-oriented programming in Lua</title>
   <link>https://www.whoop.ee/post/object-oriented-programming-in-lua.html</link>
-  <description></description>
+  <description>Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>StyLua is an optimized code formatter for Lua</title>
   <link>https://www.whoop.ee/post/stylua-opinionated-code-formatter-for-lua.html</link>
-  <description></description>
+  <description>StyLua is an amazing code formatter inspired by prettier. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Lua cheatsheet</title>
   <link>https://www.whoop.ee/post/lua-cheatsheet.html</link>
-  <description></description>
+  <description>Definite guide of Lua syntax in one place. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>warn, error and print functions in Lua</title>
   <link>https://www.whoop.ee/post/info-warn-error.html</link>
-  <description></description>
+  <description>Lua has some useful functions for debugging and error handling: print, warn, and error. Here are some tricks to using them. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Getting started with Lua</title>
   <link>https://www.whoop.ee/post/getting-started-with-lua.html</link>
-  <description></description>
+  <description>Get stared with Lua programming language. A brief introduction to Lua language. Installation, compilation, REPL guide.</description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 

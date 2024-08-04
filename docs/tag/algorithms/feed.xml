@@ -7,20 +7,20 @@
 
   <item>
   <title>Binary Search Algorithm</title>
-  <link>https://www.whoop.ee./../post/binary-search-algorithm.html</link>
+  <link>https://www.whoop.eepost/binary-search-algorithm.html</link>
   <description></description>
   <pubDate>Sun, 04 Aug 2024 23:57:01 +0300</pubDate>
 </item>
 <item>
   <title>Graph</title>
-  <link>https://www.whoop.ee./../post/graph.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/graph.html</link>
+  <description>Definitive guide and implementation of the graphs in Lua language. Graph is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 <item>
   <title>Rounding a number to step</title>
-  <link>https://www.whoop.ee./../post/rounding-to-the-step.html</link>
-  <description></description>
+  <link>https://www.whoop.eepost/rounding-to-the-step.html</link>
+  <description>Rounding integers to a given step is a very common task, sometimes asked at technical interviews and very often such a task appears in daily jobs. </description>
   <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
 </item>
 

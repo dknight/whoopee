@@ -16,13 +16,12 @@ function list_item {
   if [[ $(is_skipped) = 1 ]]; then
     return
   fi
-  if [[ ! -z $DEPLOY ]]; then
-    POST_CONTENTS=$(cat ".dist/${POST_URL/.\/..\//}")
-  fi
+  NORM_POST_URL="${POST_URL/.\/..\//}"
+  POST_CONTENTS=$(cat "./docs/$NORM_POST_URL")
 cat << _LOOP_
 <item>
   <title>$POST_TITLE</title>
-  <link>$BLOG_HOST$POST_URL</link>
+  <link>$BLOG_HOST$NORM_POST_URL</link>
   <description>$(get_description)</description>
   <pubDate>$POST_DATE_RFC822</pubDate>
 </item>
