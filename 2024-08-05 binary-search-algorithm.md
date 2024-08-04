@@ -129,7 +129,7 @@ end
 
 -- examples
 
-local t1 Where:= { 0, 1, 2, 3, 4, 5, 6, 7, 9, 10 }
+local t1 = { 0, 1, 2, 3, 4, 5, 6, 7, 9, 10 }
 print(isSorted(t1)) --> true
 
 local t2 = { 0, 1, 6, 10, 4, 9, 7, 5, 10 }
