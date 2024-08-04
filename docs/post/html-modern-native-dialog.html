@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.">
+<meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal">
+<meta name="author" content="Dmitri Smirnov">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.whoop.ee/post/html-modern-native-dialog.html">
+<meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'">
+<title>HTML modern native dialog &mdash; Whoopee</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" href="/assets/css/styles.min.css">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+<link rel="canonical" href="https://www.whoop.ee/post/html-modern-native-dialog.html">
+</head>
+  <body>
+      <header>
+    <a href="/" class="logo">Whoopee</a>
+    <nav class="mainmenu">
+      <a href="/me/">About</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+    <main>
+      <a href="/"><em>&larr; Back to the index page</em></a>
+      <article>
+        <h1>HTML modern native dialog</h1>
+        <time datetime="2024-06-17">
+          June 17, 2024
+        </time>
+        <!-- Description -->
+
+
+<p>Since the invention of the first browsers, there has been a requirement for
+modal windows, dialogs and other floating elements. For about 30 years natively
+worked only: <code>window.alert()</code>, <code>window.confirm()</code>, <code>window.prompt()</code>.
+Everything looked like this:</p>
+<p><img alt="Old browser confirmation" src="/assets/img/web/firefox_confirm_dialog.png" />
+<em>Image from <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm">https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm</a></em></p>
+<p>Somewhere in the 2000th in the era of <a href="http://prototypejs.org/">PrototypeJS</a>
+and <a href="https://jquery.com/">jQuery</a> there were LightBox, DarkBox, ModalBox plus
+hundreds of bloated, low-performing, inaccessible implementations of dialogs.
+The same trend of ugly modal windows continued in 2010&ndash;2020th in the era of
+<a href="https://react.dev/">React</a>, <a href="https://angular.dev/">Angular</a> and
+<a href="https://vuejs.org/">Vue</a>.</p>
+<p><img alt="Lightbox Demo" src="/assets/img/web/lightbox.webp" />
+<em>Image from <a href="https://learnersbucket.com/examples/interview/create-a-lightbox-modal-image-gallery-in-reactjs">https://learnersbucket.com/examples/interview/create-a-lightbox-modal-image-gallery-in-reactjs/</a></em></p>
+<h2 id="finally-native-solution">Finally native solution</h2>
+<p>After 30 years browser implemented a new HTML element
+<a href="https://html.spec.whatwg.org/#the-dialog-element"><code>&lt;dialog&gt;</code></a> which provides
+out-of-box API for such cases as dialogs, modal windows, etc.</p>
+<p>I created a <a href="/css-modern-dialog/">small demo</a> with native dialog, which includes
+the most usable pattern for the dialogs. Including backdrop effects, animations,
+modality, styling, keyboard tricks and focus trap. Everything can be achieved
+now with a few lines of HTML, CSS and JavaScript. No need for more bloated, ugly
+3rd party plugins for this task.</p>
+<p><img alt="Native HTML dialog demo" src="/assets/img/web/dialog.png" /></p>
+<p>Also worth looking at <a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">Popover API</a>
+which works perfectly in tandem with <code>&lt;dialog&gt;</code>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/dknight/css-modern-dialog">Source code on Github</a>.</li>
+<li><a href="https://html.spec.whatwg.org/#the-dialog-element">HTML5 Specification</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">MDN: Dialog Element</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">MDN: Popover API</a></li>
+</ul>
+        <h2>Feedback</h2>
+<p>
+For feedback, please check the <a href="/me/">contacts</a> section.
+Before writing, please specify where you came from and who you are. Sometimes spammers go insane.
+Thank you in advance for your understanding.
+</p>
+      </article>
+      <a href="/"><em>&larr; Back to the index page</em></a>
+    </main>
+      <footer>
+    <hr>
+    <p>
+      &copy; 2022&mdash;2024 <a href="/me/">xdknight</a>
+      Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
+      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
+    </p>
+    <p>
+      Any images on this website may be used, copied and redistributed under the
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
+    </p>
+    <p>
+      Any code on this website may be used, copied and redistributed under the
+      <a href="https://opensource.org/license/MIT">MIT</a> license.
+    </p>
+    <p>
+      This website <strong>does not</strong> use cookies or any tracking techniques either.
+      Also, this page is fully accessible, responsive, and readable on any
+      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
+    </p>
+  </footer>
+  </body>
+</html>

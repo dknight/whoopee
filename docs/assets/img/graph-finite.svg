@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="614.16602"
+   height="372.23001"
+   viewBox="0 0 162.49809 98.48586"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="graph-finite.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title2">finite graph example</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="false"
+     inkscape:clip-to-page="false"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="333.75438"
+     inkscape:cy="186.32263"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     labelstyle="default"
+     shape-rendering="auto"
+     showgrid="false">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="162.49809"
+       height="98.485863"
+       id="page38"
+       margin="6.6145835"
+       bleed="0" />
+    <inkscape:grid
+       id="grid3"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458332"
+       spacingy="0.26458334"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <color-profile
+       name="Blue"
+       xlink:href="file:///usr/share/color/icc/colord/Bluish.icc"
+       id="color-profile2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6-1-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="151.59375"
+       height="69.811035"
+       id="rect2-29" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="350.79678"
+       height="69.991272"
+       id="rect2-29-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-9-0" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.109664,-5.2669141)">
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:2.00163"
+       id="rect3"
+       width="162.49809"
+       height="98.382408"
+       x="21.296753"
+       y="5.0798254"
+       sodipodi:insensitive="true" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,102.7691,-82.667448)"
+       id="text1-1-3"
+       style="font-style:normal;font-weight:normal;font-size:18.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2-29-1);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="24.769531"
+         y="371.69339"
+         id="tspan2">Finite Graph Data Structure</tspan></text>
+    <circle
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:0.396875;stroke-miterlimit:4.3"
+       id="path2"
+       cx="65.674431"
+       cy="36.806393"
+       r="6.94803" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="62.057091"
+       y="40.664024"
+       id="text37-3-4-2-4-4-7-5"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="62.057091"
+         y="40.664024">A</tspan></text>
+    <circle
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:0.396875;stroke-miterlimit:4.3"
+       id="path2-9"
+       cx="137.64908"
+       cy="43.328846"
+       r="6.94803" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="133.94388"
+       y="47.181313"
+       id="text37-3-4-2-4-4-7-5-1"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-2"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="133.94388"
+         y="47.181313">C</tspan></text>
+    <circle
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:0.396875;stroke-miterlimit:4.3"
+       id="path2-9-3-2"
+       cx="99.607864"
+       cy="40.712769"
+       r="6.94803" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="95.990524"
+       y="44.570404"
+       id="text37-3-4-2-4-4-7-5-1-6-93"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-2-0-1"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="95.990524"
+         y="44.570404">B</tspan></text>
+    <circle
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:0.396875;stroke-miterlimit:4.3"
+       id="path2-9-3-8"
+       cx="80.761314"
+       cy="62.352734"
+       r="6.94803" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="77.236992"
+       y="66.210373"
+       id="text37-3-4-2-4-4-7-5-1-6-9"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-2-0-7"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="77.236992"
+         y="66.210373">E</tspan></text>
+    <circle
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:0.396875;stroke-miterlimit:4.3"
+       id="path2-9-1"
+       cx="132.28969"
+       cy="78.892395"
+       r="6.94803" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="128.00833"
+       y="82.750031"
+       id="text37-3-4-2-4-4-7-5-1-8"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-9-3-2-7"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="128.00833"
+         y="82.750031">D</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 72.906498,37.097713 19.582461,3.835293"
+       id="path3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 99.32324,47.835948 86.397493,57.877562"
+       id="path3-8"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 106.844,41.511505 23.60171,1.596551"
+       id="path3-8-3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 137.25244,50.454673 -4.3589,21.501259"
+       id="path3-8-3-4"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 87.340168,65.197946 125.08092,78.751355"
+       id="path3-8-3-6"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:language>English</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>graph finite</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>Illustration of finite graph data structure</dc:description>
+        <dc:title>finite graph example</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

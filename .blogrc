@@ -5,7 +5,7 @@ BLOG_TITLE="Whoopee"
 POSTS_PER_PAGE=1000000
 
 # This is your build directory
-DIST=".dist"
+DIST="docs"
 
 # These directories are copied into your build director
 STATIC_DIRS="assets"

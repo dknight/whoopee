@@ -1,0 +1,33 @@
+.button {
+  all: unset;
+  background: var(--grad);
+  border-radius: 99px;
+  color: var(--c-bg);
+  cursor: pointer;
+  font-weight: 600;
+  padding: calc(var(--s) * 0.75) calc(var(--s) * 2);
+  white-space: nowrap;
+}
+
+.button:focus-visible {
+  outline: auto;
+  outline-offset: calc(var(--bw) * 3);
+}
+
+.button:hover:not(:disabled) {
+  /* Possible experiment
+  /* wait for css color module 5, or fix bug in lightning css */
+  /* background: lch(from var(--c-pri) calc(l + 10%) c h); */
+  outline-offset: calc(var(--bw) * 2);
+  outline: calc(var(--bw) * 2) solid var(--c-pri);
+}
+
+.button:disabled {
+  border: var(--brd);
+  cursor: default;
+  opacity: 0.5;
+}
+.button + a,
+.button + .button {
+  margin-left: var(--s);
+}

@@ -1,0 +1,29 @@
+/*
+* Actually using layers at the moment doesnt give any advantage here.
+* So maybe in future.
+*/
+/* @layer components, core, themes; */
+
+/* Components */
+@import 'modules/alert.css' /*layer(components)*/;
+@import 'modules/badge.css' /*layer(components)*/;
+@import 'modules/button.css' /*layer(components)*/;
+@import 'modules/card.css' /*layer(components)*/;
+@import 'modules/dialog.css' /*layer(components)*/;
+@import 'modules/dropdown.css' /*layer(components)*/;
+@import 'modules/input.css' /*layer(components)*/;
+@import 'modules/lists.css' /*layer(components)*/;
+@import 'modules/table.css' /*layer(components)*/;
+
+/* Core features */
+@import 'modules/utils.css' /*layer(core)*/;
+@import 'modules/base.css' /*layer(core)*/;
+@import 'modules/color.css' /*layer(core)*/;
+@import 'modules/layout.css' /*layer(core)*/;
+@import 'modules/print.css' /*layer(core)*/;
+@import 'modules/props.css' /*layer(core)*/;
+@import 'modules/typo.css' /*layer(core)*/;
+
+/** Themes */
+@import 'themes/light.css' /*layer(themes)*/;
+@import 'themes/dark.css' /*layer(themes)*/;
