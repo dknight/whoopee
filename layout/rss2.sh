@@ -18,26 +18,27 @@ function list_item {
   fi
   NORM_POST_URL="${POST_URL/.\/..\//}"
   POST_CONTENTS=$(cat "./docs/$NORM_POST_URL")
+  PUBDATE=$(date -Rd "$POST_DATE")
 cat << _LOOP_
 <item>
+  <guid>$BLOG_HOST$NORM_POST_URL</guid>
   <title>$POST_TITLE</title>
   <link>$BLOG_HOST$NORM_POST_URL</link>
   <description>$(get_description)</description>
-  <pubDate>$POST_DATE_RFC822</pubDate>
+  <pubDate>$PUBDATE</pubDate>
 </item>
 _LOOP_
 }
 
 cat << _EOF_
-<?xml version="1.0" ?>
-<rss version="2.0">
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>$BLOG_TITLE</title>
   <link>$BLOG_HOST</link>
   <description>$(get_default_description)</description>
-
+  <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   $(index_loop)
-
 </channel>
 </rss>
 _EOF_

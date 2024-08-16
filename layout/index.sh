@@ -20,10 +20,10 @@ function list_item() {
     if [[ $(is_skipped) = 1 ]]; then
         return
     fi
-  date=$(date -d "$POST_DATE" +%Y-%m-%d)
+  DATE=$(date -d "$POST_DATE" +%Y-%m-%d)
 cat << _LOOP_
   <li>
-    <time datetime="$date">$date</time>
+    <time datetime="$DATE">$DATE</time>
     <a href="$URL_PREFIX$POST_URL">$POST_TITLE</a>
   </li>
 _LOOP_

@@ -1,82 +1,93 @@
-<?xml version="1.0" ?>
-<rss version="2.0">
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Whoopee</title>
   <link>https://www.whoop.ee</link>
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
-
+  <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/binary-search-algorithm.html</guid>
   <title>Binary Search Algorithm</title>
   <link>https://www.whoop.eepost/binary-search-algorithm.html</link>
   <description></description>
-  <pubDate>Mon, 05 Aug 2024 00:27:46 +0300</pubDate>
+  <pubDate>Mon, 05 Aug 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/a-definitive-guide-for-compiling-lua-from-source-code.html</guid>
   <title>A definitive guide for compiling Lua from source code</title>
   <link>https://www.whoop.eepost/a-definitive-guide-for-compiling-lua-from-source-code.html</link>
   <description>Compiling Lua from the source code is an extremely easy procedure and every beginner in programming can do it, without any problems. Here is a detailed guide on how to compile Lua from the source code. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Thu, 11 Jul 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/single-vs-double-quotes-in-lua.html</guid>
   <title>Single vs double quotes in Lua</title>
   <link>https://www.whoop.eepost/single-vs-double-quotes-in-lua.html</link>
   <description>There is no technical difference between single and double quotes in strings in Lua language. Just choose the style of quotes that you like and use it.</description>
-  <pubDate>Mon, 05 Aug 2024 00:06:21 +0300</pubDate>
+  <pubDate>Sat, 06 Jul 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/lua-syntax-cheat-sheet.html</guid>
   <title>Lua Syntax Cheat Sheet (Short Version)</title>
   <link>https://www.whoop.eepost/lua-syntax-cheat-sheet.html</link>
   <description>Very brief syntax cheat sheet of Lua language syntax. Download PDF of Lua cheat sheet. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Mon, 24 Jun 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/rounding-to-the-step.html</guid>
   <title>Rounding a number to step</title>
   <link>https://www.whoop.eepost/rounding-to-the-step.html</link>
   <description>Rounding integers to a given step is a very common task, sometimes asked at technical interviews and very often such a task appears in daily jobs. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Fri, 21 Jun 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/arctangent-function-in-lua.html</guid>
   <title>Arctangent function in Lua</title>
   <link>https://www.whoop.eepost/arctangent-function-in-lua.html</link>
   <description>math.atan and math.atan2 in Lua. Explanation of arctangent function and why it is inconsistent in different versions of Lua. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Fri, 10 May 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/types-in-lua-references-vs-values.html</guid>
   <title>Types in Lua: References vs Values</title>
   <link>https://www.whoop.eepost/types-in-lua-references-vs-values.html</link>
   <description>Explanation of what means 'pass by value' and 'pass by reference' in Lua language. Difference between simple values and reference types. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Thu, 09 May 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/object-oriented-programming-in-lua.html</guid>
   <title>Object-oriented programming in Lua</title>
   <link>https://www.whoop.eepost/object-oriented-programming-in-lua.html</link>
   <description>Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Tue, 30 Apr 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/stylua-opinionated-code-formatter-for-lua.html</guid>
   <title>StyLua is an optimized code formatter for Lua</title>
   <link>https://www.whoop.eepost/stylua-opinionated-code-formatter-for-lua.html</link>
   <description>StyLua is an amazing code formatter inspired by prettier. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Thu, 25 Apr 2024 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/lua-cheatsheet.html</guid>
   <title>Lua cheatsheet</title>
   <link>https://www.whoop.eepost/lua-cheatsheet.html</link>
   <description>Definite guide of Lua syntax in one place. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Fri, 05 Jan 2024 00:00:00 +0200</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/info-warn-error.html</guid>
   <title>warn, error and print functions in Lua</title>
   <link>https://www.whoop.eepost/info-warn-error.html</link>
   <description>Lua has some useful functions for debugging and error handling: print, warn, and error. Here are some tricks to using them. </description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Wed, 01 Jun 2022 00:00:00 +0300</pubDate>
 </item>
 <item>
+  <guid>https://www.whoop.eepost/getting-started-with-lua.html</guid>
   <title>Getting started with Lua</title>
   <link>https://www.whoop.eepost/getting-started-with-lua.html</link>
   <description>Get stared with Lua programming language. A brief introduction to Lua language. Installation, compilation, REPL guide.</description>
-  <pubDate>Tue, 23 Jul 2024 22:49:14 +0300</pubDate>
+  <pubDate>Mon, 30 May 2022 00:00:00 +0300</pubDate>
 </item>
-
 </channel>
 </rss>
