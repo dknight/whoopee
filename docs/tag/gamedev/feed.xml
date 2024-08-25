@@ -7,7 +7,7 @@
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
   <guid>https://www.whoop.eepost/love-profiler.html</guid>
-  <title>LoveProfile for Löve2D</title>
+  <title>Profile for Löve2D</title>
   <link>https://www.whoop.eepost/love-profiler.html</link>
   <description>LoveProfiler is an extremely simple logger and profiler for Löve2D framework. </description>
   <pubDate>Mon, 24 Jun 2024 00:00:00 +0300</pubDate>

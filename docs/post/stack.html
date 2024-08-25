@@ -101,7 +101,7 @@ might work not as you expected. My general rule, is never to add <code>nil</code
     <span class="kr">return</span> <span class="nb">setmetatable</span><span class="p">({},</span> <span class="n">self</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="c1">---@param any</span>
+<span class="c1">---@param v any</span>
 <span class="c1">---@return nil</span>
 <span class="kr">function</span> <span class="nc">Stack</span><span class="p">:</span><span class="nf">push</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="n">self</span><span class="p">[</span><span class="o">#</span><span class="n">self</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>

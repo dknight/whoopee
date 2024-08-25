@@ -180,7 +180,6 @@ blockquote {
   border-radius: var(--border-radius);
   border: 0.125rem solid;
   border-left-width: 0.85rem;
-  margin: 0;
   padding: 0 2rem 0 1.5rem;
 
   + .admonition {
