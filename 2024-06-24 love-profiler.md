@@ -2,7 +2,7 @@
 
 tags: love2d gamedev
 
-# LoveProfile for Löve2D
+# Profile for Löve2D
 
 LoveProfiler is an extremely simple logger and profiler for [Löve2D](https://love2d.org/)
 framework. It displays useful information about the current state of a running game.
