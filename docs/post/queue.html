@@ -104,6 +104,7 @@ are one million records (10<sup>6</sup>), every index will be recalculated
 <div class="codehilite"><pre><span></span><code><span class="c1">---@class Queue</span>
 <span class="c1">---@field private _first number</span>
 <span class="c1">---@field private _last number</span>
+<span class="c1">---@field private _size number</span>
 <span class="kd">local</span> <span class="n">Queue</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">Queue</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Queue</span>
 
@@ -112,16 +113,17 @@ are one million records (10<sup>6</sup>), every index will be recalculated
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">_first</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">_last</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="kr">return</span> <span class="nb">setmetatable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>
 <span class="kr">end</span>
 
 <span class="c1">---@param v any</span>
-<span class="c1">---@return nil</span>
 <span class="kr">function</span> <span class="nc">Queue</span><span class="p">:</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="kd">local</span> <span class="n">last</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_last</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">self</span><span class="p">.</span><span class="n">_last</span> <span class="o">=</span> <span class="n">last</span>
     <span class="n">self</span><span class="p">[</span><span class="n">last</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="kr">end</span>
 
 <span class="c1">---@return any</span>
@@ -133,6 +135,7 @@ are one million records (10<sup>6</sup>), every index will be recalculated
     <span class="kd">local</span> <span class="n">v</span> <span class="o">=</span> <span class="n">self</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
     <span class="n">self</span><span class="p">[</span><span class="n">first</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span> <span class="c1">-- garbage collection removes it</span>
     <span class="n">self</span><span class="p">.</span><span class="n">_first</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_first</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="kr">return</span> <span class="n">v</span>
 <span class="kr">end</span>
 
@@ -149,6 +152,11 @@ are one million records (10<sup>6</sup>), every index will be recalculated
 <span class="c1">---@return any</span>
 <span class="kr">function</span> <span class="nc">Queue</span><span class="p">:</span><span class="nf">rear</span><span class="p">()</span>
     <span class="kr">return</span> <span class="n">self</span><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">_last</span><span class="p">]</span>
+<span class="kr">end</span>
+
+<span class="c1">---@return number</span>
+<span class="kr">function</span> <span class="nc">Queue</span><span class="p">:</span><span class="nf">size</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_size</span>
 <span class="kr">end</span>
 
 <span class="c1">---@params sep? string</span>
@@ -173,6 +181,7 @@ are one million records (10<sup>6</sup>), every index will be recalculated
 <span class="n">q</span><span class="p">:</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">isEmpty</span><span class="p">())</span> <span class="c1">--&gt; false</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">toString</span><span class="p">())</span> <span class="c1">--&gt; &quot;11,22,33&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">size</span><span class="p">())</span> <span class="c1">--&gt; 3</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">front</span><span class="p">(),</span> <span class="n">q</span><span class="p">:</span><span class="n">rear</span><span class="p">())</span> <span class="c1">--&gt; 11,  33</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">dequeue</span><span class="p">())</span> <span class="c1">--&gt; 11</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">:</span><span class="n">dequeue</span><span class="p">())</span> <span class="c1">--&gt; 22</span>
