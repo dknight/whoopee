@@ -17,7 +17,7 @@
 body {
   font: normal 16px/1.5 Helvetica, Arial, sans-serif;
   padding: 1rem;
-  margin: 0;
+  margin: 0 auto;
   box-sizing: border-box;
   background: var(--color-bg);
   color: var(--color-text);
