@@ -10,7 +10,7 @@ cat << __FOOTER__
     </p>
     <p>
       Any images on this website may be used, copied and redistributed under the
-      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.
     </p>
     <p>
       Any code on this website may be used, copied and redistributed under the
