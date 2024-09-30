@@ -153,7 +153,7 @@ This readme is a good starting point to get help.
 
 There is an option to set up Lua compilation with a variety of needs. For example,
 change the default buffer size or use only integers for numbers, change integer
-size to 8, 16, 32, 64-bits, float precision, memory limits, and lots more.
+size to 32, 64-bits (with some tricks even 8 and 16 bits), float precision, memory limits, and lots more.
 Such a custom setup might be useful for microcontrollers and other IoT microdevices.
 
 There is a file `src/luaconf.h` where all such settings are set. The file
