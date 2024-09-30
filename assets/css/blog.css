@@ -21,7 +21,7 @@ body {
   box-sizing: border-box;
   background: var(--color-bg);
   color: var(--color-text);
-  max-width: 60rem;
+  max-width: 80rem;
   width: 100%;
 
   @media print {
@@ -88,6 +88,10 @@ footer {
   }
 }
 main {
+  article {
+    container-type: inline-size;
+    container-name: article;
+  }
   .articles {
     li {
       line-height: 1.8rem;
@@ -117,12 +121,12 @@ h4,
 h5,
 h6 {
   color: var(--color-pri);
-  /* @supports (text-wrap: balance) { */
-  /* text-wrap: balance; */
-  /* } */
-  /* @supports (text-wrap: pretty) { */
-  /* text-wrap: pretty; */
-  /* } */
+  @supports (text-wrap: balance) {
+    text-wrap: balance;
+  }
+  @supports (text-wrap: pretty) {
+    text-wrap: pretty;
+  }
 }
 h2,
 h3 {
@@ -211,6 +215,21 @@ blockquote {
 
 .toc {
   margin-top: 1rem;
+  padding: 1rem 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  width: fit-content;
+  @container article (max-width: 767px) {
+    width: auto;
+  }
+
+  &::before {
+    content: 'Table of contents';
+    font-size: 135%;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.7rem;
+  }
 }
 .toc > ul,
 .list-reset {
