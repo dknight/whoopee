@@ -6,9 +6,9 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-  <guid>https://www.whoop.eepost/laura-unit-testing-framework-for-lua-2.html</guid>
+  <guid>https://www.whoop.eepost/laura-unit-testing-framework-for-lua.html</guid>
   <title>Documentation for Laura unit-testing framework</title>
-  <link>https://www.whoop.eepost/laura-unit-testing-framework-for-lua-2.html</link>
+  <link>https://www.whoop.eepost/laura-unit-testing-framework-for-lua.html</link>
   <description>Documentation for Laura is a lightweight unit-testing framework for Lua with simplicity in mind. </description>
   <pubDate>Sat, 05 Oct 2024 00:00:00 +0300</pubDate>
 </item>
