@@ -45,7 +45,7 @@ function post_hook() {
 	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
 
 	# shortlinks emulation
-	cp -ru "$DIST/assets/laura" "$DIST/laura"
+	cp -ru "$DIST/assets/laura" "$DIST"
 
 	if [[ -n "$MINHTML" ]]; then
 		echo "Minifying HTML..."

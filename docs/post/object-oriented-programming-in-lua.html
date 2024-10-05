@@ -1,92 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. ">
-<meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal">
-<meta name="author" content="Dmitri Smirnov">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.whoop.ee/post/object-oriented-programming-in-lua.html">
-<meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif">
-<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
-<meta http-equiv="Content-Security-Policy" content="object-src 'none'">
-<title>Object-oriented programming in Lua &mdash; Whoopee</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/styles.min.css">
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
-<link rel="canonical" href="https://www.whoop.ee/post/object-oriented-programming-in-lua.html">
-</head>
-  <body>
-      <header>
-    <a href="/" class="logo">Whoopee</a>
-    <nav class="mainmenu">
-      <a href="/me/">About</a>
-      <a href="/feed.xml">RSS</a>
-    </nav>
-  </header>
-    <main>
-      <a href="/"><em>&larr; Back to the index page</em></a>
-      <article>
-        <h1>Object-oriented programming in Lua</h1>
-        <time datetime="2024-04-30">
-          April 30, 2024
-        </time>
-        <!-- Description: Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. -->
-
-
-<p><input type="checkbox" class="toc-toggle" id="toc-toggle">
-<label for="toc-toggle">Table of contents</label></p>
-<div class="toc">
-<ul>
-<li><a href="#object-oriented-programming-in-lua">Object-oriented programming in Lua</a><ul>
-<li><a href="#metametable-based-classes">Metametable based classes</a><ul>
-<li><a href="#making-instances">Making instances</a></li>
-<li><a href="#metamethod-__index">Metamethod __index</a></li>
-<li><a href="#defining-metatable">Defining metatable</a></li>
-<li><a href="#inheritance">Inheritance</a></li>
-<li><a href="#limitations">Limitations</a></li>
-</ul>
-</li>
-<li><a href="#closure-based-classes">Closure-based classes</a><ul>
-<li><a href="#inheritance_1">Inheritance</a></li>
-</ul>
-</li>
-<li><a href="#prototype-based-inheritance">Prototype-based inheritance</a></li>
-<li><a href="#annotations">Annotations</a></li>
-<li><a href="#comparison">Comparison</a><ul>
-<li><a href="#metatable-based-classes">Metatable-based classes</a><ul>
-<li><a href="#pros">Pros</a></li>
-<li><a href="#cons">Cons</a></li>
-</ul>
-</li>
-<li><a href="#closure-based-classes_1">Closure-based classes</a><ul>
-<li><a href="#pros_1">Pros</a></li>
-<li><a href="#cons_1">Cons</a></li>
-</ul>
-</li>
-<li><a href="#prototype-based">Prototype-based</a><ul>
-<li><a href="#pros_2">Pros</a></li>
-<li><a href="#cons_2">Cons</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p>Lua doesn&rsquo;t have classes and objects. <a href="https://www.lua.org/manual/5.4/manual.html#6.6"><code>table</code></a> is a single data structure to represent everything: arrays, maps, sets,
-lists, queues, etc. Classes and <abbr title="Object-Oriented Programming">OOP</abbr> can be emulated with <code>table</code> data
-structure and <a href="https://www.lua.org/manual/5.4/manual.html#2.4">metatables and metamethods</a>.
-At first sight, it might be a bit confusing, but actually, it is a dead
-simple solution.</p>
-<h2 id="metametable-based-classes">Metametable based classes<a class="headerlink" href="#metametable-based-classes" title="Permanent link">&para;</a></h2>
-<p>The most simple way to create a class is just to use a <code>table</code>.</p>
-<p>Consider:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. "><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/object-oriented-programming-in-lua.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>Object-oriented programming in Lua &mdash; Whoopee</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/object-oriented-programming-in-lua.html"></head><body><header><a href="/" class="logo">Whoopee</a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/"><em>&larr; Back to the index page</em></a><article><h1>Object-oriented programming in Lua</h1><time datetime="2024-04-30">April 30, 2024</time><p><input type="checkbox" class="toc-toggle" id="toc-toggle"> <label for="toc-toggle">Table of contents</label></p><div class="toc"><ul><li><a href="#object-oriented-programming-in-lua">Object-oriented programming in Lua</a><ul><li><a href="#metametable-based-classes">Metametable based classes</a><ul><li><a href="#making-instances">Making instances</a></li><li><a href="#metamethod-__index">Metamethod __index</a></li><li><a href="#defining-metatable">Defining metatable</a></li><li><a href="#inheritance">Inheritance</a></li><li><a href="#limitations">Limitations</a></li></ul></li><li><a href="#closure-based-classes">Closure-based classes</a><ul><li><a href="#inheritance_1">Inheritance</a></li></ul></li><li><a href="#prototype-based-inheritance">Prototype-based inheritance</a></li><li><a href="#annotations">Annotations</a></li><li><a href="#comparison">Comparison</a><ul><li><a href="#metatable-based-classes">Metatable-based classes</a><ul><li><a href="#pros">Pros</a></li><li><a href="#cons">Cons</a></li></ul></li><li><a href="#closure-based-classes_1">Closure-based classes</a><ul><li><a href="#pros_1">Pros</a></li><li><a href="#cons_1">Cons</a></li></ul></li><li><a href="#prototype-based">Prototype-based</a><ul><li><a href="#pros_2">Pros</a></li><li><a href="#cons_2">Cons</a></li></ul></li></ul></li><li><a href="#conclusion">Conclusion</a></li><li><a href="#references">References</a></li></ul></li></ul></div><p>Lua doesn&rsquo;t have classes and objects. <a href="https://www.lua.org/manual/5.4/manual.html#6.6"><code>table</code></a> is a single data structure to represent everything: arrays, maps, sets, lists, queues, etc. Classes and <abbr title="Object-Oriented Programming">OOP</abbr> can be emulated with <code>table</code> data structure and <a href="https://www.lua.org/manual/5.4/manual.html#2.4">metatables and metamethods</a>. At first sight, it might be a bit confusing, but actually, it is a dead simple solution.</p><h2 id="metametable-based-classes">Metametable based classes<a class="headerlink" href="#metametable-based-classes" title="Permanent link">&para;</a></h2><p>The most simple way to create a class is just to use a <code>table</code>.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
   <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
   <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;silence&quot;</span><span class="p">,</span>
@@ -99,38 +11,19 @@ simple solution.</p>
 <span class="n">Animal</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;feline&quot;</span>
 <span class="n">Animal</span><span class="p">.</span><span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Meow!&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Animal</span><span class="p">.</span><span class="n">makeSound</span><span class="p">(</span><span class="n">Animal</span><span class="p">))</span> <span class="c1">--&gt; &quot;Meow!&quot;</span>
-</code></pre></div>
-
-<p>Looks like it works, but here is a drawback; there is only <strong>one instance</strong> of
-the <code>Animal</code> class and new instances cannot be created. Also please notice the
-<code>self</code> variable in the <code>Animal:makeSound()</code> function, this is the same as
-<code>Animal.makeSound(Animal)</code>. It is similar to JavaScript
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">function binding</a>.</p>
-<h3 id="making-instances">Making instances<a class="headerlink" href="#making-instances" title="Permanent link">&para;</a></h3>
-<p>Firstly, just create an empty table.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{}</span>
-</code></pre></div>
-
-<p>Next, create a <code>new()</code> method which will return the instance of the class.</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nc">Animal</span><span class="p">:</span><span class="nf">new</span><span class="p">()</span>
+</code></pre></div><p>Looks like it works, but here is a drawback; there is only <strong>one instance</strong> of the <code>Animal</code> class and new instances cannot be created. Also please notice the <code>self</code> variable in the <code>Animal:makeSound()</code> function, this is the same as <code>Animal.makeSound(Animal)</code>. It is similar to JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">function binding</a>.</p><h3 id="making-instances">Making instances<a class="headerlink" href="#making-instances" title="Permanent link">&para;</a></h3><p>Firstly, just create an empty table.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div><p>Next, create a <code>new()</code> method which will return the instance of the class.</p><div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nc">Animal</span><span class="p">:</span><span class="nf">new</span><span class="p">()</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="kr">return</span> <span class="n">t</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<p>Arguments can be passed in the function to set properties.
-Also, methods can be defined here, if needed:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nc">Animal</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
+</code></pre></div><p>Arguments can be passed in the function to set properties. Also, methods can be defined here, if needed:</p><div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nc">Animal</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">t</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
     <span class="n">t</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
     <span class="n">t</span><span class="p">.</span><span class="n">sound</span> <span class="o">=</span> <span class="n">sound</span>
     <span class="kr">return</span> <span class="n">t</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<p>Everything together with instances.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div><p>Everything together with instances.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="kr">function</span> <span class="nc">Animal</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
@@ -152,43 +45,18 @@ Also, methods can be defined here, if needed:</p>
 
 <span class="kd">local</span> <span class="n">hamster</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;cricetinae&quot;</span><span class="p">,</span> <span class="s2">&quot;Eeeee!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hamster</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">Animal</span><span class="p">.</span><span class="n">makeSound</span><span class="p">(</span><span class="n">hamster</span><span class="p">))</span> <span class="c1">--&gt; &quot;cricetinae&quot; &quot;Eeeee!&quot;</span>
-</code></pre></div>
-
-<p>It works! In this approach, methods can be accessed from the class, but the
-syntax is a bit weird. From this point, <code>__index</code> metamethod comes to help
-to make everything better.</p>
-<h3 id="metamethod-__index">Metamethod <code>__index</code><a class="headerlink" href="#metamethod-__index" title="Permanent link">&para;</a></h3>
-<p>Lua allows to overload operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> with metamethods.
-In a lot of cases, metamethods can lead to great confusion, but for <abbr title="Object-Oriented">OO</abbr> classes,
-it works greatly. There is metatmethod <code>__index</code> which overrides table
-indexing mechanics. Failed methods lookups on the instances will get the class
-table to access the methods and members.</p>
-<p>Consider:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span>
+</code></pre></div><p>It works! In this approach, methods can be accessed from the class, but the syntax is a bit weird. From this point, <code>__index</code> metamethod comes to help to make everything better.</p><h3 id="metamethod-__index">Metamethod <code>__index</code><a class="headerlink" href="#metamethod-__index" title="Permanent link">&para;</a></h3><p>Lua allows to overload operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> with metamethods. In a lot of cases, metamethods can lead to great confusion, but for <abbr title="Object-Oriented">OO</abbr> classes, it works greatly. There is metatmethod <code>__index</code> which overrides table indexing mechanics. Failed methods lookups on the instances will get the class table to access the methods and members.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="c1">--&gt; 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="c1">--&gt; nil</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="c1">--&gt; nil</span>
-</code></pre></div>
-
-<p>Here <code>t</code> table doesn&rsquo;t have <code>y</code> key, so <code>nil</code> is returned. But, <code>__index</code>
-metamethod set using built-in Lua&rsquo;s function <code>setmetatable()</code> overrides
-this behavior:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">setmetatable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">{</span>
+</code></pre></div><p>Here <code>t</code> table doesn&rsquo;t have <code>y</code> key, so <code>nil</code> is returned. But, <code>__index</code> metamethod set using built-in Lua&rsquo;s function <code>setmetatable()</code> overrides this behavior:</p><div class="codehilite"><pre><span></span><code><span class="nb">setmetatable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">{</span>
   <span class="n">__index</span> <span class="o">=</span> <span class="p">{</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">}</span>
 <span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="c1">--&gt; 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="c1">--&gt; 2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="c1">--&gt; 3</span>
-</code></pre></div>
-
-<h3 id="defining-metatable">Defining metatable<a class="headerlink" href="#defining-metatable" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">Animal</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Animal</span>
-</code></pre></div>
-
-<p>This makes the &ldquo;magic&rdquo;, if method lookup fails on the instances, then it will
-return the class&rsquo; table to access the methods. After this, <code>:</code> method access
-operator can be used to make the syntax more clear.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div><h3 id="defining-metatable">Defining metatable<a class="headerlink" href="#defining-metatable" title="Permanent link">&para;</a></h3><div class="codehilite"><pre><span></span><code><span class="n">Animal</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Animal</span>
+</code></pre></div><p>This makes the &ldquo;magic&rdquo;, if method lookup fails on the instances, then it will return the class&rsquo; table to access the methods. After this, <code>:</code> method access operator can be used to make the syntax more clear.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">Animal</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">Animal</span> <span class="c1">-- this makes &quot;magic&quot;</span>
 
 <span class="kr">function</span> <span class="nc">Animal</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
@@ -211,14 +79,7 @@ operator can be used to make the syntax more clear.</p>
 
 <span class="kd">local</span> <span class="n">hamster</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;cricetinae&quot;</span><span class="p">,</span> <span class="s2">&quot;Eeeee!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hamster</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">hamster</span><span class="p">:</span><span class="n">makeSound</span><span class="p">())</span> <span class="c1">--&gt; &quot;cricetinae&quot;   &quot;Eeeee!&quot;</span>
-</code></pre></div>
-
-<h3 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h3>
-<p>Inheritance means that the child (subclass) class should
-access all its parent methods and members and override them if needed.
-It is fairly easy to achieve.</p>
-<p>Another way to use metatables:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Cat</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div><h3 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h3><p>Inheritance means that the child (subclass) class should access all its parent methods and members and override them if needed. It is fairly easy to achieve.</p><p>Another way to use metatables:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Cat</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="kr">function</span> <span class="nc">Cat</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
     <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
@@ -238,22 +99,8 @@ It is fairly easy to achieve.</p>
 
 <span class="kd">local</span> <span class="n">kitty</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">kitty</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">kitty</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">kitty</span><span class="p">:</span><span class="n">makeSound</span><span class="p">())</span> <span class="c1">--&gt; 4   &quot;feline&quot;    &quot;Meow!Meow!Meow!&quot;</span>
-</code></pre></div>
-
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
-<p>There are no real private members or methods in Lua. Usually, these are
-prefixed with underscore <code>_</code>. But actually, everything is public with
-this approach.</p>
-<p>Another good way to mark method or member as private use
-<a href="#annotations">annotations</a>.
-Modern IDEs should help with that.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Animal</span><span class="p">:</span><span class="n">_privateMethod</span><span class="p">()</span>
-</code></pre></div>
-
-<p>Also, there is no static scope for classes. Somewhat similar to static can be
-achieved using the table constructor. But such defined members also will be
-accessible on the instances.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Cat</span> <span class="o">=</span> <span class="p">{</span>
+</code></pre></div><h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3><p>There are no real private members or methods in Lua. Usually, these are prefixed with underscore <code>_</code>. But actually, everything is public with this approach.</p><p>Another good way to mark method or member as private use <a href="#annotations">annotations</a>. Modern IDEs should help with that.</p><div class="codehilite"><pre><span></span><code><span class="n">Animal</span><span class="p">:</span><span class="n">_privateMethod</span><span class="p">()</span>
+</code></pre></div><p>Also, there is no static scope for classes. Somewhat similar to static can be achieved using the table constructor. But such defined members also will be accessible on the instances.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Cat</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">REIGN</span> <span class="o">=</span> <span class="s2">&quot;mammals&quot;</span>
   <span class="c1">-- ...</span>
 <span class="p">}</span>
@@ -263,14 +110,7 @@ accessible on the instances.</p>
 <span class="kr">end</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">Cat</span><span class="p">.</span><span class="n">REIGN</span><span class="p">)</span> <span class="c1">--&gt; &quot;mammals&quot;</span>
-</code></pre></div>
-
-<h2 id="closure-based-classes">Closure-based classes<a class="headerlink" href="#closure-based-classes" title="Permanent link">&para;</a></h2>
-<p>Another approach is to use closure for classes. One of the
-advantages private variables can be used as <code>local</code> variables. The Second
-advantage is no need to deal with metatables and <code>:</code> method accessor.</p>
-<p>Consider <code>Animal</code> class:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="kr">function</span> <span class="nf">Animal</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
+</code></pre></div><h2 id="closure-based-classes">Closure-based classes<a class="headerlink" href="#closure-based-classes" title="Permanent link">&para;</a></h2><p>Another approach is to use closure for classes. One of the advantages private variables can be used as <code>local</code> variables. The Second advantage is no need to deal with metatables and <code>:</code> method accessor.</p><p>Consider <code>Animal</code> class:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="kr">function</span> <span class="nf">Animal</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
     <span class="kd">local</span> <span class="n">self</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span> <span class="ow">or</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
@@ -291,11 +131,7 @@ advantage is no need to deal with metatables and <code>:</code> method accessor.
 
 <span class="kd">local</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;feline&quot;</span><span class="p">,</span> <span class="s2">&quot;Meow!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cat</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">makeSound</span><span class="p">())</span>
-</code></pre></div>
-
-<h3 id="inheritance_1">Inheritance<a class="headerlink" href="#inheritance_1" title="Permanent link">&para;</a></h3>
-<p>Inheritance for closure-based is also straightforward.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="kr">function</span> <span class="nf">Animal</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
+</code></pre></div><h3 id="inheritance_1">Inheritance<a class="headerlink" href="#inheritance_1" title="Permanent link">&para;</a></h3><p>Inheritance for closure-based is also straightforward.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="kr">function</span> <span class="nf">Animal</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">sound</span><span class="p">)</span>
     <span class="kd">local</span> <span class="n">self</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span> <span class="ow">or</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
@@ -327,15 +163,7 @@ advantage is no need to deal with metatables and <code>:</code> method accessor.
 
 <span class="kd">local</span> <span class="n">kitty</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">kitty</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">kitty</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">kitty</span><span class="p">.</span><span class="n">makeSound</span><span class="p">())</span>
-</code></pre></div>
-
-<h2 id="prototype-based-inheritance">Prototype-based inheritance<a class="headerlink" href="#prototype-based-inheritance" title="Permanent link">&para;</a></h2>
-<p>Prototype-based approach doesn&rsquo;t use classes (class-free <abbr title="Object-Oriented Programming">OOP</abbr>), it uses cloning
-and prototype delegation. More about
-<a href="https://en.wikipedia.org/wiki/Prototype-based_programming">prototype-based object-oriented programming</a>.</p>
-<p>Here is the most basic example of the prototype-based approach. First of all need
-to define some helper functions.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">---@param a any</span>
+</code></pre></div><h2 id="prototype-based-inheritance">Prototype-based inheritance<a class="headerlink" href="#prototype-based-inheritance" title="Permanent link">&para;</a></h2><p>Prototype-based approach doesn&rsquo;t use classes (class-free <abbr title="Object-Oriented Programming">OOP</abbr>), it uses cloning and prototype delegation. More about <a href="https://en.wikipedia.org/wiki/Prototype-based_programming">prototype-based object-oriented programming</a>.</p><p>Here is the most basic example of the prototype-based approach. First of all need to define some helper functions.</p><div class="codehilite"><pre><span></span><code><span class="c1">---@param a any</span>
 <span class="c1">---@param b any</span>
 <span class="c1">---@return table</span>
 <span class="kd">local</span> <span class="kr">function</span> <span class="nf">clone</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -364,10 +192,7 @@ to define some helper functions.</p>
     <span class="kr">end</span>
     <span class="kr">return</span> <span class="n">_isa</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<p>After the functions, new instances can be created:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="p">{</span>
+</code></pre></div><p>After the functions, new instances can be created:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">Animal</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="p">{</span>
     <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
     <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;silence&quot;</span><span class="p">,</span>
@@ -391,19 +216,7 @@ to define some helper functions.</p>
 <span class="n">dog</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;canis&quot;</span>
 <span class="n">dog</span><span class="p">.</span><span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Woof!&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dog</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">dog</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">dog</span><span class="p">:</span><span class="n">makeSound</span><span class="p">(),</span> <span class="n">cat</span><span class="p">:</span><span class="n">isPrototypeOf</span><span class="p">(</span><span class="n">Animal</span><span class="p">))</span> <span class="c1">--&gt; 3  &quot;canis&quot; &quot;Woof!&quot; true</span>
-</code></pre></div>
-
-<h2 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h2>
-<p><a href="https://luals.github.io/wiki/annotations/">Annotations</a> for
-<a href="https://luals.github.io">Lua Language Server</a>
-can be very handy and greatly improve the <abbr title="Developer Experience">DX</abbr>. Here is the example for <code>Animal</code>
-and <code>Cat</code> classes with annotations.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Notice that annotations are just Lua&rsquo;s comments, but begin witha a triple
-    dash (<code>---</code>).</p>
-</div>
-<div class="codehilite"><pre><span></span><code><span class="c1">---@class Animal</span>
+</code></pre></div><h2 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h2><p><a href="https://luals.github.io/wiki/annotations/">Annotations</a> for <a href="https://luals.github.io">Lua Language Server</a> can be very handy and greatly improve the <abbr title="Developer Experience">DX</abbr>. Here is the example for <code>Animal</code> and <code>Cat</code> classes with annotations.</p><div class="admonition tip"><p class="admonition-title">Tip</p><p>Notice that annotations are just Lua&rsquo;s comments, but begin witha a triple dash (<code>---</code>).</p></div><div class="codehilite"><pre><span></span><code><span class="c1">---@class Animal</span>
 <span class="c1">---@field public age number</span>
 <span class="c1">---@field public kind string</span>
 <span class="c1">---@field public sound string</span>
@@ -450,43 +263,7 @@ and <code>Cat</code> classes with annotations.</p>
 <span class="kd">local</span> <span class="n">tom</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">kitty</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">kitty</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">kitty</span><span class="p">:</span><span class="n">makeSound</span><span class="p">())</span> <span class="c1">--&gt; 1   &quot;feline&quot;    &quot;Meow!Meow!Meow!&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tom</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">tom</span><span class="p">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">tom</span><span class="p">:</span><span class="n">makeSound</span><span class="p">())</span> <span class="c1">--&gt; 2 &quot;feline&quot;    &quot;Meow!Meow!Meow!&quot;</span>
-</code></pre></div>
-
-<h2 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h2>
-<p>This is a <em>very rough</em> comparison. The results are average for many runs.</p>
-<p>Resources consumed:</p>
-<table>
-<thead>
-<tr>
-<th>Approach</th>
-<th>Memory</th>
-<th>Time</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Closure</td>
-<td>257833.97 Kb</td>
-<td>0m6.259s</td>
-</tr>
-<tr>
-<td>Metatable</td>
-<td>164843.76 Kb</td>
-<td>0m6.495s</td>
-</tr>
-<tr>
-<td>Prototype</td>
-<td>164844.70 Kb</td>
-<td>0m16.715s</td>
-</tr>
-</tbody>
-</table>
-<p>The conclusion can be made that closure-based classes take
-more memory. The methods and members&rsquo; accessors aren&rsquo;t much faster,
-as <a href="https://www.lua-users.org/wiki/ObjectOrientationTutorial">mentioned in the article</a>.</p>
-<details>
-  <summary>Closure-based class test code</summary>
-  <pre>local function Animal(age, kind, sound)
+</code></pre></div><h2 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h2><p>This is a <em>very rough</em> comparison. The results are average for many runs.</p><p>Resources consumed:</p><table><thead><tr><th>Approach</th><th>Memory</th><th>Time</th></tr></thead><tbody><tr><td>Closure</td><td>257833.97 Kb</td><td>0m6.259s</td></tr><tr><td>Metatable</td><td>164843.76 Kb</td><td>0m6.495s</td></tr><tr><td>Prototype</td><td>164844.70 Kb</td><td>0m16.715s</td></tr></tbody></table><p>The conclusion can be made that closure-based classes take more memory. The methods and members&rsquo; accessors aren&rsquo;t much faster, as <a href="https://www.lua-users.org/wiki/ObjectOrientationTutorial">mentioned in the article</a>.</p><details><summary>Closure-based class test code</summary><pre>local function Animal(age, kind, sound)
     local self = {
         age = age or 0,
         kind = kind or "unknown",
@@ -511,11 +288,7 @@ for i = 1, ITERS do
 end
 
 local res = collectgarbage("count")
-print(res .. "kb")</pre>
-</details>
-<details>
-  <summary>Metatables-based class test code</summary>
-  <pre>local Animal = {}
+print(res .. "kb")</pre></details><details><summary>Metatables-based class test code</summary><pre>local Animal = {}
 Animal.__index = Animal
 
 function Animal:new(age, kind, sound)
@@ -538,11 +311,7 @@ for i = 1, ITERS do
 end
 
 local res = collectgarbage("count")
-print(res .. "kb")</pre>
-</details>
-<details>
-<summary>Prototype-based test code</summary>
-<pre>---@param a any
+print(res .. "kb")</pre></details><details><summary>Prototype-based test code</summary><pre>---@param a any
 ---@param b any
 ---@return table
 local function clone(a, b)
@@ -596,88 +365,4 @@ for i = 1, ITERS do
 end
 
 local res = collectgarbage("count")
-print(res .. "kb")</pre>
-</details>
-
-<h3 id="metatable-based-classes">Metatable-based classes<a class="headerlink" href="#metatable-based-classes" title="Permanent link">&para;</a></h3>
-<h4 id="pros">Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h4>
-<ul>
-<li>The lowest memory consumed;</li>
-<li>the fastest speed;</li>
-<li>possible to get methods directly from class <code>Class.method(instance, args))</code>.</li>
-</ul>
-<h4 id="cons">Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h4>
-<ul>
-<li>The code might be a bit more confusing than the closure approach.</li>
-</ul>
-<h3 id="closure-based-classes_1">Closure-based classes<a class="headerlink" href="#closure-based-classes_1" title="Permanent link">&para;</a></h3>
-<h4 id="pros_1">Pros<a class="headerlink" href="#pros_1" title="Permanent link">&para;</a></h4>
-<ul>
-<li>More clear syntax (easier to write);</li>
-<li>a bit faster than metatable-based classes;</li>
-<li>can have truly private fields.</li>
-</ul>
-<h4 id="cons_1">Cons<a class="headerlink" href="#cons_1" title="Permanent link">&para;</a></h4>
-<ul>
-<li>More memory is required.</li>
-</ul>
-<h3 id="prototype-based">Prototype-based<a class="headerlink" href="#prototype-based" title="Permanent link">&para;</a></h3>
-<h4 id="pros_2">Pros<a class="headerlink" href="#pros_2" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Uses a different approach, but is technically very similar to meta tables.</li>
-</ul>
-<h4 id="cons_2">Cons<a class="headerlink" href="#cons_2" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Probably the slowest solution;</li>
-<li>code can be confusing;</li>
-<li>extra code is required like <code>clone()</code> function.</li>
-</ul>
-<p>Another comparison opinion can be read in
-<a href="https://www.lua-users.org/wiki/ObjectOrientationTutorial">lua-users.org article</a>.</p>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>In my opinion <a href="#metametable-based-classes">metatable</a> method is the most optimal
-in performance and maintainability. Of course, everything depends on the task.
-Sometimes maintainability is more important than performance, especially
-if you are working in a large team with different technical skills. What
-approach to choose is up to you.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.lua-users.org/wiki/ObjectOrientationTutorial">Object Orientation Tutorial</a></li>
-<li><a href="https://www.lua-users.org/wiki/ObjectOrientedProgramming">Object Oriented Programming</a></li>
-<li><a href="https://gist.github.com/liquidev/3f37f94efdacd14a654a4bdc37c8008f">Article on GitHub</a></li>
-<li><a href="https://www.lua.org/pil/16.html">Programming in Lua Book Chapter 16: Object-Oriented Programming</a></li>
-<li><a href="https://luals.github.io">Lua Language Server</a></li>
-<li><a href="https://betterprogramming.pub/oop-in-lua-9962e47ed603">Object-Oriented Programming in Lua using Annotations</a></li>
-</ul>
-        <h2>Feedback</h2>
-<p>
-For feedback, please check the <a href="/me/">contacts</a> section.
-Before writing, please specify where you came from and who you are. Sometimes spammers go insane.
-Thank you in advance for your understanding.
-</p>
-      </article>
-      <a href="/"><em>&larr; Back to the index page</em></a>
-    </main>
-      <footer>
-    <hr>
-    <p>
-      &copy; 2022&mdash;2024 <a href="/me/">xdknight</a>
-      Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
-      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
-    </p>
-    <p>
-      Any images on this website may be used, copied and redistributed under the
-      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.
-    </p>
-    <p>
-      Any code on this website may be used, copied and redistributed under the
-      <a href="https://opensource.org/license/MIT">MIT</a> license.
-    </p>
-    <p>
-      This website <strong>does not</strong> use cookies or any tracking techniques either.
-      Also, this page is fully accessible, responsive, and readable on any
-      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
-    </p>
-  </footer>
-  </body>
-</html>
+print(res .. "kb")</pre></details><h3 id="metatable-based-classes">Metatable-based classes<a class="headerlink" href="#metatable-based-classes" title="Permanent link">&para;</a></h3><h4 id="pros">Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h4><ul><li>The lowest memory consumed;</li><li>the fastest speed;</li><li>possible to get methods directly from class <code>Class.method(instance, args))</code>.</li></ul><h4 id="cons">Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h4><ul><li>The code might be a bit more confusing than the closure approach.</li></ul><h3 id="closure-based-classes_1">Closure-based classes<a class="headerlink" href="#closure-based-classes_1" title="Permanent link">&para;</a></h3><h4 id="pros_1">Pros<a class="headerlink" href="#pros_1" title="Permanent link">&para;</a></h4><ul><li>More clear syntax (easier to write);</li><li>a bit faster than metatable-based classes;</li><li>can have truly private fields.</li></ul><h4 id="cons_1">Cons<a class="headerlink" href="#cons_1" title="Permanent link">&para;</a></h4><ul><li>More memory is required.</li></ul><h3 id="prototype-based">Prototype-based<a class="headerlink" href="#prototype-based" title="Permanent link">&para;</a></h3><h4 id="pros_2">Pros<a class="headerlink" href="#pros_2" title="Permanent link">&para;</a></h4><ul><li>Uses a different approach, but is technically very similar to meta tables.</li></ul><h4 id="cons_2">Cons<a class="headerlink" href="#cons_2" title="Permanent link">&para;</a></h4><ul><li>Probably the slowest solution;</li><li>code can be confusing;</li><li>extra code is required like <code>clone()</code> function.</li></ul><p>Another comparison opinion can be read in <a href="https://www.lua-users.org/wiki/ObjectOrientationTutorial">lua-users.org article</a>.</p><h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2><p>In my opinion <a href="#metametable-based-classes">metatable</a> method is the most optimal in performance and maintainability. Of course, everything depends on the task. Sometimes maintainability is more important than performance, especially if you are working in a large team with different technical skills. What approach to choose is up to you.</p><h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2><ul><li><a href="https://www.lua-users.org/wiki/ObjectOrientationTutorial">Object Orientation Tutorial</a></li><li><a href="https://www.lua-users.org/wiki/ObjectOrientedProgramming">Object Oriented Programming</a></li><li><a href="https://gist.github.com/liquidev/3f37f94efdacd14a654a4bdc37c8008f">Article on GitHub</a></li><li><a href="https://www.lua.org/pil/16.html">Programming in Lua Book Chapter 16: Object-Oriented Programming</a></li><li><a href="https://luals.github.io">Lua Language Server</a></li><li><a href="https://betterprogramming.pub/oop-in-lua-9962e47ed603">Object-Oriented Programming in Lua using Annotations</a></li></ul><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/"><em>&larr; Back to the index page</em></a></main><footer><hr><p>&copy; 2022&mdash;2024 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine. <a href="https://github.com/dknight/whoopee">Source code</a></p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website <strong>does not</strong> use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.</p></footer></body></html>

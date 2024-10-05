@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Whoopee</title>
+  <link>https://www.whoop.ee</link>
+  <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
+  <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+  <guid>https://www.whoop.eepost/get-rid-of-impostor-syndrome-in-60-seconds.html</guid>
+  <title>Get rid of impostor syndrome in 60 seconds</title>
+  <link>https://www.whoop.eepost/get-rid-of-impostor-syndrome-in-60-seconds.html</link>
+  <description>The most effective way to get rid of impostor syndrome in 60 seconds. Technique based on imaginary and associative thinking. </description>
+  <pubDate>Sun, 16 Jun 2024 00:00:00 +0300</pubDate>
+</item>
+</channel>
+</rss>
