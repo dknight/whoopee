@@ -47,7 +47,7 @@ function post_hook() {
 	# shortlinks emulation
 	cp -ru "$DIST/assets/laura" "$DIST"
 
-	if [[ -n "$MINHTML" ]]; then
+	if [[ -n "$MIN" ]]; then
 		echo "Minifying HTML..."
 		find "$DIST" -type f -name "*.html" -exec html-minifier --collapse-whitespace --remove-comments -o {} {} \;
 	fi
