@@ -12,11 +12,14 @@
   --border-radius: 3px;
 
   scroll-behavior: smooth;
+  @media screen and (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   font: normal 16px/1.5 Helvetica, Arial, sans-serif;
-  padding: 1rem;
+  padding: 1rem 2rem;
   margin: 0 auto;
   box-sizing: border-box;
   background: var(--color-bg);
@@ -111,7 +114,7 @@ main {
 
 /* Text format */
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   margin: 2rem 0 0;
 }
 h1,
@@ -127,15 +130,42 @@ h6 {
   @supports (text-wrap: pretty) {
     text-wrap: pretty;
   }
+  &:hover .headerlink:link {
+    display: inline-block;
+    &:link,
+    &:visited,
+    &:active {
+      color: var(--color-text);
+      opacity: 0.3;
+    }
+    &:hover {
+      color: var(--color-text);
+      opacity: 0.5;
+    }
+  }
 }
-h2,
+h2 {
+  margin: 1rem 0;
+  font-size: 2.2rem;
+}
 h3 {
   margin: 1rem 0;
+  font-size: 1.8rem;
 }
-h4,
+h4 {
+  margin: 0.75rem 0;
+  font-size: 1.4rem;
+}
 h5,
 h6 {
+  font-size: 1.2rem;
   margin: 0.75rem 0;
+}
+
+.headerlink {
+  display: none;
+  padding: 0 0.4rem;
+  text-decoration: none;
 }
 
 a {
@@ -213,18 +243,67 @@ blockquote {
   }
 }
 
+.toc-toggle {
+  display: none;
+}
+
+@supports (selector(:has(*))) {
+  /* Not very good, but works */
+  /* wait for @starting-style */
+  .toc-toggle {
+    display: block;
+    width: 1px;
+    height: 1px;
+    clip-path: polygon(0 0, 0 0, 0 0);
+
+    + label {
+      cursor: pointer;
+      font-size: 135%;
+      font-weight: bold;
+      display: block;
+      border: 0.125rem solid var(--color-border);
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius);
+
+      &::before {
+        content: '⯈';
+        display: inline-block;
+        width: 2rem;
+      }
+    }
+
+    &:checked {
+      + label {
+        border-bottom: none;
+        &::before {
+          content: '⯆';
+        }
+      }
+    }
+  }
+
+  article:has(.toc-toggle:checked) .toc {
+    display: block;
+  }
+}
+
+@supports (selector(:has(*))) {
+  .toc {
+    display: none;
+  }
+}
+
 .toc {
-  margin-top: 1rem;
   padding: 1rem 2rem;
-  border: 1px solid var(--color-border);
+  border: 0.125rem solid var(--color-border);
+  border-top: none;
   border-radius: var(--border-radius);
-  width: fit-content;
+  margin-top: -1rem; /* not good */
   @container article (max-width: 767px) {
     width: auto;
   }
 
-  &::before {
-    content: 'Table of contents';
+  .toctitle {
     font-size: 135%;
     font-weight: bold;
     display: block;

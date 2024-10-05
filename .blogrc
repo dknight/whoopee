@@ -15,6 +15,7 @@ LAYOUT_DIR="layout"
 
 # Use a custom Markdown command
 MARKDOWN_COMMAND="python -m markdown \
+	--extension_configs=./mdconfig.yml \
 	-x fenced_code \
 	-x codehilite \
 	-x tables \
@@ -42,4 +43,12 @@ function post_hook() {
 	mv "$DIST/assets/robots.txt" "$DIST/robots.txt"
 	echo "Making favicon..."
 	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
+
+	# shortlinks emulation
+	cp -ru "$DIST/assets/laura" "$DIST/laura"
+
+	if [[ -n "$MINHTML" ]]; then
+		echo "Minifying HTML..."
+		find "$DIST" -type f -name "*.html" -exec html-minifier --collapse-whitespace --remove-comments -o {} {} \;
+	fi
 }

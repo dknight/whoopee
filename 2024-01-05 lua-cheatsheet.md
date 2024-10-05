@@ -4,6 +4,9 @@ tags: lua featured beginner
 
 # Lua cheatsheet
 
+<input type="checkbox" class="toc-toggle" id="toc-toggle">
+<label for="toc-toggle">Table of contents</label>
+
 [TOC]
 
 [Shorter version of this page and PDF](/post/lua-syntax-cheat-sheet.html).

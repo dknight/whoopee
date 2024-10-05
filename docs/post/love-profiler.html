@@ -1,62 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="LoveProfiler is an extremely simple logger and profiler for Löve2D framework. ">
-<meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal">
-<meta name="author" content="Dmitri Smirnov">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.whoop.ee/post/love-profiler.html">
-<meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif">
-<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
-<meta http-equiv="Content-Security-Policy" content="object-src 'none'">
-<title>Profile for Löve2D &mdash; Whoopee</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/styles.min.css">
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
-<link rel="canonical" href="https://www.whoop.ee/post/love-profiler.html">
-</head>
-  <body>
-      <header>
-    <a href="/" class="logo">Whoopee</a>
-    <nav class="mainmenu">
-      <a href="/me/">About</a>
-      <a href="/feed.xml">RSS</a>
-    </nav>
-  </header>
-    <main>
-      <a href="/"><em>&larr; Back to the index page</em></a>
-      <article>
-        <h1>Profile for Löve2D</h1>
-        <time datetime="2024-06-24">
-          June 24, 2024
-        </time>
-        <!-- Description: LoveProfiler is an extremely simple logger and profiler for Löve2D framework. -->
-
-
-<p>LoveProfiler is an extremely simple logger and profiler for <a href="https://love2d.org/">Löve2D</a>
-framework. It displays useful information about the current state of a running game.
-It also can log events at three levels: information, warnings
-and errors. The output of the profiler is displayed on the Löve2D canvas or
-in the console (terminal).</p>
-<p><img alt="LoveProfiler Demo" src="/assets/img/love2d/loveprofiled-demo.gif" /></p>
-<h2 id="installation">Installation</h2>
-<p>Installation is very easy. Just use git clone or copy directory <code>loveprofiler</code>
-into your game&rsquo;s directory where file <code>main.lua</code> is.</p>
-<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dknight/loveprofiler
-</code></pre></div>
-
-<p>Example project structure:</p>
-<div class="codehilite"><pre><span></span><code>love2dproject/
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="LoveProfiler is an extremely simple logger and profiler for Löve2D framework. "><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/love-profiler.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>Profile for Löve2D &mdash; Whoopee</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/love-profiler.html"></head><body><header><a href="/" class="logo">Whoopee</a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/"><em>&larr; Back to the index page</em></a><article><h1>Profile for Löve2D</h1><time datetime="2024-06-24">June 24, 2024</time><p>LoveProfiler is an extremely simple logger and profiler for <a href="https://love2d.org/">Löve2D</a> framework. It displays useful information about the current state of a running game. It also can log events at three levels: information, warnings and errors. The output of the profiler is displayed on the Löve2D canvas or in the console (terminal).</p><p><img alt="LoveProfiler Demo" src="/assets/img/love2d/loveprofiled-demo.gif"></p><h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2><p>Installation is very easy. Just use git clone or copy directory <code>loveprofiler</code> into your game&rsquo;s directory where file <code>main.lua</code> is.</p><div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dknight/loveprofiler
+</code></pre></div><p>Example project structure:</p><div class="codehilite"><pre><span></span><code>love2dproject/
   loveprofiler/
   main.lua
-</code></pre></div>
-
-<h2 id="usage">Usage</h2>
-<p>The most basic usage, create an instance of <code>love.load()</code> then call start()
-method inside <code>love.draw()</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
+</code></pre></div><h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2><p>The most basic usage, create an instance of <code>love.load()</code> then call start() method inside <code>love.draw()</code>.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
 
 <span class="kr">function</span> <span class="nc">love</span><span class="p">.</span><span class="nf">load</span><span class="p">()</span>
   <span class="n">profiler</span> <span class="o">=</span> <span class="n">LoveProfiler</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
@@ -65,11 +11,7 @@ method inside <code>love.draw()</code>.</p>
 <span class="kr">function</span> <span class="nc">love</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
   <span class="n">profiler</span><span class="p">:</span><span class="n">start</span><span class="p">()</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<h2 id="configuration">Configuration</h2>
-<p>You can find all possible configuration options with detailed description in <code>defaults.lua</code> file. You can override any option when you create a new instance.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
+</code></pre></div><h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2><p>You can find all possible configuration options with detailed description in <code>defaults.lua</code> file. You can override any option when you create a new instance.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
 
 <span class="kr">function</span> <span class="nc">love</span><span class="p">.</span><span class="nf">load</span><span class="p">()</span>
   <span class="n">profiler</span> <span class="o">=</span> <span class="n">LoveProfiler</span><span class="p">:</span><span class="n">new</span><span class="p">{</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
@@ -83,17 +25,7 @@ method inside <code>love.draw()</code>.</p>
 <span class="kr">function</span> <span class="nc">love</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
   <span class="n">profiler</span><span class="p">:</span><span class="n">start</span><span class="p">()</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<h2 id="drivers">Drivers</h2>
-<p>At the moment only 2 drivers are supported: canvas and console. If a driver is set to <strong>canvas</strong> then information is displayed directly on the Löve2D canvas. If <strong>console</strong> then output will be displayed in the console (system terminal). See <code>defaults.lua</code> file for more details.</p>
-<h2 id="logging">Logging</h2>
-<p>There are 3 levels of messages:
-  - information;
-  - warning;
-  - error.</p>
-<p>You can add a log entry like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
+</code></pre></div><h2 id="drivers">Drivers<a class="headerlink" href="#drivers" title="Permanent link">&para;</a></h2><p>At the moment only 2 drivers are supported: canvas and console. If a driver is set to <strong>canvas</strong> then information is displayed directly on the Löve2D canvas. If <strong>console</strong> then output will be displayed in the console (system terminal). See <code>defaults.lua</code> file for more details.</p><h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2><p>There are 3 levels of messages: - information; - warning; - error.</p><p>You can add a log entry like this:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
 
 <span class="kr">function</span> <span class="nc">love</span><span class="p">.</span><span class="nf">load</span><span class="p">()</span>
   <span class="n">profiler</span> <span class="o">=</span> <span class="n">LoveProfiler</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
@@ -101,14 +33,7 @@ method inside <code>love.draw()</code>.</p>
   <span class="n">profiler</span><span class="p">:</span><span class="n">addMessage</span><span class="p">(</span><span class="s2">&quot;Your warning message&quot;</span><span class="p">,</span> <span class="n">LoveProfiler</span><span class="p">.</span><span class="n">LOG_WARN</span><span class="p">)</span>
   <span class="n">profiler</span><span class="p">:</span><span class="n">addMessage</span><span class="p">(</span><span class="s2">&quot;Your error message&quot;</span><span class="p">,</span> <span class="n">LoveProfiler</span><span class="p">.</span><span class="n">LOG_ERROR</span><span class="p">)</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<p>By default, logs are also saved in a file <code>loveprofiler.log</code>. You can change the logging destination by changing the configuration property <code>log_path = "your_path_to_log_file"</code>, see <code>defaults.lua</code>. Also if you set <code>log_path = nil</code>, output won&rsquo;t be saved into file at all.</p>
-<h3 id="disabling-logging">Disabling logging</h3>
-<p>To completely disable logging set configuration property <code>log_enabled = false</code>.</p>
-<h2 id="using-multiple-profilers">Using multiple profilers</h2>
-<p>You can create as many LoveProfiler instances as you want with different configurations.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
+</code></pre></div><p>By default, logs are also saved in a file <code>loveprofiler.log</code>. You can change the logging destination by changing the configuration property <code>log_path = "your_path_to_log_file"</code>, see <code>defaults.lua</code>. Also if you set <code>log_path = nil</code>, output won&rsquo;t be saved into file at all.</p><h3 id="disabling-logging">Disabling logging<a class="headerlink" href="#disabling-logging" title="Permanent link">&para;</a></h3><p>To completely disable logging set configuration property <code>log_enabled = false</code>.</p><h2 id="using-multiple-profilers">Using multiple profilers<a class="headerlink" href="#using-multiple-profilers" title="Permanent link">&para;</a></h2><p>You can create as many LoveProfiler instances as you want with different configurations.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">LoveProfiler</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;loveprofiler&quot;</span><span class="p">)</span>
 
 <span class="kr">function</span> <span class="nc">love</span><span class="p">.</span><span class="nf">load</span><span class="p">()</span>
   <span class="n">profiler1</span> <span class="o">=</span> <span class="n">LoveProfiler</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
@@ -123,41 +48,4 @@ method inside <code>love.draw()</code>.</p>
   <span class="n">profiler1</span><span class="p">:</span><span class="n">start</span><span class="p">()</span>
   <span class="n">profiler2</span><span class="p">:</span><span class="n">start</span><span class="p">()</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://github.com/dknight/loveprofiler">Github: Source Code</a></li>
-</ul>
-        <h2>Feedback</h2>
-<p>
-For feedback, please check the <a href="/me/">contacts</a> section.
-Before writing, please specify where you came from and who you are. Sometimes spammers go insane.
-Thank you in advance for your understanding.
-</p>
-      </article>
-      <a href="/"><em>&larr; Back to the index page</em></a>
-    </main>
-      <footer>
-    <hr>
-    <p>
-      &copy; 2022&mdash;2024 <a href="/me/">xdknight</a>
-      Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
-      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
-    </p>
-    <p>
-      Any images on this website may be used, copied and redistributed under the
-      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
-    </p>
-    <p>
-      Any code on this website may be used, copied and redistributed under the
-      <a href="https://opensource.org/license/MIT">MIT</a> license.
-    </p>
-    <p>
-      This website <strong>does not</strong> use cookies or any tracking techniques either.
-      Also, this page is fully accessible, responsive, and readable on any
-      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
-    </p>
-  </footer>
-  </body>
-</html>
+</code></pre></div><h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2><ul><li><a href="https://github.com/dknight/loveprofiler">Github: Source Code</a></li></ul><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/"><em>&larr; Back to the index page</em></a></main><footer><hr><p>&copy; 2022&mdash;2024 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine. <a href="https://github.com/dknight/whoopee">Source code</a></p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website <strong>does not</strong> use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.</p></footer></body></html>

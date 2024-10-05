@@ -1,3 +1,3 @@
 https://github.com/dknight/jenny
-sudo dnf install python3-markdown rclone
-npm i -g lightningcss-cli
+sudo dnf install python3-markdown
+npm i -g lightningcss-cli html-minifier

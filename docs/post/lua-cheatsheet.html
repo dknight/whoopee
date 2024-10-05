@@ -1,87 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Definite guide of Lua syntax in one place. ">
-<meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal">
-<meta name="author" content="Dmitri Smirnov">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.whoop.ee/post/lua-cheatsheet.html">
-<meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif">
-<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
-<meta http-equiv="Content-Security-Policy" content="object-src 'none'">
-<title>Lua cheatsheet &mdash; Whoopee</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/styles.min.css">
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
-<link rel="canonical" href="https://www.whoop.ee/post/lua-cheatsheet.html">
-</head>
-  <body>
-      <header>
-    <a href="/" class="logo">Whoopee</a>
-    <nav class="mainmenu">
-      <a href="/me/">About</a>
-      <a href="/feed.xml">RSS</a>
-    </nav>
-  </header>
-    <main>
-      <a href="/"><em>&larr; Back to the index page</em></a>
-      <article>
-        <h1>Lua cheatsheet</h1>
-        <time datetime="2024-01-05">
-          January 05, 2024
-        </time>
-        <!-- Description: Definite guide of Lua syntax in one place. -->
-
-
-<div class="toc">
-<ul>
-<li><a href="#lua-cheatsheet">Lua cheatsheet</a><ul>
-<li><a href="#comments">Comments</a></li>
-<li><a href="#variables">Variables</a><ul>
-<li><a href="#reserved-words">Reserved words</a></li>
-<li><a href="#string-literals">String literals</a><ul>
-<li><a href="#escape-sequences">Escape sequences</a></li>
-<li><a href="#string-operators">String operators</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#arithmetic">Arithmetic</a></li>
-<li><a href="#control-structures">Control structures</a></li>
-<li><a href="#conditionals">Conditionals</a></li>
-<li><a href="#loops">Loops</a></li>
-<li><a href="#goto">goto</a></li>
-<li><a href="#tables">Tables</a></li>
-<li><a href="#functions">Functions</a></li>
-<li><a href="#error-handling">Error handling</a><ul>
-<li><a href="#assertion">Assertion</a></li>
-<li><a href="#protected-calls">Protected calls</a></li>
-</ul>
-</li>
-<li><a href="#references">References</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p><a href="/post/lua-syntax-cheat-sheet.html">Shorter version of this page and PDF</a>.</p>
-<p>A definitive short guide for Lua, including syntax, basic syntax constructs,
-and some useful techniques. Probably the content of this article is enough to
-start writing programs in Lua. Also, this page can be used for reference as a
-handbook.</p>
-<h2 id="comments">Comments</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- Single line comment</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Definite guide of Lua syntax in one place. "><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/lua-cheatsheet.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>Lua cheatsheet &mdash; Whoopee</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/lua-cheatsheet.html"></head><body><header><a href="/" class="logo">Whoopee</a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/"><em>&larr; Back to the index page</em></a><article><h1>Lua cheatsheet</h1><time datetime="2024-01-05">January 05, 2024</time><p><input type="checkbox" class="toc-toggle" id="toc-toggle"> <label for="toc-toggle">Table of contents</label></p><div class="toc"><ul><li><a href="#lua-cheatsheet">Lua cheatsheet</a><ul><li><a href="#comments">Comments</a></li><li><a href="#variables">Variables</a><ul><li><a href="#reserved-words">Reserved words</a></li><li><a href="#string-literals">String literals</a><ul><li><a href="#escape-sequences">Escape sequences</a></li><li><a href="#string-operators">String operators</a></li></ul></li></ul></li><li><a href="#arithmetic">Arithmetic</a></li><li><a href="#control-structures">Control structures</a></li><li><a href="#conditionals">Conditionals</a></li><li><a href="#loops">Loops</a></li><li><a href="#goto">goto</a></li><li><a href="#tables">Tables</a></li><li><a href="#functions">Functions</a></li><li><a href="#error-handling">Error handling</a><ul><li><a href="#assertion">Assertion</a></li><li><a href="#protected-calls">Protected calls</a></li></ul></li><li><a href="#references">References</a></li></ul></li></ul></div><p><a href="/post/lua-syntax-cheat-sheet.html">Shorter version of this page and PDF</a>.</p><p>A definitive short guide for Lua, including syntax, basic syntax constructs, and some useful techniques. Probably the content of this article is enough to start writing programs in Lua. Also, this page can be used for reference as a handbook.</p><h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h2><div class="codehilite"><pre><span></span><code><span class="c1">-- Single line comment</span>
 
 <span class="cm">--[[</span>
 <span class="cm">    This is a multi-line comment.</span>
 <span class="cm">    Large comments can be split into many lines,</span>
 <span class="cm">    everything inside this block is a comment.</span>
 <span class="cm">--]]</span>
-</code></pre></div>
-
-<h2 id="variables">Variables</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>                <span class="c1">-- number (integer)</span>
+</code></pre></div><h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2><div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>                <span class="c1">-- number (integer)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">14.3</span>              <span class="c1">-- number (float)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="mh">0x12</span>              <span class="c1">-- number (hexadecimal)</span>
 
@@ -101,156 +25,38 @@ handbook.</p>
 <span class="s">]===]</span>
 
 <span class="kd">local</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>  <span class="c1">-- string (local variable)</span>
-</code></pre></div>
-
-<h3 id="reserved-words">Reserved words</h3>
-<p>There are reserved words that cannot be used to name variables, table fields,
-labels, and functions.</p>
-<div class="codehilite"><pre><span></span><code>     and       break     do        else      elseif    end
+</code></pre></div><h3 id="reserved-words">Reserved words<a class="headerlink" href="#reserved-words" title="Permanent link">&para;</a></h3><p>There are reserved words that cannot be used to name variables, table fields, labels, and functions.</p><div class="codehilite"><pre><span></span><code>     and       break     do        else      elseif    end
      false     for       function  goto      if        in
      local     nil       not       or        repeat    return
      then      true      until     while
-</code></pre></div>
-
-<h3 id="string-literals">String literals</h3>
-<p>String literals are enclosed with <code>"</code> (double quotes) or <code>'</code> single quotes.
-You just need to keep in mind that a single type of quotation mark cannot be
-nested. To avoid errors <a href="#escape-sequences">escape sequences</a>
-or string blocks should be used.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Mr. O&#39;</span><span class="n">hara</span><span class="s1">&#39;    -- error nested single question</span>
+</code></pre></div><h3 id="string-literals">String literals<a class="headerlink" href="#string-literals" title="Permanent link">&para;</a></h3><p>String literals are enclosed with <code>"</code> (double quotes) or <code>'</code> single quotes. You just need to keep in mind that a single type of quotation mark cannot be nested. To avoid errors <a href="#escape-sequences">escape sequences</a> or string blocks should be used.</p><div class="codehilite"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Mr. O&#39;</span><span class="n">hara</span><span class="s1">&#39;    -- error nested single question</span>
 <span class="s1">name = &#39;</span><span class="n">Mr</span><span class="p">.</span> <span class="n">O</span><span class="err">\</span><span class="s1">&#39;hara&#39;</span>   <span class="c1">-- ok</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s">[[Mr. O&#39;hara&#39;]]</span> <span class="c1">-- ok</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mr. O&#39;hara&quot;</span>    <span class="c1">-- ok</span>
-</code></pre></div>
-
-<p>String blocks start with <code>[[</code> and end with <code>]]</code>, between brackets can be any
-number of <code>=</code> signs. Why these <code>=</code> are needed? Very rarely, but it happens,
-string literals can contain <code>[[</code> or <code>]]</code> inside the block.</p>
-<p>Consider (error):</p>
-<div class="codehilite"><pre><span></span><code><span class="n">text</span><span class="o">=</span><span class="s">[[</span>
+</code></pre></div><p>String blocks start with <code>[[</code> and end with <code>]]</code>, between brackets can be any number of <code>=</code> signs. Why these <code>=</code> are needed? Very rarely, but it happens, string literals can contain <code>[[</code> or <code>]]</code> inside the block.</p><p>Consider (error):</p><div class="codehilite"><pre><span></span><code><span class="n">text</span><span class="o">=</span><span class="s">[[</span>
 <span class="s">    Display found point in the circle</span>
 <span class="s">    Point at points[x[i], y[j]]</span>
 <span class="p">]]</span> <span class="c1">--&gt; lua: file.lua:4: unexpected symbol near &#39;]&#39;</span>
-</code></pre></div>
-
-<p>With <code>=</code> works fine:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">text</span><span class="o">=</span><span class="s">[==[</span>
+</code></pre></div><p>With <code>=</code> works fine:</p><div class="codehilite"><pre><span></span><code><span class="n">text</span><span class="o">=</span><span class="s">[==[</span>
 <span class="s">    Display found point in the circle</span>
 <span class="s">    Point at points[x[i], y[j]]</span>
 <span class="s">]==]</span>
-</code></pre></div>
-
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<ul>
-<li>You cannot use <a href="#escape-sequences">escape sequences</a> in the string blocks.</li>
-<li>Do not misuse <code>=</code> signs in the blocks, these are needed really rarely,
-  unless you want to make something cryptic.</li>
-</ul>
-</div>
-<p>The same rules apply to block comments:</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">--[=====[</span>
+</code></pre></div><div class="admonition caution"><p class="admonition-title">Caution</p><ul><li>You cannot use <a href="#escape-sequences">escape sequences</a> in the string blocks.</li><li>Do not misuse <code>=</code> signs in the blocks, these are needed really rarely, unless you want to make something cryptic.</li></ul></div><p>The same rules apply to block comments:</p><div class="codehilite"><pre><span></span><code><span class="cm">--[=====[</span>
 <span class="cm">I have seen the dark universe yawning</span>
 <span class="cm">Where the black planets roll without aim—</span>
 <span class="cm">Where they roll in their horror unheeded,</span>
 <span class="cm">Without knowledge or lustre or name.</span>
 <span class="cm">—Nemesis by H.P. Lovecraft</span>
 <span class="cm">--]=====]</span>
-</code></pre></div>
-
-<h4 id="escape-sequences">Escape sequences</h4>
-<p>Lua supports the same escape sequences as ANSI C language does.</p>
-<ul>
-<li><code>\a</code> &ndash; alert (beep, bell);</li>
-<li><code>\b</code> &ndash; backspace;</li>
-<li><code>\f</code> &ndash; form feed page break;</li>
-<li><code>\n</code> &ndash; newline (line feed); see below;</li>
-<li><code>\r</code> &ndash; carriage return;</li>
-<li><code>\t</code> &ndash; horizontal tab;</li>
-<li><code>\v</code> &ndash; vertical tab;</li>
-<li><code>\\</code> &ndash; backslash;</li>
-<li><code>\'</code> &ndash; apostrophe or single quotation mark;</li>
-<li><code>\"</code> &ndash; double quotation mark;</li>
-<li><code>\?</code> &ndash; question mark (used to avoid trigraphs);</li>
-<li><code>\nnn</code> &ndash; the byte whose numerical value is given by <strong><em>nnn</em></strong>
-  interpreted as an octal number;</li>
-<li><code>\xhh...</code> &ndash;  the byte whose numerical value is given by <strong><em>hh…</em></strong>
-  interpreted as a hexadecimal number;</li>
-</ul>
-<p>Lua&rsquo;s specials:</p>
-<ul>
-<li><code>\uhhhh</code> &ndash; Unicode code point below 10000 hexadecimal;</li>
-<li><code>\uhhhhhhhh</code> &ndash; Unicode code point below 10000 hexadecimal` Unicode code point
-  below 10000 hexadecimal;</li>
-<li><code>\z</code> &ndash; skip the following spans of white spaces until the non-next white-space
-  character, it is particularly useful to break and indent a long literal
-  string;</li>
-</ul>
-<h4 id="string-operators">String operators</h4>
-<ul>
-<li><code>..</code> &ndash; strings concatenation (adds strings together);</li>
-</ul>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;Measure twice&quot;</span> <span class="o">..</span> <span class="s2">&quot; &quot;</span> <span class="o">..</span> <span class="s2">&quot;cut once&quot;</span> <span class="c1">-- &quot;Measure twice cut once&quot;</span>
-</code></pre></div>
-
-<h2 id="arithmetic">Arithmetic</h2>
-<p>Arithmetic operators:</p>
-<ul>
-<li><code>+</code> &ndash; additions;</li>
-<li><code>-</code> &ndash; subtraction;</li>
-<li><code>*</code> &ndash; multiplication;</li>
-<li><code>/</code> &ndash; division;</li>
-<li><code>//</code> &ndash; floor division;</li>
-<li><code>%</code> &ndash; modulus division;</li>
-<li><code>^</code> &ndash; exponent (available since Lua 5.3);</li>
-</ul>
-<div class="codehilite"><pre><span></span><code><span class="mi">40</span> <span class="o">+</span> <span class="mi">2</span>   <span class="c1">-- 42</span>
+</code></pre></div><h4 id="escape-sequences">Escape sequences<a class="headerlink" href="#escape-sequences" title="Permanent link">&para;</a></h4><p>Lua supports the same escape sequences as ANSI C language does.</p><ul><li><code>\a</code> &ndash; alert (beep, bell);</li><li><code>\b</code> &ndash; backspace;</li><li><code>\f</code> &ndash; form feed page break;</li><li><code>\n</code> &ndash; newline (line feed); see below;</li><li><code>\r</code> &ndash; carriage return;</li><li><code>\t</code> &ndash; horizontal tab;</li><li><code>\v</code> &ndash; vertical tab;</li><li><code>\\</code> &ndash; backslash;</li><li><code>\'</code> &ndash; apostrophe or single quotation mark;</li><li><code>\"</code> &ndash; double quotation mark;</li><li><code>\?</code> &ndash; question mark (used to avoid trigraphs);</li><li><code>\nnn</code> &ndash; the byte whose numerical value is given by <strong><em>nnn</em></strong> interpreted as an octal number;</li><li><code>\xhh...</code> &ndash; the byte whose numerical value is given by <strong><em>hh…</em></strong> interpreted as a hexadecimal number;</li></ul><p>Lua&rsquo;s specials:</p><ul><li><code>\uhhhh</code> &ndash; Unicode code point below 10000 hexadecimal;</li><li><code>\uhhhhhhhh</code> &ndash; Unicode code point below 10000 hexadecimal` Unicode code point below 10000 hexadecimal;</li><li><code>\z</code> &ndash; skip the following spans of white spaces until the non-next white-space character, it is particularly useful to break and indent a long literal string;</li></ul><h4 id="string-operators">String operators<a class="headerlink" href="#string-operators" title="Permanent link">&para;</a></h4><ul><li><code>..</code> &ndash; strings concatenation (adds strings together);</li></ul><div class="codehilite"><pre><span></span><code><span class="s2">&quot;Measure twice&quot;</span> <span class="o">..</span> <span class="s2">&quot; &quot;</span> <span class="o">..</span> <span class="s2">&quot;cut once&quot;</span> <span class="c1">-- &quot;Measure twice cut once&quot;</span>
+</code></pre></div><h2 id="arithmetic">Arithmetic<a class="headerlink" href="#arithmetic" title="Permanent link">&para;</a></h2><p>Arithmetic operators:</p><ul><li><code>+</code> &ndash; additions;</li><li><code>-</code> &ndash; subtraction;</li><li><code>*</code> &ndash; multiplication;</li><li><code>/</code> &ndash; division;</li><li><code>//</code> &ndash; floor division;</li><li><code>%</code> &ndash; modulus division;</li><li><code>^</code> &ndash; exponent (available since Lua 5.3);</li></ul><div class="codehilite"><pre><span></span><code><span class="mi">40</span> <span class="o">+</span> <span class="mi">2</span>   <span class="c1">-- 42</span>
 <span class="mi">44</span> <span class="o">-</span> <span class="mi">2</span>   <span class="c1">-- 42</span>
 <span class="mi">6</span> <span class="o">*</span> <span class="mi">7</span>    <span class="c1">-- 42</span>
 <span class="mi">42</span> <span class="o">/</span> <span class="mi">2</span>   <span class="c1">-- 21</span>
 <span class="mi">42</span> <span class="o">//</span> <span class="mi">10</span> <span class="c1">-- 4</span>
 <span class="mi">42</span> <span class="o">%</span> <span class="mi">10</span>  <span class="c1">-- 2</span>
 <span class="mi">2</span> <span class="o">^</span> <span class="mi">5</span>    <span class="c1">-- 32</span>
-</code></pre></div>
-
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>There is no <code>++</code> and <code>--</code> operators in Lua. Use the form of <code>x = x + 1</code>.</p>
-</div>
-<h2 id="control-structures">Control structures</h2>
-<h2 id="conditionals">Conditionals</h2>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>In Lua language <em>false</em> values are: <code>nil</code> and <code>false</code> everything else
-is interpreted as <code>true</code>.</p>
-<p>Don&rsquo;t be confused with JavaScritpt where <code>0</code> is false. In Lua <code>0</code> is also
-<code>true</code>.</p>
-</div>
-<p>Logical operators:</p>
-<ul>
-<li><code>and</code> &ndash; logical AND;</li>
-<li><code>or</code> &ndash; logical OR;</li>
-<li><code>not</code> &ndash; logical NOT;</li>
-</ul>
-<p>Comparison operators:</p>
-<ul>
-<li><code>&lt;</code> &ndash; less than;</li>
-<li><code>&gt;</code> &ndash; greater than;</li>
-<li><code>&lt;=</code> &ndash; less than or equal to;</li>
-<li><code>&gt;=</code> &ndash; greater than or equal to;</li>
-<li><code>==</code> &ndash; equality;</li>
-<li><code>~=</code> &ndash; inequality;</li>
-</ul>
-<p>Bitwise operators (starting from Lua 5.3+):</p>
-<ul>
-<li><code>&amp;</code> &ndash; bitwise AND;</li>
-<li><code>|</code> &ndash; bitwise OR;</li>
-<li><code>~</code> &ndash; unary NOT, or bitwise XOR;</li>
-<li><code>&lt;&lt;</code> &ndash; left bit shift;</li>
-<li><code>&gt;&gt;</code> &ndash; right bit shift;</li>
-</ul>
-<p>Examples:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">if</span> <span class="n">apples</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span>
+</code></pre></div><div class="admonition caution"><p class="admonition-title">Caution</p><p>There is no <code>++</code> and <code>--</code> operators in Lua. Use the form of <code>x = x + 1</code>.</p></div><h2 id="control-structures">Control structures<a class="headerlink" href="#control-structures" title="Permanent link">&para;</a></h2><h2 id="conditionals">Conditionals<a class="headerlink" href="#conditionals" title="Permanent link">&para;</a></h2><div class="admonition caution"><p class="admonition-title">Caution</p><p>In Lua language <em>false</em> values are: <code>nil</code> and <code>false</code> everything else is interpreted as <code>true</code>.</p><p>Don&rsquo;t be confused with JavaScritpt where <code>0</code> is false. In Lua <code>0</code> is also <code>true</code>.</p></div><p>Logical operators:</p><ul><li><code>and</code> &ndash; logical AND;</li><li><code>or</code> &ndash; logical OR;</li><li><code>not</code> &ndash; logical NOT;</li></ul><p>Comparison operators:</p><ul><li><code>&lt;</code> &ndash; less than;</li><li><code>&gt;</code> &ndash; greater than;</li><li><code>&lt;=</code> &ndash; less than or equal to;</li><li><code>&gt;=</code> &ndash; greater than or equal to;</li><li><code>==</code> &ndash; equality;</li><li><code>~=</code> &ndash; inequality;</li></ul><p>Bitwise operators (starting from Lua 5.3+):</p><ul><li><code>&amp;</code> &ndash; bitwise AND;</li><li><code>|</code> &ndash; bitwise OR;</li><li><code>~</code> &ndash; unary NOT, or bitwise XOR;</li><li><code>&lt;&lt;</code> &ndash; left bit shift;</li><li><code>&gt;&gt;</code> &ndash; right bit shift;</li></ul><p>Examples:</p><div class="codehilite"><pre><span></span><code><span class="kr">if</span> <span class="n">apples</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I have 2 apples&quot;</span><span class="p">)</span>
 <span class="kr">end</span>
 
@@ -263,10 +69,7 @@ is interpreted as <code>true</code>.</p>
 <span class="kr">else</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Undefined number of apples and who has them&quot;</span><span class="p">)</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<h2 id="loops">Loops</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- while loop</span>
+</code></pre></div><h2 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">&para;</a></h2><div class="codehilite"><pre><span></span><code><span class="c1">-- while loop</span>
 <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="kr">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">do</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -328,19 +131,7 @@ is interpreted as <code>true</code>.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;is even&#39;</span><span class="p">)</span>
     <span class="p">::</span><span class="nl">continue</span><span class="p">::</span>
 <span class="kr">end</span>
-</code></pre></div>
-
-<h2 id="goto">goto</h2>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>Avoid <code>goto</code> as fire!</p>
-</div>
-<p>About <code>goto</code> there is only one thing, <strong>do not use <code>goto</code></strong> misusing of <code>goto</code>
-can lead to &ldquo;spaghetti&rdquo; and barely maintainable code. There is only a
-single case where <code>goto</code> can be used in Lua language. Lua loops do not have
-<code>continue</code> statement, but it can be emulated with <code>goto</code>.</p>
-<p>Consider:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="kr">do</span>
+</code></pre></div><h2 id="goto">goto<a class="headerlink" href="#goto" title="Permanent link">&para;</a></h2><div class="admonition danger"><p class="admonition-title">Danger</p><p>Avoid <code>goto</code> as fire!</p></div><p>About <code>goto</code> there is only one thing, <strong>do not use <code>goto</code></strong> misusing of <code>goto</code> can lead to &ldquo;spaghetti&rdquo; and barely maintainable code. There is only a single case where <code>goto</code> can be used in Lua language. Lua loops do not have <code>continue</code> statement, but it can be emulated with <code>goto</code>.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="kr">do</span>
     <span class="kr">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="kr">then</span>
         <span class="kr">goto</span> <span class="nl">endloop</span>
     <span class="kr">end</span>
@@ -355,24 +146,7 @@ single case where <code>goto</code> can be used in Lua language. Lua loops do no
 <span class="c1">-- 8</span>
 <span class="c1">-- 9</span>
 <span class="c1">-- 10</span>
-</code></pre></div>
-
-<h2 id="tables">Tables</h2>
-<p>Tables in Lua are the same as dictionaries, associative arrays, and map-like
-data structures in other programming languages. But there are some differences
-in comparison with other languages.</p>
-<ul>
-<li>Tables in Lua start from index 1, not from 0;</li>
-<li>values in a table stored unsorted;</li>
-<li>indexes can have a type <code>number</code>, <code>string</code>, <code>boolean</code>, or even
-  another <code>table</code>.</li>
-<li><code>#</code>: table length operator.</li>
-</ul>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Remember! Tables in Lua start at index 1, not from 0.</p>
-</div>
-<div class="codehilite"><pre><span></span><code><span class="n">someTable</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">-- creates new empty table, aka table constructor</span>
+</code></pre></div><h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h2><p>Tables in Lua are the same as dictionaries, associative arrays, and map-like data structures in other programming languages. But there are some differences in comparison with other languages.</p><ul><li>Tables in Lua start from index 1, not from 0;</li><li>values in a table stored unsorted;</li><li>indexes can have a type <code>number</code>, <code>string</code>, <code>boolean</code>, or even another <code>table</code>.</li><li><code>#</code>: table length operator.</li></ul><div class="admonition caution"><p class="admonition-title">Caution</p><p>Remember! Tables in Lua start at index 1, not from 0.</p></div><div class="codehilite"><pre><span></span><code><span class="n">someTable</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">-- creates new empty table, aka table constructor</span>
 
 <span class="c1">-- creates new table with values:</span>
 <span class="c1">-- 11 at index 1</span>
@@ -394,30 +168,7 @@ in comparison with other languages.</p>
 <span class="c1">-- Get length of the table with # operator</span>
 <span class="kd">local</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;melon&#39;</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="o">#</span><span class="n">fruits</span><span class="p">)</span> <span class="c1">-- 3</span>
-</code></pre></div>
-
-<h2 id="functions">Functions</h2>
-<p>Functions are code blocks it is good to put reusable code.</p>
-<p>Here are my recommendations, based on my experience, for using
-functions with efficiency and not shooting in the leg.</p>
-<p>Try to follow the concept of <a href="https://en.wikipedia.org/wiki/Pure_function">pure
-functions</a> from the functional
-programming paradigm. What does it mean to be pure? There are 2 rules:</p>
-<ul>
-<li>The function return values are identical for identical arguments; there
-  are no variations or exceptions!</li>
-<li>The function has no side effects (no mutation of any external data); for
-  example, if the function receives a table as an argument, it should not
-  mutate (change) that table. Instead, the function returns a modified
-  table. It is not always possible. There might be exceptions; for
-  example, if tables are large, then such an approach becomes very
-  inefficient. It depends on how large your data is.</li>
-</ul>
-<p>Types <code>tables</code>, <code>userdata</code>, <code>threads</code>, and <code>function</code> are
-<a href="/post/types-in-lua-references-vs-values.html">passed by reference</a>, not by
-value. If a function changes the table received by an argument, it will
-mutate it and cause a side effect. Keep this in mind!</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- One-liner function</span>
+</code></pre></div><h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2><p>Functions are code blocks it is good to put reusable code.</p><p>Here are my recommendations, based on my experience, for using functions with efficiency and not shooting in the leg.</p><p>Try to follow the concept of <a href="https://en.wikipedia.org/wiki/Pure_function">pure functions</a> from the functional programming paradigm. What does it mean to be pure? There are 2 rules:</p><ul><li>The function return values are identical for identical arguments; there are no variations or exceptions!</li><li>The function has no side effects (no mutation of any external data); for example, if the function receives a table as an argument, it should not mutate (change) that table. Instead, the function returns a modified table. It is not always possible. There might be exceptions; for example, if tables are large, then such an approach becomes very inefficient. It depends on how large your data is.</li></ul><p>Types <code>tables</code>, <code>userdata</code>, <code>threads</code>, and <code>function</code> are <a href="/post/types-in-lua-references-vs-values.html">passed by reference</a>, not by value. If a function changes the table received by an argument, it will mutate it and cause a side effect. Keep this in mind!</p><div class="codehilite"><pre><span></span><code><span class="c1">-- One-liner function</span>
 <span class="kr">function</span> <span class="nf">calculateArea</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="kr">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sides of the shape cannot be negative&#39;</span><span class="p">)</span>
@@ -427,23 +178,10 @@ mutate it and cause a side effect. Keep this in mind!</p>
 <span class="kr">end</span>
 
 <span class="kr">function</span> <span class="nf">isNegative</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="kr">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">end</span>
-</code></pre></div>
-
-<h2 id="error-handling">Error handling</h2>
-<h3 id="assertion">Assertion</h3>
-<p>If the assertion function <code>assert()</code> receives a boolean falsy expression,
-then the program will be stopped with an error. If the expression is truth, the
-program will continue to execute normally.</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Program started&#39;</span><span class="p">)</span>
+</code></pre></div><h2 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2><h3 id="assertion">Assertion<a class="headerlink" href="#assertion" title="Permanent link">&para;</a></h3><p>If the assertion function <code>assert()</code> receives a boolean falsy expression, then the program will be stopped with an error. If the expression is truth, the program will continue to execute normally.</p><div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Program started&#39;</span><span class="p">)</span>
 <span class="nb">assert</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s1">&#39;Second argument is optional messsage for failure&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;will never be printed, because it stops on the next line&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<h3 id="protected-calls">Protected calls</h3>
-<p>Protected calls are a great way to make your programs more stable and avoid
-program crashes due to errors.</p>
-<p>Consider:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nf">checkSpeed</span><span class="p">(</span><span class="n">mph</span><span class="p">)</span>
+</code></pre></div><h3 id="protected-calls">Protected calls<a class="headerlink" href="#protected-calls" title="Permanent link">&para;</a></h3><p>Protected calls are a great way to make your programs more stable and avoid program crashes due to errors.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kr">function</span> <span class="nf">checkSpeed</span><span class="p">(</span><span class="n">mph</span><span class="p">)</span>
     <span class="kr">if</span> <span class="n">mph</span> <span class="o">&gt;</span> <span class="mi">60</span> <span class="kr">then</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The police chasing you!&#39;</span><span class="p">)</span>
         <span class="kr">return</span> <span class="kc">true</span>
@@ -457,50 +195,8 @@ program crashes due to errors.</p>
 <span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="n">checkSpeed</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 <span class="c1">-- ok = true</span>
 <span class="c1">-- value = true, execution of functions is successful</span>
-</code></pre></div>
-
-<p>Another useful function is <code>xpcall()</code>. It is similar to <code>pcall()</code> but receives
-an extra error handler argument.</p>
-<p>Consider:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="n">checkSpeed</span><span class="p">,</span> <span class="nb">debug.traceback</span><span class="p">,</span> <span class="s2">&quot;60&quot;</span><span class="p">)</span>
+</code></pre></div><p>Another useful function is <code>xpcall()</code>. It is similar to <code>pcall()</code> but receives an extra error handler argument.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="n">checkSpeed</span><span class="p">,</span> <span class="nb">debug.traceback</span><span class="p">,</span> <span class="s2">&quot;60&quot;</span><span class="p">)</span>
 <span class="c1">-- ok = false</span>
 <span class="c1">-- value = nil because argument is a string, not a number</span>
 <span class="c1">-- debug.traceback` is used as error handler</span>
-</code></pre></div>
-
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://www.lua.org/manual/5.4/manual.html">Lua 5.4 Official Manual</a></li>
-</ul>
-        <h2>Feedback</h2>
-<p>
-For feedback, please check the <a href="/me/">contacts</a> section.
-Before writing, please specify where you came from and who you are. Sometimes spammers go insane.
-Thank you in advance for your understanding.
-</p>
-      </article>
-      <a href="/"><em>&larr; Back to the index page</em></a>
-    </main>
-      <footer>
-    <hr>
-    <p>
-      &copy; 2022&mdash;2024 <a href="/me/">xdknight</a>
-      Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
-      blog engine. <a href="https://github.com/dknight/whoopee">Source code</a>
-    </p>
-    <p>
-      Any images on this website may be used, copied and redistributed under the
-      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 Deed</a> license.
-    </p>
-    <p>
-      Any code on this website may be used, copied and redistributed under the
-      <a href="https://opensource.org/license/MIT">MIT</a> license.
-    </p>
-    <p>
-      This website <strong>does not</strong> use cookies or any tracking techniques either.
-      Also, this page is fully accessible, responsive, and readable on any
-      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
-    </p>
-  </footer>
-  </body>
-</html>
+</code></pre></div><h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2><ul><li><a href="https://www.lua.org/manual/5.4/manual.html">Lua 5.4 Official Manual</a></li></ul><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/"><em>&larr; Back to the index page</em></a></main><footer><hr><p>&copy; 2022&mdash;2024 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine. <a href="https://github.com/dknight/whoopee">Source code</a></p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website <strong>does not</strong> use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.</p></footer></body></html>
