@@ -59,11 +59,11 @@ num = 2 ^ 10  -- power
 
 ```lua
 if num == 0 then
-	primt("num is equal 0")
+	print("num is equal 0")
 end
 
 if num > 1 then
-	primt("num is greater than 1")
+	print("num is greater than 1")
 elseif num < 1 then
 	print("num is less than 1")
 else

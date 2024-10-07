@@ -185,13 +185,11 @@ Arithmetic operators:
 ## Conditionals
 
 !!! caution
-    In Lua language _false_ values are: `nil` and `false` everything else
-    is interpreted as `true`.
+    In Lua language _false_ values are: `nil` and `false` everything else is interpreted as `true`.
     
-    Don't be confused with JavaScritpt where `0` is false. In Lua `0` is also
-    `true`.
+    Don't be confused with JavaScript, where `0` is false. In Lua `0` is also`true`.
 
-Logical operators:
+[Logical operators](/post/logic-in-lua.html):
 
 - `and` -- logical AND;
 - `or` -- logical OR;
