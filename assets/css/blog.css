@@ -115,6 +115,7 @@ main {
 /* Text format */
 h1 {
   font-size: 2.6rem;
+  line-height: 1.2;
   margin: 2rem 0 0;
 }
 h1,
@@ -124,14 +125,18 @@ h4,
 h5,
 h6 {
   color: var(--color-pri);
+
   @supports (text-wrap: balance) {
     text-wrap: balance;
   }
+
   @supports (text-wrap: pretty) {
     text-wrap: pretty;
   }
-  &:hover .headerlink:link {
+
+  &:hover .headerlink {
     display: inline-block;
+
     &:link,
     &:visited,
     &:active {
@@ -266,7 +271,7 @@ blockquote {
       border-radius: var(--border-radius);
 
       &::before {
-        content: '⯈';
+        content: '\2bc8';
         display: inline-block;
         width: 2rem;
       }
@@ -276,7 +281,7 @@ blockquote {
       + label {
         border-bottom: none;
         &::before {
-          content: '⯆';
+          content: '\2bc6';
         }
       }
     }
@@ -298,7 +303,7 @@ blockquote {
   border: 0.125rem solid var(--color-border);
   border-top: none;
   border-radius: var(--border-radius);
-  margin-top: -1rem; /* not good */
+  margin: -1rem 0 1rem; /* -1 is not good */
   @container article (max-width: 767px) {
     width: auto;
   }
