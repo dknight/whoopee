@@ -1,7 +1,7 @@
 :root {
   color-scheme: light dark;
   --color-bg: light-dark(#fff, #0f0f11);
-  --color-text: light-dark(#000, #e8eaed);
+  --color-text: light-dark(#000, #c5c5ce);
   --color-pri: light-dark(#000080, #8cb4ff);
   --color-sec: #fa8607;
   --color-code: light-dark(#f8f8f8, #000);
@@ -18,7 +18,7 @@
 }
 
 body {
-  font: normal 16px/1.5 Helvetica, Arial, sans-serif;
+  font: normal 20px/1.5 Helvetica, Arial, sans-serif;
   padding: 1rem 2rem;
   margin: 0 auto;
   box-sizing: border-box;
