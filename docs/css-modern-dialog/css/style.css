@@ -1,0 +1,128 @@
+/* 
+  Generic page styles and aren't required for dialog.
+*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+*:focus-visible {
+  outline: 3px solid blue;
+  outline-offset: 1px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+
+  font: normal 1em/1.6 'Open Sans', sans-serif;
+
+  background: #121212;
+  background-image:
+    repeating-conic-gradient(#121212 0, #121212 25%, transparent 0, transparent 50%),
+    repeating-conic-gradient(#181818 0, #181818 25%, transparent 0, transparent 100%),
+    repeating-conic-gradient(#121212 0, #121212 25%, #141414 0, #141414 100%);
+  background-size: 30em 30em, 12em 12em, 6em 6em;
+  background-position: -15em -15em, 7em 7em, 0 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6em;
+  margin:  0 2em;
+  max-width: 40em;
+  border-radius: .3125em;
+
+  font-size: 1.25em;
+
+  background: #f9f9f9 linear-gradient(#ddd, #f1f1f1);
+	box-shadow: 0 0 0 1px rgba(255,255,255,.9) inset,
+	            .4em .4em 1em rgba(0,0,0,.8);
+}
+
+code {
+  color: deeppink;
+}
+
+main a {
+  color: #192967;
+}
+main a:active {
+  color: #f00;
+}
+main a:visited {
+  color: #571967;
+}
+
+main p {
+  margin-top: 0;
+}
+
+
+main button {
+  padding: .8em 1.2em;
+  margin: 1em 0 .2em;
+  border-radius: .3125em;
+  border: none;
+
+  font-size: 1em;
+
+  color: #fff;
+  background: #0c69a6;
+
+  cursor: pointer;
+}
+main button:hover {
+  filter: brightness(.9);
+}
+
+main .actions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-self: center;
+}
+
+main .actions a {
+  font-size: 80%;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  clip-path: polygon(0 0);
+}
+
+/* Global checkboxes */
+input[type="checkbox"] + label {
+  display: inline-flex;
+  align-items: center;
+}
+input[type="checkbox"]:focus-visible + label::before {
+  outline: 2px solid blue;
+  outline-offset: 1px;
+}
+input[type="checkbox"] + label::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 0.2em;
+  border: 2px solid #0c69a6;
+  content: "\a0";
+  margin-right: 0.3em;
+
+  font-size: 2em;
+  line-height: 1;
+  text-indent: 0.08em;
+
+  color: #0c69a6;
+}
+
+input[type="checkbox"]:checked + label::before {
+  content: "\2713";
+}
