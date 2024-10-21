@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/how-does-the-hree-dots-parameter-work-in-lua.html</guid>
+  <title>How does the three dots parameter work in Lua?</title>
+  <link>https://www.whoop.eepost/how-does-the-hree-dots-parameter-work-in-lua.html</link>
+  <description>A function that can accept a variable number of arguments is called a variadic function, which is indicated by three dots ('...') vararg expressions at the end of its argument list. Explanation of how variadic functions and vararg expression work in Lua. </description>
+  <pubDate>Mon, 21 Oct 2024 00:00:00 +0300</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/bitwise-operations.html</guid>
   <title>Bitwise operations in Lua</title>
   <link>https://www.whoop.eepost/bitwise-operations.html</link>

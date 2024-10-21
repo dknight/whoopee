@@ -262,18 +262,18 @@ blockquote {
     clip-path: polygon(0 0, 0 0, 0 0);
 
     + label {
-      cursor: pointer;
-      font-size: 135%;
+      border-radius: var(--border-radius);
       font-weight: bold;
+      cursor: pointer;
       display: block;
       border: 0.125rem solid var(--color-border);
       padding: 1rem 2rem;
-      border-radius: var(--border-radius);
 
       &::before {
         content: '\2bc8';
         display: inline-block;
         width: 2rem;
+        transform: translateY(-2px); /* hack */
       }
     }
 
@@ -303,16 +303,9 @@ blockquote {
   border: 0.125rem solid var(--color-border);
   border-top: none;
   border-radius: var(--border-radius);
-  margin: -1rem 0 1rem; /* -1 is not good */
+  margin: -1.35rem 0 1rem; /* -1 is not good */
   @container article (max-width: 767px) {
     width: auto;
-  }
-
-  .toctitle {
-    font-size: 135%;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.7rem;
   }
 }
 .toc > ul,
