@@ -28,7 +28,7 @@ MARKDOWN_COMMAND="python -m markdown \
 
 # Commands to run after succesful build
 function post_hook() {
-	cp -ru ./me ./css-modern-dialog ./puff "$DIST"
+	cp -r ./me ./css-modern-dialog ./puff "$DIST"
 	cp ./CNAME "$DIST"
 	mv "$DIST/assets/googlebb7539f50c5e493c.html" "$DIST/assets/404.html" "$DIST"
 
