@@ -400,11 +400,11 @@ Uses the equality `==` operator to compare the values.
 
 Do not use `toEqual` when:
 
-- Comparing float values, e.g., 0.2 + 0.3 might be equal to something like 0.50000000001.
-  Use [`toBeCloseTo`](#tobecloseto) to compare float numbers.
+- Comparing float values, e.g., 0.2 + 0.3 might be equal to something like
+  0.50000000001. Use [`toBeCloseTo`](#tobecloseto) to compare float numbers.
 - Be careful with tables. Tables in Lua are references; the equality operator
   `==` compares references, not key-value pairs. To compare tables by values, use
-	[`toDeepEqual`](#todeepequal) (or its alias [`toBe`](#tobe)).
+  [`toDeepEqual`](#todeepequal) (or its alias [`toBe`](#tobe)).
 
 
 ```lua
@@ -570,8 +570,10 @@ which have the same values.
 
 #### `toHaveLength`
 
-Use the `#` length operator to match the table length. Be careful with "gaps" in the arrays.
-For more details, read about the [length operator](https://www.lua.org/manual/5.4/manual.html#3.4.7) from Lua manual.
+Use the `#` length operator to match the table length. Be careful with "gaps"
+in the arrays. For more details, read about the
+[length operator](https://www.lua.org/manual/5.4/manual.html#3.4.7) from Lua
+manual.
 
 ```lua
 local fibonacci = { 1, 2, 3, 5, 8, 13 }
@@ -718,7 +720,8 @@ end)
 
 #### `toContain`
 
-Use`toContain` when there is a need to check that an item is in an array or string.
+Use`toContain` when there is a need to check that an item is in an array or
+string.
 
 ```lua
 it("should have a cat in a table", function()
@@ -734,8 +737,8 @@ end)
 
 #### `toFail`
 
-Check that function failed due to execution. The expected value can be a `string`,
-which is Lua [pattern](https://www.lua.org/manual/5.4/manual.html#6.4.1) that
+Check that function failed due to execution. The expected value can be a
+`string`, which is Lua [pattern](https://www.lua.org/manual/5.4/manual.html#6.4.1) that
 matches the error message.
 
 ```lua
@@ -786,7 +789,8 @@ end)
 
 #### `toHaveBeenCalledTimes`
 
-`toHaveBeenCalledTimes` ensures that a spy has been called an exact number of times.
+`toHaveBeenCalledTimes` ensures that a spy has been called an exact number of
+times.
 
 ```lua
 it("should be called 4 times", function()
@@ -799,8 +803,8 @@ end)
 
 #### `toHaveBeenCalledWith`
 
-`toHaveBeenCalledWith` ensures that a spy has been called with a specific argument.
-The arguments are checked with the logical equality `==`.
+`toHaveBeenCalledWith` ensures that a spy has been called with a specific
+argument. The arguments are checked with the logical equality `==`.
 
 ```lua
 local spy = Spy:new()
@@ -822,7 +826,8 @@ end)
 #### `toHaveBeenFirstCalledWith`
 
 `toHaveBeenFirstCalledWith` ensures that the first call of a spy has been
-called with a specific argument. The arguments are checked with the logical equality `==`.
+called with a specific argument. The arguments are checked with the logical
+equality `==`.
 
 ```lua
 it("should be firstly called with 'soup'", function()
@@ -836,7 +841,8 @@ end)
 #### `toHaveBeenLastCalledWith`
 
 `toHaveBeenLastCalledWith` ensures that the last call of a spy has been called
-with a specific argument. The arguments are checked with the logical equality `==`.
+with a specific argument. The arguments are checked with the logical equality
+`==`.
 
 ```lua
 it("should be lastly called with 'dessert'", function()
@@ -849,7 +855,10 @@ end)
 
 #### `toHaveBeenNthCalledWith`
 
-`toHaveBeenNthCalledWith` ensures that the n-th call of a spy has been called with a specific argument. The arguments are checked with the logical equality `==`. As expected value, it accepts the table argument, where the first value is the position (index) of a call and the second is expected value.
+`toHaveBeenNthCalledWith` ensures that the n-th call of a spy has been called
+with a specific argument. The arguments are checked with the logical equality
+`==`. As expected value, it accepts the table argument, where the first value
+is the position (index) of a call and the second is expected value.
 
 ```lua
 it("should be secondly called with 'meat'", function()
@@ -862,7 +871,8 @@ end)
 
 #### `toHaveReturned`
 
-Test a spy that returned a non-`nil` value and did not throw any error at least one time.
+Test a spy that returned a non-`nil` value and did not throw any error at least
+once.
 
 ```lua
 it("should return a value", function()
@@ -876,7 +886,8 @@ end)
 
 #### `toHaveReturnedTimes`
 
-Test a spy that returned a non-`nil` value and did not throw any error at least once.
+Test a spy that returned a non-`nil` value and did not throw any error at least
+once.
 
 ```lua
 local getMeal = function(i)
@@ -1062,7 +1073,8 @@ stub:restore() -- Restores the original `execute()` function of `os` module.
 
 ## Hooks
 
-Suite has hooks run functions, which help to setup some state after or before all test cases.
+Suite has hooks run functions, which help to setup some state after or before
+all test cases.
 
 ### afterAll
 
