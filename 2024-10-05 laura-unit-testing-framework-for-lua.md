@@ -1047,9 +1047,9 @@ end)
 ## Stubs
 
 Stubs are the mock values of any table, useful for simulating the
-implementation. Default functions in Lua can also be stubbed. After the
-test, do not forget to restore stub `Stub:restore()`, which restores the
-original field or function.
+implementation.Functions from Lua standard library can also be stubbed.
+After the test, do not forget to restore stub `Stub:restore()`, which restores
+the original field or function.
 
 ```lua
 local stubFn = function(prog)
