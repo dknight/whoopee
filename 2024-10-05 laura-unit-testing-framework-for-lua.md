@@ -4,6 +4,17 @@ tags: lua
 
 # Documentation for Laura unit-testing framework
 
+![Laura avatar](/assets/img/laura-512.png)
+
+Laura is a lightweight unit-testing framework for Lua with simplicity in mind. The framework has no dependencies and is compatible with Lua versions 5.1—5.4 and LuaJIT.
+
+- Lightweight and minimalist
+- Easy to install and use
+- No Dependencies
+- Understandable, human-readable feedback
+- Compatible with any Lua 5.1+ version and LuaJIT
+
+
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
 
@@ -86,31 +97,53 @@ laura -c ~/my-custom-config.lua --reporters text,blank -S ./tests
 ## Configuration
 
 There are open configurations, which can be configured. Config options are in
-capitalized case due to Lua @enum convention.
+capitalized case due to Lua `@enum` convention.
 
-- **Color**: enables colors in terminal if possible, default `true`.
+- **Color**: enables colors in terminal if possible, default `true`;
 - **Dir**: directory where tests are located. Current directory
-  `.` by default.
-- **FilePattern**: pattern for test files, default `"*_test.lua"`.
-- **Tab**: tabulation string, default `"\t"`.
+  `.` by default;
+- **TestPattern**: pattern for test files, default `"*_test.lua"`;
+- **Tab**: tabulation string, default `"\t"`;
 - **Traceback**: print full traceback from debug library on test
-  failure, default `false`.
-- **Reporters**:  list of reporters. Currently available
-  reporters are **blank**, **count**, **dot** and **text**,
-  default `{ "text" }`.
+  failure, default `false`;
+- **Reporters**:  list of reporters, default `{ "text" }`
+    - blank
+    - count
+    - dot
+    - text
 - **ReportSummary**: print test summary If the reporter supports it,
   default `true`.
-- **UTF8**: use UTF-8 for string comparison, default `true`.
-  Compatibility note: Before Lua 5.3 there was no UTF8 support.
-	Install an [extra module for UTF8 support](https://github.com/starwing/luautf8)
+- **DateFormat**: date format used in coverage reports, default `""%Y-%m-%d %H:%M:%S""`;
 - **Coverage**: Coverage config table;
-  - **Enabled**: disables or enables coverage collection, default `false`; 
-  - **Threshold**: if target coverage is less than the percentage, program will
-    exit with `Config._exitCoverageFailed` (2). Zero or negative value of this
+    - **Enabled**: disables or enables coverage collection, default `false`; 
+    - **Threshold**: if target coverage is less than the percentage, program
+    will exit with exit code `2`. Zero or negative value of this
     option will ignore threshold.
+     - **ThresholdPoints**: break points for coverage show colored output for
+     good, bad, ugly coverage of the file/module.
+        - Low: below 66.7%;
+        - Average: between 66.7%...90%;
+        - Good: 90% and up to 100%.
+    - **ReportName**: file report name, default `"covreport"`;
+    - **Dir**: writes reports to this directory, default `"coverage"`,
+    - **Reporters**: table of possible reporters:
+        - blank
+        - csv
+        - html
+        - json
+        - lua
+        - terminal
+        - xml
+    - **IncludePattern**: files pattern to include for coverage, default `".*%.lua"`.
 
 Also, there are ["private" configuration fields](https://github.com/dknight/laura/blob/main/src/laura/Config.lua), which are not recommended to change unless you know that
 you know what you are doing.
+
+### RC file
+
+Another way to create [`.laurarc`](https://github.com/dknight/laura/blob/main/.laurarc)
+file in your project directory and setup preferences in the same format
+as in the configuration file.
 
 ### Set config with command line
 
@@ -131,7 +164,6 @@ local laura = require("laura")
 
 laura.setup({
   ReportSummary = false,
-  UTF8 = false,
   Dir = "./specs",
   Pattern = "*.spec.lua",
   -- etc.
@@ -142,7 +174,7 @@ laura.setup({
 
 ## Writing tests
 
-## Using CLI runner
+### Using CLI runner
 
 Writing tests is pretty simple and straightforward. Create a file with the
 suffix `*_test.lua` (the suffix can be changed in the [configuration](#configuration)).
@@ -150,9 +182,11 @@ suffix `*_test.lua` (the suffix can be changed in the [configuration](#configura
 Consider **simple_test.lua**:
 
 ```lua
-local describe = require("laura.Suite")
-local it = require("laura.Test")
-local expect = require("laura.expect")
+local laura = require("laura")
+
+local it = laura.it
+local describe = laura.describe
+local expect = laura.expect
 
 describe("my test case", function()
 	it("should be equal to three", function()
@@ -286,9 +320,11 @@ that there is a `:` colon. If you mark a suite as skipped, all its children will
 also be skipped.
 
 ```lua
-local describe = require("laura.Suite")
-local it = require("laura.Test")
-local expect = require("laura.expect")
+local laura = require("laura")
+
+local it = laura.it
+local describe = laura.describe
+local expect = laura.expect
 
 describe:skip("skipped suite", function()
 	it:sli("should be skipped", function()
@@ -303,9 +339,11 @@ Like skipped tests, mark tests with `only`; only marked tests will run;
 others will be ignored, useful for debugging.
 
 ```lua
-local describe = require("laura.Suite")
-local it = require("laura.Test")
-local expect = require("laura.expect")
+local laura = require("laura")
+
+local it = laura.it
+local describe = laura.describe
+local expect = laura.expect
 
 describe:only("only suite", function()
 	it("should be three", function()
@@ -974,8 +1012,6 @@ There are public methods of the [Spy](https://github.com/dknight/laura/blob/main
 - **getLastReturn(): SpyReturn | nil**: returns the last return value, `nil` when it does not exist;
 - **getReturnsCount(): number**: returns the total amount of return values, which are not `nil`.
 
-
-
 ### Types
 
 Note: in the current version, types are just aliases to `table`, but later this
@@ -1007,6 +1043,23 @@ describe("testing spies", function()
 	end)
 end)
 ```
+
+## Stubs
+
+Stubs are the mock values of any table, useful for simulating the
+implementation. Default functions in Lua can also be stubbed. After the
+test, do not forget to restore stub `Stub:restore()`, which restores the
+original field or function.
+
+```lua
+local stubFn = function(prog)
+	return "external program `" .. prog .. "` is not permitted"
+end
+local stub = Stub:new(os, "execute", stubFn)
+expect(os.execute("ls")).toEqual("external program `ls` is not permitted")
+stub:restore() -- Restores the original `execute()` function of `os` module.
+```
+
 ## Hooks
 
 Suite has hooks run functions, which help to setup some state after or before all test cases.
@@ -1148,11 +1201,39 @@ describe("beforeEach hook", function()
 end)
 ```
 
-## Compatibility Notes
+## Code coverage
 
-There was no UTF-8 support in Lua before 5.3; to add support for UTF8, please
-install [an extra UTF-8 module](https://github.com/starwing/luautf8),if you are
-going to compare UTF-8 strings.
+Laura supports code coverage. and may report in different ways: like a text,
+HTML file, CSV file, and other formats. To enable code coverage, there are
+several ways:
+
+1. Set up `Coverage.Enabled = true` in the `.laurarc` file in the project directory.
+2. Set up `Coverage.Enabled = true` in the custom config file, which is passed
+in CLI with `-c` flag.
+3. With the command line argument `--coverage` when using CLI.
+
+`Coverage.Threshold` sets the coverage common percentage threshold, if coverage
+not met program exits with code `3`.
+
+### Inline disable coverage
+
+Source lines can be explicitly ignored using `enable` and `disable`
+inline options. An inline option is a simple comment: `-- coverage: enable`
+or `-- coverage: disable`. Inline option parsing is not whitespace sensitive.
+All lines starting from a line containing `disable` option and up to a line
+containing `enable` option (or end of file) are excluded.
+
+To provide compatibility with
+[luacov](https://github.com/lunarmodules/luacov), options `-- coverage: enable | disabled`and `-- luacov: enable | disable` both are valid.
+
+## Exit codes
+
+When the test run is finished, there are exit codes:
+
+- `0` everything is successful; tests and coverage are passed;
+- `1` Lua program error, link syntax error, or file access error;
+- `2` there are failed tests;
+- `3` coverage threshold is not met.
 
 ## Who is Laura? And how to meet her?
 
@@ -1161,13 +1242,15 @@ in Lua ecosystem are prefixed with _"L"_, aura just became _"Laura"_.
 There is no any real girl with the name Laura who is associated with
 this framework.
 
-<!-- After that, another person proposed to use his created girl-anime like
-mascot to make this library more memorable, rather than yet another,
-testing library. Actually a pure marketing-like move. -->
-
-TODO IMAGE HERE
-
 [Source code on GitHub](https://github.com/dknight/laura/)
+
+## Credits
+
+Original picture by [lumeish](https://lumeish.itch.io/), used under
+[Creative Commons Attribution v4.0 International](https://creativecommons.org/licenses/by/4.0/) license.
+
+Coverage line scanner is modified algorithm based on [luacov](https://github.com/lunarmodules/luacov), published under
+[MIT](https://opensource.org/license/MIT) license.
 
 ## Contribution
 

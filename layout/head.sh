@@ -44,3 +44,6 @@ cat << __HEAD__
 <link rel="canonical" href="$canonical">
 </head>
 __HEAD__
+
+# Maybe later would be nice to make website in retro gaming style?
+# <link rel="preload" href="/assets/fonts/PxPlus_IBM_VGA8.woff2" as="font">
