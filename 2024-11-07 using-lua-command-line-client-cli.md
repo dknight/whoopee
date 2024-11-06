@@ -37,7 +37,7 @@ Microsoft Windows Lua binaries can be found on
 [SourceForge](https://luabinaries.sourceforge.net/download.html).
 
 After installing or [compiling Lua from source code](http://localhost:8000/post/a-definitive-guide-for-compiling-lua-from-source-code.html), `lua`
-(for Microsoft Windows, `lua.exe` or similar) is available.
+(for Microsoft Windows, `lua.exe` or similar) is available on the system.
 
 !!! tip
       Be sure that `lua` is located in the `PATH` environment variable.
