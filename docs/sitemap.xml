@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://www.whoop.ee</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/me/</loc>
@@ -11,6 +11,14 @@
 	<url>
 		<loc>https://www.whoop.ee/puff/</loc>
 		<lastmod>2024-06-17</lastmod>
+	</url>
+	<url>
+		<loc>https://www.whoop.ee/post/using-lua-command-line-client-cli.html</loc>
+		<lastmod>2024-11-07</lastmod>
+	</url>
+	<url>
+		<loc>https://www.whoop.ee/post/what-are-lua-chunk.html</loc>
+		<lastmod>2024-11-06</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/how-does-the-hree-dots-parameter-work-in-lua.html</loc>
@@ -150,38 +158,38 @@
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/algorithms/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/beginner/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/data-structures/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/featured/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/gamedev/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/love2d/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/lua/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/misc/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/tag/web/</loc>
-		<lastmod>2024-11-03</lastmod>
+		<lastmod>2024-11-07</lastmod>
 	</url>
 </urlset>
