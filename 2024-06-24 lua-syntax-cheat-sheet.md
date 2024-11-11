@@ -95,7 +95,7 @@ until num > 10
 
 ## Tables
 
-!!! note
+!!! tip
     Tables in Lua language begins with 1.
 
 ```lua

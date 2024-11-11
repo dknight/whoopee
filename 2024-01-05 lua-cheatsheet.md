@@ -101,7 +101,7 @@ text=[==[
 ]==]
 ```
 
-!!! caution
+!!! warning
     - You cannot use [escape sequences](#escape-sequences) in the string blocks.
     - Do not misuse `=` signs in the blocks, these are needed really rarely,
       unless you want to make something cryptic.
@@ -177,14 +177,14 @@ Arithmetic operators:
 2 ^ 5    -- 32
 ```
 
-!!! caution
+!!! warning
     There is no `++` and `--` operators in Lua. Use the form of `x = x + 1`.
 
 ## Control structures
 
 ## Conditionals
 
-!!! caution
+!!! warning
     In Lua language _false_ values are: `nil` and `false` everything else is interpreted as `true`.
     
     Don't be confused with JavaScript, where `0` is false. In Lua `0` is also`true`.
@@ -339,7 +339,7 @@ in comparison with other languages.
   another `table`.
 - `#`: table length operator.
 
-!!! caution
+!!! warning
     Remember! Tables in Lua start at index 1, not from 0.
 
 ```lua

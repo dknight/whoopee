@@ -1,7 +1,7 @@
-/* @font-face {
+@font-face {
   font-family: 'PxPlus_IBM_VGA8';
   src: url('/assets/fonts/PxPlus_IBM_VGA8.woff2') format('woff2');
-} */
+}
 
 :root {
   color-scheme: light dark;
@@ -14,7 +14,6 @@
   --color-tip: light-dark(#008b8b, #0ff);
   --color-caution: var(--color-sec);
   --color-danger: #cc0000;
-  --border-radius: 3px;
 
   scroll-behavior: smooth;
   @media screen and (prefers-reduced-motion: reduce) {
@@ -188,7 +187,6 @@ code {
 }
 pre {
   box-sizing: border-box;
-  border-radius: var(--border-radius);
   color: var(--color-text);
   background-color: var(--color-code);
   padding: 1.25rem;
@@ -204,7 +202,6 @@ pre {
 
 kbd {
   border: 0.125rem solid var(--color-text);
-  border-radius: var(--border-radius);
   display: inline-block;
   font-size: 80%;
   font-weight: 700;
@@ -219,10 +216,26 @@ blockquote {
 }
 
 .admonition {
-  border-radius: var(--border-radius);
-  border: 0.125rem solid;
+  --color-admonition: black;
+  font: normal 1.25rem/1.25 PxPlus_IBM_VGA8, monospace;
   border-left-width: 0.85rem;
-  padding: 0 2rem 0 1.5rem;
+  padding: 1rem;
+  color: var(--color-admonition);
+
+  code {
+    font-family: PxPlus_IBM_VGA8, monospace;
+    background-color: #c0c0c0;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  p,
+  ul,
+  ol {
+    margin: 0;
+  }
 
   + .admonition {
     margin-top: 1rem;
@@ -232,22 +245,17 @@ blockquote {
     display: none;
   }
 
-  &.important,
-  &.hint,
-  &.note,
   &.tip {
-    border-color: var(--color-tip);
+    background-color: cyan;
   }
 
-  &.attention,
-  &.warning,
-  &.caution {
-    border-color: var(--color-caution);
+  &.warning {
+    background-color: var(--color-caution);
   }
 
-  &.error,
   &.danger {
-    border-color: var(--color-danger);
+    background-color: var(--color-danger);
+    --color-admonition: yellow;
   }
 }
 
@@ -265,7 +273,6 @@ blockquote {
     clip-path: polygon(0 0, 0 0, 0 0);
 
     + label {
-      border-radius: var(--border-radius);
       font-weight: bold;
       cursor: pointer;
       display: block;
@@ -305,7 +312,6 @@ blockquote {
   padding: 1rem 2rem;
   border: 0.125rem solid var(--color-border);
   border-top: none;
-  border-radius: var(--border-radius);
   margin: -1.35rem 0 1rem; /* -1 is not good */
   @container article (max-width: 767px) {
     width: auto;

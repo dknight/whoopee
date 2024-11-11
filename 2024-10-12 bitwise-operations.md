@@ -9,7 +9,7 @@ tags: lua beginner
 
 [TOC]
 
-!!! note
+!!! tip
     Bitwise operators: `&`, `|`, `~`, `>>`, `<<` were presented
     since Lua 5.3. In Lua 5.2, there is a [bit32 module](https://www.lua.org/manual/5.2/manual.html#6.7).
     In Lua 5.1 an extra library like [this one](https://github.com/AlberTajuelo/bitop-lua) should be installed.
@@ -78,7 +78,7 @@ and make code shorter and reduce memory usage. From the other side,
 overusing bitwise operators might lead to cryptic and hardly maintainable
 code. This tool should be used wisely.
 
-!!! note
+!!! tip
     There might be differences in 32-bit and 64-bit systems; be sure
     that your final code will run on the same system; otherwise, it
     might lead to unexpected results.
@@ -162,7 +162,7 @@ unary NOT to only one number.
   11101010 (decimal signed -22, unsigned 234*)
 ```
 
-!!! note
+!!! tip
     By default, in Lua numbers are signed, unless it is compiled to
     use unsigned integers. The 8th bit means for number 0 -
     positive, 1 for negative numbers; this is why in the upper

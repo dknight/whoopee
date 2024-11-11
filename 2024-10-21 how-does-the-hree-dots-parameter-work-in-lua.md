@@ -108,7 +108,7 @@ In my daily job, I'd like to avoid such complex solutions, if
 possible. Code readability and maintainability are always one of the
 top priorities for me.
 
-!!! note
+!!! tip
     In JavaScript, [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) works mostly the same as *vararg expression* in Lua.
 
 ## References

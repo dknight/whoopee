@@ -63,7 +63,7 @@ Lua's built-in `math` library calculates everything written above for you. But
 there are many versions in different Lua versions and which to use.
 Usually `math.atan()` or `math.atan2()` functions confuse beginners.
 
-!!! caution
+!!! warning
     Function `math.atan2()` is deprecated and might not work in your
     environment.
 
