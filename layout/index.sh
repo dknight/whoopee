@@ -48,6 +48,9 @@ function nav() {
 
 function tag2title() {
   case "$1" in
+    c)
+      echo "C"
+    ;;
     data-structures)
       echo "Data structures"
     ;;
@@ -108,6 +111,7 @@ cat << _EOF_
         $(taglink "misc")
         $(taglink "gamedev")
         $(taglink "love2d")
+        $(taglink "c")
         <!-- $(taglink "featured") -->
       </nav>
       <section class="articles">

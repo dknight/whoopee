@@ -196,8 +196,9 @@ pre {
   tab-size: 4;
   width: 100%;
 
-  code {
-    background-color: var(--color-code);
+  &.break {
+    white-space: break-spaces;
+    word-wrap: anywhere;
   }
 }
 

@@ -12,12 +12,5 @@
   <description>Covert 1-bit image data to byte text output. Parse meta data from 1-bit bitmap files. </description>
   <pubDate>Mon, 11 Nov 2024 00:00:00 +0200</pubDate>
 </item>
-<item>
-  <guid>https://www.whoop.eepost/love-profiler.html</guid>
-  <title>Profile for Löve2D</title>
-  <link>https://www.whoop.eepost/love-profiler.html</link>
-  <description>LoveProfiler is an extremely simple logger and profiler for Löve2D framework. </description>
-  <pubDate>Mon, 24 Jun 2024 00:00:00 +0300</pubDate>
-</item>
 </channel>
 </rss>
