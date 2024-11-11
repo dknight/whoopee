@@ -22,8 +22,8 @@ with metadata and actual bytes without any compression.
 ----------|-------------|--------------------------|
 | 2 bytes | 0x4D42      | BMP format identifier    |
 | 4 bytes | uint32_t    | File size in bytes       |
-| 2 bytes | reserved1;  | not in use               |
-| 2 bytes | reserved2;  | not in use               |
+| 2 bytes | int16_t     | not in use/reserved      |
+| 2 bytes | int16_t     | not in use/reserved      |
 | 4 bytes | uint32_t    | Offset to image data in bytes from beginning of file
 | 4 bytes | uint32_t    | DIB Header size in bytes |
 | 4 bytes | int32_t     | Width of the image       |
