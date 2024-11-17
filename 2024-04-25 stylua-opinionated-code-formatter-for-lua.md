@@ -4,6 +4,13 @@ tags: lua
 
 # StyLua is an optimized code formatter for Lua
 
+## Update 2024-11-17
+
+In stylua version 2.0 following changes:
+
+- Config file `stylua.toml` has been renamed to `.stylua.tomp`
+  (prefixed with dot).
+
 ## Setup
 
 I have discovered an amazing tool called StyLua for Lua's code formatting.
