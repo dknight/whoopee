@@ -348,6 +348,9 @@ img {
   /* height: auto; */ /* 372px; */
   max-width: 100%;
   display: block;
+  @media screen and (prefers-color-scheme: dark) {
+    filter: invert(1) hue-rotate(173deg) brightness(.87);
+  }
 }
 
 @view-transition {
