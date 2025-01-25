@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/understanding-coroutines.html</guid>
+  <title>Understanding coroutines in Lua</title>
+  <link>https://www.whoop.eepost/understanding-coroutines.html</link>
+  <description>Coroutines are a powerful tool in Lua language to provide asynchronous programming, but these might be a bit hard to understand for beginners.</description>
+  <pubDate>Fri, 24 Jan 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/using-lua-command-line-client-cli.html</guid>
   <title>Using Lua Command Line Client (CLI)</title>
   <link>https://www.whoop.eepost/using-lua-command-line-client-cli.html</link>
