@@ -94,7 +94,7 @@ Illustration of coroutine lifecycle of the example above.
 
 ![Coroutines working with main thread](/assets/img/coroutines02.svg)
 
-## Error handling in coroutines
+### Error handling in coroutines
 
 !!! tip
     It is always a good practice to check for the errors.
@@ -144,7 +144,7 @@ local ok, err = pcall(co)
 print(ok, err) --> false   co.lua:2: Kabooom!
 ```
 
-## Arguments in the coroutines and data exchange
+### Arguments in the coroutines and data exchange
 
 Coroutines can receive any number of arguments like common functions.
 
@@ -169,7 +169,7 @@ local ok, message, value = coroutine.resume(co, 6, 7)
 print(message, value, ok) --> "The meaning of life is"	42	true
 ```
 
-## Basic example
+### Basic example
 
 Here is an artificial example, but it very well demonstrates how multiple coroutines are
 running simultaneously. Every coroutine has a delay number.
@@ -207,7 +207,7 @@ print("returned to main thread")
 -- returned to main thread
 ```
 
-## HTTP request example
+### HTTP request example
 
 Making the HTTP request with coroutine, for the example below
 [LuaSocket](https://github.com/lunarmodules/luasocket) library is required to be installed.
