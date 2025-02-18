@@ -33,7 +33,7 @@ even considering UTF-8 encoding, this example above will not work.
 ## Common solution
 
 I would like to introduce the function that covers all edge cases. Of course, it is not such
-performant as I would like to have. The result is identical to JavaScript's
+performant as I would like to have. The resЛult is identical to JavaScript's
 [`String.prototype.split()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split).
 
 ```lua
