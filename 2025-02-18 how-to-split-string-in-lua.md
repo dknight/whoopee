@@ -2,7 +2,7 @@
 
 tags: lua algorithms
 
-# How to split string in lua
+# How to split string in Lua
 
 ## Simple case
 
