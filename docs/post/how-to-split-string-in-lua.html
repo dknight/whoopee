@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Example how to split string in Lua with generic function considering utf8. "><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/how-to-split-string-in-lua.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/lua-language.gif"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>How to split string in lua &mdash; Whoopee</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/how-to-split-string-in-lua.html"></head><body><header><a href="/" class="logo">Whoopee</a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/"><em>&larr; Back to the index page</em></a><article><h1>How to split string in lua</h1><time datetime="2025-02-18">February 18, 2025</time><h2 id="simple-case">Simple case<a class="headerlink" href="#simple-case" title="Permanent link">&para;</a></h2><p>There are numerous examples available online that demonstrate how to split a string in the Lua language. Most of them are very specific and do not cover generic and edge cases.</p><p>Like this one:</p><div class="codehilite"><pre><span></span><code><span class="c1">---A very dumb split string function.</span>
+<span class="c1">---@param str string</span>
+<span class="c1">---@param sep? string</span>
+<span class="c1">---@return string[]</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">split</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
+    <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span> <span class="ow">or</span> <span class="s2">&quot;%s&quot;</span>
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kr">for</span> <span class="n">s</span> <span class="kr">in</span> <span class="nb">string.gmatch</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s2">&quot;([^&quot;</span> <span class="o">..</span> <span class="n">sep</span> <span class="o">..</span> <span class="s2">&quot;]+)&quot;</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">t</span>
+<span class="kr">end</span>
+</code></pre></div><p>Probably in most cases it is enough. The advantage of this version is that it is very performant. But if you need a more common solution with a more complex pattern for splitting, even considering UTF-8 encoding, this example above will not work.</p><h2 id="common-solution">Common solution<a class="headerlink" href="#common-solution" title="Permanent link">&para;</a></h2><p>I would like to introduce the function that covers all edge cases. Of course, it is not such performant as I would like to have. The result is identical to JavaScript&rsquo;s <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>String.prototype.split()</code></a>.</p><div class="codehilite"><pre><span></span><code><span class="c1">---Generic split function for splitting the string, taking into account</span>
+<span class="c1">---UTF-8 encoding.</span>
+<span class="c1">---@param str string Input string.</span>
+<span class="c1">---@param sep? string Separator pattern or string (default empty string).</span>
+<span class="c1">---@param n? number Number of splits: if less than zero, then all substrings are returned.</span>
+<span class="c1">---If 0 empty table is returned.</span>
+<span class="c1">---@param offset? number UTF-8 bytes offset (default 1)</span>
+<span class="c1">---@param plain? boolean Turns off the pattern matching facilities.</span>
+<span class="c1">---@return string[]</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">split</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">plain</span><span class="p">)</span>
+    <span class="n">sep</span> <span class="o">=</span> <span class="n">sep</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span> <span class="ow">or</span> <span class="mi">1</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="ow">or</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="c1">---Result value</span>
+    <span class="c1">---@type string[]</span>
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+        <span class="kr">return</span> <span class="n">t</span>
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">len</span> <span class="o">=</span> <span class="nb">utf8.len</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="c1">-- If empty string, then return table with single element containing empty string.</span>
+    <span class="kr">if</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+        <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="kr">return</span> <span class="n">t</span>
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="kd">local</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">sepBegin</span><span class="p">,</span> <span class="n">sepEnd</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="n">find</span><span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">plain</span><span class="p">)</span>
+        <span class="kr">if</span> <span class="ow">not</span> <span class="n">sepBegin</span> <span class="kr">then</span>
+            <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+            <span class="kr">break</span>
+        <span class="kr">elseif</span> <span class="n">sepEnd</span> <span class="o">&lt;</span> <span class="n">sepBegin</span> <span class="kr">then</span>
+            <span class="c1">-- If empty separator, then explode string considering UTF8</span>
+            <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span>
+                    <span class="nb">utf8.offset</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">start</span><span class="p">),</span>
+                    <span class="nb">utf8.offset</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">sepBegin</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">-</span> <span class="n">offset</span>
+            <span class="p">)</span>
+            <span class="kr">if</span> <span class="n">sepBegin</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="kr">then</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">sepBegin</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="kr">else</span>
+                <span class="kr">break</span>
+            <span class="kr">end</span>
+        <span class="kr">else</span>
+            <span class="kr">if</span> <span class="n">sepBegin</span> <span class="o">&gt;</span> <span class="n">start</span> <span class="kr">then</span>
+                <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">sepBegin</span> <span class="o">-</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="kr">else</span>
+                <span class="n">t</span><span class="p">[</span><span class="o">#</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="kr">end</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">sepEnd</span> <span class="o">+</span> <span class="n">offset</span>
+        <span class="kr">end</span>
+        <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">i</span> <span class="kr">then</span>
+            <span class="kr">break</span>
+        <span class="kr">end</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="kr">end</span>
+
+    <span class="kr">return</span> <span class="n">t</span>
+<span class="kr">end</span>
+</code></pre></div><h3 id="testing-common-solution">Testing common solution<a class="headerlink" href="#testing-common-solution" title="Permanent link">&para;</a></h3><p>Tests are performed using <a href="https://github.com/dknight/laura">Laura</a> testing library.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">laura</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;laura&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">expect</span> <span class="o">=</span> <span class="n">laura</span><span class="p">.</span><span class="n">expect</span>
+<span class="kd">local</span> <span class="n">describe</span> <span class="o">=</span> <span class="n">laura</span><span class="p">.</span><span class="n">describe</span>
+<span class="kd">local</span> <span class="n">it</span> <span class="o">=</span> <span class="n">laura</span><span class="p">.</span><span class="n">it</span>
+<span class="kd">local</span> <span class="n">split</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;./split&quot;</span><span class="p">)</span>
+
+<span class="n">describe</span><span class="p">(</span><span class="s2">&quot;function split()&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">testPairs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;a,b,c&quot;</span><span class="p">,</span> <span class="s2">&quot;def&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;a,b,c&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;a,b,c&quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot; xyz &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;abc def&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;абв где&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;а&quot;</span><span class="p">,</span> <span class="s2">&quot;б&quot;</span><span class="p">,</span> <span class="s2">&quot;в&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;г&quot;</span><span class="p">,</span> <span class="s2">&quot;д&quot;</span><span class="p">,</span> <span class="s2">&quot;е&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot; a b c&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;Hello Mike, Hello Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot; Mike, &quot;</span><span class="p">,</span> <span class="s2">&quot; Jane&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;a man a plan a canal panama&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;a &quot;</span><span class="p">,</span>
+            <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;man &quot;</span><span class="p">,</span> <span class="s2">&quot;plan &quot;</span><span class="p">,</span> <span class="s2">&quot;canal panama&quot;</span> <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;Миру - Мир!&quot;</span><span class="p">,</span> <span class="s2">&quot;Мир&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;у - &quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;月は明るく輝いているa&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;月&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;は&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;明&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;る&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;く&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;輝&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;い&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;て&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;い&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;る&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;hello,world.and.dots&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;[.,]&quot;</span><span class="p">,</span>
+            <span class="p">{</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="s2">&quot;dots&quot;</span> <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;/home/user/config&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;[</span><span class="se">\\</span><span class="s2">/]&quot;</span><span class="p">,</span>
+            <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;home&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;config&quot;</span> <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;===&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">pair</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">testPairs</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span>
+            <span class="s1">&#39;should split &quot;%s&quot; with seprator &quot;%s&quot;&#39;</span><span class="p">,</span>
+            <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">pair</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">it</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+            <span class="n">expect</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">2</span><span class="p">])).</span><span class="n">toDeepEqual</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">testPairsN</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="s2">&quot;hello world&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;hello world&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;hello world&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;a,b,c,d&quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;a,b,c,d&quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;a,b,c,d&quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">pair</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">testPairsN</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span>
+            <span class="s1">&#39;should split &quot;%s&quot; %d times with seprator &quot;%s&quot;&#39;</span><span class="p">,</span>
+            <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">pair</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+            <span class="n">pair</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">it</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+            <span class="n">expect</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">pair</span><span class="p">[</span><span class="mi">3</span><span class="p">])).</span><span class="n">toDeepEqual</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="cm">--[[</span>
+<span class="cm">SUMMARY</span>
+<span class="cm">20 of 20 passing</span>
+<span class="cm">0 failing</span>
+<span class="cm">0 skipping</span>
+
+<span class="cm">time: ~13ms / mem: 302.93KB @ 2025-02-18 15:41:14</span>
+<span class="cm">pass</span>
+<span class="cm">--]]</span>
+</code></pre></div><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/"><em>&larr; Back to the index page</em></a></main><footer><hr><p>&copy; 2022&mdash;2025 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine. <a href="https://github.com/dknight/whoopee">Source code</a></p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website <strong>does not</strong> use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.</p></footer></body></html>
