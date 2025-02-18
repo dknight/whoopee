@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/how-to-split-string-in-lua.html</guid>
+  <title>How to split string in lua</title>
+  <link>https://www.whoop.eepost/how-to-split-string-in-lua.html</link>
+  <description>Example how to split string in Lua with generic function considering utf8. </description>
+  <pubDate>Tue, 18 Feb 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/string-buffers-in-lua.html</guid>
   <title>String buffers in Lua</title>
   <link>https://www.whoop.eepost/string-buffers-in-lua.html</link>
