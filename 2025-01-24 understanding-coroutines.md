@@ -2,7 +2,7 @@
 
 tags: lua
 
-# Understanding coroutines in Lua
+# Understanding Coroutines in Lua
 
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
