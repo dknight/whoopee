@@ -21,7 +21,7 @@
 </item>
 <item>
   <guid>https://www.whoop.eepost/understanding-coroutines.html</guid>
-  <title>Understanding coroutines in Lua</title>
+  <title>Understanding Coroutines in Lua</title>
   <link>https://www.whoop.eepost/understanding-coroutines.html</link>
   <description>Coroutines are a powerful tool in Lua language to provide asynchronous programming, but these might be a bit hard to understand for beginners.</description>
   <pubDate>Fri, 24 Jan 2025 00:00:00 +0200</pubDate>

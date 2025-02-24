@@ -108,6 +108,35 @@ iterator10(list, function(k, v)
 end)
 ```
 
+## Coroutines as iterators
+
+If you are not familiar with coroutines](/post/understanding-coroutines.html), I would like to recommend looking at
+my article "[Understanding Coroutines in Lua](/post/understanding-coroutines.html)".
+
+For heavy calculations, coroutines can be used as iterators. Here is a very trivial example from above, just iterating the
+simple list multiplied by `10`.
+
+```lua
+local function iter10(t)
+	local co = coroutine.create(function()
+		for _, x in ipairs(t) do
+			coroutine.yield(x)
+		end
+	end)
+	return function()
+		local _, x = coroutine.resume(co)
+		if x then
+			x = x * 10
+		end
+		return x
+	end
+end
+
+for x in iter10(list) do
+	print(x)
+end
+```
+
 ## References
 
 - [For Statement](https://www.lua.org/manual/5.4/manual.html#3.3.5)
