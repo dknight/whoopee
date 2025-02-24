@@ -221,6 +221,7 @@ blockquote {
   border-left-width: 0.85rem;
   padding: 1rem;
   color: var(--color-admonition);
+  letter-spacing: 0.01rem;
 
   code {
     font-family: PxPlus_IBM_VGA8, monospace;
