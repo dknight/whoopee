@@ -1,0 +1,107 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--branch=stable",
+		lazyrepo,
+		lazypath,
+	})
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+
+-- Options
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
+vim.opt.exrc = false
+vim.opt.secure = true
+vim.opt.number = true
+vim.opt.mouse = ""
+vim.opt.spelllang = "en_us"
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+vim.opt.clipboard = "unnamed"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.ignorecase = true
+vim.opt.infercase = true
+vim.opt.smartcase = true
+vim.opt.rulerformat = "%l,%v"
+vim.opt.colorcolumn = "75,79"
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("$HOME") .. "/.undodir"
+vim.opt.lazyredraw = false
+vim.opt.textwidth = 78
+vim.opt.endoffile = true
+
+-- Custom key mappings
+vim.keymap.set("i", "jk", "<Esc>")
+
+-- Plugins list
+local plugins = {
+	"neovim/nvim-lspconfig",
+	"neovim/nvim-lspconfig",
+	"tpope/vim-commentary",
+	"tpope/vim-surround",
+	"tpope/vim-repeat",
+	"vim-airline/vim-airline",
+	"vim-airline/vim-airline-themes",
+	"ctrlpvim/ctrlp.vim",
+	"jiangmiao/auto-pairs",
+	"nelstrom/vim-visual-star-search",
+	"dhruvasagar/vim-table-mode",
+	"flazz/vim-colorschemes",
+	"neoclide/coc.nvim",
+}
+
+-- Setup lazy.nvim
+require("lazy").setup(plugins, {
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "habamax" } },
+	-- automatically check for plugin updates
+	checker = { enabled = true },
+})
+
+-- Autocommands
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.lua" },
+	callback = function()
+		local stylua_cmd = "silent! !stylua %"
+		vim.cmd([[silent! %s/\s\+$//e]])
+		vim.cmd(stylua_cmd)
+	end,
+})
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "lua" },
+	callback = function()
+		vim.keymap.set("n", "<f5>", "<cmd>w<cr><cmd>!lua %<cr>")
+	end,
+})
+
+-- Setup LSP
+require("lspconfig").lua_ls.setup({
+	-- LSP can have lots of configurations.
+	-- Check out possibilities at official docs https://luals.github.io/wiki/configuration/
+})
