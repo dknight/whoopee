@@ -32,7 +32,7 @@ _LOOP_
 
 cat << _EOF_
 <?xml version="1.0"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0">
 <channel>
   <title>$BLOG_TITLE</title>
   <link>$BLOG_HOST</link>

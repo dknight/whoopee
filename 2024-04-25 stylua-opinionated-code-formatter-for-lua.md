@@ -8,7 +8,7 @@ tags: lua
 
 In stylua version 2.0 following changes:
 
-- Config file `stylua.toml` has been renamed to `.stylua.tomp`
+- Config file `stylua.toml` has been renamed to `.stylua.toml`
   (prefixed with dot).
 
 ## Setup

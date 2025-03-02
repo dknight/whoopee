@@ -1,6 +1,6 @@
 <!-- Description: Definite guide of Lua syntax in one place. -->
 
-tags: lua featured beginner
+tags: lua beginner
 
 # Lua cheatsheet
 

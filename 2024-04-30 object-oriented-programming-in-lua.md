@@ -1,6 +1,6 @@
 <!-- Description: Object-oriented tutorial for Lua language. Examples with metatables, classes-, closure-, prototype-based and inheritance. -->
 
-tags: lua featured
+tags: lua
 
 # Object-oriented programming in Lua
 
