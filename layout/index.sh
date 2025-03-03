@@ -77,6 +77,9 @@ function tag2title() {
     ;;
     gamedev)
       echo "Game Development"
+      ;;
+   humor)
+      echo "Humor"
     ;;
     *)
       echo "Timeline"
@@ -111,8 +114,8 @@ cat << _EOF_
         $(taglink "misc")
         $(taglink "gamedev")
         $(taglink "love2d")
+        $(taglink "humor")
         $(taglink "c")
-        <!-- $(taglink "featured") -->
       </nav>
       <section class="articles">
         <h1>$(tag2title "$TAGNAME")</h1>

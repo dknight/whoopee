@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.ee/post/hot-to-quit-vim-and-neovim.html</guid>
+  <title>Hot to quit Vim and NeoVim</title>
+  <link>https://www.whoop.ee/post/hot-to-quit-vim-and-neovim.html</link>
+  <description>Quitting Vim or Neo is very challenging to people open vim for the first time. </description>
+  <pubDate>Mon, 03 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.ee/post/turn-neovim-nto-lua-ide.html</guid>
   <title>Turn NeoVim into Lua IDE</title>
   <link>https://www.whoop.ee/post/turn-neovim-nto-lua-ide.html</link>
