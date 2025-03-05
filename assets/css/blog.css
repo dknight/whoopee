@@ -11,8 +11,9 @@
   --color-sec: #fa8607;
   --color-code: light-dark(#f8f8f8, #000);
   --color-border: light-dark(#ccc, #333);
+
   --color-tip: light-dark(#008b8b, #0ff);
-  --color-caution: var(--color-sec);
+  --color-warning: var(--color-sec);
   --color-danger: #cc0000;
 
   scroll-behavior: smooth;
@@ -219,16 +220,14 @@ blockquote {
 }
 
 .admonition {
-  --color-admonition: black;
+  border: 0.25rem solid;
   font: normal 1.25rem/1.25 PxPlus_IBM_VGA8, monospace;
-  border-left-width: 0.85rem;
-  padding: 1rem;
-  color: var(--color-admonition);
+  padding: 2.75rem 1rem 1rem;
   letter-spacing: 0.01rem;
+  position: relative;
 
   code {
     font-family: PxPlus_IBM_VGA8, monospace;
-    background-color: #c0c0c0;
   }
 
   a {
@@ -246,20 +245,47 @@ blockquote {
   }
 
   .admonition-title {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.125rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: currentColor;
+    color: var(--color-bg);
+
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
   }
 
   &.tip {
-    background-color: cyan;
+    border-color: light-dark(#077, #0ff);
+    .admonition-title {
+      background-color: light-dark(#077, #0ff);
+    }
   }
 
   &.warning {
-    background-color: var(--color-caution);
+    border-color: var(--color-warning);
+    .admonition-title {
+      color: black; /* a11y */
+      background-color: var(--color-warning);
+      &::after {
+        content: "!";
+      }
+    }
   }
 
   &.danger {
-    background-color: var(--color-danger);
-    --color-admonition: yellow;
+    border-color: var(--color-danger);
+    .admonition-title {
+      color: #ff0;
+      background-color: var(--color-danger);
+      &::after {
+        content: "!";
+      }
+    }
   }
 }
 
