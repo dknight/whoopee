@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html</guid>
+  <title>Printing a table in Lua tutorial</title>
+  <link>https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html</link>
+  <description>By default, Lua does not provide a built-in tool to print the structure of a table. While there are many existing solutions available online, this tutorial will guide you through creating your own custom function to inspect and display Lua tables in a clear and readable format. By implementing this yourself, you'll gain a deeper understanding of Lua tables and how to work with them efficiently. </description>
+  <pubDate>Thu, 06 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.ee/post/hot-to-quit-vim-and-neovim.html</guid>
   <title>Hot to quit Vim and NeoVim</title>
   <link>https://www.whoop.ee/post/hot-to-quit-vim-and-neovim.html</link>

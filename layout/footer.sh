@@ -19,7 +19,7 @@ cat << __FOOTER__
     <p>
       This website <strong>does not</strong> use cookies or any tracking techniques either.
       Also, this page is fully accessible, responsive, and readable on any
-      device without a single line of <abbr title="Tool of evil">JavaScript</abbr>.
+      device without a single line of JavaScript.
     </p>
   </footer>
 __FOOTER__
