@@ -43,7 +43,7 @@ Lua 5.4.6 Copyright (C) 1994-2023 Lua.org, PUC-Rio
 Congratulations! Lua is already installed on your system and ready to use
 <kbd>&gt;</kbd> means that you can type any Lua command.
 
-!!! danger
+!!! tip
     To exit Lua interpreter, press <kbd>Ctrl</kbd> +
     <kbd>D</kbd> or call `os.exit()` function from `os` module.
 

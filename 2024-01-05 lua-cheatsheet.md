@@ -339,8 +339,8 @@ in comparison with other languages.
   another `table`.
 - `#`: table length operator.
 
-!!! warning
-    Remember! Tables in Lua start at index 1, not from 0.
+!!! tip
+    Tables in Lua start at index 1, not from 0.
 
 ```lua
 someTable = {} -- creates new empty table, aka table constructor
