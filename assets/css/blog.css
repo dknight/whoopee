@@ -5,6 +5,7 @@
 
 :root {
   color-scheme: light dark;
+  --display-font: "PxPlus_IBM_VGA8";
   --color-bg: light-dark(#fff, #0f0f11);
   --color-text: light-dark(#000, #c5c5ce);
   --color-pri: light-dark(#000080, #8cb4ff);
@@ -217,13 +218,13 @@ blockquote {
 
 .admonition {
   border: 0.25rem solid;
-  font: normal 1.25rem/1.25 PxPlus_IBM_VGA8, monospace;
+  font: normal 1.25rem/1.25 var(--display-font), monospace;
   padding: 2.75rem 1rem 1rem;
   letter-spacing: 0.01rem;
   position: relative;
 
   code {
-    font-family: PxPlus_IBM_VGA8, monospace;
+    font-family: var(--display-font), monospace;
   }
 
   a {
@@ -302,7 +303,7 @@ article:has(.toc:hover) .toc-toggle + label {
 
   + label {
     border: 0.25rem solid var(--color-border);
-    font: normal 1.25rem/1.25 PxPlus_IBM_VGA8, monospace;
+    font: normal 1.25rem/1.25 var(--display-font), monospace;
     cursor: pointer;
     display: block;
     padding: 1rem 2rem;
