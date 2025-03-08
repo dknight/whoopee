@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/testing-multiple-lua-versions-with-laura-and-github-actions.html</guid>
+  <title>Testing multiple Lua versions with Laura and GitHub Actions</title>
+  <link>https://www.whoop.eepost/testing-multiple-lua-versions-with-laura-and-github-actions.html</link>
+  <description>This demonstration showcases the process of testing a piece of code across six different versions of the Lua programming language. The goal is to ensure compatibility, identify potential issues, and observe any differences in behavior between versions. By running these tests, we can assess the code’s performance, stability, and necessary adjustments for seamless functionality across all Lua versions. </description>
+  <pubDate>Sun, 09 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/printing-a-table-in-lua-tutorial.html</guid>
   <title>Printing a table in Lua tutorial</title>
   <link>https://www.whoop.eepost/printing-a-table-in-lua-tutorial.html</link>
