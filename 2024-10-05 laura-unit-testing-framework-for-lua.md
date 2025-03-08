@@ -1247,6 +1247,10 @@ When the test run is finished, there are exit codes:
 - `2` there are failed tests;
 - `3` coverage threshold is not met.
 
+## Testing with GitHub actions
+
+Laura is extremely easy to set up with multiple Lua versions. Check out [working deno](https://github.com/dknight/laura-actions-demo/) on GitHub; or read the [post about](/post/testing-multiple-lua-versions-with-laura-and-github-actions.html) this approach.
+
 ## Who is Laura? And how to meet her?
 
 Initially, the project name was _"aura"_, while most of the packages

@@ -4,9 +4,11 @@ tags: lua
 
 # Testing multiple Lua versions with Laura and GitHub Actions
 
-![Laura avatar](/assets/img/laura-512.png)
+[![Laura avatar](/assets/img/laura-256.png)](https://github.com/dknight/laura)
 
 Lua 5 has several major versions, each introducing changes that may cause incompatibilities. Code that works in Lua 5.3 may not function correctly in Lua 5.1 or may behave differently. This is a natural part of the language's evolution, with bug fixes, new features, and occasional removals. If you're developing a library, it's wise to test it across multiple Lua versions. GitHub Actions provides a nearly out-of-the-box solution for this task.
+
+We will use GitHub Actions containers with Lua and LuaRocks, then install the following rocks: **luacheck** and **laura**.
 
 Here is the showcase of how to do this.
 
@@ -35,7 +37,7 @@ return mymath
 ```
 
 ```lua
---src/mymath.test.lua
+--test/mymath.test.lua
 local laura = require("laura")
 local mymath = require("src/mymath")
 

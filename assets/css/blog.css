@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'PxPlus_IBM_VGA8';
-  src: url('/assets/fonts/PxPlus_IBM_VGA8.woff2') format('woff2');
+  font-family: 'Perfect_DOS_VGA_437';
+  src: url('/assets/fonts/Perfect_DOS_VGA_437.woff2') format('woff2');
 }
 
 :root {
   color-scheme: light dark;
-  --display-font: "PxPlus_IBM_VGA8";
+  --display-font: "Perfect_DOS_VGA_437";
   --color-bg: light-dark(#fff, #0f0f11);
   --color-text: light-dark(#000, #c5c5ce);
   --color-pri: light-dark(#000080, #8cb4ff);
