@@ -67,26 +67,28 @@ footer {
   line-height: 1;
 }
 .logo {
-  font: bold 2.8rem/1 monospace;
+  font: normal 5rem/1 var(--display-font), monospace;
   text-decoration: none;
+  letter-spacing: 0.125rem;
   white-space: nowrap;
-  color: var(--color-pri);
+  color: light-dark(#000080, #0ff) !important;
 
   &::before,
   &::after {
-    color: var(--color-sec);
+    color: #f0f;
     display: inline-block;
   }
 
   &::before {
-    content: '{';
-    margin-right: 0.5rem;
-    margin-left: -0.5rem;
+    /*content: '{';*/
+    /*margin-right: 0.5rem;*/
+    /*margin-left: -0.5rem;*/
   }
 
   &::after {
-    content: ' ...)';
-    margin-left: 0.5rem;
+    content: '_';
+    font-weight: bold;
+    /*margin-left: 0.5rem;*/
   }
 
   &:link,

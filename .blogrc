@@ -26,6 +26,8 @@ MARKDOWN_COMMAND="python -m markdown \
 	-x sane_lists \
 	-x toc"
 
+# BUILD_TIME=$(date +"%s")
+
 # Commands to run after succesful build
 function post_hook() {
 	# cp -r ./me ./css-modern-dialog ./puff "$DIST"
