@@ -1247,6 +1247,20 @@ When the test run is finished, there are exit codes:
 - `2` there are failed tests;
 - `3` coverage threshold is not met.
 
+## Running in Docker container
+
+Building an image:
+
+```shell
+docker build -t <your-image-name> .
+```
+
+Run the container; notice that by default `/app` is the working directory; change it `Dockerfile` if you want to place your code in another directory.
+
+```shell
+docker run -v $(pwd):/app --rm -it <your-image-name>
+```
+
 ## Testing with GitHub actions
 
 Laura is extremely easy to set up with multiple Lua versions. Check out [working deno](https://github.com/dknight/laura-actions-demo/) on GitHub; or read the [post about](/post/testing-multiple-lua-versions-with-laura-and-github-actions.html) this approach.
@@ -1261,7 +1275,7 @@ this framework.
 [Source code on GitHub](https://github.com/dknight/laura/)
 
 ## Credits
-
+ 
 Original picture by [lumeish](https://lumeish.itch.io/), used under
 [Creative Commons Attribution v4.0 International](https://creativecommons.org/licenses/by/4.0/) license.
 

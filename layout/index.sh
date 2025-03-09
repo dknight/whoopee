@@ -55,7 +55,7 @@ function tag2title() {
       echo "Data structures"
     ;;
     lua)
-      echo "Lua common"
+      echo "Lua"
     ;;
     featured)
       echo "Featured articles"
