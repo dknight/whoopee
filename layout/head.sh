@@ -38,6 +38,7 @@ cat << __HEAD__
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'">
 <title>$title</title>
+<link rel="preload" href="/assets/fonts/Perfect_DOS_VGA_437.woff2" as="font">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/css/styles.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
@@ -45,5 +46,3 @@ cat << __HEAD__
 </head>
 __HEAD__
 
-# Maybe later would be nice to make website in retro gaming style?
-# <link rel="preload" href="/assets/fonts/PxPlus_IBM_VGA8.woff2" as="font">
