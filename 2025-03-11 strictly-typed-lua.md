@@ -2,7 +2,7 @@
 
 tags: lua
 
-# Strictly typed Luas
+# Strictly typed Lua
 
 First of all, Lua is a dynamically typed language. This means that variables do not have types; **only values do**. All values in Lua are first-class citizens, which means that all values can be stored in variables and passed to functions as arguments. So the heading of this article is not so true. Sometimes it is needed to keep track of types, especially in larger projects.
 
