@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/strictly-typed-lua.html</guid>
+  <title>Strictly typed Luas</title>
+  <link>https://www.whoop.eepost/strictly-typed-lua.html</link>
+  <description>Explanation of the typing system in the Lua language provided by Lua Language Server Annotations. Learn how to annotate types for your projects and functions. </description>
+  <pubDate>Tue, 11 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/testing-multiple-lua-versions-with-laura-and-github-actions.html</guid>
   <title>Testing multiple Lua versions with Laura and GitHub Actions</title>
   <link>https://www.whoop.eepost/testing-multiple-lua-versions-with-laura-and-github-actions.html</link>
