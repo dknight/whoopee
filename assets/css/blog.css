@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Perfect_DOS_VGA_437';
   src: url('/assets/fonts/Perfect_DOS_VGA_437.woff2') format('woff2');
-  font-display: swap;
+  font-display: fallback;
 }
 
 :root {
