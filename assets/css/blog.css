@@ -123,8 +123,6 @@ main {
 
 /* Text format */
 h1 {
-  font-size: 2.8rem;
-  line-height: 1.2;
   margin: 2rem 0 1rem;
 }
 h1,
@@ -133,9 +131,8 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-pri);
-  font-family: var(--display-font), monospace;
-  font-weight: normal;
+  color: light-dark(#000080, #0ff);
+  font: normal 2rem/1.2 var(--display-font), monospace;
   text-wrap: balance;
 
   &:hover .headerlink {
@@ -160,16 +157,13 @@ h6 {
 
 h2 {
   margin: 1rem 0;
-  font-size: 1.8rem;
 }
 h3 {
   margin: 1rem 0;
-  font-size: 1.6rem;
 }
 h4,
 h5,
 h6 {
-  font-size: 1.4rem;
   margin: 0.75rem 0;
 }
 
