@@ -23,7 +23,7 @@ function get_default_description() {
 
 function to_index() {
 	if [[ ! -z "$POST_URL" ]]; then
-		echo "<a href=\"/\"><em>&larr; Back to the index page</em></a>"
+		echo "<a href=\"/\">&larr; Back to the index page</a>"
 	fi
 }
 

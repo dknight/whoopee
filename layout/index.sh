@@ -96,6 +96,16 @@ function taglink() {
   fi
 }
 
+#function by_year() {
+#  years="2025 2024 2022"
+#  for y in $years; do
+#    echo "<h2>$y</h2>"
+#    echo "<ul class=\"list-reset\">"
+#    index_loop
+#    echo "</ul>"
+#  done
+#}
+
 cat << _EOF_
 <!DOCTYPE html>
 <html lang="en">
@@ -120,11 +130,10 @@ cat << _EOF_
       <section class="articles">
         <h1>$(tag2title "$TAGNAME")</h1>
         <ul class="list-reset">
-          $(index_loop)
+          $(index_loop "$1")
         </ul>
       </section>
     </main>
-    $nav
     $(source ./layout/footer.sh)
   </body>
 </html>
