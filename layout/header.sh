@@ -3,10 +3,11 @@
 source "./layout/util.sh"
 
 function logo {
+  img="<img src=\"/assets/img/dragon-logo.gif\" width=\"200\" height=\"172\" alt=\"${BLOG_TITLE}\" class=\"logo\">"
   if [[ $(is_index) = 0 ]]; then
-    echo "<a href=\"/\" class=\"logo\">${BLOG_TITLE}</a>"
+    echo "<a href=\"/\">$img</a>"
   else
-    echo "<span class=\"logo\">${BLOG_TITLE}</span>"
+    echo "$img"
   fi
 }
 

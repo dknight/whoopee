@@ -7,7 +7,7 @@
 :root {
   color-scheme: light dark;
 
-  /* dos */
+  /* dos ibm colors */
   --color0: #000;
   --color1: #00a;
   --color2: #0a0;
@@ -29,7 +29,7 @@
   --display-font: "Perfect_DOS_VGA_437";
   --color-bg: light-dark(var(--color15), #0f0f11);
   --color-text: light-dark(var(--color0), #c5c5ce);
-  --color-pri: light-dark(var(--color1), var(--color11));
+  --color-pri: light-dark(var(--color1), var(--color10));
   --color-code: light-dark(#f8f8f8, var(--color0));
   --color-border: var(--color7);
 
@@ -40,14 +40,22 @@
   --color-danger: var(--color4);
   --color-danger-text: var(--color14);
 
+  --letter-spacing: 1px;
+
   scroll-behavior: smooth;
   @media screen and (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
   }
 }
 
+:focus-visible {
+  outline: 0.125rem solid light-dark(var(--color1), var(--color14));
+  outline-offset: 0.125rem;
+}
+
 body {
   font: normal 16px/1.5 Helvetica, Arial, sans-serif;
+  letter-spacing: var(--letter-spacing);
   padding: 1rem 2rem;
   margin: 0 auto;
   box-sizing: border-box;
@@ -65,7 +73,6 @@ body {
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
   font-size: 1.25rem;
@@ -76,14 +83,10 @@ header {
   display: flex;
   font: normal 1.25rem/1 var(--display-font), monospace;
   justify-self: end;
-  /*border: thin solid var(--color3);*/
-  /*padding: 0.125rem;*/
-  /*gap: 0.125rem;*/
-  gap: 2rem;
+  gap: 1ch;
 
   a {
-    /*border: thin solid var(--color3);*/
-    /*padding: 1ch;*/
+    padding: 1ch;
     &:link, &:visited {
       color: light-dark(var(--color5), var(--color13));
       text-decoration: none;
@@ -107,28 +110,8 @@ footer {
   line-height: 1;
 }
 .logo {
-  font: normal 5rem/1 var(--display-font), monospace;
-  text-decoration: none;
-  letter-spacing: 0.125rem;
-  white-space: nowrap;
-  color: var(--color-pri);
-
-  &::after {
-    color: var(--color13);
-    display: inline-block;
-  }
-
-  &::after {
-    content: '_';
-    font-weight: bold;
-  }
-
-  &:link,
-  &:hover,
-  &:active,
-  &:visited {
-    color: var(--color-pri);
-  }
+  image-rendering: pixelated;
+  border: none;
 }
 main {
   article {
@@ -137,7 +120,7 @@ main {
   }
   .articles {
     li {
-      line-height: 1.8rem;
+      line-height: 4ch;
 
       time {
         font-size: 1rem;
@@ -156,6 +139,7 @@ h1 {
   color: var(--color-pri);
   font: normal 2rem/1 var(--display-font), monospace;
   margin: 2rem 0 1rem;
+  text-wrap: balance;
 }
 h2,
 h3,
@@ -163,7 +147,8 @@ h4,
 h5,
 h6 {
   color: var(--color-pri);
-  font: normal 1.25rem/1 var(--display-font), monospace;
+  font: normal 1.5rem/1.5 var(--display-font), monospace;
+  text-wrap: balance;
 
   &:hover .headerlink {
     display: inline-block;
@@ -206,9 +191,13 @@ h6 {
 a {
   &:link {
     color: var(--color-pri);
+    text-underline-offset: 0.1875rem;
+  }
+  &:visited {
+    color: light-dark(var(--color5), var(--color2));
   }
   &:active {
-    color: var(--color-danger);
+    color: light-dark(var(--color4), var(--color6b));
   }
 }
 
@@ -252,7 +241,6 @@ blockquote {
   border: 0.25rem solid;
   font: normal 1.25rem/1.25 var(--display-font), monospace;
   padding: 2.75rem 1rem 1rem;
-  letter-spacing: 0.01rem;
   position: relative;
 
   code {
@@ -285,7 +273,6 @@ blockquote {
     background-color: currentColor;
     color: var(--color-bg);
 
-    letter-spacing: 0.125rem;
     text-transform: uppercase;
     line-height: 1;
   }
@@ -350,7 +337,7 @@ article:has(.toc:hover) .toc-toggle + label {
     &::before {
       content: '>';
       display: inline-block;
-      margin-right: 0.75rem;
+      margin-right: 0.5rem;
       transform-origin: center;
     }
   }
@@ -402,7 +389,7 @@ table {
   border-spacing: 0.125rem;
 
   th {
-    color: var(--color14);
+    color: light-dark(var(--color5), var(--color14));
   }
   th,
   td {
