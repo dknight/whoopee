@@ -46,6 +46,9 @@ function post_hook() {
 	echo "Making favicon..."
 	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
 
+	echo "robots.txt"
+	mv "$DIST/assets/robots.txt" "$DIST"
+
 	# shortlinks emulation
 	cp -ru "$DIST/assets/laura" "$DIST"
 
