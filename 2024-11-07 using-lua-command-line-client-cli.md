@@ -13,23 +13,23 @@ root privileges or use the `sudo` command:
 
 Ubuntu or Debian-based GNU Linux
 
-```sh
+```shell
 apt install lua
 ```
 Fedora or RPM-based GNU Linux
 
-```sh
+```shell
 dnf install lua
 ```
 
 Arch GNU Linux
 
-```sh
+```shell
 pacman -S lua
 ```
 
 Mac OS with [brew](https://brew.sh/)
-```sh
+```shell
 brew install lua
 ```
 

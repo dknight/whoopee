@@ -29,13 +29,13 @@ There are several ways to install: LuaRocks, Make utility, and manual.
 
 ### LuaRocks
 
-```sh
+```shell
 luarocks install laura
 ```
 
 ...or use the tree in the user's home directory.
 
-```sh
+```shell
 luarocks --local install laura
 ```
 
@@ -45,13 +45,13 @@ Using the `make` utility to install.
 
 Clone the source code.
 
-```sh
+```shell
 git clone https://github.com/dknight/laura.git
 ```
 
 Run `make`
 
-```sh
+```shell
 make install
 ```
 
@@ -63,7 +63,7 @@ There are variables that can be set with `make`.
 
 Consider:
 
-```sh
+```shell
 PREFIX=/opt/lua/libs BINDIR=/opt/bin LIBDIR=/opt/share make install
 ```
 
@@ -77,7 +77,7 @@ variable.
 After installation, `laura` executable will be available in OS `$PATH`. To check version and 
 all available flags, use `-h` or `--help` flag.
 
-```sh
+```shell
 laura --help
 ```
 
@@ -91,7 +91,7 @@ laura --help
 
 Example command:
 
-```sh
+```shell
 laura -c ~/my-custom-config.lua --reporters text,blank -S ./tests
 ```
 
@@ -150,7 +150,7 @@ as in the configuration file.
 
 Use the `-c` flag to pass the path to your config file.
 
-```sh
+```shell
 laura -c ./path-to-config-file.lua .
 ```
 
@@ -198,7 +198,7 @@ end)
 
 After this run code snippet, just run the command:
 
-```sh
+```shell
 laura
 ```
 
@@ -246,7 +246,7 @@ runner:done()
 
 Use Lua interpreter to run the example above; use command:
 
-```sh
+```shell
 lua api_test.lua
 ```
 

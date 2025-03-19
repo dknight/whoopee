@@ -38,7 +38,7 @@ Installation is straightforward; just include the CSS file into your HTML page i
 
 or install it from <a href="https://www.npmjs.com/package/puff">NPM</a>.
 
-```sh
+```shell
 npm install @dknight/puff
 ```
 
@@ -50,19 +50,19 @@ For detailed usage instructions, please go to the [documentation page](https://d
 
 ### Build
 
-```sh
+```shell
 npm run build
 ```
 
 ### Watch for changes
 
-```sh
+```shell
 npm run watch
 ```
 
 ### Serve
 
-```sh
+```shell
 npn run serve
 ```
 

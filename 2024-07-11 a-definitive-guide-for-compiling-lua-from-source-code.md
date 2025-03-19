@@ -38,13 +38,13 @@ any C compiler that can compile ANSI C code. I prefer to use
 
 For Debian-based GNU/Linux, you can install it with `apt` command:
 
-```sh
+```shell
 sudo apt install build-essential
 ```
 
 For the GNU/Linux using a DNF package manager like Fedora:
 
-```sh
+```shell
 sudo dnf install gcc
 ```
 
@@ -52,13 +52,13 @@ sudo dnf install gcc
 
 - On MacOS need to have [brew package manage](https://brew.sh) then use the command:
 
-```sh
+```shell
 brew install gcc
 ```
 
 - Also, XCode Command Line Tools is needed for MacOS.
 
-```sh
+```shell
 xcode-select --install
 ```
 
@@ -79,20 +79,20 @@ steps from a terminal:
 
 - Go to the Download directory (let us assume that it is `~/Downloads/`).
 
-```sh
+```shell
 cd ~/Downloads/
 ```
 
 - Extract contents for the archive `lua-5.4.7.tar.gz` with `tar` command or
   any other your archive manager:
 
-```sh
+```shell
 tar xvf lua-5.4.7.tar.gz
 ```
 
 - A new directory `lua-5.4.7/` with Lua's source code is created.
 
-```sh
+```shell
 ls -l
 > doc/
 > src/
@@ -105,20 +105,20 @@ ls -l
 There is a command to detect your OS `make help` will print the supported operating
 systems.
 
-```sh
+```shell
 make help
 > guess aix bsd c89 freebsd generic ios linux linux-readline macosx mingw posix solaris
 ```
 
 Let's assume that we are on Linux and we have to use 4 threads for `make`.
 
-```sh
+```shell
 make -j4 linux
 ```
 
 Once it is compiled it can be installed also with `make`:
 
-```sh
+```shell
 sudo make install
 ```
 
@@ -132,7 +132,7 @@ By default (`INSTALL_TOP=/usr/local`) following files will be installed:
 There is possible to change the path where Lua is installed, where `xxx` is 
 the desired path in the file system.
 
-```sh
+```shell
 INSTALL_TOP=xxx make install
 ```
 

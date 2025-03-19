@@ -23,13 +23,13 @@ It is extremely easy to set up. StyLua can be installed using Rust's
 [npm](https://www.npmjs.com/package/@johnnymorganz/stylua). It depends on the
 packaging tools you prefer; the commands are:
 
-```sh
+```shell
 cargo install stylua
 ```
 
 or
 
-```sh
+```shell
 npm i -g @johnnymorganz/stylua
 ```
 

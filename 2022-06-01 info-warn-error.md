@@ -85,7 +85,7 @@ warn("Clean the room")
 
 Shell/Bash:
 
-```bash
+```shell
 lua -W test.lua
 Lua warning: Clean the room
 ```

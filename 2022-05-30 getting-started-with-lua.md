@@ -29,14 +29,14 @@ considered one of the fastest interpreted languages.
 
 Some distributions already have Lua pre-installed. Open your terminal and type:
 
-```bash
+```shell
 lua
 ```
 
 If the output is something like this:
 
 ```
-Lua 5.4.6 Copyright (C) 1994-2023 Lua.org, PUC-Rio
+Lua 5.4.7 Copyright (C) 1994-2023 Lua.org, PUC-Rio
 >
 ```
 
@@ -51,22 +51,46 @@ Congratulations! Lua is already installed on your system and ready to use
 
 If you see the message:
 
-```bash
+```shell
 bash: lua: command not found
 ```
 
 It means that Lua is not installed yet. The simplest way to install Lua from package manager `dnf`, which comes with Fedora. In your terminal, type then command:
 
-Fedora/CentOS:
+## Fedora/CentOS
 
-```bash
+```shell
 sudo dnf install lua
 ```
 
-Debian/Ubuntu:
+## Debian/Ubuntu
 
-```bash
+```shell
 sudo apt-get install lua
+```
+
+## GNU Linux Alpine
+
+```shell
+apk add lua
+```
+
+## Arch Linux
+
+```shell
+sudo pacman -S lua
+```
+
+## Microsoft Windows
+
+[Download precompiled binaries](https://github.com/dyne/luabinaries/releases/tag/38396a7) or compile it yourself
+following the guide in the [same repository](https://github.com/dyne/luabinaries/).
+
+## Apple macOS with [brew](https://brew.sh)
+
+```shell
+brew update
+brew install lua
 ```
 
 Congratulations! Lua interpreter is installed!
@@ -77,32 +101,34 @@ One of the best options is to compile Lua from source code. It is a very easy pr
 
 * Be sure that you have installed [gcc](https://gcc.gnu.org/) on your system.
 * Then get the latest [source code](https://www.lua.org/ftp/) of Lua.
-* Consider version 5.4.6.
+* Consider version 5.4.7.
 
-```bash
-tar xvf lua-5.4.6.tar.gz
-cd lua-5.4.6
+```shell
+tar xvf lua-5.4.7.tar.gz
+cd lua-5.4.7
 make install
 ```
 
-Congratulation! You have compiled and installed Lua on your machine.
-
-### Compiling Lua locally
+## Compiling Lua (user-wide)
 
 You can compile Lua in your local directory, not globally.
 All you need to do is just use the `make` command with `local` argument.
 
-```bash
+If you are interested more deeply in the compilation from source code, please check out my [definitive guide](/post/a-definitive-guide-for-compiling-lua-from-source-code.html).
+
+Congratulation! You have compiled and installed Lua on your machine.
+
+```shell
 make local
 ```
 
 ## Lua syntax
 
 Lua syntax is very similar to languages like Python, Ruby and C. For details,
-[check my syntax cheatsheet](/lua-syntax-cheatsheet.html) or [official Lua
+[check my syntax cheatsheet](/post/lua-cheatsheet.html) or [official Lua
 manual](https://www.lua.org/manual/5.4/manual.html).
 
-### Learning Lua
+## Learning Lua
 
 Lua is very fun and simple to learn, but it is hard to master. Here is an
 example of classical `Hello World` program:

@@ -49,7 +49,7 @@ images and get image data and header.
 
 ![Girl 1-bit](/assets/img/girl.bmp)
 
-```sh
+```shell
 bmp2bytes -f "0x%x" -d "," -n ./tests/girl.bmp
 ```
 
@@ -74,13 +74,13 @@ processing features. It can covert any file to a 1-bit bitmap with a
 single command:
 
 ImageMagick <7
-```sh
+```shell
 magick convert -monochrome image.png 1bit.bmp
 ```
 
 ImageMagick 7+
 
-```sh
+```shell
 magick image.png -monochrome 1bit.bmp
 ```
 
