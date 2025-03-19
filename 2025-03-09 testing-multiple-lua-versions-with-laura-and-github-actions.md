@@ -96,7 +96,7 @@ jobs:
     strategy:
       matrix:
         # Put here Lua versions to be tested
-        luaVersion: ['5.1', '5.2', '5.3', '5.4', 'luajit-2.1', 'luajit-openresty']
+        luaVersion: ['5.1', '5.2', '5.3', '5.4', 'luau', 'luajit-2.1', 'luajit-openresty']
     runs-on: ubuntu-latest
     env:
       TERM: xterm
