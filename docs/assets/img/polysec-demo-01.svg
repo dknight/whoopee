@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="211.53726pt"
+   height="140.90533pt"
+   viewBox="0 0 70.512421 46.968445"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="polysec-demo-01.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title25">Polygon Intersection Weiler-Athethon algorithm</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="4"
+     inkscape:cx="156.875"
+     inkscape:cy="98.125"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker27"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path27" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path26" />
+    </marker>
+    <rect
+       x="30.5"
+       y="154.5"
+       width="135.25"
+       height="32.25"
+       id="rect23" />
+    <rect
+       x="30.759145"
+       y="14.672466"
+       width="60.98796"
+       height="47.199378"
+       id="rect22" />
+    <rect
+       x="31.996582"
+       y="12.904699"
+       width="57.098873"
+       height="46.492271"
+       id="rect21" />
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7-6" />
+    </marker>
+    <rect
+       x="30.759146"
+       y="14.672466"
+       width="60.987961"
+       height="47.199379"
+       id="rect22-6" />
+    <rect
+       x="30.5"
+       y="154.5"
+       width="135.25"
+       height="32.25"
+       id="rect23-1" />
+    <rect
+       x="30.5"
+       y="154.5"
+       width="135.25"
+       height="32.25"
+       id="rect23-1-5" />
+    <rect
+       x="30.5"
+       y="154.5"
+       width="135.25"
+       height="32.25"
+       id="rect23-4" />
+    <rect
+       x="30.5"
+       y="154.5"
+       width="135.25"
+       height="32.25"
+       id="rect23-4-6" />
+    <rect
+       x="30.5"
+       y="154.5"
+       width="135.25"
+       height="32.25"
+       id="rect23-4-6-9" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke:#0000ff;stroke-width:0;stroke-miterlimit:4.3"
+       id="rect2"
+       width="70.512421"
+       height="46.968445"
+       x="0"
+       y="0"
+       sodipodi:insensitive="true" />
+    <path
+       sodipodi:type="star"
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path1"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="7.9017658"
+       sodipodi:cy="25.903534"
+       sodipodi:r1="11.169413"
+       sodipodi:r2="5.5847068"
+       sodipodi:arg1="-1.5707963"
+       sodipodi:arg2="-0.52359878"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 7.9017661,14.734121 9.6729949,16.75412 -19.3459904,-10e-7 z"
+       inkscape:transform-center-y="-2.7923533"
+       transform="translate(10.872355,4.3964713)" />
+    <path
+       d="m 37.256836,24.65332 h 13.348145 l -0.06836,-0.118652 H 37.188477 Z"
+       style="fill:#ff6600;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path15" />
+    <path
+       d="m 32.758666,24.65332 h 1.49939 m 1.49939,0 h 1.49939"
+       style="fill:#ff6600;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path14"
+       sodipodi:nodetypes="cccc" />
+    <path
+       d="m 40.986328,7.6981129 -6.780761,11.6700511 3.066894,5.300785 3.713867,6.443848 H 54.547852 L 61.328614,19.368164 54.547852,7.6235352 Z"
+       style="fill:#ff6600;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path13"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.25px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker26)"
+       d="M 18.714103,19.202522 48.526912,3.8078778"
+       id="path3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.25px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker27)"
+       d="m 28.361401,35.858003 1.281024,-0.622695 1.214618,-0.60707 1.214617,-0.60707 1.214618,-0.60707 1.214618,-0.60707 1.214618,-0.607069 1.214618,-0.60707 1.214617,-0.60707 1.214618,-0.60707 1.214618,-0.60707 1.214618,-0.60707 1.214618,-0.60707 1.214618,-0.60707 1.214617,-0.60707 1.214618,-0.60707 1.214618,-0.60707 1.156024,-0.587538 1.73503,-1.011635 m 0.752799,-0.222036 1.214618,-0.60707 m 1.214618,-0.60707 1.214618,-0.60707 m 1.214618,-0.60707 1.214618,-0.60707 m 1.214617,-0.60707 1.214618,-0.60707 m 1.214618,-0.607069 1.214618,-0.60707 1.214618,-0.60707 1.214617,-0.60707 1.214618,-0.60707 1.214618,-0.60707"
+       id="path4"
+       sodipodi:nodetypes="ccccccccccccccccccccccccccccccccc" />
+    <path
+       d="M 34.258301,19.458984 40.932129,7.8994141 50.536621,24.534668 h 0.07764 L 40.941406,7.7807618 34.228516,19.407715 Z"
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path19" />
+    <path
+       d="m 31.268062,24.534667 0.740112,-1.281738 m 0.740112,-1.281738 0.740113,-1.281739"
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path18"
+       sodipodi:nodetypes="cccc" />
+    <path
+       d="M 37.298962,24.645153 50.536621,24.534668 40.932129,7.8994141 34.258301,19.458984 Z"
+       style="fill:#44aa00;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.8;stroke-dasharray:none"
+       id="path17"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.25px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#ConcaveTriangle)"
+       d="M 2.9705888,3.0300005 V 13.130002"
+       id="path20" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:0.25px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#ConcaveTriangle-2);marker-end:;stroke-miterlimit:3.2"
+       d="M 12.957004,13.003476 H 2.8570033"
+       id="path20-8" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.25)"
+       id="text21"
+       style="font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect21);display:inline"><tspan
+         x="31.996094"
+         y="94.787109"
+         id="tspan5"><tspan
+           dx="0 27.402344 24.511719"
+           id="tspan3">Xax</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,4.9497475,5.9220193)"
+       id="text22"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;line-height:1.25;font-family:Monospace;-inkscape-font-specification:Monospace;white-space:pre;shape-inside:url(#rect22);display:inline"><tspan
+         x="30.759766"
+         y="24.109405"
+         id="tspan6">x</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,-3.4353471,-3.1283729)"
+       id="text22-2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;line-height:1.25;font-family:Monospace;-inkscape-font-specification:Monospace;white-space:pre;shape-inside:url(#rect22-6);display:inline"><tspan
+         x="30.759766"
+         y="24.109405"
+         id="tspan9">y</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,2.625,-1.6875)"
+       id="text23"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect23);display:inline"><tspan
+         x="30.5"
+         y="163.93753"
+         id="tspan13"><tspan
+           style="font-family:Monospace;-inkscape-font-specification:Monospace"
+           id="tspan10">Polygon </tspan><tspan
+           style="font-weight:bold;font-family:Monospace;-inkscape-font-specification:'Monospace Bold';fill:#0000ff"
+           id="tspan11">A</tspan><tspan
+           style="font-family:Monospace;-inkscape-font-specification:Monospace"
+           id="tspan12"> (clipping)</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,9.6834985,-9.9660908)"
+       id="text23-4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:Monospace;-inkscape-font-specification:Monospace;white-space:pre;shape-inside:url(#rect23-4);display:inline;stroke:#ffffff;stroke-width:0.6;stroke-dasharray:none"><tspan
+         x="30.5"
+         y="166.29685"
+         id="tspan15"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'Monospace Bold'"
+           id="tspan14">A</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,41.853998,-22.508481)"
+       id="text23-4-8"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:Monospace;-inkscape-font-specification:Monospace;white-space:pre;shape-inside:url(#rect23-4-6);display:inline;stroke:#ffffff;stroke-width:0.6;stroke-dasharray:none"><tspan
+         x="30.5"
+         y="166.29685"
+         id="tspan23"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'Monospace Bold'"
+           id="tspan16">B</tspan><tspan
+           style="font-size:2.66667px"
+           id="tspan17"> </tspan><tspan
+           style="font-size:5.33333px;stroke:none"
+           id="tspan18">out</tspan><tspan
+           style="font-size:2.66667px"
+           id="tspan19"> </tspan><tspan
+           style="font-size:5.33333px;stroke:none"
+           id="tspan20">of</tspan><tspan
+           style="font-size:2.66667px"
+           id="tspan21"> </tspan><tspan
+           style="font-weight:bold;-inkscape-font-specification:'Monospace Bold'"
+           id="tspan22">A</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,30.172463,-21.571406)"
+       id="text23-4-8-0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:Monospace;-inkscape-font-specification:Monospace;white-space:pre;shape-inside:url(#rect23-4-6-9);display:inline;stroke:#ffffff;stroke-width:0.5;stroke-dasharray:none"><tspan
+         x="30.5"
+         y="166.29685"
+         id="tspan33"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'Monospace Bold'"
+           id="tspan26">B</tspan><tspan
+           style="font-size:2.66667px"
+           id="tspan27"> </tspan><tspan
+           style="font-size:5.33333px;stroke:none"
+           id="tspan28">in</tspan><tspan
+           style="font-size:2.66667px"
+           id="tspan31"> </tspan><tspan
+           style="font-weight:bold;-inkscape-font-specification:'Monospace Bold'"
+           id="tspan32">A</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,32.360352,-5.979165)"
+       id="text23-5"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect23-1);display:inline"><tspan
+         x="30.5"
+         y="163.93753"
+         id="tspan37"><tspan
+   style="font-family:Monospace;-inkscape-font-specification:Monospace"
+   id="tspan34">Polygon</tspan> <tspan
+   style="font-weight:bold;font-family:Monospace;-inkscape-font-specification:'Monospace Bold';fill:#d45500"
+   id="tspan35">B</tspan> <tspan
+   style="font-family:Monospace;-inkscape-font-specification:Monospace"
+   id="tspan36">(subject)</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25,0,0,0.25,2.8954492,-33.758271)"
+       id="text23-5-9"
+       style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect23-1-5);display:inline"><tspan
+         x="30.5"
+         y="163.93753"
+         id="tspan41"><tspan
+           style="font-family:Monospace;-inkscape-font-specification:Monospace"
+           id="tspan38">Intersection </tspan><tspan
+           style="font-family:Monospace;-inkscape-font-specification:Monospace;fill:#44aa00"
+           id="tspan39">C</tspan><tspan
+           style="font-family:Monospace;-inkscape-font-specification:Monospace"
+           id="tspan40"> area</tspan></tspan></text>
+    <circle
+       style="fill:#000000;stroke:none;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:3.2;stroke-dasharray:none"
+       id="path25"
+       cx="2.9665339"
+       cy="12.99861"
+       r="0.53033006" />
+  </g>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:title>Polygon Intersection Weiler-Athethon algorithm</dc:title>
+        <dc:description>Weiler-Athethon algorithm for clipping polygobs</dc:description>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

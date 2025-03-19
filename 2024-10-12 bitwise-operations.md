@@ -4,9 +4,10 @@ tags: lua beginner
 
 # Bitwise operations in Lua
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 !!! tip

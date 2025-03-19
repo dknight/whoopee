@@ -4,9 +4,10 @@ tags: lua
 
 # Lua Syntax Cheat Sheet (Short Version)
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 This is a short version of the [full Lua cheatsheet](/post/lua-cheatsheet.html).

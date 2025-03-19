@@ -4,9 +4,10 @@ tags: lua beginner
 
 # Types in Lua: References vs Values
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 Sometimes it is confusing for beginners to understand how the argument is

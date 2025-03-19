@@ -4,9 +4,10 @@ tags: lua beginner
 
 # Logic in Lua: AND, OR, NOT, XOR, NXOR
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 Logical operators in Lua are: `and`, `or`, and `not`. In addition to this here are covered `xor` and `nxor`. Logical operators always produce so-called *boolean* value: `true` or `false`.

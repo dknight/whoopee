@@ -15,9 +15,10 @@ Laura is a lightweight unit-testing framework for Lua with simplicity in mind. T
 - Compatible with any Lua 5.1+ version and LuaJIT
 
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 ## Install

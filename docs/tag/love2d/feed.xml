@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/polygons-and-rectangles-intersection.html</guid>
+  <title>Polygons and rectangles intersection</title>
+  <link>https://www.whoop.eepost/polygons-and-rectangles-intersection.html</link>
+  <description>Polysec is a framework-agnostic Lua library for detecting intersections and collisions between polygons and rectangles. It provides an efficient algorithm for polygonal intersection detection, making it suitable for the collision handling. While Polysec is independent of any specific framework, examples demonstrating its usage are provided using the Löve2D game development engine. </description>
+  <pubDate>Wed, 19 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/love-profiler.html</guid>
   <title>Profile for Löve2D</title>
   <link>https://www.whoop.eepost/love-profiler.html</link>

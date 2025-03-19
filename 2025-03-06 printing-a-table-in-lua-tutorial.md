@@ -4,9 +4,10 @@ tags: lua beginner
 
 # Printing a table in Lua tutorial
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 ## The problem

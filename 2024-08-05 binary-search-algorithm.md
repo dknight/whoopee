@@ -4,9 +4,10 @@ tags: lua algorithms beginner
 
 # Binary Search Algorithm
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 An algorithm known as binary search is used to locate a target value's

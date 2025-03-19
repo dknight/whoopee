@@ -34,7 +34,7 @@ cat << __HEAD__
 <meta name="author" content="Dmitri Smirnov">
 <meta property="og:type" content="website">
 <meta property="og:url" content="$canonical">
-<meta property="og:image" content="$BLOG_HOST/assets/img/logo.png">
+<meta property="og:image" content="$BLOG_HOST/assets/img/dragon-logo.gif">
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'">
 <title>$title</title>

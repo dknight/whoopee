@@ -27,11 +27,11 @@
   --color15: #fff;
 
   --display-font: "Perfect_DOS_VGA_437";
-  --color-bg: light-dark(var(--color15), #0f0f11);
-  --color-text: light-dark(var(--color0), #c5c5ce);
+  --color-bg: light-dark(var(--color15), var(--color0));
+  --color-text: light-dark(var(--color0), var(--color7));
   --color-pri: light-dark(var(--color1), var(--color10));
-  --color-code: light-dark(#f8f8f8, var(--color0));
-  --color-border: var(--color7);
+  --color-code: light-dark(var(--color15), var(--color0));
+  --color-border: var(--color3);
 
   --color-tip: var(--color3);
   --color-tip-text: var(--color0);
@@ -40,7 +40,7 @@
   --color-danger: var(--color4);
   --color-danger-text: var(--color14);
 
-  --letter-spacing: 1px;
+  --letter-spacing: light-dark(0, 1px);
 
   scroll-behavior: smooth;
   @media screen and (prefers-reduced-motion: reduce) {
@@ -54,29 +54,28 @@
 }
 
 body {
-  font: normal 16px/1.5 Helvetica, Arial, sans-serif;
+  font: normal 16px/2 monospace;
+  /*font: normal 20px/1.5 var(--display-font), monospace;*/
   letter-spacing: var(--letter-spacing);
-  padding: 1rem 2rem;
+  padding: 1ch 2ch;
   margin: 0 auto;
   box-sizing: border-box;
   background: var(--color-bg);
   color: var(--color-text);
   max-width: 80rem;
   width: 100%;
-
-  @media print {
-    color: var(--color0);
-    font-size: 12pt;
-    print-color-adjust: economy;
-  }
 }
+
+/* ================================ HEADER ================================= */
+
 header {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  font-size: 1.25rem;
-  margin: 2rem 0;
+  gap: 4ch;
+  margin: 4ch 0;
+  padding-bottom: 3ch;
+  border-bottom: 0.125rem solid var(--color-border);
 }
 .mainmenu {
   align-items: center;
@@ -92,17 +91,14 @@ header {
       text-decoration: none;
     }
     &:hover {
-      background-color: var(--color13);
+      background-color: light-dark(var(--color5), var(--color13));
       color: var(--color0);
     }
   }
 }
-footer {
-  margin-top: 2rem;
-  font: normal 1rem var(--display-font), monospace;
-}
+
 .tags {
-  margin: 1rem 0 0;
+  margin: 1ch 0 0;
   display: inline-flex;
   gap: 2ch;
   flex-wrap: wrap;
@@ -113,6 +109,9 @@ footer {
   image-rendering: pixelated;
   border: none;
 }
+
+/* ================================= MAIN ================================== */
+
 main {
   article {
     container-type: inline-size;
@@ -124,21 +123,18 @@ main {
 
       time {
         font-size: 1rem;
-        margin-right: 0.5rem;
+        margin-right: 1ch;
       }
     }
   }
-
-  @media print {
-    display: block;
-    margin-top: 3rem;
-  }
 }
+
+/* ============================= COMMON TAGS =============================== */
 
 h1 {
   color: var(--color-pri);
   font: normal 2rem/1 var(--display-font), monospace;
-  margin: 2rem 0 1rem;
+  margin: 2ch 0 1ch;
   text-wrap: balance;
 }
 h2,
@@ -155,49 +151,37 @@ h6 {
 
     &:link,
     &:visited,
+    &:hover,
     &:active {
-      color: var(--color-text);
-      opacity: 0.3;
+      color: var(--color8);
     }
-    &:hover {
-      color: var(--color-text);
-      opacity: 0.5;
-    }
-  }
-
-  code {
-    font-family: inherit;
   }
 }
 
 h2 {
-  margin: 2rem 0 1rem;
+  margin: 2ch 0 1ch;
 }
 h3 {
-  margin: 1.25rem 0 1rem;
+  margin: 1.5ch 0 1ch;
+  color: light-dark(var(--color5), var(--color11));
 }
 h4,
 h5,
 h6 {
-  margin: 0.75rem 0;
-}
-
-.headerlink {
-  display: none;
-  padding: 0 0.4rem;
-  text-decoration: none;
+  margin: 1ch 0;
+  color: light-dark(var(--color6), var(--color13));
 }
 
 a {
   &:link {
-    color: var(--color-pri);
+    color: light-dark(var(--color1), var(--color11));
     text-underline-offset: 0.1875rem;
   }
   &:visited {
-    color: light-dark(var(--color5), var(--color2));
+    color: light-dark(var(--color5), var(--color3));
   }
   &:active {
-    color: light-dark(var(--color4), var(--color6b));
+    color: light-dark(var(--color4), var(--color13));
   }
 }
 
@@ -205,10 +189,14 @@ pre {
   box-sizing: border-box;
   color: var(--color-text);
   background-color: var(--color-code);
-  padding: 1.25rem;
+  padding: 2ch;
   overflow-x: auto;
   tab-size: 4;
   width: 100%;
+  line-height: 1.5;
+  border: thin solid var(--color-border);
+  outline: thin solid var(--color-border);
+  outline-offset: -0.25rem;
 
   &.break {
     white-space: break-spaces;
@@ -219,34 +207,37 @@ pre {
 kbd {
   border: 0.125rem solid currentColor;
   display: inline-block;
-  font-size: 90%;
   font-weight: 700;
-  padding: 0 0.375rem;
+  padding: 0 .5ch;
+  line-height: 1.5;
   white-space: nowrap;
 }
 
 hr {
-  color: var(--color3);
+  color: var(--color-border);
 }
 
 blockquote {
-  border-left: 0.125rem solid var(--color-border);
-  padding: 0 0 0 1rem;
+  border-left: 0.25rem solid var(--color-border);
+  padding: 0 0 0 2ch;
+  margin: 0;
   ul {
     font-style: normal;
   }
 }
 
+/* TODO use when migrated to DOS font */
+ul li::marker {
+  /*content: "*";*/
+}
+
+/* ============================== ADMONITION ============================= */
+
 .admonition {
   border: 0.25rem solid;
   font: normal 1.25rem/1.25 var(--display-font), monospace;
-  padding: 2.75rem 1rem 1rem;
+  padding: 4ch 2ch 2ch;
   position: relative;
-
-  code {
-    background-color: var(--color-code);
-    font-family: var(--display-font), monospace;
-  }
 
   a {
     color: inherit;
@@ -259,14 +250,14 @@ blockquote {
   }
 
   + .admonition {
-    margin-top: 1rem;
+    margin-top: 1ch;
   }
 
   .admonition-title {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0.125rem 1rem;
+    padding: 0.25ch 1ch;
     width: 100%;
     box-sizing: border-box;
 
@@ -308,11 +299,15 @@ blockquote {
   }
 }
 
+/* =================================== TOC ================================= */
+.headerlink {
+  display: none;
+  padding: 0 .5ch;
+  text-decoration: none;
+}
+
 .toc-toggle {
   display: none;
-}
-article:has(.toc:hover) .toc-toggle + label {
-  border-color: var(--color-text);
 }
 
 /* Not very good, but works */
@@ -324,27 +319,23 @@ article:has(.toc:hover) .toc-toggle + label {
   clip-path: polygon(0 0, 0 0, 0 0);
 
   + label {
-    border: 0.25rem solid var(--color-border);
-    font: normal 1.25rem/1.25 var(--display-font), monospace;
+    font: normal 1.25rem/1 var(--display-font), monospace;
     cursor: pointer;
-    display: block;
-    padding: 1rem 2rem;
-
-    &:hover {
-      border-color: var(--color-text);
-    }
+    display: inline-block;
+    padding: 2ch 0;
+    color: light-dark(var(--color1), var(--color14));
 
     &::before {
       content: '>';
       display: inline-block;
-      margin-right: 0.5rem;
+      margin-right: .5ch;
       transform-origin: center;
     }
   }
 
   &:checked {
     + label {
-      border-bottom: none;
+      display: block;
       &::before {
         transform: rotate(90deg);
       }
@@ -354,14 +345,11 @@ article:has(.toc:hover) .toc-toggle + label {
 
 article:has(.toc-toggle:checked) .toc {
   display: block;
-
-  &:hover {
-    border-color: var(--color-text);
-  }
 }
 
-article:has(label:hover) .toc {
-  border-color: var(--color-text);
+code {
+  background-color: var(--color-code);
+  font: normal 1.25rem/1 var(--display-font), monospace;
 }
 
 .toc {
@@ -369,10 +357,7 @@ article:has(label:hover) .toc {
 }
 
 .toc {
-  padding: 1rem 2rem;
-  border: 0.25rem solid var(--color-border);
-  border-top: none;
-  margin: -1.35rem 0 1rem; /* -1 is not good */
+  padding: 0 1ch 2ch;
   @container article (max-width: 767px) {
     width: auto;
   }
@@ -384,8 +369,10 @@ article:has(label:hover) .toc {
   margin: 0;
 }
 
+/* ================================= TABLE ================================= */
+
 table {
-  border: thin solid var(--color3);
+  border: thin solid var(--color-border);
   border-spacing: 0.125rem;
 
   th {
@@ -394,7 +381,7 @@ table {
   th,
   td {
     text-align: start;
-    border: thin solid var(--color3);
+    border: thin solid var(--color-border);
     padding: 1ch;
     font: normal 1.25rem/1 var(--display-font), monospace;
   }
@@ -404,24 +391,44 @@ table {
   display: none;
 }
 
-/* Images */
-/* img.wide { */
-/* max-width: 100%; */
-/* } */
-
 img {
   /* width: 614px; */
   /* height: auto; */ /* 372px; */
   max-width: 100%;
   display: block;
 
-  &[src*="svg"] {
+  &[src*="svg"]:not([src*="polysec"]) {
     @media screen and (prefers-color-scheme: dark) {
       filter: invert(1) hue-rotate(173deg) brightness(.87);
     }
   }
 }
 
+/* ================================ FOOTER ================================= */
+
+footer {
+  margin-top: 4ch;
+  font: normal 1rem var(--display-font), monospace;
+}
+
+/* ================================ MEDIAS ================================= */
+
 @view-transition {
   navigation: auto;
 }
+
+@media print {
+  body {
+    color: var(--color0);
+    print-color-adjust: economy;
+  }
+  img {
+    page-break-before: auto;
+    page-break-after: auto;
+    page-break-inside: avoid;
+  }
+}
+
+/*.codehilite {*/
+/*  border: thin solid var(--color-border);*/
+/*}*/

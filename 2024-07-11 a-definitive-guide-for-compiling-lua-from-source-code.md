@@ -4,9 +4,10 @@ tags: lua beginner
 
 # A definitive guide for compiling Lua from source code
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 Compiling Lua from the source code is an extremely easy procedure and every beginner

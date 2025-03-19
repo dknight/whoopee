@@ -4,9 +4,10 @@ tags: lua
 
 # Turn NeoVim into Lua IDE
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 NeoVim is a modern, Vim-based text editor with limitless customization possibilities. It is relatively lightweight and

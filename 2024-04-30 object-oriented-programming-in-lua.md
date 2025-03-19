@@ -4,9 +4,10 @@ tags: lua
 
 # Object-oriented programming in Lua
 
+<div>
 <input type="checkbox" class="toc-toggle" id="toc-toggle">
 <label for="toc-toggle">Table of contents</label>
-
+</div>
 [TOC]
 
 Lua doesn't have classes and objects. [`table`](https://www.lua.org/manual/5.4/manual.html#6.6) is a single data structure to represent everything: arrays, maps, sets,
