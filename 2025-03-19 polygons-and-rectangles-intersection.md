@@ -132,7 +132,7 @@ Lint (code quality)
 luacheck src test
 ```
 
-With make software
+Run everything with `make` software
 
 ```shell
 make lint test
@@ -142,10 +142,9 @@ make lint test
 
 ### Types
 
-- `Point{x: number, y: number}`
-- `Rectangle{x: number, y: number, w: number, h: number}`
+- `Point [number, number]`
+- `Rectangle [number, number, number, number]`
 - `Polygon Point[]`
-
 ### Modules
 
 #### `point`
