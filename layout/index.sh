@@ -3,11 +3,28 @@
 source "./layout/util.sh"
 
 # Break apart the LIST payload
-IFS='✂︎' read -r -a array <<< "$LIST"
+IFS='✂︎' read -r -a posts <<< "$LIST"
+
+function count_posts_by_year() {
+  count=0
+  for (( idx=${#posts[@]}-1 ; idx>=0 ; idx-- )); do
+    eval "${posts[idx]}"
+    year=$(date +%Y --date "$POST_DATE")
+    if [ "$year" == "$1" ]; then
+      count=$(( count + 1 ))
+    fi
+  done
+  echo $count
+}
 
 function index_loop() {
-  for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )) ; do
-    [ "${array[idx]}" ] && eval "${array[idx]} list_item $1"
+  for (( idx=${#posts[@]}-1 ; idx>=0 ; idx-- )) ; do
+    if [ "${posts[idx]}" ]; then
+      eval "${posts[idx]}"
+      if [ "$YEAR" = "$(date +%Y --date="$POST_DATE")" ]; then
+         list_item "$1"
+      fi
+    fi
   done
 }
 
@@ -69,15 +86,15 @@ function tag2title() {
     algorithms)
       echo "Algorithms"
     ;;
-    web)
-      echo "WebDev"
-    ;;
     love2d)
       echo "Löve2D"
     ;;
     gamedev)
       echo "Game Development"
       ;;
+    web)
+      echo "Web Development"
+    ;;
    humor)
       echo "Humor"
     ;;
@@ -90,21 +107,24 @@ function tag2title() {
 function taglink() {
   title=$(tag2title "$1")
   if [[ "$TAGNAME" = "$1" ]]; then
-    echo "<strong>$title</strong>"
+    echo "<strong aria-current=\"true\">$title</strong>"
   else
     echo "<a href=\"/tag/$1/\">$title</a>"
   fi
 }
 
-#function by_year() {
-#  years="2025 2024 2022"
-#  for y in $years; do
-#    echo "<h2>$y</h2>"
-#    echo "<ul class=\"list-reset\">"
-#    index_loop
-#    echo "</ul>"
-#  done
-#}
+function by_year() {
+  for y in $(eval echo "{$(date +%Y)..2022}"); do
+    if [ "$(count_posts_by_year "$y")" != 0 ]; then
+cat << _LOOP_
+  <h2>$y</h2>
+  <ul class="list-reset">
+    $(YEAR="$y" index_loop "$1")
+  </ul>
+_LOOP_
+    fi
+  done
+}
 
 cat << _EOF_
 <!DOCTYPE html>
@@ -114,23 +134,23 @@ cat << _EOF_
     $(source ./layout/header.sh)
     <main>
     $(to_index)
-      <nav class="tags">
-        <strong>Tags:</strong>
+      <nav class="tags" aria-labelledby="tags-title>
+        <strong id="tags-title">Tags:</strong>
         $(taglink "lua")
+        $(taglink "c")
         $(taglink "beginner")
         $(taglink "data-structures")
         $(taglink "algorithms")
         $(taglink "web")
-        $(taglink "misc")
         $(taglink "gamedev")
         $(taglink "love2d")
         $(taglink "humor")
-        $(taglink "c")
+        $(taglink "misc")
       </nav>
       <section class="articles">
         <h1>$(tag2title "$TAGNAME")</h1>
         <ul class="list-reset">
-          $(index_loop "$1")
+          $(by_year "$1")
         </ul>
       </section>
     </main>
@@ -164,9 +184,9 @@ if [[ -z "$TAGNAME" ]]; then
   sitemap="$sitemap\t</url>\n"
 
   # Posts
-  for (( idx=${#array[@]}-1 ; idx>=0 ; idx-- )); do
-    if [ "${array[idx]}" ]; then
-      eval "${array[idx]}"
+  for (( idx=${#posts[@]}-1 ; idx>=0 ; idx-- )); do
+    if [ "${posts[idx]}" ]; then
+      eval "${posts[idx]}"
       tags="$tags $TAGS"
       sitemap="$sitemap\t<url>\n"
       sitemap="$sitemap\t\t<loc>${BLOG_HOST}${POST_URL/"./.."/}</loc>\n"
