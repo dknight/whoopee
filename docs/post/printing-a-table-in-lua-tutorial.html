@@ -1,242 +1,242 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="By default, Lua does not provide a built-in tool to print the structure of a table. While there are many existing solutions available online, this tutorial will guide you through creating your own custom function to inspect and display Lua tables in a clear and readable format. By implementing this yourself, you'll gain a deeper understanding of Lua tables and how to work with them efficiently. "><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/whoopee-logo.png"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>Printing a table in Lua tutorial &mdash; Whoopee</title><link rel="preload" href="/assets/fonts/Perfect_DOS_VGA_437.woff2" as="font"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html"></head><body><header><a href="/"><img src="/assets/img/whoopee-logo.png" width="200" height="172" alt="Whoopee" class="logo"></a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/">&larr; Back to the index page</a><article><h1>Printing a table in Lua tutorial</h1><time datetime="2025-03-06">March 06, 2025</time><div><input type="checkbox" class="toc-toggle" id="toc-toggle"> <label for="toc-toggle">Table of contents</label></div><div class="toc"><ul><li><a href="#printing-a-table-in-lua-tutorial">Printing a table in Lua tutorial</a><ul><li><a href="#the-problem">The problem</a></li><li><a href="#solution">Solution</a><ul><li><a href="#step-1-prepare-test-example">Step 1. Prepare test example</a></li><li><a href="#step-2-adding-for-loop">Step 2. Adding for loop</a></li><li><a href="#step-3-recursion">Step 3. Recursion</a></li><li><a href="#step-4-add-indentation">Step 4. Add indentation</a></li><li><a href="#step-5-creating-module">Step 5. Creating module</a></li></ul></li><li><a href="#more-possibilities">More possibilities</a></li></ul></li></ul></div><h2 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">#</a></h2><p>Beginners are often confused when they have a table, like:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">person</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">firstname</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-    <span class="n">lastname</span> <span class="o">=</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-    <span class="n">age</span> <span class="o">=</span> <span class="mi">33</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div><p>&hellip;and try to print it:</p><div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="c1">--&gt; table: 0x2733d5b0</span>
-</code></pre></div><p>&hellip;only to get something like <code>table: 0x2733d5b0</code>. <strong>What is it?</strong></p><ul><li><strong>table</strong>: type, that we are dealing with a table.;</li><li><strong>0x2733d5b0</strong>: the memory address where the table is stored. In Lua, a <code>table</code> is a <a href="https://www.whoop.ee/post/types-in-lua-references-vs-values.html">reference type</a>.</li></ul><p>We can <span id=":iterate">iterate over a table</span> using a <a href="https://www.lua.org/manual/5.4/manual.html#3.3.5"><code>for loop</code></a> and key-value pairs.</p><div class="codehilite"><pre><span></span><code><span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="kr">end</span> 
-<span class="c1">--Output:</span>
-<span class="c1">--firstname John&quot;</span>
-<span class="c1">--lastname  &quot;Doe&quot;</span>
-<span class="c1">--age   33</span>
-</code></pre></div><p>This seems to be OK, unless we have a nested table; consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">person</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">firstname</span> <span class="o">=</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
-    <span class="n">lastname</span> <span class="o">=</span> <span class="s2">&quot;doe&quot;</span><span class="p">,</span>
-     <span class="n">age</span> <span class="o">=</span> <span class="mi">33</span><span class="p">,</span>
-    <span class="n">hobbies</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;painting&quot;</span><span class="p">,</span>
-        <span class="n">programming</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">Lua</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">skill</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
-                <span class="n">years</span> <span class="o">=</span> <span class="mi">5</span>
-            <span class="p">},</span>
-            <span class="n">C</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">skill</span> <span class="o">=</span>  <span class="mi">2</span><span class="p">,</span>
-                <span class="n">years</span> <span class="o">=</span>  <span class="mi">4</span>
-            <span class="p">},</span>
-            <span class="n">JavaScript</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">skill</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-                <span class="n">years</span> <span class="o">=</span> <span class="mi">8</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="s2">&quot;cars&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">}</span>
-</code></pre></div><p>If we use again the same print approach, we will get the table address instead of the hobbies list.</p><div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="c1">-- Output:</span>
-<span class="c1">-- lastname        doe                                                                 </span>
-<span class="c1">-- hobbies table: 0x2f966fb0                                                           </span>
-<span class="c1">-- firstname       john                                                                </span>
-<span class="c1">-- age     33</span>
-</code></pre></div><p>Unfortunately, Lua, due to its tiny footprint, doesn&rsquo;t have any built-in method like <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/log_static">console.log</a> in JavaScript or any other built-in tools to print out the full table.</p><h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">#</a></h2><p>We need a recursive function to print out the table.</p><p>There are plenty of ways, libraries, and solutions on the Internet written in Lua or even written in C for extreme performance. Let&rsquo;s try to make our own one step-by-step.</p><h3 id="step-1-prepare-test-example">Step 1. Prepare test example<a class="headerlink" href="#step-1-prepare-test-example" title="Permanent link">#</a></h3><p>Let&rsquo;s start with the defining function.</p><div class="codehilite"><pre><span></span><code><span class="c1">---Recursively print the table; if the value is not a table, then just print the value.</span>
-<span class="c1">---@param t any</span>
-<span class="c1">---@param level? number</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">printTable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-    <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="ow">or</span> <span class="mi">0</span>
-    <span class="c1">-- function body</span>
-<span class="kr">end</span>
-</code></pre></div><p>Here we only define the function with two arguments:</p><ul><li><strong>t</strong>: a table or any other value to be printed;</li><li><strong>level</strong>: level of indentation for nested tables. If it <code>level</code> is not set, we give it a default value 0 on line 5.</li></ul><h3 id="step-2-adding-for-loop">Step 2. Adding for loop<a class="headerlink" href="#step-2-adding-for-loop" title="Permanent link">#</a></h3><p>Now we are ready to iterate the table in one level, and we can already see what we got <a href="#:iterate">above</a>:</p><div class="codehilite"><pre><span></span><code><span class="c1">---Recursively print the table; if the value is not a table, then just print the value.</span>
-<span class="c1">---@param t any</span>
-<span class="c1">---@param level? number</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">printTable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-    <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="ow">or</span> <span class="mi">0</span>
-    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="nb">string.rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="o">..</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;[%s] = %s&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;,</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-<span class="n">printTable</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-<span class="c1">--Output:</span>
-<span class="c1">--[lastname] = doe,</span>
-<span class="c1">--[hobbies] = table: 0x3599de50,</span>
-<span class="c1">--[age] = 33,</span>
-<span class="c1">--[firstname] = john, </span>
-</code></pre></div><h3 id="step-3-recursion">Step 3. Recursion<a class="headerlink" href="#step-3-recursion" title="Permanent link">#</a></h3><p>It is time to add a recursion trick to the function if the type of the key is a table, and as a fallback, we will just print the value.</p><blockquote><p>The process in which a function calls itself directly or indirectly is called <strong>recursion</strong> and the corresponding function is called a <strong>recursive function</strong>.</p></blockquote><div class="codehilite"><pre><span></span><code><span class="c1">---Recursively print the table; if the value is not a table, then just print the value.</span>
-<span class="c1">---@param t any</span>
-<span class="c1">---@param level? number</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">printTable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-    <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="ow">or</span> <span class="mi">0</span>
-    <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;{</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
-            <span class="nb">io.write</span><span class="p">(</span><span class="nb">string.rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="o">..</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;[%s] = &quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
-            <span class="n">printTable</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-            <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;,</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="kr">end</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;}&quot;</span><span class="p">)</span>
-    <span class="kr">else</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
-<span class="n">printTable</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="c1">--Output:</span>
-<span class="p">{</span>
-<span class="c1">--[hobbies] = {</span>
-<span class="c1">--[1] = painting,</span>
-<span class="c1">--[2] = cars,</span>
-<span class="c1">--[programming] = {</span>
-<span class="c1">--[Lua] = {</span>
-<span class="c1">--[years] = 5,</span>
-<span class="c1">--[skill] = 7,</span>
-<span class="c1">--},</span>
-<span class="c1">--[JavaScript] = {</span>
-<span class="c1">--[years] = 8,</span>
-<span class="c1">--[skill] = 10,</span>
-<span class="c1">--},</span>
-<span class="c1">--[C] = {</span>
-<span class="c1">--[years] = 4,</span>
-<span class="c1">--[skill] = 2,</span>
-<span class="c1">--},</span>
-<span class="c1">--},</span>
-<span class="c1">--},</span>
-<span class="c1">--[age] = 33,</span>
-<span class="c1">--[lastname] = doe,</span>
-<span class="c1">--[firstname] = john,</span>
-<span class="c1">--}</span>
-</code></pre></div><p>So we already have the whole table printed, but we haven&rsquo;t utilized a <code>level</code> variable to make the correct indentation for good readability.</p><h3 id="step-4-add-indentation">Step 4. Add indentation<a class="headerlink" href="#step-4-add-indentation" title="Permanent link">#</a></h3><p>Readability is one of the key features of well-written code and debugging information. We use the built-in function <a href="https://www.lua.org/manual/5.4/manual.html#pdf-string.rep">string.rep</a> which just repeats a string N-times.</p><div class="codehilite"><pre><span></span><code><span class="c1">---Recursively print the table; if the value is not a table, then just print the value.</span>
-<span class="c1">---@param t any</span>
-<span class="c1">---@param level? number</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">printTable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-    <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="ow">or</span> <span class="mi">0</span>
-    <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
-        <span class="c1">-- do not print new line on the level 0</span>
-        <span class="kr">if</span> <span class="n">level</span> <span class="o">~=</span> <span class="mi">0</span> <span class="kr">then</span>
-            <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="kr">end</span>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="By default, Lua does not provide a built-in tool to print the structure of a table. While there are many existing solutions available online, this tutorial will guide you through creating your own custom function to inspect and display Lua tables in a clear and readable format. By implementing this yourself, you'll gain a deeper understanding of Lua tables and how to work with them efficiently. " name=description><meta content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal" name=keywords><meta content="Dmitri Smirnov" name=author><meta content=website property=og:type><meta content=https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html property=og:url><meta content=https://www.whoop.ee/assets/img/whoopee-logo.png property=og:image><meta content="script-src 'self'" http-equiv=Content-Security-Policy><meta content="object-src 'none'" http-equiv=Content-Security-Policy><title>Printing a table in Lua tutorial — Whoopee</title><link as=font href=/assets/fonts/Perfect_DOS_VGA_437.woff2 rel=preload><link href=/favicon.ico rel=icon type=image/x-icon><link href=/assets/css/styles.min.css rel=stylesheet><link title="RSS Feed" href=/feed.xml rel=alternate type=application/rss+xml><link href=https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html rel=canonical><body><header><a href=/><img alt=Whoopee class=logo height=172 src=/assets/img/whoopee-logo.png width=200></a><nav class=mainmenu><a href=/me/>About</a><a href=/feed.xml>RSS</a></nav></header><main><a href=/>← Back to the index page</a><article><h1>Printing a table in Lua tutorial</h1><time datetime=2025-03-06> March 06, 2025 </time><div><input class=toc-toggle id=toc-toggle type=checkbox><label for=toc-toggle>Table of contents</label></div><div class=toc><ul><li><a href=#printing-a-table-in-lua-tutorial>Printing a table in Lua tutorial</a><ul><li><a href=#the-problem>The problem</a><li><a href=#solution>Solution</a><ul><li><a href=#step-1-prepare-test-example>Step 1. Prepare test example</a><li><a href=#step-2-adding-for-loop>Step 2. Adding for loop</a><li><a href=#step-3-recursion>Step 3. Recursion</a><li><a href=#step-4-add-indentation>Step 4. Add indentation</a><li><a href=#step-5-creating-module>Step 5. Creating module</a></ul><li><a href=#more-possibilities>More possibilities</a></ul></ul></div><h2 id=the-problem>The problem<a title="Permanent link" class=headerlink href=#the-problem>#</a></h2><p>Beginners are often confused when they have a table, like:<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>person</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=n>firstname</span> <span class=o>=</span> <span class=s2>"John"</span><span class=p>,</span>
+    <span class=n>lastname</span> <span class=o>=</span> <span class=s2>"Doe"</span><span class=p>,</span>
+    <span class=n>age</span> <span class=o>=</span> <span class=mi>33</span><span class=p>,</span>
+<span class=p>}</span>
+</code></pre></div><p>…and try to print it:<div class=codehilite><pre><span></span><code><span class=nb>print</span><span class=p>(</span><span class=n>person</span><span class=p>)</span> <span class=c1>--> table: 0x2733d5b0</span>
+</code></pre></div><p>…only to get something like <code>table: 0x2733d5b0</code>. <strong>What is it?</strong><ul><li><strong>table</strong>: type, that we are dealing with a table.;<li><strong>0x2733d5b0</strong>: the memory address where the table is stored. In Lua, a <code>table</code> is a <a href=https://www.whoop.ee/post/types-in-lua-references-vs-values.html>reference type</a>.</ul><p>We can <span id=:iterate>iterate over a table</span> using a <a href=https://www.lua.org/manual/5.4/manual.html#3.3.5><code>for loop</code></a> and key-value pairs.<div class=codehilite><pre><span></span><code><span class=kr>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=kr>in</span> <span class=nb>pairs</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=kr>do</span>
+    <span class=nb>print</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+<span class=kr>end</span> 
+<span class=c1>--Output:</span>
+<span class=c1>--firstname John"</span>
+<span class=c1>--lastname  "Doe"</span>
+<span class=c1>--age   33</span>
+</code></pre></div><p>This seems to be OK, unless we have a nested table; consider:<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>person</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=n>firstname</span> <span class=o>=</span> <span class=s2>"john"</span><span class=p>,</span>
+    <span class=n>lastname</span> <span class=o>=</span> <span class=s2>"doe"</span><span class=p>,</span>
+     <span class=n>age</span> <span class=o>=</span> <span class=mi>33</span><span class=p>,</span>
+    <span class=n>hobbies</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=s2>"painting"</span><span class=p>,</span>
+        <span class=n>programming</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=n>Lua</span> <span class=o>=</span> <span class=p>{</span>
+                <span class=n>skill</span> <span class=o>=</span> <span class=mi>7</span><span class=p>,</span>
+                <span class=n>years</span> <span class=o>=</span> <span class=mi>5</span>
+            <span class=p>},</span>
+            <span class=n>C</span> <span class=o>=</span> <span class=p>{</span>
+                <span class=n>skill</span> <span class=o>=</span>  <span class=mi>2</span><span class=p>,</span>
+                <span class=n>years</span> <span class=o>=</span>  <span class=mi>4</span>
+            <span class=p>},</span>
+            <span class=n>JavaScript</span> <span class=o>=</span> <span class=p>{</span>
+                <span class=n>skill</span> <span class=o>=</span> <span class=mi>10</span><span class=p>,</span>
+                <span class=n>years</span> <span class=o>=</span> <span class=mi>8</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=s2>"cars"</span><span class=p>,</span>
+    <span class=p>},</span>
+<span class=p>}</span>
+</code></pre></div><p>If we use again the same print approach, we will get the table address instead of the hobbies list.<div class=codehilite><pre><span></span><code><span class=nb>print</span><span class=p>(</span><span class=n>person</span><span class=p>)</span>
+<span class=c1>-- Output:</span>
+<span class=c1>-- lastname        doe                                                                 </span>
+<span class=c1>-- hobbies table: 0x2f966fb0                                                           </span>
+<span class=c1>-- firstname       john                                                                </span>
+<span class=c1>-- age     33</span>
+</code></pre></div><p>Unfortunately, Lua, due to its tiny footprint, doesn’t have any built-in method like <a href=https://developer.mozilla.org/en-US/docs/Web/API/console/log_static>console.log</a> in JavaScript or any other built-in tools to print out the full table.<h2 id=solution>Solution<a title="Permanent link" class=headerlink href=#solution>#</a></h2><p>We need a recursive function to print out the table.<p>There are plenty of ways, libraries, and solutions on the Internet written in Lua or even written in C for extreme performance. Let’s try to make our own one step-by-step.<h3 id=step-1-prepare-test-example>Step 1. Prepare test example<a title="Permanent link" class=headerlink href=#step-1-prepare-test-example>#</a></h3><p>Let’s start with the defining function.<div class=codehilite><pre><span></span><code><span class=c1>---Recursively print the table; if the value is not a table, then just print the value.</span>
+<span class=c1>---@param t any</span>
+<span class=c1>---@param level? number</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>printTable</span><span class=p>(</span><span class=n>t</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+    <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=ow>or</span> <span class=mi>0</span>
+    <span class=c1>-- function body</span>
+<span class=kr>end</span>
+</code></pre></div><p>Here we only define the function with two arguments:<ul><li><strong>t</strong>: a table or any other value to be printed;<li><strong>level</strong>: level of indentation for nested tables. If it <code>level</code> is not set, we give it a default value 0 on line 5.</ul><h3 id=step-2-adding-for-loop>Step 2. Adding for loop<a title="Permanent link" class=headerlink href=#step-2-adding-for-loop>#</a></h3><p>Now we are ready to iterate the table in one level, and we can already see what we got <a href=#:iterate>above</a>:<div class=codehilite><pre><span></span><code><span class=c1>---Recursively print the table; if the value is not a table, then just print the value.</span>
+<span class=c1>---@param t any</span>
+<span class=c1>---@param level? number</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>printTable</span><span class=p>(</span><span class=n>t</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+    <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=ow>or</span> <span class=mi>0</span>
+    <span class=kr>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=kr>in</span> <span class=nb>pairs</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=kr>do</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=nb>string.rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span> <span class=o>..</span> <span class=nb>string.format</span><span class=p>(</span><span class=s2>"[%s] = %s"</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>))</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=s2>",</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+    <span class=kr>end</span>
+<span class=kr>end</span>
+<span class=n>printTable</span><span class=p>(</span><span class=n>test</span><span class=p>)</span>
+<span class=c1>--Output:</span>
+<span class=c1>--[lastname] = doe,</span>
+<span class=c1>--[hobbies] = table: 0x3599de50,</span>
+<span class=c1>--[age] = 33,</span>
+<span class=c1>--[firstname] = john, </span>
+</code></pre></div><h3 id=step-3-recursion>Step 3. Recursion<a title="Permanent link" class=headerlink href=#step-3-recursion>#</a></h3><p>It is time to add a recursion trick to the function if the type of the key is a table, and as a fallback, we will just print the value.<blockquote><p>The process in which a function calls itself directly or indirectly is called <strong>recursion</strong> and the corresponding function is called a <strong>recursive function</strong>.</blockquote><div class=codehilite><pre><span></span><code><span class=c1>---Recursively print the table; if the value is not a table, then just print the value.</span>
+<span class=c1>---@param t any</span>
+<span class=c1>---@param level? number</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>printTable</span><span class=p>(</span><span class=n>t</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+    <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=ow>or</span> <span class=mi>0</span>
+    <span class=kr>if</span> <span class=nb>type</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=o>==</span> <span class=s2>"table"</span> <span class=kr>then</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=s2>"{</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=kr>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=kr>in</span> <span class=nb>pairs</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=kr>do</span>
+            <span class=nb>io.write</span><span class=p>(</span><span class=nb>string.rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span> <span class=o>..</span> <span class=nb>string.format</span><span class=p>(</span><span class=s2>"[%s] = "</span><span class=p>,</span> <span class=n>key</span><span class=p>))</span>
+            <span class=n>printTable</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+            <span class=nb>io.write</span><span class=p>(</span><span class=s2>",</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=kr>end</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=s2>"}"</span><span class=p>)</span>
+    <span class=kr>else</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=nb>tostring</span><span class=p>(</span><span class=n>t</span><span class=p>))</span>
+    <span class=kr>end</span>
+<span class=kr>end</span>
+<span class=n>printTable</span><span class=p>(</span><span class=n>person</span><span class=p>)</span>
+<span class=c1>--Output:</span>
+<span class=p>{</span>
+<span class=c1>--[hobbies] = {</span>
+<span class=c1>--[1] = painting,</span>
+<span class=c1>--[2] = cars,</span>
+<span class=c1>--[programming] = {</span>
+<span class=c1>--[Lua] = {</span>
+<span class=c1>--[years] = 5,</span>
+<span class=c1>--[skill] = 7,</span>
+<span class=c1>--},</span>
+<span class=c1>--[JavaScript] = {</span>
+<span class=c1>--[years] = 8,</span>
+<span class=c1>--[skill] = 10,</span>
+<span class=c1>--},</span>
+<span class=c1>--[C] = {</span>
+<span class=c1>--[years] = 4,</span>
+<span class=c1>--[skill] = 2,</span>
+<span class=c1>--},</span>
+<span class=c1>--},</span>
+<span class=c1>--},</span>
+<span class=c1>--[age] = 33,</span>
+<span class=c1>--[lastname] = doe,</span>
+<span class=c1>--[firstname] = john,</span>
+<span class=c1>--}</span>
+</code></pre></div><p>So we already have the whole table printed, but we haven’t utilized a <code>level</code> variable to make the correct indentation for good readability.<h3 id=step-4-add-indentation>Step 4. Add indentation<a title="Permanent link" class=headerlink href=#step-4-add-indentation>#</a></h3><p>Readability is one of the key features of well-written code and debugging information. We use the built-in function <a href=https://www.lua.org/manual/5.4/manual.html#pdf-string.rep>string.rep</a> which just repeats a string N-times.<div class=codehilite><pre><span></span><code><span class=c1>---Recursively print the table; if the value is not a table, then just print the value.</span>
+<span class=c1>---@param t any</span>
+<span class=c1>---@param level? number</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>printTable</span><span class=p>(</span><span class=n>t</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+    <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=ow>or</span> <span class=mi>0</span>
+    <span class=kr>if</span> <span class=nb>type</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=o>==</span> <span class=s2>"table"</span> <span class=kr>then</span>
+        <span class=c1>-- do not print new line on the level 0</span>
+        <span class=kr>if</span> <span class=n>level</span> <span class=o>~=</span> <span class=mi>0</span> <span class=kr>then</span>
+            <span class=nb>io.write</span><span class=p>(</span><span class=s2>"</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=kr>end</span>
 
-        <span class="nb">io.write</span><span class="p">(</span><span class="nb">string.rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">),</span> <span class="s2">&quot;{</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=nb>string.rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>),</span> <span class=s2>"{</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=o>+</span> <span class=mi>1</span>
 
-        <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
-            <span class="nb">io.write</span><span class="p">(</span><span class="nb">string.rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="o">..</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;[%s] = &quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
-            <span class="n">printTable</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-            <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;,</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="kr">end</span>
+        <span class=kr>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=kr>in</span> <span class=nb>pairs</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=kr>do</span>
+            <span class=nb>io.write</span><span class=p>(</span><span class=nb>string.rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span> <span class=o>..</span> <span class=nb>string.format</span><span class=p>(</span><span class=s2>"[%s] = "</span><span class=p>,</span> <span class=n>key</span><span class=p>))</span>
+            <span class=n>printTable</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+            <span class=nb>io.write</span><span class=p>(</span><span class=s2>",</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=kr>end</span>
 
-        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="nb">string.rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">),</span> <span class="s2">&quot;}&quot;</span><span class="p">)</span>
-    <span class="kr">else</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="kr">end</span>
-    <span class="c1">-- print new line on the level 0</span>
-    <span class="kr">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
-        <span class="nb">io.write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="kr">end</span>
+        <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=o>-</span> <span class=mi>1</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=nb>string.rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>),</span> <span class=s2>"}"</span><span class=p>)</span>
+    <span class=kr>else</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=nb>tostring</span><span class=p>(</span><span class=n>t</span><span class=p>))</span>
+    <span class=kr>end</span>
+    <span class=c1>-- print new line on the level 0</span>
+    <span class=kr>if</span> <span class=n>level</span> <span class=o>==</span> <span class=mi>0</span> <span class=kr>then</span>
+        <span class=nb>io.write</span><span class=p>(</span><span class=s2>"</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+    <span class=kr>end</span>
 
-<span class="kr">end</span>
-<span class="n">printTable</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="c1">--Output:</span>
-<span class="cm">--[[</span>
-<span class="cm">{</span>
-<span class="cm">    [lastname] = doe,</span>
-<span class="cm">    [age] = 33,</span>
-<span class="cm">    [hobbies] =</span>
-<span class="cm">    {</span>
-<span class="cm">        [1] = painting,</span>
-<span class="cm">        [2] = cars,</span>
-<span class="cm">        [programming] =</span>
-<span class="cm">        {</span>
-<span class="cm">            [Lua] =</span>
-<span class="cm">            {</span>
-<span class="cm">                [skill] = 7,</span>
-<span class="cm">                [years] = 5,</span>
-<span class="cm">            },</span>
-<span class="cm">            [C] =</span>
-<span class="cm">            {</span>
-<span class="cm">                [skill] = 2,</span>
-<span class="cm">                [years] = 4,</span>
-<span class="cm">            },</span>
-<span class="cm">            [JavaScript] =</span>
-<span class="cm">            {</span>
-<span class="cm">                [skill] = 10,</span>
-<span class="cm">                [years] = 8,</span>
-<span class="cm">            },</span>
-<span class="cm">        },</span>
-<span class="cm">    },</span>
-<span class="cm">    [firstname] = john,</span>
-<span class="cm">}</span>
-<span class="cm">--]]</span>
-</code></pre></div><h3 id="step-5-creating-module">Step 5. Creating module<a class="headerlink" href="#step-5-creating-module" title="Permanent link">#</a></h3><p>Actually, we are done with our <code>printTable</code> function, but we can go even further and create a Lua module. Modules are easy to reuse or share with the world by publishing them to <a href="https://luarocks.org/">LuaRocks</a> &ndash; the package manager for Lua modules.</p><p>Do not forget to save this to a file named <code>printTable.lua</code>.</p><div class="codehilite"><pre><span></span><code><span class="c1">--printTable.lua</span>
-<span class="c1">--Storing functions in separate variables would access them faster. because</span>
-<span class="c1">-- it is not required to make a key lookup in the table.</span>
-<span class="kd">local</span> <span class="n">format</span> <span class="o">=</span> <span class="nb">string.format</span>
-<span class="kd">local</span> <span class="n">rep</span> <span class="o">=</span> <span class="nb">string.rep</span>
-<span class="kd">local</span> <span class="n">write</span> <span class="o">=</span> <span class="nb">io.write</span>
+<span class=kr>end</span>
+<span class=n>printTable</span><span class=p>(</span><span class=n>person</span><span class=p>)</span>
+<span class=c1>--Output:</span>
+<span class=cm>--[[</span>
+<span class=cm>{</span>
+<span class=cm>    [lastname] = doe,</span>
+<span class=cm>    [age] = 33,</span>
+<span class=cm>    [hobbies] =</span>
+<span class=cm>    {</span>
+<span class=cm>        [1] = painting,</span>
+<span class=cm>        [2] = cars,</span>
+<span class=cm>        [programming] =</span>
+<span class=cm>        {</span>
+<span class=cm>            [Lua] =</span>
+<span class=cm>            {</span>
+<span class=cm>                [skill] = 7,</span>
+<span class=cm>                [years] = 5,</span>
+<span class=cm>            },</span>
+<span class=cm>            [C] =</span>
+<span class=cm>            {</span>
+<span class=cm>                [skill] = 2,</span>
+<span class=cm>                [years] = 4,</span>
+<span class=cm>            },</span>
+<span class=cm>            [JavaScript] =</span>
+<span class=cm>            {</span>
+<span class=cm>                [skill] = 10,</span>
+<span class=cm>                [years] = 8,</span>
+<span class=cm>            },</span>
+<span class=cm>        },</span>
+<span class=cm>    },</span>
+<span class=cm>    [firstname] = john,</span>
+<span class=cm>}</span>
+<span class=cm>--]]</span>
+</code></pre></div><h3 id=step-5-creating-module>Step 5. Creating module<a title="Permanent link" class=headerlink href=#step-5-creating-module>#</a></h3><p>Actually, we are done with our <code>printTable</code> function, but we can go even further and create a Lua module. Modules are easy to reuse or share with the world by publishing them to <a href=https://luarocks.org/>LuaRocks</a> – the package manager for Lua modules.<p>Do not forget to save this to a file named <code>printTable.lua</code>.<div class=codehilite><pre><span></span><code><span class=c1>--printTable.lua</span>
+<span class=c1>--Storing functions in separate variables would access them faster. because</span>
+<span class=c1>-- it is not required to make a key lookup in the table.</span>
+<span class=kd>local</span> <span class=n>format</span> <span class=o>=</span> <span class=nb>string.format</span>
+<span class=kd>local</span> <span class=n>rep</span> <span class=o>=</span> <span class=nb>string.rep</span>
+<span class=kd>local</span> <span class=n>write</span> <span class=o>=</span> <span class=nb>io.write</span>
 
-<span class="c1">---Recursively print the table, if not table value is just printed.</span>
-<span class="c1">---@param t any</span>
-<span class="c1">---@param level? number</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">printTable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-    <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="ow">or</span> <span class="mi">0</span>
-    <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
-        <span class="c1">-- do not print new line on the level 0</span>
-        <span class="kr">if</span> <span class="n">level</span> <span class="o">~=</span> <span class="mi">0</span> <span class="kr">then</span>
-            <span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="kr">end</span>
-        <span class="n">write</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">),</span> <span class="s2">&quot;{</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span>
+<span class=c1>---Recursively print the table, if not table value is just printed.</span>
+<span class=c1>---@param t any</span>
+<span class=c1>---@param level? number</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>printTable</span><span class=p>(</span><span class=n>t</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+    <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=ow>or</span> <span class=mi>0</span>
+    <span class=kr>if</span> <span class=nb>type</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=o>==</span> <span class=s2>"table"</span> <span class=kr>then</span>
+        <span class=c1>-- do not print new line on the level 0</span>
+        <span class=kr>if</span> <span class=n>level</span> <span class=o>~=</span> <span class=mi>0</span> <span class=kr>then</span>
+            <span class=n>write</span><span class=p>(</span><span class=s2>"</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=kr>end</span>
+        <span class=n>write</span><span class=p>(</span><span class=n>rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>),</span> <span class=s2>"{</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=o>+</span> <span class=mi>1</span>
 
-        <span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
-            <span class="n">write</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="o">..</span> <span class="n">format</span><span class="p">(</span><span class="s2">&quot;[%s] = &quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
-            <span class="n">printTable</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-            <span class="n">write</span><span class="p">(</span><span class="s2">&quot;,</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="kr">end</span>
+        <span class=kr>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=kr>in</span> <span class=nb>pairs</span><span class=p>(</span><span class=n>t</span><span class=p>)</span> <span class=kr>do</span>
+            <span class=n>write</span><span class=p>(</span><span class=n>rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span> <span class=o>..</span> <span class=n>format</span><span class=p>(</span><span class=s2>"[%s] = "</span><span class=p>,</span> <span class=n>key</span><span class=p>))</span>
+            <span class=n>printTable</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>level</span><span class=p>)</span>
+            <span class=n>write</span><span class=p>(</span><span class=s2>",</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+        <span class=kr>end</span>
 
-        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="n">write</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">),</span> <span class="s2">&quot;}&quot;</span><span class="p">)</span>
-    <span class="kr">else</span>
-        <span class="n">write</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="kr">end</span>
-    <span class="c1">-- print new line on the level 0</span>
-    <span class="kr">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
-        <span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
+        <span class=n>level</span> <span class=o>=</span> <span class=n>level</span> <span class=o>-</span> <span class=mi>1</span>
+        <span class=n>write</span><span class=p>(</span><span class=n>rep</span><span class=p>(</span><span class=s2>"</span><span class=se>\t</span><span class=s2>"</span><span class=p>,</span> <span class=n>level</span><span class=p>),</span> <span class=s2>"}"</span><span class=p>)</span>
+    <span class=kr>else</span>
+        <span class=n>write</span><span class=p>(</span><span class=nb>tostring</span><span class=p>(</span><span class=n>t</span><span class=p>))</span>
+    <span class=kr>end</span>
+    <span class=c1>-- print new line on the level 0</span>
+    <span class=kr>if</span> <span class=n>level</span> <span class=o>==</span> <span class=mi>0</span> <span class=kr>then</span>
+        <span class=n>write</span><span class=p>(</span><span class=s2>"</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
+    <span class=kr>end</span>
+<span class=kr>end</span>
 
-<span class="c1">-- exporting module</span>
-<span class="kr">return</span> <span class="p">{</span>
-    <span class="n">printTable</span> <span class="o">=</span> <span class="n">printTable</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div><p>Now we are ready to use our module:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">myModule</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;printTable&quot;</span><span class="p">)</span>
+<span class=c1>-- exporting module</span>
+<span class=kr>return</span> <span class=p>{</span>
+    <span class=n>printTable</span> <span class=o>=</span> <span class=n>printTable</span><span class=p>,</span>
+<span class=p>}</span>
+</code></pre></div><p>Now we are ready to use our module:<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>myModule</span> <span class=o>=</span> <span class=nb>require</span><span class=p>(</span><span class=s2>"printTable"</span><span class=p>)</span>
 
-<span class="kd">local</span> <span class="n">test</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">firstname</span> <span class="o">=</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
-    <span class="n">lastname</span> <span class="o">=</span> <span class="s2">&quot;doe&quot;</span><span class="p">,</span>
-    <span class="n">age</span> <span class="o">=</span> <span class="mi">33</span><span class="p">,</span>
-    <span class="n">hobbies</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;painting&quot;</span><span class="p">,</span>
-        <span class="n">programming</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">Lua</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">skill</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
-                <span class="n">years</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-            <span class="p">},</span>
-            <span class="n">C</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">skill</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="n">years</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-            <span class="p">},</span>
-            <span class="n">JavaScript</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="n">skill</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-                <span class="n">years</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
-            <span class="p">},</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;cars&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">}</span>
-<span class="n">myModule</span><span class="p">.</span><span class="n">printTable</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-<span class="c1">-- we also print non-table values</span>
-<span class="n">myModule</span><span class="p">.</span><span class="n">printTable</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span> <span class="c1">-- 123</span>
-<span class="n">myModule</span><span class="p">.</span><span class="n">printTable</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="c1">-- Hello</span>
-<span class="n">myModule</span><span class="p">.</span><span class="n">printTable</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span> <span class="c1">-- nil</span>
-</code></pre></div><h2 id="more-possibilities">More possibilities<a class="headerlink" href="#more-possibilities" title="Permanent link">#</a></h2><p>If we go deeper, the table type actually has the meta-method <a href="https://www.lua.org/manual/5.4/manual.html#pdf-tostring"><code>__tostring</code></a>, which prints the table in the format table: 0x11111111. We can override the <a href="https://www.lua.org/manual/5.4/manual.html#pdf-tostring"><code>__tostring</code></a> method, bit do not do it.</p><div class="admonition danger"><p class="admonition-title">Danger</p><p>I strongly discourage overriding built-in native library meta-methods, especially if you are going to share your code with somebody else. This might lead to unpredictable results and hard-to-detect bugs.</p></div><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/">&larr; Back to the index page</a></main><footer><hr><p>(c) 2022-2025 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine.</p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website does not use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of JavaScript.</p></footer></body></html>
+<span class=kd>local</span> <span class=n>test</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=n>firstname</span> <span class=o>=</span> <span class=s2>"john"</span><span class=p>,</span>
+    <span class=n>lastname</span> <span class=o>=</span> <span class=s2>"doe"</span><span class=p>,</span>
+    <span class=n>age</span> <span class=o>=</span> <span class=mi>33</span><span class=p>,</span>
+    <span class=n>hobbies</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=s2>"painting"</span><span class=p>,</span>
+        <span class=n>programming</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=n>Lua</span> <span class=o>=</span> <span class=p>{</span>
+                <span class=n>skill</span> <span class=o>=</span> <span class=mi>7</span><span class=p>,</span>
+                <span class=n>years</span> <span class=o>=</span> <span class=mi>5</span><span class=p>,</span>
+            <span class=p>},</span>
+            <span class=n>C</span> <span class=o>=</span> <span class=p>{</span>
+                <span class=n>skill</span> <span class=o>=</span> <span class=mi>2</span><span class=p>,</span>
+                <span class=n>years</span> <span class=o>=</span> <span class=mi>4</span><span class=p>,</span>
+            <span class=p>},</span>
+            <span class=n>JavaScript</span> <span class=o>=</span> <span class=p>{</span>
+                <span class=n>skill</span> <span class=o>=</span> <span class=mi>10</span><span class=p>,</span>
+                <span class=n>years</span> <span class=o>=</span> <span class=mi>8</span><span class=p>,</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+        <span class=s2>"cars"</span><span class=p>,</span>
+    <span class=p>},</span>
+<span class=p>}</span>
+<span class=n>myModule</span><span class=p>.</span><span class=n>printTable</span><span class=p>(</span><span class=n>test</span><span class=p>)</span>
+<span class=c1>-- we also print non-table values</span>
+<span class=n>myModule</span><span class=p>.</span><span class=n>printTable</span><span class=p>(</span><span class=mi>123</span><span class=p>)</span> <span class=c1>-- 123</span>
+<span class=n>myModule</span><span class=p>.</span><span class=n>printTable</span><span class=p>(</span><span class=s2>"Hello"</span><span class=p>)</span> <span class=c1>-- Hello</span>
+<span class=n>myModule</span><span class=p>.</span><span class=n>printTable</span><span class=p>(</span><span class=kc>nil</span><span class=p>)</span> <span class=c1>-- nil</span>
+</code></pre></div><h2 id=more-possibilities>More possibilities<a title="Permanent link" class=headerlink href=#more-possibilities>#</a></h2><p>If we go deeper, the table type actually has the meta-method <a href=https://www.lua.org/manual/5.4/manual.html#pdf-tostring><code>__tostring</code></a>, which prints the table in the format table: 0x11111111. We can override the <a href=https://www.lua.org/manual/5.4/manual.html#pdf-tostring><code>__tostring</code></a> method, bit do not do it.<div class="admonition danger"><p class=admonition-title>Danger<p>I strongly discourage overriding built-in native library meta-methods, especially if you are going to share your code with somebody else. This might lead to unpredictable results and hard-to-detect bugs.</div><h2>Feedback</h2><p>For feedback, please check the <a href=/me/>contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</article><a href=/>← Back to the index page</a></main><footer><hr><p>(c) 2022-2025 <a href=/me/>xdknight</a> Powered by <a href=https://github.com/hmngwy/jenny>Jenny</a> shell blog engine.<p>Any images on this website may be used, copied and redistributed under the <a href=https://creativecommons.org/licenses/by/4.0/>CC BY 4.0</a> license.<p>Any code on this website may be used, copied and redistributed under the <a href=https://opensource.org/license/MIT>MIT</a> license.<p>This website does not use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of JavaScript.</footer>

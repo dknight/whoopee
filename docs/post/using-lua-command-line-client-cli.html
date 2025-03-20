@@ -1,78 +1,78 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Understanding chunks in Lua: local and global variable scope, loading, and execution chunks independently from the host program. "><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/using-lua-command-line-client-cli.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/whoopee-logo.png"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>Using Lua Command Line Client (CLI) &mdash; Whoopee</title><link rel="preload" href="/assets/fonts/Perfect_DOS_VGA_437.woff2" as="font"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/using-lua-command-line-client-cli.html"></head><body><header><a href="/"><img src="/assets/img/whoopee-logo.png" width="200" height="172" alt="Whoopee" class="logo"></a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/">&larr; Back to the index page</a><article><h1>Using Lua Command Line Client (CLI)</h1><time datetime="2024-11-07">November 07, 2024</time><p>Lua is an amazing, performant, and very lightweight scripting language, and why not to use these advantages for daily automation jobs? Lua package shipped with interpreter and can be very easily used from the command line.</p><p>Installation of Lua <abbr title="Command Line Interface">CLI</abbr> is very straightforward; for Linux, you might have root privileges or use the <code>sudo</code> command:</p><p>Ubuntu or Debian-based GNU Linux</p><div class="codehilite"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>lua
-</code></pre></div><p>Fedora or RPM-based GNU Linux</p><div class="codehilite"><pre><span></span><code>dnf<span class="w"> </span>install<span class="w"> </span>lua
-</code></pre></div><p>Arch GNU Linux</p><div class="codehilite"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>lua
-</code></pre></div><p>Mac OS with <a href="https://brew.sh/">brew</a></p><div class="codehilite"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>lua
-</code></pre></div><p>Microsoft Windows Lua binaries can be found on <a href="https://luabinaries.sourceforge.net/download.html">SourceForge</a>.</p><p>After installing or <a href="http://localhost:8000/post/a-definitive-guide-for-compiling-lua-from-source-code.html">compiling Lua from source code</a>, <code>lua</code> (for Microsoft Windows, <code>lua.exe</code> or similar) is available on the system.</p><div class="admonition tip"><p class="admonition-title">Tip</p><p>Be sure that <code>lua</code> is located in the <code>PATH</code> environment variable. File can start with a line and execute it on any Unix-like platform.</p><p><code>#!/usr/bin/env lua</code></p><p>Lua skips the first line of a file if it starts with <code>#</code>.</p></div><div class="codehilite"><pre><span></span><code>lua
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Understanding chunks in Lua: local and global variable scope, loading, and execution chunks independently from the host program. " name=description><meta content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal" name=keywords><meta content="Dmitri Smirnov" name=author><meta content=website property=og:type><meta content=https://www.whoop.ee/post/using-lua-command-line-client-cli.html property=og:url><meta content=https://www.whoop.ee/assets/img/whoopee-logo.png property=og:image><meta content="script-src 'self'" http-equiv=Content-Security-Policy><meta content="object-src 'none'" http-equiv=Content-Security-Policy><title>Using Lua Command Line Client (CLI) — Whoopee</title><link as=font href=/assets/fonts/Perfect_DOS_VGA_437.woff2 rel=preload><link href=/favicon.ico rel=icon type=image/x-icon><link href=/assets/css/styles.min.css rel=stylesheet><link title="RSS Feed" href=/feed.xml rel=alternate type=application/rss+xml><link href=https://www.whoop.ee/post/using-lua-command-line-client-cli.html rel=canonical><body><header><a href=/><img alt=Whoopee class=logo height=172 src=/assets/img/whoopee-logo.png width=200></a><nav class=mainmenu><a href=/me/>About</a><a href=/feed.xml>RSS</a></nav></header><main><a href=/>← Back to the index page</a><article><h1>Using Lua Command Line Client (CLI)</h1><time datetime=2024-11-07> November 07, 2024 </time><p>Lua is an amazing, performant, and very lightweight scripting language, and why not to use these advantages for daily automation jobs? Lua package shipped with interpreter and can be very easily used from the command line.<p>Installation of Lua <abbr title="Command Line Interface">CLI</abbr> is very straightforward; for Linux, you might have root privileges or use the <code>sudo</code> command:<p>Ubuntu or Debian-based GNU Linux<div class=codehilite><pre><span></span><code>apt<span class=w> </span>install<span class=w> </span>lua
+</code></pre></div><p>Fedora or RPM-based GNU Linux<div class=codehilite><pre><span></span><code>dnf<span class=w> </span>install<span class=w> </span>lua
+</code></pre></div><p>Arch GNU Linux<div class=codehilite><pre><span></span><code>pacman<span class=w> </span>-S<span class=w> </span>lua
+</code></pre></div><p>Mac OS with <a href=https://brew.sh/>brew</a><div class=codehilite><pre><span></span><code>brew<span class=w> </span>install<span class=w> </span>lua
+</code></pre></div><p>Microsoft Windows Lua binaries can be found on <a href=https://luabinaries.sourceforge.net/download.html>SourceForge</a>.<p>After installing or <a href=http://localhost:8000/post/a-definitive-guide-for-compiling-lua-from-source-code.html>compiling Lua from source code</a>, <code>lua</code> (for Microsoft Windows, <code>lua.exe</code> or similar) is available on the system.<div class="admonition tip"><p class=admonition-title>Tip<p>Be sure that <code>lua</code> is located in the <code>PATH</code> environment variable. File can start with a line and execute it on any Unix-like platform.<p><code>#!/usr/bin/env lua</code><p>Lua skips the first line of a file if it starts with <code>#</code>.</div><div class=codehilite><pre><span></span><code>lua
 Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
-&gt;
-</code></pre></div><p>Output of the <code>lua</code> command, it runs the interpreter in interactive mode default. Symbol <code>&gt;</code> means: waiting for the input. Here Lua language commands can be entered like:</p><div class="codehilite"><pre><span></span><code>&gt; 1 + 23
+>
+</code></pre></div><p>Output of the <code>lua</code> command, it runs the interpreter in interactive mode default. Symbol <code>></code> means: waiting for the input. Here Lua language commands can be entered like:<div class=codehilite><pre><span></span><code>> 1 + 23
 24
-&gt; &quot;hello&quot; .. &quot; &quot; .. &quot;world&quot;
+> "hello" .. " " .. "world"
 hello world
-&gt;
-</code></pre></div><p>To quit interactive mode, press on the keyboard <kbd>Ctrl</kbd>+<kbd>D</kbd>.</p><p>Every line is interpreted as <a href="/post/what-are-lua-chunk.html">single chunk</a>, so this means every statement has its own scope.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code>lua
-&gt; local x = 10
-&gt; local y = 32
-&gt; x + y
-stdin:1: attempt to perform arithmetic on a nil value (global &#39;x&#39;)
+>
+</code></pre></div><p>To quit interactive mode, press on the keyboard <kbd>Ctrl</kbd>+<kbd>D</kbd>.<p>Every line is interpreted as <a href=/post/what-are-lua-chunk.html>single chunk</a>, so this means every statement has its own scope.<p>Consider:<div class=codehilite><pre><span></span><code>lua
+> local x = 10
+> local y = 32
+> x + y
+stdin:1: attempt to perform arithmetic on a nil value (global 'x')
 stack traceback:
         stdin:1: in main chunk
         [C]: in ?
-</code></pre></div><p>To enter multiline code, use the <code>do-end</code> statement:</p><div class="codehilite"><pre><span></span><code>lua
-&gt; do    
-&gt;&gt; local x = 10
-&gt;&gt; local y = 32
-&gt;&gt; print(x + y)
-&gt;&gt; end
+</code></pre></div><p>To enter multiline code, use the <code>do-end</code> statement:<div class=codehilite><pre><span></span><code>lua
+> do    
+>> local x = 10
+>> local y = 32
+>> print(x + y)
+>> end
 42
-&gt;
-</code></pre></div><p>Notice the symbol <code>&gt;&gt;</code> means continue the statement. Other ways to enter multi-statement command in single line use <code>;</code> (semicolon) as statements separator.</p><p>If this is still not clear, read the post about <a href="/post/what-are-lua-chunk.html">chunks</a>.</p><div class="codehilite"><pre><span></span><code>lua 
-&gt; local x = 10; local y = 32 print(x + y);
+>
+</code></pre></div><p>Notice the symbol <code>>></code> means continue the statement. Other ways to enter multi-statement command in single line use <code>;</code> (semicolon) as statements separator.<p>If this is still not clear, read the post about <a href=/post/what-are-lua-chunk.html>chunks</a>.<div class=codehilite><pre><span></span><code>lua 
+> local x = 10; local y = 32 print(x + y);
 42
-&gt;
-</code></pre></div><h2 id="options-aka-flags">Options aka flags<a class="headerlink" href="#options-aka-flags" title="Permanent link">#</a></h2><p><code>lua</code> command has some options to run with; to see help, enter into terminal <code>lua --help</code>:</p><div class="codehilite"><pre><span></span><code>lua --help
-lua: unrecognized option &#39;--help&#39;
+>
+</code></pre></div><h2 id=options-aka-flags>Options aka flags<a title="Permanent link" class=headerlink href=#options-aka-flags>#</a></h2><p><code>lua</code> command has some options to run with; to see help, enter into terminal <code>lua --help</code>:<div class=codehilite><pre><span></span><code>lua --help
+lua: unrecognized option '--help'
 usage: lua [options] [script [args]]
 Available options are:
-  -e stat   execute string &#39;stat&#39;
-  -i        enter interactive mode after executing &#39;script&#39;
-  -l mod    require library &#39;mod&#39; into global &#39;mod&#39;
-  -l g=mod  require library &#39;mod&#39; into global &#39;g&#39;
+  -e stat   execute string 'stat'
+  -i        enter interactive mode after executing 'script'
+  -l mod    require library 'mod' into global 'mod'
+  -l g=mod  require library 'mod' into global 'g'
   -v        show version information
   -E        ignore environment variables
   -W        turn warnings on
   --        stop handling options
   -         stop handling options and execute stdin
-</code></pre></div><ul><li><strong>-e</strong>: execute statement;</li></ul><div class="codehilite"><pre><span></span><code>lua -e &#39;print(400 + 10 * 4)&#39;
+</code></pre></div><ul><li><strong>-e</strong>: execute statement;</ul><div class=codehilite><pre><span></span><code>lua -e 'print(400 + 10 * 4)'
 440
-&gt;
-</code></pre></div><ul><li><strong>-i</strong>: interactive mode will be active after execution of <code>script.lua</code>, and you can continue entering commands.</li></ul><div class="codehilite"><pre><span></span><code>lua -i tt.lua 
+>
+</code></pre></div><ul><li><strong>-i</strong>: interactive mode will be active after execution of <code>script.lua</code>, and you can continue entering commands.</ul><div class=codehilite><pre><span></span><code>lua -i tt.lua 
 Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
-&gt;
-</code></pre></div><ul><li><strong>-l mod</strong> extra 3rd party any <em>home-made</em> module <code>mod</code> can be included in the script.</li></ul><div class="codehilite"><pre><span></span><code>Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
-&gt; print(socket)
+>
+</code></pre></div><ul><li><strong>-l mod</strong> extra 3rd party any <em>home-made</em> module <code>mod</code> can be included in the script.</ul><div class=codehilite><pre><span></span><code>Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
+> print(socket)
 table: 0x1a50350
-&gt; 
-</code></pre></div><ul><li><strong>-l g=mod</strong> same as above, but <code>mod</code> will be stored in the variable <code>g</code>, (This form was introduced in release 5.4.4):</li></ul><div class="codehilite"><pre><span></span><code>lua -i -l soc=socket 
+> 
+</code></pre></div><ul><li><strong>-l g=mod</strong> same as above, but <code>mod</code> will be stored in the variable <code>g</code>, (This form was introduced in release 5.4.4):</ul><div class=codehilite><pre><span></span><code>lua -i -l soc=socket 
 Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
-&gt; print(soc)
+> print(soc)
 table: 0x11524c0
-&gt; 
-</code></pre></div><ul><li><strong>-v</strong> prints the version of Lua and exits the program;</li></ul><div class="codehilite"><pre><span></span><code>lua -v
+> 
+</code></pre></div><ul><li><strong>-v</strong> prints the version of Lua and exits the program;</ul><div class=codehilite><pre><span></span><code>lua -v
 Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
-</code></pre></div><ul><li><strong>-E</strong> ignore environment variables; This flag is a bit confusing. This means that you can still read environment variables with function <code>os.getenv('USER')</code>, but variables such as <code>LUA_PATH</code> and <code>LUA_CPATH</code> are ignored.</li></ul><p>Example:</p><div class="codehilite"><pre><span></span><code>lua -E -l socket
-lua: module &#39;socket&#39; not found:
-        no field package.preload[&#39;socket&#39;]
-        no file &#39;/usr/local/share/lua/5.4/socket.lua&#39;
-        no file &#39;/usr/local/share/lua/5.4/socket/init.lua&#39;
-        no file &#39;/usr/local/lib/lua/5.4/socket.lua&#39;
-        no file &#39;/usr/local/lib/lua/5.4/socket/init.lua&#39;
-        no file &#39;./socket.lua&#39;
-        no file &#39;./socket/init.lua&#39;
-        no file &#39;/usr/local/lib/lua/5.4/socket.so&#39;
-        no file &#39;/usr/local/lib/lua/5.4/loadall.so&#39;
-        no file &#39;./socket.so&#39;
+</code></pre></div><ul><li><strong>-E</strong> ignore environment variables; This flag is a bit confusing. This means that you can still read environment variables with function <code>os.getenv('USER')</code>, but variables such as <code>LUA_PATH</code> and <code>LUA_CPATH</code> are ignored.</ul><p>Example:<div class=codehilite><pre><span></span><code>lua -E -l socket
+lua: module 'socket' not found:
+        no field package.preload['socket']
+        no file '/usr/local/share/lua/5.4/socket.lua'
+        no file '/usr/local/share/lua/5.4/socket/init.lua'
+        no file '/usr/local/lib/lua/5.4/socket.lua'
+        no file '/usr/local/lib/lua/5.4/socket/init.lua'
+        no file './socket.lua'
+        no file './socket/init.lua'
+        no file '/usr/local/lib/lua/5.4/socket.so'
+        no file '/usr/local/lib/lua/5.4/loadall.so'
+        no file './socket.so'
 stack traceback:
-        [C]: in function &#39;require&#39;
+        [C]: in function 'require'
         [C]: in ?
-</code></pre></div><p>It cannot find the <code>socket</code> module because <code>LUA_PATH</code> is ignored. This cause the error.</p><ul><li><p><strong>-W</strong> turn warnings on; the built-in function <code>warn</code> will start to output messages. I have a <a href="/post/info-warn-error.html">post about warnings</a>.</p></li><li><p><strong>-</strong>, <strong>&ndash;</strong> both work the same as in the bash command line. Check the <a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html">GNU bash manual</a> for more details.</p></li></ul><h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2><ul><li><a href="https://www.lua.org/manual/5.4/manual.html#7">Lua Manual: Standalone</a></li><li><a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html">Shell Builtin Commands</a></li></ul><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/">&larr; Back to the index page</a></main><footer><hr><p>(c) 2022-2025 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine.</p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website does not use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of JavaScript.</p></footer></body></html>
+</code></pre></div><p>It cannot find the <code>socket</code> module because <code>LUA_PATH</code> is ignored. This cause the error.<ul><li><p><strong>-W</strong> turn warnings on; the built-in function <code>warn</code> will start to output messages. I have a <a href=/post/info-warn-error.html>post about warnings</a>.</p><li><p><strong>-</strong>, <strong>–</strong> both work the same as in the bash command line. Check the <a href=https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html>GNU bash manual</a> for more details.</p></ul><h2 id=references>References<a title="Permanent link" class=headerlink href=#references>#</a></h2><ul><li><a href=https://www.lua.org/manual/5.4/manual.html#7>Lua Manual: Standalone</a><li><a href=https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html>Shell Builtin Commands</a></ul><h2>Feedback</h2><p>For feedback, please check the <a href=/me/>contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</article><a href=/>← Back to the index page</a></main><footer><hr><p>(c) 2022-2025 <a href=/me/>xdknight</a> Powered by <a href=https://github.com/hmngwy/jenny>Jenny</a> shell blog engine.<p>Any images on this website may be used, copied and redistributed under the <a href=https://creativecommons.org/licenses/by/4.0/>CC BY 4.0</a> license.<p>Any code on this website may be used, copied and redistributed under the <a href=https://opensource.org/license/MIT>MIT</a> license.<p>This website does not use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of JavaScript.</footer>

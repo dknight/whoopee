@@ -1,160 +1,160 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Coroutines are a powerful tool in Lua language to provide asynchronous programming, but these might be a bit hard to understand for beginners."><meta name="keywords" content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal"><meta name="author" content="Dmitri Smirnov"><meta property="og:type" content="website"><meta property="og:url" content="https://www.whoop.ee/post/understanding-coroutines.html"><meta property="og:image" content="https://www.whoop.ee/assets/img/whoopee-logo.png"><meta http-equiv="Content-Security-Policy" content="script-src 'self'"><meta http-equiv="Content-Security-Policy" content="object-src 'none'"><title>Understanding Coroutines in Lua &mdash; Whoopee</title><link rel="preload" href="/assets/fonts/Perfect_DOS_VGA_437.woff2" as="font"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/css/styles.min.css"><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"><link rel="canonical" href="https://www.whoop.ee/post/understanding-coroutines.html"></head><body><header><a href="/"><img src="/assets/img/whoopee-logo.png" width="200" height="172" alt="Whoopee" class="logo"></a><nav class="mainmenu"><a href="/me/">About</a> <a href="/feed.xml">RSS</a></nav></header><main><a href="/">&larr; Back to the index page</a><article><h1>Understanding Coroutines in Lua</h1><time datetime="2025-01-24">January 24, 2025</time><p><input type="checkbox" class="toc-toggle" id="toc-toggle"> <label for="toc-toggle">Table of contents</label></p><div class="toc"><ul><li><a href="#understanding-coroutines-in-lua">Understanding Coroutines in Lua</a><ul><li><a href="#basics">Basics</a><ul><li><a href="#error-handling-in-coroutines">Error handling in coroutines</a></li><li><a href="#wrapping-coroutines">Wrapping coroutines</a></li><li><a href="#arguments-in-the-coroutines-and-data-exchange">Arguments in the coroutines and data exchange</a></li><li><a href="#basic-example">Basic example</a></li><li><a href="#http-request-example">HTTP request example</a></li></ul></li><li><a href="#advanced">Advanced</a><ul><li><a href="#producer-filter-consumer-pattern">Producer, filter, consumer pattern.</a></li></ul></li><li><a href="#references">References</a></li></ul></li></ul></div><h2 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">#</a></h2><p>Coroutines in Lua are special threads with their own scope, stack, and instruction pointers. Coroutines are able to run simultaneously in the main thread. Another important statement that coroutines share global variables. All coroutines are stored in Lua&rsquo;s built-in <code>coroutine</code> table.</p><p>Coroutines are not really parallel; <strong>Lua is a strictly single-threaded language</strong>. Coroutine executes the function for a while, after returns back to the point (with the same state), where it was called. Using coroutines, you can modify (and in some cases facilitate) how the code behaves, to make it more evident or legible.</p><p>Coroutine has a special type <code>thread</code>.</p><p>Coroutine might have 4 states:</p><ul><li><strong>Suspended</strong>: The state of a coroutine when it is newly created or after it has yielded.</li><li><strong>Running</strong>: The state of a coroutine when it is actively executing.</li><li><strong>Normal</strong>: The state of a coroutine after it has completed its execution successfully.</li><li><strong>Dead</strong>: The state of a coroutine when it has either encountered an error or is no longer able to resume.</li></ul><p>When a coroutine is created, it starts in a <code>suspended</code> state.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Coroutines are a powerful tool in Lua language to provide asynchronous programming, but these might be a bit hard to understand for beginners." name=description><meta content="lua, programming, algorithms, data-structures, gamedev, game development, blog, personal" name=keywords><meta content="Dmitri Smirnov" name=author><meta content=website property=og:type><meta content=https://www.whoop.ee/post/understanding-coroutines.html property=og:url><meta content=https://www.whoop.ee/assets/img/whoopee-logo.png property=og:image><meta content="script-src 'self'" http-equiv=Content-Security-Policy><meta content="object-src 'none'" http-equiv=Content-Security-Policy><title>Understanding Coroutines in Lua — Whoopee</title><link as=font href=/assets/fonts/Perfect_DOS_VGA_437.woff2 rel=preload><link href=/favicon.ico rel=icon type=image/x-icon><link href=/assets/css/styles.min.css rel=stylesheet><link title="RSS Feed" href=/feed.xml rel=alternate type=application/rss+xml><link href=https://www.whoop.ee/post/understanding-coroutines.html rel=canonical><body><header><a href=/><img alt=Whoopee class=logo height=172 src=/assets/img/whoopee-logo.png width=200></a><nav class=mainmenu><a href=/me/>About</a><a href=/feed.xml>RSS</a></nav></header><main><a href=/>← Back to the index page</a><article><h1>Understanding Coroutines in Lua</h1><time datetime=2025-01-24> January 24, 2025 </time><p><input class=toc-toggle id=toc-toggle type=checkbox> <label for=toc-toggle>Table of contents</label><div class=toc><ul><li><a href=#understanding-coroutines-in-lua>Understanding Coroutines in Lua</a><ul><li><a href=#basics>Basics</a><ul><li><a href=#error-handling-in-coroutines>Error handling in coroutines</a><li><a href=#wrapping-coroutines>Wrapping coroutines</a><li><a href=#arguments-in-the-coroutines-and-data-exchange>Arguments in the coroutines and data exchange</a><li><a href=#basic-example>Basic example</a><li><a href=#http-request-example>HTTP request example</a></ul><li><a href=#advanced>Advanced</a><ul><li><a href=#producer-filter-consumer-pattern>Producer, filter, consumer pattern.</a></ul><li><a href=#references>References</a></ul></ul></div><h2 id=basics>Basics<a title="Permanent link" class=headerlink href=#basics>#</a></h2><p>Coroutines in Lua are special threads with their own scope, stack, and instruction pointers. Coroutines are able to run simultaneously in the main thread. Another important statement that coroutines share global variables. All coroutines are stored in Lua’s built-in <code>coroutine</code> table.<p>Coroutines are not really parallel; <strong>Lua is a strictly single-threaded language</strong>. Coroutine executes the function for a while, after returns back to the point (with the same state), where it was called. Using coroutines, you can modify (and in some cases facilitate) how the code behaves, to make it more evident or legible.<p>Coroutine has a special type <code>thread</code>.<p>Coroutine might have 4 states:<ul><li><strong>Suspended</strong>: The state of a coroutine when it is newly created or after it has yielded.<li><strong>Running</strong>: The state of a coroutine when it is actively executing.<li><strong>Normal</strong>: The state of a coroutine after it has completed its execution successfully.<li><strong>Dead</strong>: The state of a coroutine when it has either encountered an error or is no longer able to resume.</ul><p>When a coroutine is created, it starts in a <code>suspended</code> state.<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>"Hello, world"</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; thread: 0x69fcea8</span>
-<span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; suspended</span>
-</code></pre></div><p>Function <code>coroutine.resume()</code> continues or begins to execute the coroutine.</p><div class="codehilite"><pre><span></span><code><span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; true   &quot;Hello, world&quot;</span>
-</code></pre></div><p>After the run of the coroutine, it finishes its own lifecycle and get <code>dead</code> status.</p><div class="codehilite"><pre><span></span><code><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; dead</span>
-</code></pre></div><p>In the example above, it makes no sense to create coroutines, because it looks like a common function call. But the most powerful feature of coroutines is <code>corputine.yield()</code> function, which allows you to suspend an execution of the coroutine for later. On the creation, the coroutine has <code>suspended</code> state. When the coroutine is finished, the statue becomes <code>dead</code> and the call-off with <code>corputine.resume()</code> returns <code>false</code> and the error message <code>cannot resume dead coroutine</code>.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-    <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="kr">do</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iteration &quot;</span> <span class="o">..</span> <span class="n">i</span><span class="p">)</span>
-        <span class="nb">coroutine.yield</span><span class="p">()</span>
-    <span class="kr">end</span>
-<span class="kr">end</span><span class="p">)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> thread: 0x69fcea8</span>
+<span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> suspended</span>
+</code></pre></div><p>Function <code>coroutine.resume()</code> continues or begins to execute the coroutine.<div class=codehilite><pre><span></span><code><span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> true   "Hello, world"</span>
+</code></pre></div><p>After the run of the coroutine, it finishes its own lifecycle and get <code>dead</code> status.<div class=codehilite><pre><span></span><code><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> dead</span>
+</code></pre></div><p>In the example above, it makes no sense to create coroutines, because it looks like a common function call. But the most powerful feature of coroutines is <code>corputine.yield()</code> function, which allows you to suspend an execution of the coroutine for later. On the creation, the coroutine has <code>suspended</code> state. When the coroutine is finished, the statue becomes <code>dead</code> and the call-off with <code>corputine.resume()</code> returns <code>false</code> and the error message <code>cannot resume dead coroutine</code>.<p>Consider:<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+    <span class=kr>for</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>5</span> <span class=kr>do</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>"iteration "</span> <span class=o>..</span> <span class=n>i</span><span class=p>)</span>
+        <span class=nb>coroutine.yield</span><span class=p>()</span>
+    <span class=kr>end</span>
+<span class=kr>end</span><span class=p>)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;suspended&quot;</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; &quot;iteration 1&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;suspended&quot;</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; &quot;iteration 2&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;suspended&quot;</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; &quot;iteration 3&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;suspended&quot;</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; &quot;iteration 4&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;suspended&quot;</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; &quot;iteration 5&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;suspended&quot;</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="c1">--&gt; &quot;iteration 5&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span> <span class="c1">--&gt; &quot;dead&quot;</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "suspended"</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> "iteration 1"</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "suspended"</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> "iteration 2"</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "suspended"</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> "iteration 3"</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "suspended"</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> "iteration 4"</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "suspended"</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> "iteration 5"</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "suspended"</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span> <span class=c1>--> "iteration 5"</span>
+<span class=nb>print</span><span class=p>(</span><span class=nb>coroutine.status</span><span class=p>(</span><span class=n>co</span><span class=p>))</span> <span class=c1>--> "dead"</span>
 
-<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span> <span class="c1">--&gt; false    &quot;cannot resume dead coroutine&quot;</span>
-</code></pre></div><p>Illustration of coroutine lifecycle of the example above.</p><p><img alt="Illustration of coroutine lifecycle" src="/assets/img/coroutines01.svg"></p><p><img alt="Coroutines working with main thread" src="/assets/img/coroutines02.svg"></p><h3 id="error-handling-in-coroutines">Error handling in coroutines<a class="headerlink" href="#error-handling-in-coroutines" title="Permanent link">#</a></h3><div class="admonition tip"><p class="admonition-title">Tip</p><p>It is always a good practice to check for the errors.</p></div><p>Execution of the coroutine happens in <em>protected mode</em>; this means if there is an error inside coroutine body nothing will be reported.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-    <span class="nb">error</span><span class="p">(</span><span class="s2">&quot;Kabooom!&quot;</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
-<span class="c1">-- nothing printed nor reported</span>
-</code></pre></div><p>Correct way to handle the errors in the coroutine.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-    <span class="nb">error</span><span class="p">(</span><span class="s2">&quot;Kabooom!&quot;</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span> <span class="c1">--&gt; false   co.lua:2: Kabooom!</span>
-</code></pre></div><h3 id="wrapping-coroutines">Wrapping coroutines<a class="headerlink" href="#wrapping-coroutines" title="Permanent link">#</a></h3><p>As we already know, coroutines are implicitly running in <em>protected mode</em>. If there is a need to handle error with <code>pcall</code> or, <code>xpcall</code> coroutine can be wrapped with <code>coroutine.wrap()</code>.</p><p><code>coroutine.wrap</code> creates a new coroutine with the function <code>func</code> as its body; it <code>func</code>must be a valid function. The coroutine returns a function that resumes execution each time it is invoked. Any arguments passed to this returned function are treated as additional arguments for the resume operation. The function yields the same results as, <code>coroutine.resume</code> excluding the initial boolean value. If an error occurs, the coroutine is closed, and the error is propagated and can be caught with <code>pcall</code> or <code>xpcall</code>.</p><p>Consider:</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.wrap</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-    <span class="nb">error</span><span class="p">(</span><span class="s2">&quot;Kabooom!&quot;</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span> <span class="c1">--&gt; false   co.lua:2: Kabooom!</span>
-</code></pre></div><h3 id="arguments-in-the-coroutines-and-data-exchange">Arguments in the coroutines and data exchange<a class="headerlink" href="#arguments-in-the-coroutines-and-data-exchange" title="Permanent link">#</a></h3><p>Coroutines can receive any number of arguments like common functions.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
+<span class=kd>local</span> <span class=n>ok</span><span class=p>,</span> <span class=n>err</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>ok</span><span class=p>,</span> <span class=n>err</span><span class=p>)</span> <span class=c1>--> false    "cannot resume dead coroutine"</span>
+</code></pre></div><p>Illustration of coroutine lifecycle of the example above.<p><img alt="Illustration of coroutine lifecycle" src=/assets/img/coroutines01.svg><p><img alt="Coroutines working with main thread" src=/assets/img/coroutines02.svg><h3 id=error-handling-in-coroutines>Error handling in coroutines<a title="Permanent link" class=headerlink href=#error-handling-in-coroutines>#</a></h3><div class="admonition tip"><p class=admonition-title>Tip<p>It is always a good practice to check for the errors.</div><p>Execution of the coroutine happens in <em>protected mode</em>; this means if there is an error inside coroutine body nothing will be reported.<p>Consider:<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+    <span class=nb>error</span><span class=p>(</span><span class=s2>"Kabooom!"</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span>
+<span class=c1>-- nothing printed nor reported</span>
+</code></pre></div><p>Correct way to handle the errors in the coroutine.<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+    <span class=nb>error</span><span class=p>(</span><span class=s2>"Kabooom!"</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
+<span class=kd>local</span> <span class=n>ok</span><span class=p>,</span> <span class=n>err</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>ok</span><span class=p>,</span> <span class=n>err</span><span class=p>)</span> <span class=c1>--> false   co.lua:2: Kabooom!</span>
+</code></pre></div><h3 id=wrapping-coroutines>Wrapping coroutines<a title="Permanent link" class=headerlink href=#wrapping-coroutines>#</a></h3><p>As we already know, coroutines are implicitly running in <em>protected mode</em>. If there is a need to handle error with <code>pcall</code> or, <code>xpcall</code> coroutine can be wrapped with <code>coroutine.wrap()</code>.<p><code>coroutine.wrap</code> creates a new coroutine with the function <code>func</code> as its body; it <code>func</code>must be a valid function. The coroutine returns a function that resumes execution each time it is invoked. Any arguments passed to this returned function are treated as additional arguments for the resume operation. The function yields the same results as, <code>coroutine.resume</code> excluding the initial boolean value. If an error occurs, the coroutine is closed, and the error is propagated and can be caught with <code>pcall</code> or <code>xpcall</code>.<p>Consider:<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.wrap</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+    <span class=nb>error</span><span class=p>(</span><span class=s2>"Kabooom!"</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
+<span class=kd>local</span> <span class=n>ok</span><span class=p>,</span> <span class=n>err</span> <span class=o>=</span> <span class=nb>pcall</span><span class=p>(</span><span class=n>co</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>ok</span><span class=p>,</span> <span class=n>err</span><span class=p>)</span> <span class=c1>--> false   co.lua:2: Kabooom!</span>
+</code></pre></div><h3 id=arguments-in-the-coroutines-and-data-exchange>Arguments in the coroutines and data exchange<a title="Permanent link" class=headerlink href=#arguments-in-the-coroutines-and-data-exchange>#</a></h3><p>Coroutines can receive any number of arguments like common functions.<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span> 
+    <span class=nb>print</span><span class=p>(</span><span class=n>a</span> <span class=o>*</span> <span class=n>b</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
 
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="c1">--&gt; 42</span>
-</code></pre></div><p>Arguments also can be yielded <code>coroutine.yield()</code> returns status <code>true</code> in case of success, or <code>false</code> in case of an error inside a coroutine, after the status arguments follow the <code>coroutine.resume()</code> function.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="s2">&quot;The meaning of life is&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>)</span> <span class=c1>--> 42</span>
+</code></pre></div><p>Arguments also can be yielded <code>coroutine.yield()</code> returns status <code>true</code> in case of success, or <code>false</code> in case of an error inside a coroutine, after the status arguments follow the <code>coroutine.resume()</code> function.<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>co</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span>
+    <span class=nb>coroutine.yield</span><span class=p>(</span><span class=s2>"The meaning of life is"</span><span class=p>,</span> <span class=n>a</span> <span class=o>*</span> <span class=n>b</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
 
-<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ok</span><span class="p">)</span> <span class="c1">--&gt; &quot;The meaning of life is&quot;  42  true</span>
-</code></pre></div><h3 id="basic-example">Basic example<a class="headerlink" href="#basic-example" title="Permanent link">#</a></h3><p>Here is an artificial example, but it very well demonstrates how multiple coroutines are running simultaneously. Every coroutine has a delay number.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">heavyFunction</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">secondsDelay</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">start</span> <span class="o">=</span> <span class="nb">os.time</span><span class="p">()</span>
-    <span class="kr">while</span> <span class="p">(</span><span class="nb">os.time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">secondsDelay</span> <span class="kr">do</span>
-        <span class="c1">-- do nothing, loop just for a delay</span>
-    <span class="kr">end</span>
-    <span class="nb">print</span><span class="p">(</span>
-            <span class="nb">string.format</span><span class="p">(</span>
-                    <span class="s2">&quot;coroutine %d finshed after %d second(s)&quot;</span><span class="p">,</span>
-                    <span class="n">number</span><span class="p">,</span>
-                    <span class="n">secondsDelay</span>
-            <span class="p">)</span>
-    <span class="p">)</span>
-<span class="kr">end</span>
+<span class=kd>local</span> <span class=n>ok</span><span class=p>,</span> <span class=n>message</span><span class=p>,</span> <span class=n>value</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>message</span><span class=p>,</span> <span class=n>value</span><span class=p>,</span> <span class=n>ok</span><span class=p>)</span> <span class=c1>--> "The meaning of life is"  42  true</span>
+</code></pre></div><h3 id=basic-example>Basic example<a title="Permanent link" class=headerlink href=#basic-example>#</a></h3><p>Here is an artificial example, but it very well demonstrates how multiple coroutines are running simultaneously. Every coroutine has a delay number.<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>heavyFunction</span> <span class=o>=</span> <span class=kr>function</span><span class=p>(</span><span class=n>secondsDelay</span><span class=p>,</span> <span class=n>number</span><span class=p>)</span>
+    <span class=kd>local</span> <span class=n>start</span> <span class=o>=</span> <span class=nb>os.time</span><span class=p>()</span>
+    <span class=kr>while</span> <span class=p>(</span><span class=nb>os.time</span><span class=p>()</span> <span class=o>-</span> <span class=n>start</span><span class=p>)</span> <span class=o><</span> <span class=n>secondsDelay</span> <span class=kr>do</span>
+        <span class=c1>-- do nothing, loop just for a delay</span>
+    <span class=kr>end</span>
+    <span class=nb>print</span><span class=p>(</span>
+            <span class=nb>string.format</span><span class=p>(</span>
+                    <span class=s2>"coroutine %d finshed after %d second(s)"</span><span class=p>,</span>
+                    <span class=n>number</span><span class=p>,</span>
+                    <span class=n>secondsDelay</span>
+            <span class=p>)</span>
+    <span class=p>)</span>
+<span class=kr>end</span>
 
-<span class="kd">local</span> <span class="n">co1</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="n">heavyFunction</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">co2</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="n">heavyFunction</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">co3</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="n">heavyFunction</span><span class="p">)</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;returned to main thread&quot;</span><span class="p">)</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;returned to main thread&quot;</span><span class="p">)</span>
-<span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;returned to main thread&quot;</span><span class="p">)</span>
-<span class="c1">-- Output:</span>
-<span class="c1">-- coroutine 3 finished after 1 second(s)</span>
-<span class="c1">-- returned to main thread</span>
-<span class="c1">-- coroutine 2 finished after 2 second(s)</span>
-<span class="c1">-- returned to main thread</span>
-<span class="c1">-- coroutine 1 finished after 3 second(s)</span>
-<span class="c1">-- returned to main thread</span>
-</code></pre></div><h3 id="http-request-example">HTTP request example<a class="headerlink" href="#http-request-example" title="Permanent link">#</a></h3><p>Making the HTTP request with coroutine, for the example below <a href="https://github.com/lunarmodules/luasocket">LuaSocket</a> library is required to be installed.</p><div class="codehilite"><pre><span></span><code><span class="kd">local</span> <span class="n">http</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;socket.http&quot;</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://www.whoop.ee&quot;</span>
+<span class=kd>local</span> <span class=n>co1</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=n>heavyFunction</span><span class=p>)</span>
+<span class=kd>local</span> <span class=n>co2</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=n>heavyFunction</span><span class=p>)</span>
+<span class=kd>local</span> <span class=n>co3</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=n>heavyFunction</span><span class=p>)</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>"returned to main thread"</span><span class=p>)</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co2</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>"returned to main thread"</span><span class=p>)</span>
+<span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>co3</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>"returned to main thread"</span><span class=p>)</span>
+<span class=c1>-- Output:</span>
+<span class=c1>-- coroutine 3 finished after 1 second(s)</span>
+<span class=c1>-- returned to main thread</span>
+<span class=c1>-- coroutine 2 finished after 2 second(s)</span>
+<span class=c1>-- returned to main thread</span>
+<span class=c1>-- coroutine 1 finished after 3 second(s)</span>
+<span class=c1>-- returned to main thread</span>
+</code></pre></div><h3 id=http-request-example>HTTP request example<a title="Permanent link" class=headerlink href=#http-request-example>#</a></h3><p>Making the HTTP request with coroutine, for the example below <a href=https://github.com/lunarmodules/luasocket>LuaSocket</a> library is required to be installed.<div class=codehilite><pre><span></span><code><span class=kd>local</span> <span class=n>http</span> <span class=o>=</span> <span class=nb>require</span><span class=p>(</span><span class=s2>"socket.http"</span><span class=p>)</span>
+<span class=kd>local</span> <span class=n>URL</span> <span class=o>=</span> <span class=s2>"https://www.whoop.ee"</span>
 
-<span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span> <span class="ow">or</span> <span class="p">{}</span>
-    <span class="kd">local</span> <span class="n">body</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="o">#</span><span class="n">body</span><span class="p">)</span>
-<span class="kr">end</span><span class="p">)</span>
+<span class=kd>local</span> <span class=n>request</span> <span class=o>=</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>headers</span><span class=p>)</span>
+    <span class=n>headers</span> <span class=o>=</span> <span class=n>headers</span> <span class=ow>or</span> <span class=p>{}</span>
+    <span class=kd>local</span> <span class=n>body</span><span class=p>,</span> <span class=n>status</span> <span class=o>=</span> <span class=n>http</span><span class=p>.</span><span class=n>request</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
+    <span class=nb>coroutine.yield</span><span class=p>(</span><span class=n>status</span><span class=p>,</span> <span class=o>#</span><span class=n>body</span><span class=p>)</span>
+<span class=kr>end</span><span class=p>)</span>
 
-<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">URL</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ok</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span> <span class="c1">--&gt; true    200 7641</span>
-</code></pre></div><h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">#</a></h2><h3 id="producer-filter-consumer-pattern">Producer, filter, consumer pattern.<a class="headerlink" href="#producer-filter-consumer-pattern" title="Permanent link">#</a></h3><p>Pretty common pattern using coroutines: producer, filter, consumer. In this pattern there might be any number of filters between producer and consumer. Benefits of this approach are easy to maintain.</p><p><img alt="Producer, filter, consumer pattern with coroutines in Lua" src="/assets/img/coroutines03.svg"></p><div class="codehilite"><pre><span></span><code><span class="c1">---Some delay</span>
-<span class="c1">---@oaran seconds number</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
-    <span class="c1">-- Fox Unix-like</span>
-    <span class="nb">os.execute</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;sleep %d&quot;</span><span class="p">,</span> <span class="n">seconds</span><span class="p">))</span>
-    <span class="c1">-- For Windows</span>
-    <span class="c1">-- os.execute(string.format(&quot;timeout %d&quot;, seconds))</span>
-<span class="kr">end</span>
+<span class=kd>local</span> <span class=n>ok</span><span class=p>,</span> <span class=n>code</span><span class=p>,</span> <span class=n>length</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>request</span><span class=p>,</span> <span class=n>URL</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>ok</span><span class=p>,</span> <span class=n>code</span><span class=p>,</span> <span class=n>length</span><span class=p>)</span> <span class=c1>--> true    200 7641</span>
+</code></pre></div><h2 id=advanced>Advanced<a title="Permanent link" class=headerlink href=#advanced>#</a></h2><h3 id=producer-filter-consumer-pattern>Producer, filter, consumer pattern.<a title="Permanent link" class=headerlink href=#producer-filter-consumer-pattern>#</a></h3><p>Pretty common pattern using coroutines: producer, filter, consumer. In this pattern there might be any number of filters between producer and consumer. Benefits of this approach are easy to maintain.<p><img alt="Producer, filter, consumer pattern with coroutines in Lua" src=/assets/img/coroutines03.svg><div class=codehilite><pre><span></span><code><span class=c1>---Some delay</span>
+<span class=c1>---@oaran seconds number</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>sleep</span><span class=p>(</span><span class=n>seconds</span><span class=p>)</span>
+    <span class=c1>-- Fox Unix-like</span>
+    <span class=nb>os.execute</span><span class=p>(</span><span class=nb>string.format</span><span class=p>(</span><span class=s2>"sleep %d"</span><span class=p>,</span> <span class=n>seconds</span><span class=p>))</span>
+    <span class=c1>-- For Windows</span>
+    <span class=c1>-- os.execute(string.format("timeout %d", seconds))</span>
+<span class=kr>end</span>
 
-<span class="c1">---Pong producer</span>
-<span class="c1">---@return thread</span>
-<span class="kd">local</span> <span class="n">pong</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
-    <span class="kr">return</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-        <span class="nb">coroutine.yield</span><span class="p">(</span><span class="s2">&quot;pong&quot;</span><span class="p">)</span>
-    <span class="kr">end</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class=c1>---Pong producer</span>
+<span class=c1>---@return thread</span>
+<span class=kd>local</span> <span class=n>pong</span> <span class=o>=</span> <span class=kr>function</span><span class=p>()</span>
+    <span class=kr>return</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+        <span class=nb>coroutine.yield</span><span class=p>(</span><span class=s2>"pong"</span><span class=p>)</span>
+    <span class=kr>end</span><span class=p>)</span>
+<span class=kr>end</span>
 
-<span class="c1">---Ping producer</span>
-<span class="c1">---@return thread</span>
-<span class="kd">local</span> <span class="n">ping</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
-    <span class="kr">return</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-        <span class="nb">coroutine.yield</span><span class="p">(</span><span class="s2">&quot;ping&quot;</span><span class="p">)</span>
-    <span class="kr">end</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class=c1>---Ping producer</span>
+<span class=c1>---@return thread</span>
+<span class=kd>local</span> <span class=n>ping</span> <span class=o>=</span> <span class=kr>function</span><span class=p>()</span>
+    <span class=kr>return</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+        <span class=nb>coroutine.yield</span><span class=p>(</span><span class=s2>"ping"</span><span class=p>)</span>
+    <span class=kr>end</span><span class=p>)</span>
+<span class=kr>end</span>
 
-<span class="c1">---Filter adds &quot;ping|ping hit X&quot;</span>
-<span class="c1">---@param coPing function</span>
-<span class="c1">---@param coPong function</span>
-<span class="kd">local</span> <span class="n">hitsFilter</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">coPing</span><span class="p">,</span> <span class="n">coPong</span><span class="p">)</span>
-    <span class="kr">return</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
-        <span class="kd">local</span> <span class="n">hit</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
-            <span class="n">hit</span> <span class="o">=</span> <span class="n">hit</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="kd">local</span> <span class="n">_</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">coPing</span><span class="p">())</span>
-            <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">x</span> <span class="o">..</span> <span class="s2">&quot; hit &quot;</span> <span class="o">..</span> <span class="n">hit</span><span class="p">)</span>
-            <span class="n">hit</span> <span class="o">=</span> <span class="n">hit</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">_</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">coPong</span><span class="p">())</span>
-            <span class="nb">coroutine.yield</span><span class="p">(</span><span class="n">x</span> <span class="o">..</span> <span class="s2">&quot; hit &quot;</span> <span class="o">..</span> <span class="n">hit</span><span class="p">)</span>
-            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="kr">end</span>
-    <span class="kr">end</span><span class="p">)</span>
-<span class="kr">end</span>
+<span class=c1>---Filter adds "ping|ping hit X"</span>
+<span class=c1>---@param coPing function</span>
+<span class=c1>---@param coPong function</span>
+<span class=kd>local</span> <span class=n>hitsFilter</span> <span class=o>=</span> <span class=kr>function</span><span class=p>(</span><span class=n>coPing</span><span class=p>,</span> <span class=n>coPong</span><span class=p>)</span>
+    <span class=kr>return</span> <span class=nb>coroutine.create</span><span class=p>(</span><span class=kr>function</span><span class=p>()</span>
+        <span class=kd>local</span> <span class=n>hit</span> <span class=o>=</span> <span class=mi>0</span>
+        <span class=kr>while</span> <span class=kc>true</span> <span class=kr>do</span>
+            <span class=n>hit</span> <span class=o>=</span> <span class=n>hit</span> <span class=o>+</span> <span class=mi>1</span>
+            <span class=kd>local</span> <span class=n>_</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>coPing</span><span class=p>())</span>
+            <span class=nb>coroutine.yield</span><span class=p>(</span><span class=n>x</span> <span class=o>..</span> <span class=s2>" hit "</span> <span class=o>..</span> <span class=n>hit</span><span class=p>)</span>
+            <span class=n>hit</span> <span class=o>=</span> <span class=n>hit</span> <span class=o>+</span> <span class=mi>1</span>
+            <span class=n>sleep</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+            <span class=n>_</span><span class=p>,</span> <span class=n>x</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>coPong</span><span class=p>())</span>
+            <span class=nb>coroutine.yield</span><span class=p>(</span><span class=n>x</span> <span class=o>..</span> <span class=s2>" hit "</span> <span class=o>..</span> <span class=n>hit</span><span class=p>)</span>
+            <span class=n>sleep</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+        <span class=kr>end</span>
+    <span class=kr>end</span><span class=p>)</span>
+<span class=kr>end</span>
 
-<span class="c1">---Play consumer</span>
-<span class="c1">---@param filter thread</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">play</span><span class="p">(</span><span class="n">filter</span><span class="p">)</span>
-    <span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
-        <span class="kd">local</span> <span class="n">_</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">filter</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="kr">end</span>
-<span class="kr">end</span>
+<span class=c1>---Play consumer</span>
+<span class=c1>---@param filter thread</span>
+<span class=kd>local</span> <span class=kr>function</span> <span class=nf>play</span><span class=p>(</span><span class=n>filter</span><span class=p>)</span>
+    <span class=kr>while</span> <span class=kc>true</span> <span class=kr>do</span>
+        <span class=kd>local</span> <span class=n>_</span><span class=p>,</span> <span class=n>s</span> <span class=o>=</span> <span class=nb>coroutine.resume</span><span class=p>(</span><span class=n>filter</span><span class=p>)</span>
+        <span class=nb>print</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+    <span class=kr>end</span>
+<span class=kr>end</span>
 
-<span class="c1">---Run</span>
-<span class="n">play</span><span class="p">(</span><span class="n">hitsFilter</span><span class="p">(</span><span class="n">ping</span><span class="p">,</span> <span class="n">pong</span><span class="p">))</span>
-<span class="c1">-- Output every second:</span>
-<span class="c1">-- ping hit 1</span>
-<span class="c1">-- pong hit 2</span>
-<span class="c1">-- ping hit 3</span>
-<span class="c1">-- pong hit 4</span>
-<span class="c1">-- etc..</span>
-</code></pre></div><h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2><ul><li><a href="https://www.lua.org/pil/9.1.html">Programming in Lua: Coroutine Basics</a></li><li><a href="https://www.lua.org/manual/5.4/manual.html#2.6">Lua Manual: Coroutines</a></li></ul><h2>Feedback</h2><p>For feedback, please check the <a href="/me/">contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</p></article><a href="/">&larr; Back to the index page</a></main><footer><hr><p>(c) 2022-2025 <a href="/me/">xdknight</a> Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell blog engine.</p><p>Any images on this website may be used, copied and redistributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p><p>Any code on this website may be used, copied and redistributed under the <a href="https://opensource.org/license/MIT">MIT</a> license.</p><p>This website does not use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of JavaScript.</p></footer></body></html>
+<span class=c1>---Run</span>
+<span class=n>play</span><span class=p>(</span><span class=n>hitsFilter</span><span class=p>(</span><span class=n>ping</span><span class=p>,</span> <span class=n>pong</span><span class=p>))</span>
+<span class=c1>-- Output every second:</span>
+<span class=c1>-- ping hit 1</span>
+<span class=c1>-- pong hit 2</span>
+<span class=c1>-- ping hit 3</span>
+<span class=c1>-- pong hit 4</span>
+<span class=c1>-- etc..</span>
+</code></pre></div><h2 id=references>References<a title="Permanent link" class=headerlink href=#references>#</a></h2><ul><li><a href=https://www.lua.org/pil/9.1.html>Programming in Lua: Coroutine Basics</a><li><a href=https://www.lua.org/manual/5.4/manual.html#2.6>Lua Manual: Coroutines</a></ul><h2>Feedback</h2><p>For feedback, please check the <a href=/me/>contacts</a> section. Before writing, please specify where you came from and who you are. Sometimes spammers go insane. Thank you in advance for your understanding.</article><a href=/>← Back to the index page</a></main><footer><hr><p>(c) 2022-2025 <a href=/me/>xdknight</a> Powered by <a href=https://github.com/hmngwy/jenny>Jenny</a> shell blog engine.<p>Any images on this website may be used, copied and redistributed under the <a href=https://creativecommons.org/licenses/by/4.0/>CC BY 4.0</a> license.<p>Any code on this website may be used, copied and redistributed under the <a href=https://opensource.org/license/MIT>MIT</a> license.<p>This website does not use cookies or any tracking techniques either. Also, this page is fully accessible, responsive, and readable on any device without a single line of JavaScript.</footer>
