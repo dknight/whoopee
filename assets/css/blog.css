@@ -133,7 +133,7 @@ main {
 
 h1 {
   color: var(--color-pri);
-  font: normal 2rem/1 var(--display-font), monospace;
+  font: normal 2rem/1.25 var(--display-font), monospace;
   margin: 2ch 0 1ch;
   text-wrap: balance;
 }
@@ -220,7 +220,7 @@ hr {
 blockquote {
   border-left: 0.25rem solid var(--color-border);
   padding: 0 0 0 2ch;
-  margin: 0;
+  margin: 0 0 0 4ch;
   ul {
     font-style: normal;
   }
@@ -408,7 +408,7 @@ img {
 
 footer {
   margin-top: 4ch;
-  font: normal 1rem var(--display-font), monospace;
+  font: normal 1.25rem/1.25 var(--display-font), monospace;
 }
 
 /* ================================ MEDIAS ================================= */
