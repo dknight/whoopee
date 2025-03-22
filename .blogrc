@@ -43,14 +43,6 @@ function post_hook() {
 		"$DIST/assets/css/blog.css" \
 		"$DIST/assets/css/borland.css" \
 		"$DIST/assets/css/native.css"
-	echo "Making favicon..."
-	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
-
-	echo "robots.txt"
-	mv "$DIST/assets/robots.txt" "$DIST"
-
-	# shortlinks emulation
-	cp -ru "$DIST/assets/laura" "$DIST"
 
 	if [[ -n "$MIN" ]]; then
 		echo "Minifying HTML..."
@@ -61,4 +53,13 @@ function post_hook() {
 		  --keep-spaces-between-attributes \
 		  --output {} {} \;
 	fi
+
+		echo "Making favicon..."
+  	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
+
+  	echo "Making robots.txt..."
+  	mv "$DIST/assets/robots.txt" "$DIST"
+
+  	echo "Making short-links emulation..."
+  	cp -ru "$DIST/assets/laura" "$DIST"
 }
