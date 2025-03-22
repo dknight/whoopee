@@ -133,8 +133,8 @@ cat << _EOF_
   <body>
     $(source ./layout/header.sh)
     <main>
-    $(to_index)
-      <nav class="tags" aria-labelledby="tags-title>
+      $(to_index)
+      <nav class="tags" aria-labelledby="tags-title">
         <strong id="tags-title">Tags:</strong>
         $(taglink "lua")
         $(taglink "c")
