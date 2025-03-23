@@ -47,7 +47,7 @@ pacman -S parted unetbootin
   <blockquote>Warning: The existing disk label on /dev/sdb will be destroyed and all data on<br>
   this disk will be lost. Do you want to continue?<br>
   Yes/No? yes<br>
-  New disk label type? \[freedos\]?<br>
+  New disk label type? [freedos]?<br>
   Information: Don't forget to update /etc/fstab, if necessary.</blockquote>
 
 3.  `sudo parted /dev/sdb print` display partition table.
