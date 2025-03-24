@@ -226,6 +226,12 @@ blockquote {
   }
 }
 
+video {
+  border: thin solid var(--color-border);
+  outline: thin solid var(--color-border);
+  outline-offset: .125rem;
+}
+
 /* TODO use when migrated to DOS font */
 ul li::marker {
   /*content: "*";*/
