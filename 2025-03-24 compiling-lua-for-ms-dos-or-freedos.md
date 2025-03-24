@@ -1,6 +1,6 @@
 <!-- Description: A step-by-step guide how to compile the Lua programming language interpreter for MS-DOS or FreeDOS. -->
 
-tags: lua
+tags: lua misc
 
 # Compiling Lua for MS-DOS/FreeDOS
 

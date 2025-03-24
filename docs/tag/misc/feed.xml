@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/compiling-lua-for-ms-dos-or-freedos.html</guid>
+  <title>Compiling Lua for MS-DOS/FreeDOS</title>
+  <link>https://www.whoop.eepost/compiling-lua-for-ms-dos-or-freedos.html</link>
+  <description>A step-by-step guide how to compile the Lua programming language interpreter for MS-DOS or FreeDOS. </description>
+  <pubDate>Mon, 24 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/how-to-create-bootable-freedos-usb-flash-drive-from-linux.html</guid>
   <title>A Step-by-Step Guide to Creating a Bootable FreeDOS Flash Drive with a Live CD</title>
   <link>https://www.whoop.eepost/how-to-create-bootable-freedos-usb-flash-drive-from-linux.html</link>
