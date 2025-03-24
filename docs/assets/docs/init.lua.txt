@@ -69,6 +69,8 @@ local plugins = {
 	"dhruvasagar/vim-table-mode",
 	"flazz/vim-colorschemes",
 	"neoclide/coc.nvim",
+	"neoclide/coc.nvim",
+	"nvim-treesitter/nvim-treesitter", 	--TSInstall c lua vim vimdoc markdown
 }
 
 -- Setup lazy.nvim

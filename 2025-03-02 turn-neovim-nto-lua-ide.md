@@ -388,6 +388,21 @@ vim.keymap.set("i", "jk", "<Esc>")
 -- Setup LSP (code truncated)
 ```
 
+## Step 11 (optional): nvim-treesitter
+
+Shortly. Syntax highlighting on steroids. [Treesitter](https://github.com/tree-sitter/tree-sitter) and [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) highlighting are an experimental feature of Neovim. Please consider the experience with this plug-in as experimental until Tree-Sitter support in Neovim is stable! We recommend using the nightly builds of Neovim if possible.
+
+Add it to `plugins table`
+
+```lua
+local plugins = {
+    -- ... rest of the plugins from previous sections ...
+    "nvim-treesitter/nvim-treesitter",
+}
+```
+
+To install parsers in NeoVim: `:TSInstall c lua vim vimdoc markdown`
+
 Download complete [`init.lua`](/assets/docs/init.lua.txt) file.
 
 ## More Tips to Become a Vim/NeoVim Master
