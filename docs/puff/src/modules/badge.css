@@ -1,5 +1,0 @@
-.badge {
-  border-radius: var(--br);
-  color: var(--c-bg);
-  padding: calc(var(--s) / 4) var(--s);
-}

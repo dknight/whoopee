@@ -47,10 +47,7 @@ function post_hook() {
 	if [[ -n "$MIN" ]]; then
 		echo "Minifying HTML..."
 		find "$DIST" -type f -name "*.html" -exec minhtml \
-		  --do-not-minify-doctype \
-		  --ensure-spec-compliant-unquoted-attribute-values \
 		  --keep-html-and-head-opening-tags \
-		  --keep-spaces-between-attributes \
 		  --output {} {} \;
 	fi
 
