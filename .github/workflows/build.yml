@@ -41,5 +41,8 @@ jobs:
       - name: Make jenny to work
         run: cd jenny && sudo make install
       - name: Build
-        run: MIN=1 jenny
+        run: |
+          pwd
+          ls -la
+          MIN=1 jenny
 
