@@ -48,6 +48,11 @@ jobs:
           cd ../blog
           jenny
           ls -la docs
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled_output
+          path: blog/docs
   deploy:
     needs: build
     environment:
@@ -55,20 +60,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
         with:
-          path: 'blog'
-      - name: check1
-        run: |
-          pwd
-          ls -la blog
+          name: compiled_output
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: blog/docs
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
