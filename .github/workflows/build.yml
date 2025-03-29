@@ -45,5 +45,6 @@ jobs:
           pwd
           cd ..
           pwd
+          ls -la
           MIN=1 jenny
 
