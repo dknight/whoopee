@@ -42,12 +42,7 @@ jobs:
         run: cd jenny && sudo make install
       - name: Build
         run: |
-          pwd
-          cd ..
-          pwd
-          ls -la
-          cd ..
-          pwd
-          ls -la
+          echo "$GITHUB_WORKSPACE"
+          cd "$GITHUB_WORKSPACE"
           MIN=1 jenny
 
