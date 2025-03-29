@@ -46,8 +46,9 @@ jobs:
           python-version: '3.13'
       - name: Install Python stuff
         run: |
+          python -m ensurepip --upgrade
           python -m pip install --upgrade pip
-          pip install markdown
+          python -m pip install markdown
       - name: Build
         run: |
           cd jenny && sudo make install
