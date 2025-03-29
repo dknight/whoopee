@@ -67,10 +67,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Deploy to GitHub Pages
