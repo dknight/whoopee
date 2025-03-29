@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/binary-tree.html</guid>
+  <title>Binary tree</title>
+  <link>https://www.whoop.eepost/binary-tree.html</link>
+  <description>Definitive guide and implementation of the binary tree in Lua language. Binary is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. </description>
+  <pubDate>Sat, 29 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/polygons-and-rectangles-intersection.html</guid>
   <title>Polygons and rectangles intersection</title>
   <link>https://www.whoop.eepost/polygons-and-rectangles-intersection.html</link>

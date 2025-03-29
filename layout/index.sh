@@ -9,7 +9,7 @@ function count_posts_by_year() {
   count=0
   for (( idx=${#posts[@]}-1 ; idx>=0 ; idx-- )); do
     eval "${posts[idx]}"
-    year=$(date +%Y --date "$POST_DATE")
+    year=$(date +%Y --date "$POST_DATE_RFC822")
     if [ "$year" == "$1" ]; then
       count=$(( count + 1 ))
     fi
@@ -21,7 +21,7 @@ function index_loop() {
   for (( idx=${#posts[@]}-1 ; idx>=0 ; idx-- )) ; do
     if [ "${posts[idx]}" ]; then
       eval "${posts[idx]}"
-      if [ "$YEAR" = "$(date +%Y --date="$POST_DATE")" ]; then
+      if [ "$YEAR" = "$(date +%Y --date="$POST_DATE_RFC822")" ]; then
          list_item "$1"
       fi
     fi
@@ -37,7 +37,7 @@ function list_item() {
     if [[ $(is_skipped) = 1 ]]; then
         return
     fi
-  DATE=$(date -d "$POST_DATE" +%Y-%m-%d)
+  DATE=$(date -d "$POST_DATE_RFC822" +%Y-%m-%d)
 cat << _LOOP_
   <li>
     <time datetime="$DATE">$DATE</time>
@@ -190,7 +190,7 @@ if [[ -z "$TAGNAME" ]]; then
       tags="$tags $TAGS"
       sitemap="$sitemap\t<url>\n"
       sitemap="$sitemap\t\t<loc>${BLOG_HOST}${POST_URL/"./.."/}</loc>\n"
-      sitemap="$sitemap\t\t<lastmod>${POST_DATE//\//-}</lastmod>\n"
+      sitemap="$sitemap\t\t<lastmod>${POST_DATE_RFC822//\//-}</lastmod>\n"
       sitemap="$sitemap\t</url>\n"
     fi
   done

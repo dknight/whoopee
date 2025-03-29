@@ -17,6 +17,7 @@
   --color6: #a50;
   --color6b: #aa0;
   --color7: #aaa;
+  --color7-custom: #ccc; /* better contrast */
   --color8: #555;
   --color9: #55f;
   --color10: #5f5;
@@ -28,7 +29,7 @@
 
   --display-font: "Perfect_DOS_VGA_437";
   --color-bg: light-dark(var(--color15), var(--color0));
-  --color-text: light-dark(var(--color0), var(--color7));
+  --color-text: light-dark(var(--color0), var(--color7-custom));
   --color-pri: light-dark(var(--color1), var(--color10));
   --color-code: light-dark(var(--color15), var(--color0));
   --color-border: var(--color3);
@@ -86,13 +87,38 @@ header {
 
   a {
     padding: 1ch;
+
     &:link, &:visited {
       color: light-dark(var(--color5), var(--color13));
       text-decoration: none;
     }
+
+    &.active,
     &:hover {
       background-color: light-dark(var(--color5), var(--color13));
-      color: var(--color0);
+      color: light-dark(var(--color15), var(--color0));
+    }
+
+    &.mainmenu-rss {
+      &:is(:link, :visited) {
+        color: light-dark(var(--color6), var(--color6b));
+      }
+      &.active,
+      &:hover {
+        background-color: light-dark(var(--color6), var(--color6b));
+        color: light-dark(var(--color15), var(--color0));
+      }
+    }
+
+    &.mainmenu-toolbox {
+      &:is(:link, :visited) {
+        color: light-dark(var(--color1), var(--color9));
+      }
+      &.active,
+      &:hover {
+        background-color: light-dark(var(--color1), var(--color9));
+        color: light-dark(var(--color15), var(--color0));
+      }
     }
   }
 }
@@ -172,7 +198,12 @@ h6 {
   color: light-dark(var(--color6), var(--color13));
 }
 
+
 a {
+  &:not(:is(:hover, :focus)) {
+    text-decoration-color: color-mix(in srgb, currentColor, transparent 50%);
+    text-underline-offset: 2px;
+  }
   &:link {
     color: light-dark(var(--color1), var(--color11));
     text-underline-offset: 0.1875rem;

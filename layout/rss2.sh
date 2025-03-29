@@ -18,7 +18,7 @@ function list_item {
   fi
   NORM_POST_URL="${POST_URL/.\/..\//}"
   POST_CONTENTS=$(cat "./docs/$NORM_POST_URL")
-  PUBDATE=$(date -Rd "$POST_DATE")
+  PUBDATE=$(date -Rd "$POST_DATE_RFC822")
 cat << _LOOP_
 <item>
   <guid>$BLOG_HOST$NORM_POST_URL</guid>

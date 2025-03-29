@@ -6,6 +6,13 @@
   <description>Explore the power and versatility of Lua programming language. From beginner tutorials to advanced techniques. From beginner tutorials to advanced techniques, dive into Lua's elegant syntax and discover its applications in game development, scripting, embedded software and more. Also some useful stuff for web-development.</description>
   <atom:link href="https://www.whoop.ee/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+  <guid>https://www.whoop.eepost/binary-tree.html</guid>
+  <title>Binary tree</title>
+  <link>https://www.whoop.eepost/binary-tree.html</link>
+  <description>Definitive guide and implementation of the binary tree in Lua language. Binary is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. </description>
+  <pubDate>Sat, 29 Mar 2025 00:00:00 +0200</pubDate>
+</item>
+<item>
   <guid>https://www.whoop.eepost/compiling-lua-for-ms-dos-or-freedos.html</guid>
   <title>Compiling Lua for MS-DOS/FreeDOS</title>
   <link>https://www.whoop.eepost/compiling-lua-for-ms-dos-or-freedos.html</link>
@@ -143,6 +150,13 @@
   <title>Lua Syntax Cheat Sheet (Short Version)</title>
   <link>https://www.whoop.eepost/lua-syntax-cheat-sheet.html</link>
   <description>Very brief syntax cheat sheet of Lua language syntax. Download PDF of Lua cheat sheet. </description>
+  <pubDate>Mon, 24 Jun 2024 00:00:00 +0300</pubDate>
+</item>
+<item>
+  <guid>https://www.whoop.eepost/graph.html</guid>
+  <title>Graph</title>
+  <link>https://www.whoop.eepost/graph.html</link>
+  <description>Definitive guide and implementation of the graphs in Lua language. Graph is one of the most important data structures, used in different kinds of advanced algorithms, like pathfinding, detecting cycles, logistics, maps, etc. </description>
   <pubDate>Mon, 24 Jun 2024 00:00:00 +0300</pubDate>
 </item>
 <item>

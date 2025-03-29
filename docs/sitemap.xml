@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://www.whoop.ee</loc>
-		<lastmod>2025-03-25</lastmod>
+		<lastmod>2025-03-29</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/me/</loc>
@@ -13,235 +13,203 @@
 		<lastmod>2024-06-17</lastmod>
 	</url>
 	<url>
+		<loc>https://www.whoop.ee/post/lua-toolbox.html</loc>
+		<lastmod>Sat, 29 Mar 2025 00:00:00 +0200</lastmod>
+	</url>
+	<url>
+		<loc>https://www.whoop.ee/post/binary-tree.html</loc>
+		<lastmod>Sat, 29 Mar 2025 00:00:00 +0200</lastmod>
+	</url>
+	<url>
 		<loc>https://www.whoop.ee/post/compiling-lua-for-ms-dos-or-freedos.html</loc>
-		<lastmod>2025-03-24</lastmod>
+		<lastmod>Mon, 24 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/how-to-create-bootable-freedos-usb-flash-drive-from-linux.html</loc>
-		<lastmod>2025-03-23</lastmod>
+		<lastmod>Sun, 23 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/polygons-and-rectangles-intersection.html</loc>
-		<lastmod>2025-03-19</lastmod>
+		<lastmod>Wed, 19 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/strictly-typed-lua.html</loc>
-		<lastmod>2025-03-11</lastmod>
+		<lastmod>Tue, 11 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/testing-multiple-lua-versions-with-laura-and-github-actions.html</loc>
-		<lastmod>2025-03-09</lastmod>
+		<lastmod>Sun, 09 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/printing-a-table-in-lua-tutorial.html</loc>
-		<lastmod>2025-03-06</lastmod>
+		<lastmod>Thu, 06 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/hot-to-quit-vim-and-neovim.html</loc>
-		<lastmod>2025-03-03</lastmod>
+		<lastmod>Mon, 03 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/turn-neovim-nto-lua-ide.html</loc>
-		<lastmod>2025-03-02</lastmod>
+		<lastmod>Sun, 02 Mar 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/iterators.html</loc>
-		<lastmod>2025-02-24</lastmod>
+		<lastmod>Mon, 24 Feb 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/how-to-split-string-in-lua.html</loc>
-		<lastmod>2025-02-18</lastmod>
+		<lastmod>Tue, 18 Feb 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/understanding-coroutines.html</loc>
-		<lastmod>2025-01-24</lastmod>
+		<lastmod>Fri, 24 Jan 2025 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/monocrome-1-bit-image-parsing.html</loc>
-		<lastmod>2024-11-11</lastmod>
+		<lastmod>Mon, 11 Nov 2024 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/using-lua-command-line-client-cli.html</loc>
-		<lastmod>2024-11-07</lastmod>
+		<lastmod>Thu, 07 Nov 2024 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/what-are-lua-chunk.html</loc>
-		<lastmod>2024-11-06</lastmod>
+		<lastmod>Wed, 06 Nov 2024 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/how-does-the-hree-dots-parameter-work-in-lua.html</loc>
-		<lastmod>2024-10-21</lastmod>
+		<lastmod>Mon, 21 Oct 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/bitwise-operations.html</loc>
-		<lastmod>2024-10-12</lastmod>
+		<lastmod>Sat, 12 Oct 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/logic-in-lua.html</loc>
-		<lastmod>2024-10-08</lastmod>
+		<lastmod>Tue, 08 Oct 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/laura-unit-testing-framework-for-lua.html</loc>
-		<lastmod>2024-10-05</lastmod>
+		<lastmod>Sat, 05 Oct 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/string-buffers-in-lua.html</loc>
-		<lastmod>2024-08-14</lastmod>
+		<lastmod>Wed, 14 Aug 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/binary-search-algorithm.html</loc>
-		<lastmod>2024-08-05</lastmod>
+		<lastmod>Mon, 05 Aug 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/a-definitive-guide-for-compiling-lua-from-source-code.html</loc>
-		<lastmod>2024-07-11</lastmod>
+		<lastmod>Thu, 11 Jul 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/single-vs-double-quotes-in-lua.html</loc>
-		<lastmod>2024-07-06</lastmod>
+		<lastmod>Sat, 06 Jul 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/lua-syntax-cheat-sheet.html</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>Mon, 24 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/love-profiler.html</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>Mon, 24 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/graph.html</loc>
-		<lastmod>2024-06-24</lastmod>
+		<lastmod>Mon, 24 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/rounding-to-the-step.html</loc>
-		<lastmod>2024-06-21</lastmod>
+		<lastmod>Fri, 21 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/puff-css-framework.html</loc>
-		<lastmod>2024-06-17</lastmod>
+		<lastmod>Mon, 17 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/html-modern-native-dialog.html</loc>
-		<lastmod>2024-06-17</lastmod>
+		<lastmod>Mon, 17 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/get-rid-of-impostor-syndrome-in-60-seconds.html</loc>
-		<lastmod>2024-06-16</lastmod>
+		<lastmod>Sun, 16 Jun 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/priority-queue.html</loc>
-		<lastmod>2024-05-27</lastmod>
+		<lastmod>Mon, 27 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/variety-of-linked-lists.html</loc>
-		<lastmod>2024-05-21</lastmod>
+		<lastmod>Tue, 21 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/tuple.html</loc>
-		<lastmod>2024-05-20</lastmod>
+		<lastmod>Mon, 20 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/set.html</loc>
-		<lastmod>2024-05-20</lastmod>
+		<lastmod>Mon, 20 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/circular-doubly-linked-list.html</loc>
-		<lastmod>2024-05-19</lastmod>
+		<lastmod>Sun, 19 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/doubly-linked-list.html</loc>
-		<lastmod>2024-05-16</lastmod>
+		<lastmod>Thu, 16 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/circular-linked-list.html</loc>
-		<lastmod>2024-05-15</lastmod>
+		<lastmod>Wed, 15 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/linked-list.html</loc>
-		<lastmod>2024-05-13</lastmod>
+		<lastmod>Mon, 13 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/list.html</loc>
-		<lastmod>2024-05-11</lastmod>
+		<lastmod>Sat, 11 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/arctangent-function-in-lua.html</loc>
-		<lastmod>2024-05-10</lastmod>
+		<lastmod>Fri, 10 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/types-in-lua-references-vs-values.html</loc>
-		<lastmod>2024-05-09</lastmod>
+		<lastmod>Thu, 09 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/deque-or-double-ended-queue.html</loc>
-		<lastmod>2024-05-09</lastmod>
+		<lastmod>Thu, 09 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/queue.html</loc>
-		<lastmod>2024-05-08</lastmod>
+		<lastmod>Wed, 08 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/stack.html</loc>
-		<lastmod>2024-05-06</lastmod>
+		<lastmod>Mon, 06 May 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/object-oriented-programming-in-lua.html</loc>
-		<lastmod>2024-04-30</lastmod>
+		<lastmod>Tue, 30 Apr 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/stylua-opinionated-code-formatter-for-lua.html</loc>
-		<lastmod>2024-04-25</lastmod>
+		<lastmod>Thu, 25 Apr 2024 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/lua-cheatsheet.html</loc>
-		<lastmod>2024-01-05</lastmod>
+		<lastmod>Fri, 05 Jan 2024 00:00:00 +0200</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/info-warn-error.html</loc>
-		<lastmod>2022-06-01</lastmod>
+		<lastmod>Wed, 01 Jun 2022 00:00:00 +0300</lastmod>
 	</url>
 	<url>
 		<loc>https://www.whoop.ee/post/getting-started-with-lua.html</loc>
-		<lastmod>2022-05-30</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/algorithms/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/beginner/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/c/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/data-structures/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/gamedev/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/humor/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/love2d/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/lua/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/misc/</loc>
-		<lastmod>2025-03-25</lastmod>
-	</url>
-	<url>
-		<loc>https://www.whoop.ee/tag/web/</loc>
-		<lastmod>2025-03-25</lastmod>
+		<lastmod>Mon, 30 May 2022 00:00:00 +0300</lastmod>
 	</url>
 </urlset>
