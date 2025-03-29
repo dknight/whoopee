@@ -44,12 +44,10 @@ function post_hook() {
 		"$DIST/assets/css/borland.css" \
 		"$DIST/assets/css/native.css"
 
-	if [[ -n "$MIN" ]]; then
 		echo "Minifying HTML..."
 		find "$DIST" -type f -name "*.html" -exec minhtml \
 		  --keep-html-and-head-opening-tags \
 		  --output {} {} \;
-	fi
 
 		echo "Making favicon..."
   	mv "$DIST/assets/favicon.ico" "$DIST/favicon.ico"
