@@ -48,6 +48,7 @@ jobs:
           MIN=1 jenny
           ls -la docs
   deploy:
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
