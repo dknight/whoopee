@@ -190,7 +190,7 @@ if [[ -z "$TAGNAME" ]]; then
       tags="$tags $TAGS"
       sitemap="$sitemap\t<url>\n"
       sitemap="$sitemap\t\t<loc>${BLOG_HOST}${POST_URL/"./.."/}</loc>\n"
-      sitemap="$sitemap\t\t<lastmod>${POST_DATE_RFC822}</lastmod>\n"
+      sitemap="$sitemap\t\t<lastmod>$(date -d "${POST_DATE_RFC822//\//-}" +%Y-%m-%d)</lastmod>\n"
       sitemap="$sitemap\t</url>\n"
     fi
   done
