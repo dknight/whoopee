@@ -28,11 +28,6 @@ jobs:
         run: |
           cargo install minhtml
           cargo install lightningcss@1.0.0-alpha.65 --features="cli"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13' 
       - name: Install Python stuff
-        run: |
-          pip install markdown
-          python -c "import sys; print(sys.version)"
+        run: pip install markdown
       - uses: hmngwy/jenny@master
