@@ -55,14 +55,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: check1
+      - run: |
+          pwd
+          ls -la
       - name: Checkout
         uses: actions/checkout@v4
         with:
           path: 'blog'
-      - name: check
+      - name: check2
         run: |
           pwd
-          ls -la
+          ls -la blog
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
