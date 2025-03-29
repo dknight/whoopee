@@ -43,7 +43,7 @@ jobs:
           path: 'jenny'
       - name: Build
         run: |
-          pwd
-          ls -la
+          cd jenny && sudo make install
+          cd ../blog
           MIN=1 jenny
 
