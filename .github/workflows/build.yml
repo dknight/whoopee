@@ -43,6 +43,7 @@ jobs:
       - name: Build
         run: |
           pwd
-          ls -la
+          cd ..
+          pwd
           MIN=1 jenny
 
