@@ -54,7 +54,6 @@ jobs:
           cd jenny && sudo make install
           cd ../blog
           jenny
-          ls -la docs
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
