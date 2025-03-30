@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: blog/docs
+          path: docs
   deploy:
     needs: build
     environment:
