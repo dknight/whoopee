@@ -48,6 +48,7 @@ jobs:
         run: |
           python -m ensurepip --upgrade
           python -m pip install --upgrade pip
+          python -m pip install pygments
           python -m pip install markdown
       - name: Build
         run: |
