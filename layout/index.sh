@@ -195,7 +195,9 @@ if [[ -z "$TAGNAME" ]]; then
     fi
   done
 
+  # FIXME tags are received, the most probably jenny's bug.
   # Tags
+  tags="lua c beginner data-structures algorithms web gamedev love2d humor misc"
   tags=$(echo $tags | tr " " "\n" | sort -u)
   for tag in $tags; do
     sitemap="$sitemap\t<url>\n"
