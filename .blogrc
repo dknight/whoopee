@@ -15,7 +15,6 @@ LAYOUT_DIR="layout"
 
 # Use a custom Markdown command
 MARKDOWN_COMMAND="python -m markdown \
-	--extension_configs=mdconfig.yml \
 	-x fenced_code \
 	-x codehilite \
 	-x tables \
