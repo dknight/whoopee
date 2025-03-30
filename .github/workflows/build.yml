@@ -59,11 +59,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'dknight/css-modern-dialog'
-          path: 'docs/css-modern-dialog'
+          path: 'blog/docs/css-modern-dialog'
       - uses: actions/checkout@v4
         with:
           repository: 'dknight/puff'
-          path: 'docs/puff'
+          path: 'blog/docs/puff'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
