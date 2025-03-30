@@ -7,6 +7,9 @@ A curated list of useful links related to the Lua programming language. I regula
 - [lua.org](https://www.lua.org): The official Lua website.
 - [Lua 5.4.7 Manual](https://www.lua.org/manual/5.4/): Official documentation for Lua 5.4.7.
 - [Selene](https://kampfkarren.github.io/selene/selene.html#selene): A command-line tool for writing correct and idiomatic Lua code.
+- [Roblox Lua Style Guide](https://roblox.github.io/lua-style-guide/): Roblox's Lua coding style is unique and well-structured. While coding styles are often personal and distinctive, I really like Roblox's approach and highly recommend it.
+- [Lua Language Server](https://github.com/LuaLS/lua-language-server): Language Server Protocol for Lua.
+- [Lua Unofficial FAQ (uFAQ)](https://www.luafaq.org/)
 
 ## Game Development
 
