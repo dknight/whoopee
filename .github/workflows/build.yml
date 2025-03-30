@@ -43,7 +43,7 @@ jobs:
           cargo install lightningcss@1.0.0-alpha.65 --features="cli"
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.13.2'
       - name: Install Python stuff
         run: |
           python -m ensurepip --upgrade
@@ -65,7 +65,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latestpip
+    runs-on: ubuntu-latest
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
