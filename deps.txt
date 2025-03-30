@@ -1,4 +1,0 @@
-https://github.com/dknight/jenny
-sudo dnf install python3-markdown
-cargo install minhtml
-cargo install lightningcss@1.0.0-alpha.65 --features="cli"
