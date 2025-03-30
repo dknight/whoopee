@@ -56,6 +56,14 @@ jobs:
           cd ../blog
           jenny
           ls -la docs
+      - uses: actions/checkout@v4
+        with:
+          repository: 'dknight/css-modern-dialog'
+          path: 'docs/css-modern-dialog'
+      - uses: actions/checkout@v4
+        with:
+          repository: 'dknight/puff'
+          path: 'docs/puff'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
