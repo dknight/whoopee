@@ -21,3 +21,9 @@ A curated list of useful links related to the Lua programming language. I regula
 
 - [lua-users.org](https://lua-users.org/wiki/): A historical Lua wiki with useful content, though it may have outdated code, SSL issues, or occasional downtime.
 - [Telegram Lua Group](https://t.me/LuaLang): A moderated group with strict rules and a friendly community.  
+
+## Awesome Lua lists
+
+- [Awesome Lua](https://github.com/LewisJEllis/awesome-lua): A curated large list of different Lua libraries, frameworks, blogs, etc.
+- [Awesome Löve2D](https://github.com/love2d-community/awesome-love2d/): A categorized community-driven collection of high-quality, awesome LÖVE libraries, projects, and resources.
+- [Awesome Playdate](https://github.com/sayhiben/awesome-playdate): A list of awesome resources for game development on Panic's Playdate console.
