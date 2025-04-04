@@ -2,6 +2,8 @@
 
 A curated list of useful links related to the Lua programming language. I regularly update this list.
 
+<em>Last update: <time>2025-04-04</time></em>
+
 ## General
 
 - [lua.org](https://www.lua.org): The official Lua website.
@@ -19,6 +21,8 @@ A curated list of useful links related to the Lua programming language. I regula
 ## Learning
 
 - [Full Lua Programming Crash Course - Beginner to Advanced](https://www.youtube.com/watch?v=1srFmjt1Ib0): A nearly 4-hour free Lua crash course.
+- [Sheepolution](https://sheepolution.com): fun games, useful bots and free
+  tutorials for [Löve2D](https://love2d.org).
 
 ## Community
 
