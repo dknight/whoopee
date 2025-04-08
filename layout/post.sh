@@ -2,6 +2,11 @@
 
 source "./layout/util.sh"
 
+post_time=""
+if [[ $(is_skipped) = 0 ]]; then
+  post_time="<time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">$(date -d "$POST_DATE" +"%B %d, %Y")</time>"
+fi
+
 cat << _EOF_
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +17,7 @@ cat << _EOF_
       $(to_index)
       <article>
         <h1>$POST_TITLE</h1>
-        <time datetime="$(date -d "$POST_DATE" +%Y-%m-%d)">
-          $(date -d "$POST_DATE" +"%B %d, %Y")
-        </time>
+        $post_time
         $POST_CONTENTS
         $(feedback)
       </article>
