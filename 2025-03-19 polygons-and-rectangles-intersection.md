@@ -1,4 +1,4 @@
-<!-- Description: Polysec is a framework-agnostic Lua library for detecting intersections and collisions between polygons and rectangles. It provides an efficient algorithm for polygonal intersection detection, making it suitable for the collision handling. While Polysec is independent of any specific framework, examples demonstrating its usage are provided using the Löve2D game development engine. -->
+<!-- Description: Polysec is a framework-agnostic Lua library for detecting intersections and collisions between polygons, circles and rectangles. It provides an efficient algorithm for polygonal intersection detection, making it suitable for the collision handling. While Polysec is independent of any specific framework, examples demonstrating its usage are provided using the Löve2D game development engine. -->
 
 tags: lua love2d gamedev algorithms
 
@@ -18,7 +18,7 @@ examples are implemented using the popular game development engine [Löve2D](htt
 
 ![Polysec Logo](https://www.whoop.ee/assets/img/polysec.svg)
 
-[*Polysec*](https://github.com/dknight/polysec) is a framework-agnostic Lua library for detecting intersections and collisions between polygons and rectangles. It provides an efficient algorithm for polygonal intersection detection, making it suitable for the collision handling. While Polysec is independent of any specific framework, it is framework-agnostic. 
+[*Polysec*](https://github.com/dknight/polysec) is a framework-agnostic Lua library for detecting intersections and collisions between polygons, circles and rectangles. It provides an efficient algorithm for polygonal intersection detection, making it suitable for the collision handling. While Polysec is independent of any specific framework, it is framework-agnostic. 
 
 ## Features
 
