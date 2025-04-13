@@ -15,7 +15,7 @@ A curated list of useful links related to the Lua programming language. I regula
 
 ## Game Development
 
-- [LÖVE](https://love2d.org): A powerful and easy-to-use 2D game engine.
+- [Löve2D](https://love2d.org): A powerful and easy-to-use 2D game engine.
 - [Playdate](https://play.date/): A handheld console with a 1-bit display, supporting Lua for game development.
 
 ## Learning
