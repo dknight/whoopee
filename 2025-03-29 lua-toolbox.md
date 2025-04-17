@@ -2,7 +2,7 @@
 
 A curated list of useful links related to the Lua programming language. I regularly update this list.
 
-<em>Last update: <time>2025-04-04</time></em>
+<em>Last update: <time>2025-04-17</time></em>
 
 ## General
 
@@ -28,6 +28,7 @@ A curated list of useful links related to the Lua programming language. I regula
 
 - [lua-users.org](https://lua-users.org/wiki/): A historical Lua wiki with useful content, though it may have outdated code, SSL issues, or occasional downtime.
 - [Telegram Lua Group](https://t.me/LuaLang): A moderated group with strict rules and a friendly community.  
+- [lua-l](https://groups.google.com/g/lua-l/): Google Groups **lua-l** community. 
 
 ## Awesome Lua lists
 
