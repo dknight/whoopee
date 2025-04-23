@@ -277,7 +277,6 @@ ol > li > p {
 
 .admonition {
   border: 0.25rem solid;
-  font: normal 1.25rem/1.25 var(--display-font), monospace;
   padding: 4ch 2ch 2ch;
   position: relative;
 
@@ -296,6 +295,7 @@ ol > li > p {
   }
 
   .admonition-title {
+    font: normal 1.25rem/1.25 var(--display-font), monospace;
     position: absolute;
     top: 0;
     left: 0;
