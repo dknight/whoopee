@@ -246,15 +246,43 @@ require("lspconfig").lua_ls.setup({
 })
 ```
 
-You can use the [embedded code formatter](https://luals.github.io/wiki/formatter/) provided by LSP, but I prefer to use  StyLua. To use it or not is up to you.
-
 Watch the demo of the LSP in action; notice that after `table.` <kbd>Ctrl</kbd>+<kbd>x</kbd>+<kbd>o</kbd>.
 
 ![Demonstration of NeoVim and Lua Language Server Protocol in action](/assets/img/nvim-recording.gif)
 
+## Step 6B (Optional): LSP of StyLua alternative
+
+You can use the [embedded code formatter](https://luals.github.io/wiki/formatter/) provided by LSP, instead of StyLua. It is even more simple setup than StyLua. For this step you do not need to install StyLua from step 5.
+
+```lua
+-- init.lua
+require("lspconfig").lua_ls.setup({
+	-- rest of config of LSP if exists
+	Lua = {
+		format = {
+			enabled = false,
+			defaultConfig = {
+				indent_style = "tab",
+				tab_width = "4",
+				max_line_length = "80",
+			},
+		},
+	},
+})
+
+-- Also change auto-command
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.lua" },
+	callback = function()
+		-- Stylua commands were here from Step 5.
+		vim.lsp.buf.format({ async = false })
+	end,
+})
+```
+
 ## Step 7. Useful options
 
-NeoVim and Vim have a huge amount of preferences. Type `:h options` in NeoVim command line to read documentation about options.
+NeoVim and Vim have a huge number of preferences. Type `:h options` in NeoVim command line to read documentation about options.
 
 I would recommend using this setup, but you can change what you want.  Lazy recommends setting up options before you initialize. Lazy
 
@@ -299,7 +327,7 @@ vim.opt.endoffile = true
 
 That is all. This is a bare minimum to make your NeoVim as a Lua IDE. Next steps are optional.
 
-## Step 8. Run current buffer with Lua code in single key
+## Step 8. Run the current buffer with Lua code in a single key
 
 Usually I use <kbd>F5</kbd> key to run the file, but you can map it to any other key or sequence. To achieve this, add a key map in the *autocommand* section.
 

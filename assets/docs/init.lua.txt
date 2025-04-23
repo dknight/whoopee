@@ -90,9 +90,12 @@ require("lazy").setup(plugins, {
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.lua" },
 	callback = function()
+	    -- Stylua formatter
 		local stylua_cmd = "silent! !stylua %"
 		vim.cmd([[silent! %s/\s\+$//e]])
 		vim.cmd(stylua_cmd)
+		-- LSP formatter
+		--vim.lsp.buf.format({ async = false })
 	end,
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -106,4 +109,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 require("lspconfig").lua_ls.setup({
 	-- LSP can have lots of configurations.
 	-- Check out possibilities at official docs https://luals.github.io/wiki/configuration/
+	-- LSP formatter settings
+    --Lua = {
+    --    format = {
+    --        enabled = false,
+    --        defaultConfig = {
+    --            indent_style = "tab",
+    --            tab_width = "4",
+    --            max_line_length = "80",s
+    --        },
+    --    },
+    --},
 })
