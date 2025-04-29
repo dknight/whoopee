@@ -31,27 +31,30 @@ return Singleton:new()
 
 ## Usage
 
-It is a important demonstration that newly created counters are pointing to the same object in the memory.
+It is an important demonstration that newly created counters are pointing to the same object in the memory.
 
 ```lua
-local GloblalCounter = require("Singleton")
+---@class GlobalCounter
+---@property count number
+local GlobalCounter = require("Singleton")
 
-function GloblalCounter:increment()
-	if not GloblalCounter.count then
-		GloblalCounter.count = 0
+---Increments the global counter by 1.
+function GlobalCounter:increment()
+	if not GlobalCounter.count then
+		GlobalCounter.count = 0
 	end
-	GloblalCounter.count = GloblalCounter.count + 1
+	GlobalCounter.count = GlobalCounter.count + 1
 end
 
-local counter1 = GloblalCounter:new()
-local counter2 = GloblalCounter:new()
+local counter1 = GlobalCounter:new()
+local counter2 = GlobalCounter:new()
 
 counter1:increment()
 counter1:increment()
 counter2:increment()
 counter2:increment()
-print(counter1.count, counter2.count, GloblalCounter.count)
-print(counter1, counter2, GloblalCounter)
+print(counter1.count, counter2.count, GlobalCounter.count)
+print(counter1, counter2, GlobalCounter)
 
 --As you can see, output is 4 for all of the counter, and below is proof that these are pointing
 --to the same object in the memory.
