@@ -8,6 +8,8 @@ The singleton design pattern ensures that a class has only one instance and prov
 of access to it. It's commonly used when exactly one object is needed to coordinate actions across
 a program, such as a configuration manager, system timer, or a database connection.
 
+![Singleton Schema](/assets/img/dp-singleton.svg)
+
 Singleton is one of the easiest creational design patterns, and implementation is straightforward.
 
 ```lua
