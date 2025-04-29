@@ -98,6 +98,9 @@ function tag2title() {
    humor)
       echo "Humor"
     ;;
+  design-patterns)
+      echo "Design patterns"
+    ;;
     *)
       echo "Timeline"
     ;;
@@ -141,6 +144,7 @@ cat << _EOF_
         $(taglink "beginner")
         $(taglink "data-structures")
         $(taglink "algorithms")
+        $(taglink "design-patterns")
         $(taglink "web")
         $(taglink "gamedev")
         $(taglink "love2d")
