@@ -19,7 +19,7 @@ Usually there are three categories of design patterns:
 
 ## Creational design patterns
 
-- Factory
+- Factory Method
 - Abstract factory
 - Builder
 - Prototype
