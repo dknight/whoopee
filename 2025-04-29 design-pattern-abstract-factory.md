@@ -5,8 +5,8 @@ tags: lua design-patterns
 # Abstract Factory
 
 Creational pattern Abstract Factory enables the creation of families of related objects without
-specifying their exact classes. In other words, abstract factory is a pattern which creates and 
-groups other factories, which logically are related to each other.
+specifying their exact classes. In other words, abstract factory is a pattern that creates and 
+groups other factories, which logically are related to each other. 
 
 ## When is abstract factory appropriate?
 
@@ -191,6 +191,10 @@ Demon   10      50      Fire hit
 Healer  nil     100     Heals       
 --]]
 ```
+
+## Conclusion
+
+Abstract Factory is a factory that produces factories with similar logic.
 
 *[RPG]: Role-Playing Game
 *[NPC]: Non-Playable Character 
