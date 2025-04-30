@@ -33,7 +33,7 @@ Usually there are three categories of design patterns:
 - Adapter
 - Bridge
 - Composite
-- Decorator
+- [Decorator](/post/design-pattern-decorator.html)
 - Facade
 - Flyweight
 - Proxy
