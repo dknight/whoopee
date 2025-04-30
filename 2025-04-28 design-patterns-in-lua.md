@@ -4,6 +4,9 @@ tags: lua design-patterns
 
 # Design patterns in Lua
 
+!!! tip
+    Use design patterns to solve real-world problems, do not adapt your code to the problem.
+
 Design patterns are common ways to solve problems that come up often in software development.
 They are like blueprints/guides you can adjust to fit specific challenges and common tasks in the code.
 
@@ -19,8 +22,8 @@ Usually there are three categories of design patterns:
 
 ## Creational design patterns
 
-- Factory Method
-- Abstract factory
+- [Factory Method](/post/design-pattern-factory-method.html)
+- [Abstract factory](/post/design-pattern-abstract-factory.html)
 - Builder
 - Prototype
 - [Singleton](/post/design-pattern-singleton.html)

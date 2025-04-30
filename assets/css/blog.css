@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Perfect_DOS_VGA_437';
   src: url('/assets/fonts/Perfect_DOS_VGA_437.woff2') format('woff2');
-  font-display: fallback;
+  font-display: block;
 }
 
 :root {
@@ -43,6 +43,8 @@
 
   --letter-spacing: light-dark(0, 1px);
 
+  --focus-outline: 0.125rem solid light-dark(var(--color1), var(--color14));
+
   scroll-behavior: smooth;
   @media screen and (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
@@ -50,8 +52,12 @@
 }
 
 :focus-visible {
-  outline: 0.125rem solid light-dark(var(--color1), var(--color14));
+  outline: var(--focus-outline);
   outline-offset: 0.125rem;
+  + label {
+    outline: var(--focus-outline);
+    outline-offset: 0.125rem;
+  }
 }
 
 body {
@@ -112,11 +118,11 @@ header {
 
     &.mainmenu-toolbox {
       &:is(:link, :visited) {
-        color: light-dark(var(--color1), var(--color9));
+        color: light-dark(var(--color1), var(--color11));
       }
       &.active,
       &:hover {
-        background-color: light-dark(var(--color1), var(--color9));
+        background-color: light-dark(var(--color1), var(--color11));
         color: light-dark(var(--color15), var(--color0));
       }
     }
@@ -364,7 +370,8 @@ ol > li > p {
     font: normal 1.25rem/1 var(--display-font), monospace;
     cursor: pointer;
     display: inline-block;
-    padding: 2ch 0;
+    padding: 1ch 0;
+    margin: 1ch 0;
     color: light-dark(var(--color1), var(--color14));
 
     &::before {
@@ -450,7 +457,6 @@ img {
 
 footer {
   margin-top: 4ch;
-  font: normal 1.25rem/1.25 var(--display-font), monospace;
 }
 
 /* ================================ MEDIAS ================================= */

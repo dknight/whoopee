@@ -29,7 +29,7 @@ end
 return Singleton:new()
 ```
 
-## Usage
+## Usage of Singleton
 
 It is an important demonstration that newly created counters are pointing to the same object in the memory.
 
