@@ -24,7 +24,7 @@ Usually there are three categories of design patterns:
 
 - [Factory Method](/post/design-pattern-factory-method.html)
 - [Abstract factory](/post/design-pattern-abstract-factory.html)
-- Builder
+- [Builder](/post/design-pattern-builder.html)
 - Prototype
 - [Singleton](/post/design-pattern-singleton.html)
 
