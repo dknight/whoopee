@@ -109,10 +109,15 @@ function tag2title() {
 
 function taglink() {
   title=$(tag2title "$1")
+  url="$2"
   if [[ "$TAGNAME" = "$1" ]]; then
     echo "<strong aria-current=\"true\">$title</strong>"
   else
-    echo "<a href=\"/tag/$1/\">$title</a>"
+    if [[ -z "$url" ]]; then
+      echo "<a href=\"/tag/$1/\">$title</a>"
+    else
+      echo "<a href=\"$2\">$title</a>"
+    fi
   fi
 }
 
@@ -144,7 +149,7 @@ cat << _EOF_
         $(taglink "beginner")
         $(taglink "data-structures")
         $(taglink "algorithms")
-        $(taglink "design-patterns")
+        $(taglink "design-patterns" "/post/design-patterns-in-lua.html")
         $(taglink "web")
         $(taglink "gamedev")
         $(taglink "love2d")
