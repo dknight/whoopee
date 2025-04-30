@@ -31,7 +31,7 @@ in our case it is only `Factory:create()` method. So the interface has only one 
 
 ## Implementation
 
-### MonsterFactory.lua
+### MonsterFactory class
 
 ```lua
 ---@class Monster
@@ -93,7 +93,7 @@ end
 return MonsterFactory
 ```
 
-### NPCFactory.lua
+### NPCFactory class
 
 ```lua
 ---@class NPC
@@ -146,7 +146,7 @@ end
 return NPCFactory
 ```
 
-### AbstractFactory.lua
+### AbstractFactory class
 
 ```lua
 local MonsterFactory = require("MonsterFactory")
