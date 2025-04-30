@@ -32,8 +32,8 @@
      showguides="true"
      inkscape:clip-to-page="false"
      inkscape:zoom="1"
-     inkscape:cx="267.49999"
-     inkscape:cy="194.99999"
+     inkscape:cx="267.5"
+     inkscape:cy="195"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -956,7 +956,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5);display:inline;fill:#ffffff;stroke:none"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan2">Goblin</tspan></text>
+         id="tspan14">Goblin</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,21.347693,14.129889)"
@@ -964,7 +964,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan3">Damage: 2</tspan></text>
+         id="tspan15">Damage: 2</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,18.881779,24.016224)"
@@ -972,7 +972,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-2);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan4">Hit points: 10</tspan></text>
+         id="tspan16">Hit points: 10</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,17.453235,34.140629)"
@@ -980,7 +980,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-2-9);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan5">Special: None</tspan></text>
+         id="tspan17">Special: None</tspan></text>
     <rect
        style="fill:#0000ff;stroke:none;stroke-width:0.626025"
        id="rect37-9-8-3-5-5-36-5-5-5"
@@ -1024,7 +1024,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-5);display:inline;fill:#ffffff;stroke:none"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan6">Skeleton</tspan></text>
+         id="tspan18">Skeleton</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,73.844076,14.14132)"
@@ -1032,7 +1032,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-5);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan7">Damage: 4</tspan></text>
+         id="tspan19">Damage: 4</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,71.378162,24.027655)"
@@ -1040,7 +1040,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-2-4);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan8">Hit points: 12</tspan></text>
+         id="tspan20">Hit points: 12</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,69.949618,34.15206)"
@@ -1048,7 +1048,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-2-9-7);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan9">Special: Reform</tspan></text>
+         id="tspan21">Special: Reform</tspan></text>
     <rect
        style="fill:#0000ff;stroke:none;stroke-width:0.626025"
        id="rect37-9-8-3-5-5-36-5-5-5-8"
@@ -1092,7 +1092,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-5-6);display:inline;fill:#ffffff;stroke:none"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan10">Demon</tspan></text>
+         id="tspan22">Demon</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,123.78896,14.154695)"
@@ -1100,7 +1100,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-5-8);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan11">Damage: 10</tspan></text>
+         id="tspan23">Damage: 10</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,121.32305,24.04103)"
@@ -1108,7 +1108,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-2-4-7);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan12">Hit points: 50</tspan></text>
+         id="tspan24">Hit points: 50</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,119.8945,34.165435)"
@@ -1116,7 +1116,7 @@
        style="font-size:16px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5-2-2-9-7-0);display:inline"><tspan
          x="86.267578"
          y="223.15371"
-         id="tspan13">Special: Fire hit</tspan></text>
+         id="tspan25">Special: Fire hit</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Triangle)"
        d="m 54.122636,45.717424 -0.0062,10.884445"
@@ -1152,7 +1152,7 @@
         <dc:language>English</dc:language>
         <dc:subject>
           <rdf:Bag>
-            <rdf:li>Factiory method design pattern illustration in Lua</rdf:li>
+            <rdf:li>factiory method design pattern lua</rdf:li>
           </rdf:Bag>
         </dc:subject>
         <cc:license

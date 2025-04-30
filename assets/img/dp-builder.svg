@@ -923,7 +923,7 @@
         <dc:language>English</dc:language>
         <dc:subject>
           <rdf:Bag>
-            <rdf:li>Builder design pattern illustration in Lua</rdf:li>
+            <rdf:li>builder design pattern lua</rdf:li>
           </rdf:Bag>
         </dc:subject>
         <cc:license
