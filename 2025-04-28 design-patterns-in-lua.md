@@ -34,7 +34,7 @@ Usually there are three categories of design patterns:
 - Bridge
 - Composite
 - [Decorator](/post/design-pattern-decorator.html)
-- Facade
+- [Facade](/post/design-pattern-facade.html)
 - Flyweight
 - Proxy
 
