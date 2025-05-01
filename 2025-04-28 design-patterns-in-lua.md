@@ -36,7 +36,7 @@ Usually there are three categories of design patterns:
 - [Decorator](/post/design-pattern-decorator.html)
 - [Facade](/post/design-pattern-facade.html)
 - Flyweight
-- Proxy
+- [Proxy](/post/design-pattern-proxy.html)
 
 ## Behavioral design patterns
 
