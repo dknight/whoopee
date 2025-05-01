@@ -9,6 +9,8 @@ manages access to the original object, enabling you to execute specific actions 
 request to that object. By nature, Proxy is very similar to [Decorator](/post/design-pattern-decorator.html), but with
 one significant difference that decorator extends the object, but proxy substitutes the object.
 
+![Proxy Scheme](/assets/img/dp-proxy.svg)
+
 Usually Proxy is used for:
 
 - Lazy loading;
@@ -22,7 +24,7 @@ While [Decorator](/post/design-pattern-decorator.html) for:
 - Composite behavior without inheritance;
 - Extend functionality.
 
-In mane aspects Proxy and Decorator are very similar.
+In many aspects, Proxy and Decorator are very similar.
 
 ## Hero class
 
