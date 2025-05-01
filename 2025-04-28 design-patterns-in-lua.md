@@ -30,7 +30,7 @@ Usually there are three categories of design patterns:
 
 ## Structural design patterns
 
-- Adapter
+- [Adapter](/post/design-pattern-adapter.html)
 - Bridge
 - Composite
 - [Decorator](/post/design-pattern-decorator.html)
