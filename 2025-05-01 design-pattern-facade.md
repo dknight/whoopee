@@ -6,6 +6,8 @@ tags: lua design-patterns
 
 The Facade pattern is a structural design pattern that provides a simplified interface to a complex system, such as a library, framework, or a group of related methods or classes.
 
+![Facade Scheme](/assets/img/db-facade.svg)
+
 Let’s imagine we have a class with many methods related to complex logic. For example, consider an `Inventory `class that
 manages the backpack of our hero. It allows us to add items, remove items, check if the backpack is full, and so on. To
 pick up an item, we need to perform the following steps:
