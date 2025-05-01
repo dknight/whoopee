@@ -32,8 +32,8 @@
      showguides="true"
      inkscape:clip-to-page="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="169.35207"
-     inkscape:cy="124.45079"
+     inkscape:cx="380.77699"
+     inkscape:cy="148.49242"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -741,13 +741,12 @@
      id="layer1"
      transform="translate(-21.109664,-5.2669141)">
     <rect
-       style="fill:#ffffff;stroke:none;stroke-width:1.57424"
+       style="fill:#ffffff;stroke:none;stroke-width:1.79791"
        id="rect3"
        width="162.49809"
-       height="60.854164"
+       height="79.375"
        x="21.109661"
-       y="5.2669148"
-       sodipodi:insensitive="true" />
+       y="5.2669148" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,23.489311,-71.216588)"
