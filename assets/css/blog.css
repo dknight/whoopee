@@ -481,3 +481,8 @@ footer {
 /*.codehilite {*/
 /*  border: thin solid var(--color-border);*/
 /*}*/
+
+/* Special case for design patterns */
+img[src*="/assets/img/dp-"] {
+  width: 100%;
+}
