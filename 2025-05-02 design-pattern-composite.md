@@ -58,11 +58,10 @@ ExtenalConsultant.__index = ExtenalConsultant
 
 ---@param name string
 ---@param salary number
----@return Employee
+---@return ExtenalConsultant
 function ExtenalConsultant:new(name, salary)
 	local t = {
 		name = name,
-		position = position,
 		salary = salary,
 	}
 	return setmetatable(t, self)
