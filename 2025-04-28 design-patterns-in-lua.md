@@ -31,11 +31,11 @@ Usually there are three categories of design patterns:
 ## Structural design patterns
 
 - [Adapter](/post/design-pattern-adapter.html)
-- Bridge
+- [Bridge](/post/design-pattern-bridge.html)
 - [Composite](/post/design-pattern-composite.html)
 - [Decorator](/post/design-pattern-decorator.html)
 - [Facade](/post/design-pattern-facade.html)
-- Flyweight
+- [Flyweight](/post/design-pattern-flyweight.html)
 - [Proxy](/post/design-pattern-proxy.html)
 
 ## Behavioral design patterns

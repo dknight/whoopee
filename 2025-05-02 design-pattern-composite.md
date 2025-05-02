@@ -10,7 +10,7 @@ objects (composites)should have the **same interface**.
 
 Usually such a pattern is not used in Lua, but it is an invaluable pattern to understand generally.
 
-<img src="/assets/img/dp-composite.svg" alt="Composite Scheme" width="100%">
+![Composite Scheme](/assets/img/dp-composite.svg)
 
 ## Employee class
 
