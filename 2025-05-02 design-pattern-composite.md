@@ -8,6 +8,8 @@ The Composite pattern is a structural design pattern that allows you to organize
 treat both individual objects and groups of objects uniformly. This means that simple objects (leaves) and groups of
 objects (composites)should have the **same interface**.
 
+Usually such a pattern is not used in Lua, but it is an invaluable pattern to understand generally.
+
 <img src="/assets/img/dp-composite.svg" alt="Composite Scheme" width="100%">
 
 ## Employee class
