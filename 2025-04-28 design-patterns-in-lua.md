@@ -32,7 +32,7 @@ Usually there are three categories of design patterns:
 
 - [Adapter](/post/design-pattern-adapter.html)
 - Bridge
-- Composite
+- [Composite](/post/design-pattern-composite.html)
 - [Decorator](/post/design-pattern-decorator.html)
 - [Facade](/post/design-pattern-facade.html)
 - Flyweight
