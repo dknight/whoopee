@@ -42,7 +42,7 @@ Usually there are three categories of design patterns:
 
 - Chain of responsibility
 - Command
-- Iterator
+- [Iterator](/post/design-pattern-iterator.html)
 - [Mediator](/post/design-pattern-mediator.html)
 - Memento
 - Observer
