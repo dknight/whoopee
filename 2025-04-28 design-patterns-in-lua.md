@@ -55,7 +55,7 @@ Usually there are three categories of design patterns:
 - Observer
 - State
 - [Strategy](/post/design-pattern-strategy.html)
-- Template method
+- [Template method](/post/design-pattern-template-method.html)
 - Visitor
 
 ## References
