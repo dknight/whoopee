@@ -31,9 +31,9 @@
      inkscape:document-units="px"
      showguides="true"
      inkscape:clip-to-page="false"
-     inkscape:zoom="0.7071068"
-     inkscape:cx="427.79959"
-     inkscape:cy="207.88939"
+     inkscape:zoom="1"
+     inkscape:cx="411.49999"
+     inkscape:cy="175"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -810,15 +810,15 @@
        ry="1.3065145" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
-       x="104.35915"
-       y="28.165777"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
+       x="105.05465"
+       y="27.978905"
        id="text37-3-4-2-4-4-1"><tspan
          sodipodi:role="line"
          id="tspan37-1-5-0-7-7-0"
-         style="font-size:5.65763px;fill:#f9f9f9;stroke-width:0.163201"
-         x="104.35915"
-         y="28.165777">Singleton</tspan></text>
+         style="font-size:4.93889px;fill:#f9f9f9;stroke-width:0.163201"
+         x="105.05465"
+         y="27.978905">Sintgleton</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,21.109664,5.2669141)"

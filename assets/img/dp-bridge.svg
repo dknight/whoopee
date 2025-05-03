@@ -32,8 +32,8 @@
      showguides="true"
      inkscape:clip-to-page="false"
      inkscape:zoom="1.28"
-     inkscape:cx="476.95313"
-     inkscape:cy="116.40625"
+     inkscape:cx="303.51562"
+     inkscape:cy="124.21875"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -840,15 +840,15 @@
        ry="1.3065145" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
-       x="36.415836"
-       y="17.911449"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
+       x="37.396915"
+       y="17.641922"
        id="text37-3-4-2-4-4-1-2"><tspan
          sodipodi:role="line"
          id="tspan37-1-5-0-7-7-0-6"
-         style="font-size:5.65763px;fill:#f9f9f9;stroke-width:0.163201"
-         x="36.415836"
-         y="17.911449">Client</tspan></text>
+         style="font-size:4.93889px;fill:#f9f9f9;stroke-width:0.163201"
+         x="37.396915"
+         y="17.641922">Client</tspan></text>
     <rect
        style="fill:#0000ff;stroke:none;stroke-width:0.626025"
        id="rect37-9-8-3-5-5-36-6-5"
@@ -860,15 +860,15 @@
        ry="1.3065145" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
-       x="75.267662"
-       y="17.187099"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
+       x="77.168365"
+       y="17.495117"
        id="text37-3-4-2-4-4-1-2-3"><tspan
          sodipodi:role="line"
          id="tspan37-1-5-0-7-7-0-6-5"
-         style="font-size:5.65763px;fill:#f9f9f9;stroke-width:0.163201"
-         x="75.267662"
-         y="17.187099">Abstraction</tspan></text>
+         style="font-size:4.93889px;fill:#f9f9f9;stroke-width:0.163201"
+         x="77.168365"
+         y="17.495117">Abstraction</tspan></text>
     <rect
        style="fill:#0000ff;stroke:none;stroke-width:0.626025"
        id="rect37-9-8-3-5-5-36-6-5-7"
@@ -930,15 +930,15 @@
        ry="1.3065145" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
-       x="126.81861"
-       y="17.135592"
+       style="font-style:normal;font-weight:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
+       x="129.53221"
+       y="16.948719"
        id="text37-3-4-2-4-4-1-2-3-7"><tspan
          sodipodi:role="line"
          id="tspan37-1-5-0-7-7-0-6-5-0"
-         style="font-size:5.65763px;fill:#f9f9f9;stroke-width:0.163201"
-         x="126.81861"
-         y="17.135592">Implementation</tspan></text>
+         style="font-size:4.93889px;fill:#f9f9f9;stroke-width:0.163201"
+         x="129.53221"
+         y="16.948719">Implementation</tspan></text>
     <rect
        style="fill:none;stroke:#000000;stroke-width:0.334962;stroke-dasharray:none"
        id="rect37-9-8-3-5-5-36-6-9-3-8"
