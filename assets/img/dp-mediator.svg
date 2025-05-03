@@ -32,7 +32,7 @@
      showguides="true"
      inkscape:clip-to-page="false"
      inkscape:zoom="1.8101934"
-     inkscape:cx="311.29271"
+     inkscape:cx="311.2927"
      inkscape:cy="167.93786"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
@@ -867,13 +867,12 @@
      id="layer1"
      transform="translate(-21.109664,-5.2669141)">
     <rect
-       style="fill:#ffffff;stroke:none;stroke-width:1.03803"
+       style="fill:#ffffff;stroke:none;stroke-width:1.39267"
        id="rect3"
        width="162.49809"
-       height="26.458332"
+       height="47.625"
        x="21.109661"
-       y="5.2669148"
-       sodipodi:insensitive="true" />
+       y="5.2669148" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,23.489311,-71.216588)"
@@ -986,7 +985,7 @@
        style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7);display:inline"><tspan
          x="171.25195"
          y="18.857906"
-         id="tspan2">Mediator</tspan></text>
+         id="tspan3">Mediator</tspan></text>
   </g>
   <metadata
      id="metadata38">

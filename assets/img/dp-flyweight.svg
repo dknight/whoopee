@@ -31,9 +31,9 @@
      inkscape:document-units="px"
      showguides="true"
      inkscape:clip-to-page="false"
-     inkscape:zoom="3.6203867"
-     inkscape:cx="463.62451"
-     inkscape:cy="58.833494"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="512.92863"
+     inkscape:cy="41.432038"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
      inkscape:window-x="0"
@@ -775,13 +775,12 @@
      id="layer1"
      transform="translate(-21.109664,-5.2669141)">
     <rect
-       style="fill:#ffffff;stroke:none;stroke-width:1.03803"
+       style="fill:#ffffff;stroke:none;stroke-width:1.27132"
        id="rect3"
        width="162.49809"
-       height="26.458332"
+       height="39.6875"
        x="21.109661"
-       y="5.2669148"
-       sodipodi:insensitive="true" />
+       y="5.2669148" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,23.489311,-71.216588)"
