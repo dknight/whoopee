@@ -4,14 +4,17 @@ tags: lua design-patterns
 
 # Design patterns in Lua
 
-!!! tip
-    Use design patterns to solve real-world problems, do not adapt your code to the problem.
-
 Design patterns are common ways to solve problems that come up often in software development.
 They are like blueprints/guides you can adjust to fit specific challenges and common tasks in the code.
 
+!!! tip
+    Use design patterns to solve real-world problems, do not adapt your code to the problem.
+
 Lua is not an exception language, and all 22 classic design patterns can be implemented in Lua with
 the help of [classes and object-oriented programming](/post/object-oriented-programming-in-lua.html).
+There might be, in some cases, classes are overkill, but they are a good way to organize the code and show better
+examples of how to use object-oriented programming in Lua. Any pattern can be implemented in Lua, using functions,
+tables, and metatables.
 
 Usually there are three categories of design patterns:
 
