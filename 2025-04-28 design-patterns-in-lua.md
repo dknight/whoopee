@@ -8,7 +8,7 @@ Design patterns are common ways to solve problems that come up often in software
 They are like blueprints/guides you can adjust to fit specific challenges and common tasks in the code.
 
 There are advocates of the design patterns and opponents of them. Here I wittingly skip the discussion
-about the advantages and disadvantages of design patterns. But these patterns are really useful to solve
+about the advantages and disadvantagesЛ of design patterns. But these patterns are really useful to solve
 common problems in software development, especially when you are working in groups.
 
 !!! tip
