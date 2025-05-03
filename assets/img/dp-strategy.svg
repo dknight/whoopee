@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="614.16602"
+   height="200"
+   viewBox="0 0 162.49809 52.916664"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="dp-strategy.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title38">Strategy design pattern illustration in Lua</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:clip-to-page="false"
+     inkscape:zoom="2.56"
+     inkscape:cx="199.41406"
+     inkscape:cy="43.75"
+     inkscape:window-width="1920"
+     inkscape:window-height="1015"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     labelstyle="default"
+     shape-rendering="auto"
+     showgrid="false">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="162.49809"
+       height="52.916664"
+       id="page38"
+       margin="6.6145835"
+       bleed="0" />
+    <inkscape:grid
+       id="grid3"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458332"
+       spacingy="0.26458334"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+    <sodipodi:guide
+       position="39.849885,78.528375"
+       orientation="1,0"
+       id="guide4"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="50.106752,26.911004"
+       orientation="1,0"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="101.74064,34.654342"
+       orientation="1,0"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="92.171723,29.731408"
+       orientation="0,-1"
+       id="guide3"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <rect
+       x="269.22635"
+       y="250.03131"
+       width="50.828598"
+       height="118.98248"
+       id="rect23" />
+    <rect
+       x="47.85817"
+       y="44.415749"
+       width="544.3349"
+       height="137.24828"
+       id="rect4" />
+    <color-profile
+       name="Blue"
+       xlink:href="file:///usr/share/color/icc/colord/Bluish.icc"
+       id="color-profile2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-2-6-1-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="151.59375"
+       height="69.811035"
+       id="rect2-29" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="151.59375"
+       height="69.811035"
+       id="rect2-29-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-9-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-64" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-71" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-73" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-81" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-68" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-646" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-4" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-99" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-96" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-66" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-67" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-28" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-76" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="42.89035"
+       height="19.890348"
+       id="rect2-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="93.973312"
+       height="22.012747"
+       id="rect2-1-5" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="70.963776"
+       height="19.856474"
+       id="rect2-1-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="42.89035"
+       height="19.890348"
+       id="rect2-1-04" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="42.89035"
+       height="19.890348"
+       id="rect2-1-0-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="32.369827"
+       height="18.7763"
+       id="rect2-1-5-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-20" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-81-5" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-68-5" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-1-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-646-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-4-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-99-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-0-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-96-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-66-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-67-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-28-4" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-76-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="85.408554"
+       height="37.324345"
+       id="rect2-1-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="70.963776"
+       height="19.856474"
+       id="rect2-1-0-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="93.973312"
+       height="22.012747"
+       id="rect2-1-5-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-81-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-68-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-1-5" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-646-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-4-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-99-5" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-0-87" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-96-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-66-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-67-04" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-28-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-76-04" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="85.408554"
+       height="37.324345"
+       id="rect2-1-3-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="70.963776"
+       height="19.856474"
+       id="rect2-1-0-3-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="93.973312"
+       height="22.012747"
+       id="rect2-1-5-7-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-3-4" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-81-2-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-68-6-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-1-5-4" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-646-2-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-4-6-4" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-99-5-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-0-87-5" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-96-9-8" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-66-6-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-67-04-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-28-1-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-76-04-6" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="85.408554"
+       height="37.324345"
+       id="rect2-1-3-6-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="70.963776"
+       height="19.856474"
+       id="rect2-1-0-3-7-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="93.973312"
+       height="22.012747"
+       id="rect2-1-5-7-7-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-3-4-9" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-81-2-0-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-68-6-6-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-1-5-4-4" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-646-2-7-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-4-6-4-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-99-5-8-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-0-87-5-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-96-9-8-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-66-6-2-0" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-67-04-6-2" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-28-1-0-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="136.69324"
+       height="70.648178"
+       id="rect2-8-76-04-6-7" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="150.64024"
+       height="20.625034"
+       id="rect2-1-3-6-9-4" />
+    <rect
+       x="47.85817"
+       y="44.415749"
+       width="544.3349"
+       height="137.24828"
+       id="rect4-8" />
+    <rect
+       x="47.85817"
+       y="44.415749"
+       width="544.3349"
+       height="137.24828"
+       id="rect4-8-7" />
+    <rect
+       x="47.85817"
+       y="44.415749"
+       width="544.3349"
+       height="137.24828"
+       id="rect4-8-5" />
+    <rect
+       x="47.85817"
+       y="44.415749"
+       width="544.3349"
+       height="137.24828"
+       id="rect4-8-5-3" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="150.64024"
+       height="20.625034"
+       id="rect2-1-3-6-9-4-1" />
+    <rect
+       x="24.769148"
+       y="355.17749"
+       width="70.963776"
+       height="19.856474"
+       id="rect2-1-0-3-7-5" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.109664,-5.2669141)">
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:1.468"
+       id="rect3"
+       width="162.49809"
+       height="52.916664"
+       x="21.109661"
+       y="5.2669148" />
+    <rect
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.354542;stroke-dasharray:none"
+       id="rect37-9-8-3-5-5-36-6-5-5-7-1-2"
+       width="38.235374"
+       height="7.3540497"
+       x="96.511284"
+       y="40.418793"
+       rx="0.8074705"
+       ry="1.3065145" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+       x="100.49763"
+       y="45.467796"
+       id="text37-3-4-2-4-4-1-2-3-3-0-8-3"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-0-6-5-5-9-7-7"
+         style="font-size:5.65763px;fill:#f9f9f9;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+         x="100.49763"
+         y="45.467796">Strategy N</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.354542;stroke-dasharray:none"
+       id="rect37-9-8-3-5-5-36-6-5-5-7-1"
+       width="38.235374"
+       height="7.3540497"
+       x="90.558159"
+       y="33.093143"
+       rx="0.8074705"
+       ry="1.3065145" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+       x="94.54451"
+       y="38.142143"
+       id="text37-3-4-2-4-4-1-2-3-3-0-8"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-0-6-5-5-9-7"
+         style="font-size:5.65763px;fill:#f9f9f9;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+         x="94.54451"
+         y="38.142143">Strategy 04</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.354542;stroke-dasharray:none"
+       id="rect37-9-8-3-5-5-36-6-5-5-7"
+       width="38.235374"
+       height="7.3540497"
+       x="84.762131"
+       y="25.771626"
+       rx="0.8074705"
+       ry="1.3065145" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+       x="88.853149"
+       y="30.820625"
+       id="text37-3-4-2-4-4-1-2-3-3-0"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-0-6-5-5-9"
+         style="font-size:5.65763px;fill:#f9f9f9;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+         x="88.853149"
+         y="30.820625">Strategy 03</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.354542;stroke-dasharray:none"
+       id="rect37-9-8-3-5-5-36-6-5-5"
+       width="38.235374"
+       height="7.3540497"
+       x="77.887596"
+       y="18.649044"
+       rx="0.8074705"
+       ry="1.3065145" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+       x="81.96447"
+       y="23.698044"
+       id="text37-3-4-2-4-4-1-2-3-3"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-0-6-5-5"
+         style="font-size:5.65763px;fill:#f9f9f9;stroke:none;stroke-width:0.161415;stroke-dasharray:none"
+         x="81.96447"
+         y="23.698044">Strategy 02</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,23.489311,-71.216588)"
+       id="text1"
+       style="font-style:normal;font-weight:normal;font-size:13.3333px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#000000;fill-opacity:1;stroke:none" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,21.109664,5.2669141)"
+       id="text23"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect23);display:inline;fill:#000000;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#0000ff;stroke:none;stroke-width:0.626025"
+       id="rect37-9-8-3-5-5-36-6"
+       width="33.411995"
+       height="7.5002136"
+       x="27.432497"
+       y="12.039732"
+       rx="0.8074705"
+       ry="1.3065145" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
+       x="33.703003"
+       y="17.809612"
+       id="text37-3-4-2-4-4-1-2"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-0-6"
+         style="font-size:5.65763px;fill:#f9f9f9;stroke-width:0.163201"
+         x="33.703003"
+         y="17.809612">Context</tspan></text>
+    <rect
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.28204582;stroke-dasharray:none"
+       id="rect37-9-8-3-5-5-36-6-5"
+       width="38.235374"
+       height="7.3540497"
+       x="71.111572"
+       y="11.966008"
+       rx="0.8074705"
+       ry="1.3065145" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.65763px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.163201"
+       x="75.655205"
+       y="17.015009"
+       id="text37-3-4-2-4-4-1-2-3"><tspan
+         sodipodi:role="line"
+         id="tspan37-1-5-0-7-7-0-6-5"
+         style="font-size:5.65763px;fill:#f9f9f9;stroke-width:0.163201"
+         x="75.655205"
+         y="17.015009">Strategy 01</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="m 60.797162,15.6022 h 9.47352"
+       id="path1"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Strategy design pattern illustration in Lua</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>dknight</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:language>English</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>strategy design pattern lua</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+        <dc:description>Strategy design pattern illustration in Lua</dc:description>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

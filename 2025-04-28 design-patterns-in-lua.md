@@ -47,7 +47,7 @@ Usually there are three categories of design patterns:
 - Memento
 - Observer
 - State
-- Strategy
+- [Strategy](/post/design-pattern-strategy.html)
 - Template method
 - Visitor
 
