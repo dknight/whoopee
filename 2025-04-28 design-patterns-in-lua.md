@@ -47,7 +47,7 @@ Usually there are three categories of design patterns:
 - Command
 - [Iterator](/post/design-pattern-iterator.html)
 - [Mediator](/post/design-pattern-mediator.html)
-- Memento
+- [Memento](/post/design-pattern-memento.html)
 - Observer
 - State
 - [Strategy](/post/design-pattern-strategy.html)
