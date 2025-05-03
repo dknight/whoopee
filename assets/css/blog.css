@@ -482,6 +482,13 @@ footer {
 /*}*/
 
 /* Special case for design patterns */
-img[src*="/assets/img/dp-"] {
-  width: 100%;
+@media screen and (max-width: 767px) {
+  img[src*="/assets/img/dp-"] {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  img[src*="/assets/img/dp-"] {
+    width: 80%;
+  }
 }
