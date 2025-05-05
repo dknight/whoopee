@@ -67,7 +67,7 @@ local person = {
 				skill = 10,
 				years = 8
 			}
-		}
+		},
 		"cars",
 	},
 }
@@ -160,7 +160,7 @@ local function printTable(t, level)
 end
 printTable(person)
 --Output:
-{
+--{
 --[hobbies] = {
 --[1] = painting,
 --[2] = cars,
@@ -344,7 +344,7 @@ myModule.printTable(nil) -- nil
 
 ## More possibilities
 
-If we go deeper, the table type actually has the meta-method [`__tostring`](https://www.lua.org/manual/5.4/manual.html#pdf-tostring), which prints the table in the format table: 0x11111111. We can override the [`__tostring`](https://www.lua.org/manual/5.4/manual.html#pdf-tostring) method, bit do not do it.
+If we go deeper, the table type actually has the meta-method [`__tostring`](https://www.lua.org/manual/5.4/manual.html#pdf-tostring), which prints the table in the format table: 0x11111111. We can override the [`__tostring`](https://www.lua.org/manual/5.4/manual.html#pdf-tostring) method, but we won't, see warning below.
 
 !!! danger
 	I strongly discourage overriding built-in native library meta-methods, especially if you are going to share your code with somebody else. This might lead to unpredictable results and hard-to-detect bugs.
