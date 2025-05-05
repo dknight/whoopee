@@ -48,7 +48,7 @@ Usually there are three categories of design patterns:
 ## Behavioral design patterns
 
 - [Chain of responsibility](/post/design-pattern-chain-of-responsibility.html)
-- Command
+- [Command](/post/design-pattern-command.html)
 - [Iterator](/post/design-pattern-iterator.html)
 - [Mediator](/post/design-pattern-mediator.html)
 - [Memento](/post/design-pattern-memento.html)
