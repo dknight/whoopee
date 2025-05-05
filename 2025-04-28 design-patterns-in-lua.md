@@ -53,7 +53,7 @@ Usually there are three categories of design patterns:
 - [Mediator](/post/design-pattern-mediator.html)
 - [Memento](/post/design-pattern-memento.html)
 - [Observer](/post/design-pattern-observer.html)
-- State
+- [State](/post/design-pattern-state.html)
 - [Strategy](/post/design-pattern-strategy.html)
 - [Template method](/post/design-pattern-template-method.html)
 - [Visitor](/post/design-pattern-visitor.html)
