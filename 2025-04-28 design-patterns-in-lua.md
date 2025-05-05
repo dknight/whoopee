@@ -52,7 +52,7 @@ Usually there are three categories of design patterns:
 - [Iterator](/post/design-pattern-iterator.html)
 - [Mediator](/post/design-pattern-mediator.html)
 - [Memento](/post/design-pattern-memento.html)
-- Observer
+- [Observer](/post/design-pattern-observer.html)
 - State
 - [Strategy](/post/design-pattern-strategy.html)
 - [Template method](/post/design-pattern-template-method.html)
