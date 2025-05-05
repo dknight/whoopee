@@ -56,7 +56,7 @@ Usually there are three categories of design patterns:
 - State
 - [Strategy](/post/design-pattern-strategy.html)
 - [Template method](/post/design-pattern-template-method.html)
-- Visitor
+- [Visitor](/post/design-pattern-visitor.html)
 
 ## References
 
