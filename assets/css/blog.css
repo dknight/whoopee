@@ -384,7 +384,7 @@ ol > li > p {
 
   &:checked {
     + label {
-      display: block;
+      display: inline-block;
       &::before {
         transform: rotate(90deg);
       }
