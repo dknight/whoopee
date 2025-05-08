@@ -1,6 +1,6 @@
 <!-- Description: Quitting Vim or Neo is very challenging to people open vim for the first time. -->
 
-tags: beginner humor
+tags: beginner humor vim
 
 # Hot to quit Vim and NeoVim
 

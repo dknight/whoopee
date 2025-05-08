@@ -92,6 +92,9 @@ function tag2title() {
     gamedev)
       echo "Game Development"
       ;;
+    vim)
+      echo "NeoVim/Vim"
+    ;;
     web)
       echo "Web Development"
     ;;
@@ -151,6 +154,7 @@ cat << _EOF_
         $(taglink "data-structures")
         $(taglink "design-patterns" "/post/design-patterns-in-lua.html")
         $(taglink "web")
+        $(taglink "vim")
         $(taglink "gamedev")
         $(taglink "love2d")
         $(taglink "humor")

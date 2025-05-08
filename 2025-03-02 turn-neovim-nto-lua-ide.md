@@ -1,6 +1,6 @@
-<!-- Description: A comprehensive step-by-step guide on transforming Neovim into a fully functional Integrated Development Environment (IDE) specifically tailored for Lua development-->
+<!-- Description: A comprehensive step-by-step guide on transforming Neovim into a fully functional Integrated Development Environment (IDE) specifically tailored for Lua development. -->
 
-tags: lua
+tags: lua vim
 
 # Turn NeoVim into Lua IDE
 
@@ -10,29 +10,56 @@ tags: lua
 </div>
 [TOC]
 
-NeoVim is a modern, Vim-based text editor with limitless customization possibilities. It is relatively lightweight and
-compatible with Vim, which has been beloved by IT professionals for decades. I would show how easy it is to set it up
-as IDE for Lua language.
+*Last update: 2025-05-08*
+***TL;DR;***<br>
+*Just copy contents from [`init.lua`](/assets/docs/init.lua.txt) and paste into your `init.lua` file and run NeoVim.*
+
+[NeoVim](https://neovim.io/) is a modern, [Vim](https://www.vim.org/)-based text editor with limitless
+customization possibilities. It is relatively lightweight and compatible with Vim, which has been
+beloved by IT professionals for decades.
+
+In this guide, I will show how easy it is to set up NeoVim as an IDE for the Lua language. This guide
+primarily applies to Linux, but most of the features also apply to macOS and Microsoft Windows.
 
 ## Step 1. Installation
 
-First of all, let's install NeoVim. You can find [a detailed guide.](https://github.com/neovim/neovim/blob/master/INSTALL.md)
-for your operating system.
+First, let's install NeoVim.
 
-### Prerequisites for plugins
+GNU/Linux Debian-based distributions (Ubuntu, Mint, etc.) can install NeoVim using the following command:
 
-- Required [Rust language compiler](https://www.rust-lang.org/tools/install);
-- Or instead of Rust, you can use `npm` shipped with [Node.js®](https://nodejs.org/en/download).
+```shell
+sudo apt-get install neovim
+```
 
-I would recommend using Node because you also might need it later for other plugins. But this is completely up to you.
+GNU/Linux DNF-based distributions (Fedora, CentOS, etc.) can install NeoVim using the following command:
+
+```shell
+sudo dnf install neovim
+```
+
+GNU/Linux Arch-based distributions (Manjaro, Arch Linux, etc.) can install NeoVim using the following command:
+
+```shell
+sudo pacman -S neovim
+```
+
+[Homebrew](https://brew.sh) on macOS or GNU/Linux
+
+```shell
+brew install neovim
+```
+
+You can find a [detailed guide](https://github.com/neovim/neovim/blob/master/INSTALL.md) for your operating system.
 
 ## Step 2. Detect Configuration Paths
 
-The next step is to determine where NeoVim configuration files are stored. On Unix-like systems, they are usually stored in the `$XDG_CONFIG_HOME` environment variable.
+The next step is to determine where NeoVim configuration files are stored. On Unix-like systems, they are usually
+stored in the `$XDG_CONFIG_HOME` environment variable.
 
-To find your current configuration directory, run the following command inside Vim: `:echo stdpath('config')`. This will print the current configuration directory.
+To find your current configuration directory, run the following command inside NeoVim: `:echo stdpath('config')`.
+This will print the current configuration directory.
 
-Usually, these are:
+Typically, these are:
 
 | OS       | Config Directory   | NeoVim Config Directory  |  
 |----------|--------------------|--------------------------|  
@@ -41,24 +68,78 @@ Usually, these are:
 
 Read more about standard paths in the [NeoVim documentation](https://neovim.io/doc/user/starting.html#_standard-paths).
 
-## Step 3. Creating `init.lua` file
+## Step 3. Creating the `init.lua` File
 
-Let's start with an empty `init.lua` file in the config directory. Let's confisued we are on Linux and full path will be `~/.config/nvim/init.lua`.
+Let's start with an empty `init.lua` file in the config directory. We'll assume you're on Linux, so the full path will
+be `~/.config/nvim/init.lua`. We can also define some variables here that might be useful later. Also added comments
+here to define `init.lua` file structure.
 
 ```lua
 --init.lua
+
+-------------------------------------------------------------------------------
+-- locals
+-------------------------------------------------------------------------------
+
+local homedir = vim.fn.expand("$HOME")
+
+-------------------------------------------------------------------------------
+-- Lazy.nvim install
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Vim options
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Auto commands
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Key mappings
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Load Lazy
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Load LSP
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Load nvim-cmp
+-------------------------------------------------------------------------------
 ```
 
-## Step 4. Installing Lazy plugin manager
+## Step 4. Installing the Lazy Plugin Manager
 
-NeoVim has an amazing plugin manager called [Lazy](https://github.com/folke/lazy.nvim), which is easy to install and use. You can follow the [official installation guide](https://lazy.folke.io/installation), but this article covers the same approach.
+## Step 4. Installing the Lazy Plugin Manager
 
-After installation, paste the following code into an `init.vim` file:
+NeoVim has an excellent plugin manager called [Lazy](https://github.com/folke/lazy.nvim), which is easy to install and
+use. You can follow the [official installation guide](https://lazy.folke.io/installation), but this article covers the
+same approach.
+
+Make sure to set up `mapleader` and `maplocalleader` before loading `lazy.nvim` to ensure that mappings work correctly.  
+This is also a good place to configure other settings using `vim.opt`.
+
+After installation, paste the following code into your `init.lua` file:
 
 ```lua
---init.lua
+-- init.lua
 
--- Lazy setup
+-------------------------------------------------------------------------------
+-- locals
+-------------------------------------------------------------------------------
+-- ...
+
+-------------------------------------------------------------------------------
+-- Lazy.nvim install
+-------------------------------------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -82,81 +163,550 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
+-------------------------------------------------------------------------------
+-- Vim options
+-------------------------------------------------------------------------------
+vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim
+-------------------------------------------------------------------------------
+-- Auto commands
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Key mappings
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Load Lazy
+-------------------------------------------------------------------------------
 local plugins = require("config.plugins")
 require("lazy").setup(plugins, {
     spec = {
-        -- import your plugins
+        -- Import your plugins
         { import = "plugins" },
     },
     -- Configure any other settings here. See the documentation for more details.
-    -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
-    -- automatically check for plugin updates
-    checker = { enabled = true },
+    checker = { enabled = true }, -- Automatically check for plugin updates
 })
+
+-------------------------------------------------------------------------------
+-- Load LSP
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Load nvim-cmp
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Vim options
+-------------------------------------------------------------------------------
+-- ...
 ```
 
-This is the initial setup for Lazy, and after you run NeoVim, the Lazy Plugin Manager will install automatically.
+This is the initial setup for Lazy. After you run NeoVim, the Lazy plugin manager will install automatically.
 
-Next, let's create a `plugins` table that we will need in `init.lua`. Create an empty table—we will need it later.
+Next, let's create a `plugins` table that will be used in `init.lua`. Create an empty table—we'll populate it later.
+
+```lua
+-- init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
+local plugins = {}
+
+-- ...
+```
+
+If you try to run **nvim** now, you will most likely see an error like this:
+
+```text
+Error detected while processing ~/.config/nvim/init.lua:
+No specs found for module "plugins"
+Press ENTER or type command to continue
+```
+
+**Don't panic!** This is expected because we haven’t installed any plugins yet. To check whether Lazy is installed
+correctly, type `:Lazy` and press `Enter`.
+
+You should see a screen similar to the following:
+
+![NeoVim Lazy interface](/assets/img/neovim-lazy-start-screen.png)
+
+> **Tip**: To quit the Lazy screen, press the `q` key.
+
+The menu is quite straightforward:
+
+- **Install (I)**: Press <kbd>Shift</kbd> + <kbd>I</kbd>
+- **Update (U)**: Press <kbd>Shift</kbd> + <kbd>U</kbd>
+- **Help (?)**: Press <kbd>?</kbd>
+- And more. You can explore further by running `:Lazy help`.
+
+Alternatively, you can run the same commands from the NeoVim command line:
+
+```vim
+:Lazy install
+:Lazy update
+:Lazy help
+```
+
+!!! Tip
+	It is recommended to run `:checkhealth lazy` after installation. Try to fix any reported errors and warnings.
+
+!!! Warning
+	After running Lazy plugin manager commands, a `lazy-lock.json` file will be automatically created in the 
+	configuration directory. **Do not modify this file**, as it is generated and updated automatically to store
+	required metadata about plugins.
+
+## Step 5: Installing Language Server Protocol (LSP)
+
+The Lua Language Server enhances Lua development by offering a range of features that streamline and speed up the
+coding process. It includes [annotations and typing systems](https://luals.github.io/wiki/annotations/),
+autocompletion, linting, code formatting, and many other useful features.
+
+There are two ways to install the LSP: compile it yourself or download a prebuilt binary for your platform.
+Compilation is outside the scope of this article. If you're interested in the compilation process, refer to
+the [official LSP documentation](https://luals.github.io/wiki/).
+
+In this guide, we'll use precompiled binaries. Download the [latest release for your platform](https://github.com/LuaLS/lua-language-server/releases) and unzip it into a directory such as `~/.config/lua-lsp`.
+
+> **Note**: If you used a path other than `~/.config/lua-lsp`, update the path accordingly in the following steps.
+
+Next, we need to inform the operating system where to find the LSP binary. To do this, add the binary's location to your
+`$PATH` environment variable. For Unix-like systems, add the following line to your `.bashrc` (or `.zshrc`, depending on
+your shell):
+
+
+```shell
+echo 'export PATH="$HOME/.config/lua-lsp/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+exec $SHELL 
+```
+
+Your shell may be something other than **bash**. For example, on macOS, the default shell is **zsh**, so the
+configuration should go in `.zshrc`. Shell configuration depends on your platform and the shell you are using.
+Common configuration files in your home directory include: `.bashrc`, `.bash_profile`, `.zshrc`, `.zsh_profile`, etc.
+
+To determine your current shell, run the following command in the terminal:
+
+!!! tip
+	Your shell may be something other than **bash**.  For example, on macOS, the default shell is **zsh**, so the
+	configuration should go in `.zshrc`. Shell configuration depends on your platform and the shell you are using.
+	Common configuration files in your home directory include: `.bashrc`, `.bash_profile`, `.zshrc`, `.zsh_profile`,
+	etc. Type the command in terminal `printenv SHELL` to get your current shell.
+
+Next, add [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) plugin to our `plugins` table. Which we have already created in [Step 4](#step-4-installing-lazy-plugin-manager).
 
 ```lua
 --init.lua
 
--- Lazy setup (code truncated) --
+-- ...
 
--- Plugins list
-local plugins = {}
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
+local plugins = {
+	"neovim/nvim-lspconfig"
+}
 
--- Setup lazy.nvim (code truncated) --
+-- ...
 ```
 
-If you try to run **nvim** now, you will most likely get an error like:
+Now we need to initialize the LSP setup. This should also be done in the `init.lua` file. Append the following lines:
 
-```text
-Error detected while processing ~/.config/nvim/init.lua: 
-No specs found for module "plugins" 
-Press ENTER or type command to continue 
+```lua
+--init.lua
+
+-------------------------------------------------------------------------------
+-- Load LSP
+-------------------------------------------------------------------------------
+require("lspconfig").lua_ls.setup({
+	on_attach = function()
+		-- add code if needed
+	end,
+	on_init = function(_client)
+		-- add code if needed
+	end,
+})
 ```
 
-**Do not panic!** This is normal because we have not yet installed any plugins. To check if Lazy is installed correctly, type `:Lazy` and hit <kbd>Enter</kbd>.
+Watch the demo of the LSP in action. Notice that after typing `table`, pressing <kbd>Ctrl</kbd> + <kbd>x</kbd>
+followed by <kbd>o</kbd> triggers autocompletion.
 
-If you see a screen similar to this:
+![Demonstration of NeoVim and Lua Language Server Protocol in action](/assets/img/nvim-recording.gif)
 
-![NeoVim Lazy interface](/assets/img/neovim-lazy-start-screen.png)
+## Step 6: Code formatting with editor config
 
-!!! tip
-	To quit the Lazy screen, press the <kbd>q</kbd> key.
+You can use the [embedded code formatter](https://luals.github.io/wiki/formatter/) provided by LSP instead of StyLua. Lua LSP supports [`.editorconfig`](https://editorconfig.org/) out-of-box; you can create a `.editorconfig` file globally in your `$HOME`
+directory. Or individually for each project or directory. LSP will look up this file up to the directory tree.
 
-As you can see, the menu is quite straightforward:
+Here is my preferred configuration, but you can set your personal preferences.
 
-> - **Install (I)**: <kbd>Shift</kbd>+<kbd>i</kbd>
-> - **Update (U)**: <kbd>Shift</kbd>+<kbd>u</kbd>
-> - **Help (?)**: <kbd>?</kbd>
-> - And so on; ask help with command `:Lazy help`.
+```editorconfig
+[*.lua]
+indent_style=tab
+indent_size=4
+tab_width=4
+quote_style=double
+max_line_length=80
+trailing_table_separator=smart
+```
 
-Alternatively, you can run the same commands inside the NeoVim command line: `:Lazy install`, `:Lazy update`, `:Lazy help`, etc.
+Setting up an auto command to run the formatter on save is also easy. Append the next lines to `init.lua`.
 
-!!! tip
-	It is recommended to run `:checkhealth lazy` after installation. Try to tix errors and warnings if they are reported.
+```lua
+--init.lua
 
-!!! warning
-	After running Lazy plugin manager commands, a `lazy-lock.json` file will be automatically created
-	in the configuration directory. **Do not modify this file**, as it is updated and generated automatically,
-	storing required metadata about plugins.
+-- ...
 
-## Step 5: Installing StyLua
+-------------------------------------------------------------------------------
+-- Auto commands
+-------------------------------------------------------------------------------
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "*.sh" },
+	callback = function(args)
+		vim.keymap.set("n", "<f5>", "<cmd>w<cr><cmd>!%%%<cr>")
+	end,
+})
+
+-- ...
+```
+
+## Step 7. Useful options
+
+NeoVim and Vim have a huge number of preferences. Type  `:h options` in the NeoVim command line to read documentation about options.
+
+I would recommend using this setup, but you can change what you want. Lazy recommends setting up options before you initialize. Lazy
+
+> Make sure to setup `mapleader` and `maplocalleader` in [step 4](#step-4-installing-lazy-plugin-manager)
+> loading lazy.nvim so that mappings are correct.
+> This is also a good place to setup other settings (vim.opt)
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- Vim options
+-------------------------------------------------------------------------------
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
+vim.opt.exrc = false
+vim.opt.secure = true
+vim.opt.number = true
+vim.opt.mouse = ""
+vim.opt.spelllang = "en_us"
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+vim.opt.clipboard = "unnamedplus"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = false
+vim.opt.smartindent = true
+vim.opt.list = true
+vim.opt.ignorecase = true
+vim.opt.infercase = true
+vim.opt.smartcase = true
+vim.opt.listchars = { tab = "⏵ ", trail = "." } -- , eol = "$"
+vim.opt.rulerformat = "%l,%v"
+vim.opt.colorcolumn = "75,79"
+vim.opt.undofile = true
+vim.opt.undodir = homedir .. "/.undodir"
+vim.opt.lazyredraw = false
+vim.opt.textwidth = 78
+vim.opt.endoffile = true
+
+-- ...
+```
+
+That is. This is a bare minimum to make your NeoVim the Lua IDE. Next steps are optional.
+
+## Step 8. Run the current buffer with Lua code in a single key
+
+Usually I use the <kbd>F5</kbd> key to run the file, but you can map it to any other key or sequence. To achieve this,
+add a key map in the *Auto command* section.
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- Auto commands
+-------------------------------------------------------------------------------
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "*.lua" },
+    callback = function()
+        vim.keymap.set("n", "<f5>", "<cmd>w<cr><cmd>!lua %<cr>")
+    end,
+})
+
+-- ...
+```
+
+In the same manner, you can use the <kbd>F6</kbd> for the debugger or something else.
+
+## Step 9: Install nvim-cmp and LuaSnip
+
+[nvim-cmp](https://github.com/hrsh7th/nvim-cmp) is a powerful completion engine plugin for neovim written in Lua.
+You can check the recommended documentation at [nvim-cmp GitHub page](https://github.com/hrsh7th/nvim-cmp?tab=readme-ov-file#setup).
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
+local plugins = {
+	-- ...
+	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/nvim-cmp",
+	-- ...
+}
+
+-------------------------------------------------------------------------------
+-- Load Lazy
+-------------------------------------------------------------------------------
+-- ...
+
+-------------------------------------------------------------------------------
+-- Load LSP
+-------------------------------------------------------------------------------
+-- ...
+
+-------------------------------------------------------------------------------
+-- Load nvim-cmp
+-------------------------------------------------------------------------------
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+local cmp = require("cmp")
+cmp.setup({
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	window = {
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+	}, {
+		{ name = "buffer" },
+	}),
+})
+
+--- ...
+```
+
+### Step 9B: Useful keystoker for nvim-cmp
+
+nvim-cmp offers an incredible range of features, especially when paired with custom keystroke setups.
+By configuring specific keybindings, you can significantly enhance your workflow and streamline your
+interactions with code completion, snippet management, and language servers. This is my favorite setup,
+but you can set yours.
+
+- <kbd>Shift</kbd>+<kbd>K</kbd>: opens popover with documentation and help;
+- <kbd>gd</kbd>: "go to definition" e.g., if you place the cursor on a variable or function and use this keystroke, it
+  will move the cursor where this variable, or method, or class is defined;
+- <kbd>&lt;leader>dk</kbd>: moves the cursor to the next error or warning reported by the language server;
+- <kbd>&lt;leader>dj</kbd>: moves the cursor to the previous error or warning reported by the language server;
+- <kbd>&lt;leader>dl</kbd>: opens all errors and warnings reported by the language server in
+  [Telescope](#step-16-optional-telescope) popup window;
+- <kbd>&lt;leader>r</kbd>: renames the variable, method, or class;
+- <kbd>&lt;leader>A</kbd>: show language server's actions;
+
+```lua
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { buffer = 0 })
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>",
+	{ buffer = 0 })
+vim.keymap.set("n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+vim.keymap.set("n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>")
+vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>")
+vim.keymap.set("n", "<leader>A", "<cmd>lua vim.lsp.buf.code.action()<cr>")
+
+```
+
+## Step 10: Final setup
+
+Finally, we can need to set capabilities for Lua LS; we use defaults. This is fine in most cases.
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- Load nvim-cmp
+-------------------------------------------------------------------------------
+
+--- ...
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- Add for each lsp server you've enabled.
+require("lspconfig")["lua_ls"].setup {
+	capabilities = capabilities,
+}
+
+--- ...
+```
+
+## Step 11. LuaSnip
+
+We install [LuaSnip](https://github.com/L3MON4D3/LuaSnip) as a snippet engine, but you can use your favorite snippets
+engine: [vsnip](https://github.com/hrsh7th/vim-vsnip/blob/master/README.md),
+[snippy](https://github.com/dcampos/nvim-snippy), etc.; these are mostly compatible with each other.
+How to set up LuaSnip check the [LuaSnip GitHub project](https://github.com/L3MON4D3/LuaSnip).
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- PLugins
+-------------------------------------------------------------------------------
+local plugins = {
+	-- ...
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
+	-- ...
+}
+
+-------------------------------------------------------------------------------
+-- Load nvim-cmp
+-------------------------------------------------------------------------------
+
+-- ...
+
+-- Load LuaSnip
+require("luasnip.loaders.from_snipmate").lazy_load()
+
+-- ...
+```
+
+## Step 12 (Optional): Invaluable Plugins for NeoVim
+
+Some plugins might make your life even happier with NeoVim.
+
+- [tpope/vim-commentary](https://github.com/tpope/vim-commentary): A very useful plugin to comment/uncomment with the <kbd>gcc</kbd> keystroke.
+- [tpope/vim-repeat](https://github.com/tpope/vim-repeat): If you've ever tried using the `.` command after a plugin mapping, you were likely
+  disappointed to discover it only repeated the last native command inside that mapping, rather than the mapping
+  as a whole.
+- [tpope/vim-surround](https://github.com/tpope/vim-surround): This plugin is all about "surroundings": parentheses,
+  brackets, quotes, XML/HTML tags, and more. It provides mappings to easily delete, change, and add such surroundings  
+  in pairs.
+- [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline): A cool custom status line.
+- [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes): A large set of themes for vim-airline.
+- [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim): Allows opening files with <kbd>Ctrl</kbd>+<kbd>p</kbd> keystrokes. I also recommend setting
+  wildcards to ignore files, like: `vim.g.wildignore = "*/node_modules/*,*.so,*.swp,*.zip,*.git,*.o,*.a,"`
+- [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs): Automatically completes closing pairs: `"`, `'`, `(`, `[`, `{`, etc.
+- [flazz/vim-colorschemes](https://github.com/flazz/vim-colorschemes): A large collection of color schemes for NeoVim. Use the `:color <tab>` command to find
+  your favorite color scheme.
+- [nelstrom/vim-visual-star-search](https://github.com/nelstrom/vim-visual-star-search): Allows searching words with <kbd>*</kbd> in visual mode.
+
+List of full plugins in the table:
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- PLugins
+-------------------------------------------------------------------------------
+local plugins = {
+	-- ...
+	"tpope/vim-commentary",
+	"tpope/vim-surround",
+	"tpope/vim-repeat",
+	"vim-airline/vim-airline",
+	"ctrlpvim/ctrlp.vim",
+	"jiangmiao/auto-pairs",
+	"nelstrom/vim-visual-star-search",
+	"dhruvasagar/vim-table-mode",
+	-- ...
+}
+
+-- ...
+```
+
+## Step 13 (Optional). <kbd>jk</kbd> ninja trick
+
+In NeoVim and Vim, by default, the key <kbd>Esc</kbd> is the default key to return to normal mode. The problem is that
+<kbd>Esc</kbd> key is too far from your main fingers. There is a ninja trick to map <kbd>jk</kbd> act as <kbd>Esc</kbd>
+. These small improvements greatly speed up coding.
+
+```lua
+--init.lua
+
+-- ...
+
+-------------------------------------------------------------------------------
+-- Key mappings
+-------------------------------------------------------------------------------
+vim.keymap.set("i", "jk", "<Esc>")
+
+-- ...
+```
+
+## Step 14 (optional): nvim-treesitter
+
+Shortly. Syntax highlighting on steroids. [Treesitter](https://github.com/tree-sitter/tree-sitter) and [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) highlighting are an experimental
+feature of Neovim. Please consider the experience with this plug-in as experimental until Tree-Sitter support in Neovim is stable! We recommend using the nightly builds of Neovim if possible.
+
+Add it to the `plugins` table:
+
+```lua
+--inia.lua
+
+--  ...
+
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
+local plugins = {
+    -- ...
+    "nvim-treesitter/nvim-treesitter",
+    -- ...
+}
+
+-- ...
+```
+
+To install parsers for TreeSitter: `:TSInstall c lua vim vimdoc markdown`
+
+## Step 15 (Optional): StyLua as an alternative for Lua LSP formatting
 
 [StyLua](https://github.com/JohnnyMorganz/StyLua) is an opinionated code formatter for Lua.
 
-To install it on your platform, there are three ways (return to [step 1](#prerequisites-for-plugins):
+To install it on your platform, there are three ways:
 
 1. Use [Rust](https://www.rust-lang.org/): `cargo install stylua`
 2. Use [NPM](https://www.npmjs.com/) with Node.js®: `npm i -g @johnnymorganz/stylua-bin`
@@ -171,13 +721,14 @@ If you want to configure StyLua per project, you can create a `.stylua.toml` fil
 Another useful feature is auto-formatting files upon saving. For this purpose, we can create an *autocommand* in NeoVim. Edit your `init.lua` as follows:
 
 ```lua
--- init.lua
+--init.lua
 
--- Lazy setup (code truncated)
--- Plugins list (code truncated)
--- Setup lazy.nvim (code truncated)
+-- ...
 
--- Autocommands
+-------------------------------------------------------------------------------
+-- Auto commands
+-------------------------------------------------------------------------------
+-- ...
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "*.lua" },
     callback = function()
@@ -186,252 +737,35 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.cmd(stylua_cmd)
     end,
 })
+
+-- ...
 ```
 
-## Step 6: Installing Language Server Protocol (LSP)
+## Step 16 (Optional): Telescope
 
-The Lua Language Server enhances Lua development by offering a range of features that streamline and accelerate the coding process. It includes [annotations and typing systems](https://luals.github.io/wiki/annotations/), autocompletion, linting, and many other useful features.
-
-There are two ways to install LSP: compile it yourself or download a prebuilt binary for your platform. Compilation is out of scope for this article. If you are interested in the compilation process, check out the [official LSP documentation](https://luals.github.io/wiki/).
-
-Here, we will use precompiled binaries. Download the [latest release for your platform](https://github.com/LuaLS/lua-language-server/releases), and unzip it into a directory such as `~/.config/lua-lsp`.
-
-> If you used a path other than `~/.config/lua-lsp` , change it accordingly.
-
-Next we need to tell OS where to install LSP; for this we need to add the LSP binary to the `$PATH` environment variable.  For Unix-like systems, add it to your `.bashrc`.
-
-```shell
-echo 'export PATH="$HOME/.config/lua-lsp/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-exec $SHELL 
-```
-
-!!! tip
-	Maybe your shell is other than **bash**. For example, in macOS, by default, it is **zsh**, so settings are in `.zshrc`.
-	Shell configuration depends on your platform and shell you use; possible files in your home directory are: `.bashrc` ,
-	`.bash_profile`, `.zshrc`, `.zsh_profile` etc.
-
-    Type the command in terminal `printenv SHELL` to get your current shell.
-
-Next, add [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) plugin to our `plugins` table. Which we have already created in [Step 4](#step-4-installing-lazy-plugin-manager).
+telescope.nvim is a highly extendable fuzzy finder over lists. Built on the latest awesome features from neovim
+core. [`Telescope`](https://github.com/nvim-telescope/telescope.nvim) is centered around modularity, allowing for easy
+customization. It is straightforward to use and install, referer to its documentation, add to the `plugins` table and
+most of the features works out-of-box.
 
 ```lua
 --init.lua
 
--- Lazy setup (code truncated)
+-- ...
 
--- Plugins list
+-------------------------------------------------------------------------------
+-- Plugins
+-------------------------------------------------------------------------------
 local plugins = {
-	"neovim/nvim-lspconfig"
+	-- ...
+	"nvim-telescope/telescope.nvim",
+	-- ...
 }
 
--- Setup lazy.nvim (code truncated)
--- Autocommands (code truncated)
+-- ...
 ```
 
-Now we need to initialize the LSP setup; this also should be done in init.lua a file. Just append these lines:
-
-```lua
---init.lua
-
--- Lazy setup (code truncated)
--- Plugins list (code truncated)
--- Setup lazy.nvim (code truncated)
--- Autocommands (code truncated)
-
--- Setup LSP
-require("lspconfig").lua_ls.setup({
-	-- LSP can have lots of configurations.
-	-- Check out possibilities at official docs https://luals.github.io/wiki/configuration/
-})
-```
-
-Watch the demo of the LSP in action; notice that after `table.` <kbd>Ctrl</kbd>+<kbd>x</kbd>+<kbd>o</kbd>.
-
-![Demonstration of NeoVim and Lua Language Server Protocol in action](/assets/img/nvim-recording.gif)
-
-## Step 6B (Optional): LSP of StyLua alternative
-
-You can use the [embedded code formatter](https://luals.github.io/wiki/formatter/) provided by LSP, instead of StyLua. It is even more simple setup than StyLua. For this step you do not need to install StyLua from step 5.
-
-```lua
--- init.lua
-require("lspconfig").lua_ls.setup({
-	-- rest of config of LSP if exists
-	Lua = {
-		format = {
-			enabled = false,
-			defaultConfig = {
-				indent_style = "tab",
-				tab_width = "4",
-				max_line_length = "80",
-			},
-		},
-	},
-})
-
--- Also change auto-command
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.lua" },
-	callback = function()
-		-- Stylua commands were here from Step 5.
-		vim.lsp.buf.format({ async = false })
-	end,
-})
-```
-
-## Step 7. Useful options
-
-NeoVim and Vim have a huge number of preferences. Type `:h options` in NeoVim command line to read documentation about options.
-
-I would recommend using this setup, but you can change what you want.  Lazy recommends setting up options before you initialize. Lazy
-
-> Make sure to setup `mapleader` and `maplocalleader` before
-> loading lazy.nvim so that mappings are correct.
-> This is also a good place to setup other settings (vim.opt)
-
-```lua
---init.lua
-
--- Lazy setup (code truncated)
--- Plugins list (code truncated)
-
--- Options
-vim.g.mapleader = ","
-vim.opt.exrc = false
-vim.opt.secure = true
-vim.opt.number = true
-vim.opt.mouse = ""
-vim.opt.spelllang = "en_us"
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 99
-vim.opt.clipboard = "unnamed"
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.smartindent = true
-vim.opt.ignorecase = true
-vim.opt.infercase = true
-vim.opt.smartcase = true
-vim.opt.rulerformat = "%l,%v"
-vim.opt.colorcolumn = "75,79"
-vim.opt.undofile = true
-vim.opt.undodir = vim.fn.expand("$HOME") .. "/.undodir"
-vim.opt.lazyredraw = false
-vim.opt.textwidth = 78
-vim.opt.endoffile = true
-
--- Setup lazy.nvim (code truncated)
--- Setup LSP (code truncated)
-```
-
-That is all. This is a bare minimum to make your NeoVim as a Lua IDE. Next steps are optional.
-
-## Step 8. Run the current buffer with Lua code in a single key
-
-Usually I use <kbd>F5</kbd> key to run the file, but you can map it to any other key or sequence. To achieve this, add a key map in the *autocommand* section.
-
-```lua
---init.lua
-
--- Lazy setup (code truncated)
--- Plugins list (code truncated)
--- Setup lazy.nvim (code truncated)
--- Autocommands (code truncated)
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "lua" },
-    callback = function()
-        vim.keymap.set("n", "<f5>", "<cmd>w<cr><cmd>!lua %<cr>")
-    end,
-})
-
--- Setup LSP (code truncated)
-```
-
-In the same manner, you can use <kbd>F6</kbd> for the debugger or something else.
-
-## Step 9 (Optional): Very Useful Plugins
-
-Some plugins might make your life even happier with NeoVim.
-
-- [tpope/vim-commentary](https://github.com/tpope/vim-commentary): A very useful plugin to comment/uncomment with the <kbd>gcc</kbd> keystroke.
-- [tpope/vim-repeat](https://github.com/tpope/vim-repeat): If you've ever tried using the `.` command after a plugin mapping, you were likely disappointed to discover it only repeated the last native command inside that mapping, rather than the mapping as a whole.
-- [tpope/vim-surround](https://github.com/tpope/vim-surround): This plugin is all about "surroundings": parentheses,  
-  brackets, quotes, XML/HTML tags, and more. It provides mappings to easily delete, change, and add such surroundings  
-  in pairs.
-- [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline): A cool custom status line.
-- [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes): A large set of themes for vim-airline.
-- [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim): Allows opening files with <kbd>Ctrl</kbd>+<kbd>p</kbd> keystrokes. I also recommend setting wildcards to ignore files, like: `vim.g.wildignore = "*/node_modules/*,*.so,*.swp,*.zip,*.git,*.o,*.a,"`
-- [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs): Automatically completes closing pairs: `"`, `'`, `(`, `[`, `{`, etc.
-- [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim): Amazing autocompletion on the fly. You do not need to press <kbd>Ctrl</kbd>+<kbd>x</kbd>+<kbd>o</kbd> to get context suggestions. It might be tricky to install, but it is really worth it.  
-  **Tip:** Try this if you are on Linux: `cd ~/.local/share/nvim/lazy/coc.nvim/ && npm ci` or `:CocInstall`.
-  Run `:CocConfig` to create `coc-settings.json` and [configure JSON](https://luals.github.io/wiki/configuration/#using-cocnvim) as you wish, for the reference check my [`coc-settings.json`](https://github.com/dknight/dotfiles/blob/main/coc-settings.json) as example.
-- [flazz/vim-colorschemes](https://github.com/flazz/vim-colorschemes): A large collection of color schemes for NeoVim. Use the `:color <tab>` command to find your favorite color scheme.
-- [nelstrom/vim-visual-star-search](https://github.com/nelstrom/vim-visual-star-search): Allows searching words with <kbd>*</kbd> in visual mode.
-
-List of full plugins in the table:
-
-```lua
-
---init.lua
-
--- Lazy setup (code truncated)
-
--- Plugins list
-local plugins = {
-	"neovim/nvim-lspconfig",
-	"tpope/vim-commentary",
-	"tpope/vim-surround",
-	"tpope/vim-repeat",
-	"vim-airline/vim-airline",
-	"vim-airline/vim-airline-themes",
-	"ctrlpvim/ctrlp.vim",
-	"jiangmiao/auto-pairs",
-	"nelstrom/vim-visual-star-search",
-	"dhruvasagar/vim-table-mode",
-	"flazz/vim-colorschemes",
-	"neoclide/coc.nvim",
-}
--- Setup lazy.nvim (code truncated)
--- Autocommands (code truncated)
--- Setup LSP (code truncated)
-```
-
-## Step 10 (Optional). <kbd>jk</kbd> ninja trick
-
-In NeoVim and Vim, by default, the key <kbd>Esc</kbd> is the default key to return to normal mode. The problem is that <kbd>Esc</kbd> key is too far from your main fingers. There is a ninja trick to map <kbd>jk</kbd> act as <kbd>Esc</kbd>. These small improvements greatly speed up coding.
-
-```lua
---init.lua
-
--- Lazy setup (code truncated)
-
--- Custom key mappings
-vim.keymap.set("i", "jk", "<Esc>")
-
--- Plugins list (code truncated)
--- Setup lazy.nvim (code truncated)
--- Autocommands (code truncated)
--- Setup LSP (code truncated)
-```
-
-## Step 11 (optional): nvim-treesitter
-
-Shortly. Syntax highlighting on steroids. [Treesitter](https://github.com/tree-sitter/tree-sitter) and [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) highlighting are an experimental feature of Neovim. Please consider the experience with this plug-in as experimental until Tree-Sitter support in Neovim is stable! We recommend using the nightly builds of Neovim if possible.
-
-Add it to `plugins table`
-
-```lua
-local plugins = {
-    -- ... rest of the plugins from previous sections ...
-    "nvim-treesitter/nvim-treesitter",
-}
-```
-
-To install parsers in NeoVim: `:TSInstall c lua vim vimdoc markdown`
-
-Download complete [`init.lua`](/assets/docs/init.lua.txt) file.
+You can download [`init.lua`](/assets/docs/init.lua.txt) file with all settings.
 
 ## More Tips to Become a Vim/NeoVim Master
 
@@ -441,8 +775,8 @@ Download complete [`init.lua`](/assets/docs/init.lua.txt) file.
 - Read the book [Practical Vim](https://pragprog.com/titles/dnvim2/practical-vim-second-edition/).
 - Use `:h <topic>` the command to learn and get help;
 - There are limitless possibilities to customize NeoVim to match your needs and habits.
-- If you're struggling, you can check my [`init.lua`](https://github.com/dknight/dotfiles/blob/main/init.lua) as a starting
- point for your setup or inspiration.
+- If you're struggling, you can check my [`init.lua`](https://github.com/dknight/dotfiles/blob/main/init.lua) as a 
+  starting point for your setup or inspiration.
 
 That's all! Happy Vim-ing!
 
