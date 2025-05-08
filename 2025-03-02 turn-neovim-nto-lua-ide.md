@@ -11,6 +11,7 @@ tags: lua vim
 [TOC]
 
 *Last update: 2025-05-08*
+
 ***TL;DR;***<br>
 *Just copy contents from [`init.lua`](/assets/docs/init.lua.txt) and paste into your `init.lua` file and run NeoVim.*
 
