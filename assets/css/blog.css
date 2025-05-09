@@ -264,9 +264,12 @@ blockquote {
 }
 
 video {
+  display: block;
   border: thin solid var(--color-border);
   outline: thin solid var(--color-border);
   outline-offset: .125rem;
+  max-width: 100%;
+  height: auto;
 }
 
 /* TODO use when migrated to DOS font */

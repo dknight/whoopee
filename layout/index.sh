@@ -89,6 +89,9 @@ function tag2title() {
     love2d)
       echo "Löve2D"
     ;;
+    playdate)
+      echo "Playdate"
+    ;;
     gamedev)
       echo "Game Development"
       ;;
@@ -157,6 +160,7 @@ cat << _EOF_
         $(taglink "vim")
         $(taglink "gamedev")
         $(taglink "love2d")
+        $(taglink "playdate")
         $(taglink "humor")
         $(taglink "misc")
       </nav>
