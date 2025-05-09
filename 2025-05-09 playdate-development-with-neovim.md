@@ -29,6 +29,14 @@ repository, run `make install`, and ensure that the `PLAYDATE_SDK_PATH` environm
 
 I defined some custom bridge commands in NeoVim’s `init.lua` file to run the Playdate Simulator directly from the editor.
 
+This defines the following commands:
+
+- `:PlaydateNew <dir>`
+- `:PlaydateRun <dir >?`
+- `:PlaydateBuild <dir>?`
+- `:PlaydateStop <dir>?`
+- `:PlaydateRestart <dir>?`
+
 ```lua
 --init.lua
 
