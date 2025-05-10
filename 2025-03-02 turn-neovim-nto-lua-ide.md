@@ -273,9 +273,9 @@ The Lua Language Server enhances Lua development by offering a range of features
 coding process. It includes [annotations and typing systems](https://luals.github.io/wiki/annotations/),
 autocompletion, linting, code formatting, and many other useful features.
 
-There are two ways to install the LSP: compile it yourself or download a prebuilt binary for your platform.
+There are two ways to install the LuaLS: compile it yourself or download a prebuilt binary for your platform.
 Compilation is outside the scope of this article. If you're interested in the compilation process, refer to
-the [official LSP documentation](https://luals.github.io/wiki/).
+the [official Lua LS documentation](https://luals.github.io/wiki/).
 
 In this guide, we'll use precompiled binaries. Download the [latest release for your platform](https://github.com/LuaLS/lua-language-server/releases) and unzip it into a directory such as `~/.config/lua-lsp`.
 
@@ -321,7 +321,7 @@ local plugins = {
 -- ...
 ```
 
-Now we need to initialize the LSP setup. This should also be done in the `init.lua` file. Append the following lines:
+Now we need to initialize the LS setup. This should also be done in the `init.lua` file. Append the following lines:
 
 ```lua
 --init.lua
@@ -339,15 +339,16 @@ require("lspconfig").lua_ls.setup({
 })
 ```
 
-Watch the demo of the LSP in action. Notice that after typing `table`, pressing <kbd>Ctrl</kbd> + <kbd>x</kbd>
+Watch the demo of the LS in action. Notice that after typing `table`, pressing <kbd>Ctrl</kbd> + <kbd>x</kbd>
 followed by <kbd>o</kbd> triggers autocompletion.
 
 ![Demonstration of NeoVim and Lua Language Server Protocol in action](/assets/img/nvim-recording.gif)
 
 ## Step 6: Code formatting with editor config
 
-You can use the [embedded code formatter](https://luals.github.io/wiki/formatter/) provided by LSP instead of StyLua. Lua LSP supports [`.editorconfig`](https://editorconfig.org/) out-of-box; you can create a `.editorconfig` file globally in your `$HOME`
-directory. Or individually for each project or directory. LSP will look up this file up to the directory tree.
+You can use the [embedded code formatter](https://luals.github.io/wiki/formatter/) provided by Lua LS. Lua LS supports [`.editorconfig`](https://editorconfig.org/) out-of-box; you
+can create a `.editorconfig` file globally in your `$HOME` directory. Or individually for each project or directory.
+LS will look up this file up to the directory tree.
 
 Here is my preferred configuration, but you can set your personal preferences.
 
@@ -733,7 +734,7 @@ Another useful feature is auto-formatting files upon saving. For this purpose, w
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "*.lua" },
     callback = function()
-        local stylua_cmd = "silent! !stylua %"
+        local stylua_cmd = "silent! !stylua --column-width=78 %"
         vim.cmd([[silent! %s/\s\+$//e]])
         vim.cmd(stylua_cmd)
     end,
@@ -781,6 +782,7 @@ You can download [`init.lua`](/assets/docs/init.lua.txt) file with all settings.
 
 That's all! Happy Vim-ing!
 
+*[LS]: Language Server
 *[LSP]: Language Server Protocol
 *[IDE]: Integrated Development Environment
 *[OS]: Operating System

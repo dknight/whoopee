@@ -66,7 +66,7 @@ Just one click and install.
 ## Configuration
 
 Currently, I am happy with the default settings, except for line width.
-I prefer 80 or even 78-column width. Let's fix that.
+I prefer 80 or even 78-column widths. Let's fix that.
 [Several options](https://github.com/JohnnyMorganz/StyLua?tab=readme-ov-file#options)
 can be adjusted. Let's `stylua.toml` somewhere on the system with the contents:
 
@@ -74,7 +74,7 @@ can be adjusted. Let's `stylua.toml` somewhere on the system with the contents:
 column_width = 78
 ```
 
-Now we have 2 options:
+Now we have two options to load config:
 
 ### Set a flag `--config-path` in the `stylua` command
 
@@ -87,22 +87,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 ```
 
-### Set in plugins options
+### Setting options with `stylua` command line flags
 
-Consider we use [lazy](https://github.com/folke/lazy.nvim) for NeoVim.
+Type `stylua --help` to check all possible command line flags.
 
 ```lua
-{
-	"ckipp01/stylua-nvim",
-	config = function()
-		require("stylua-nvim").setup({
-			config_file = stylua_cfg,
-		})
-	end,
-	},
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.lua" },
+	callback = function()
+		vim.cmd([[silent! !stylua --column-width=78 %]])
+	end
+})
 ```
 
-For VSCode it should everything much easier, all configurations should be
+For VSCode it should make everything much easier, all configurations should be
 available in the extension settings.
 
 ## Conclusion
