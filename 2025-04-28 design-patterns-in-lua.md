@@ -1,4 +1,4 @@
-<!-- Description: List of 22 classical design patterns implemented in Lua programming languages. Learn design patterns in Lua. -->
+<!-- Description: Explore 22 classic design patterns implemented in Lua. Learn how to apply design patterns effectively in your Lua projects. -->
 
 tags: lua design-patterns
 
