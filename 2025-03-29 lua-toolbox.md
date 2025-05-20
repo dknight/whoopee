@@ -2,7 +2,7 @@
 
 A curated list of useful links related to the Lua programming language. I regularly update this list.
 
-<em>Last update: <time>2025-04-17</time></em>
+<em>Last update: <time>2025-05-20</time></em>
 
 ## General
 
@@ -17,6 +17,8 @@ A curated list of useful links related to the Lua programming language. I regula
 
 - [Löve2D](https://love2d.org): A powerful and easy-to-use 2D game engine.
 - [Playdate](https://play.date/): A handheld console with a 1-bit display, supporting Lua for game development.
+- [@SquidGodDev](https://www.youtube.com/@SquidGodDev): YouTube channel about
+  game development for Playdate platform.
 
 ## Learning
 
