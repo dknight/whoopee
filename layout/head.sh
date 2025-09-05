@@ -38,6 +38,7 @@ cat << __HEAD__
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'">
 <title>$title</title>
+<link rel="preload" href="/assets/fonts/Perfect_DOS_VGA_437.woff2" as="font" type="font/woff2" blocking="render">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/css/styles.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
