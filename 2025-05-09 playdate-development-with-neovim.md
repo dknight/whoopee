@@ -1,8 +1,8 @@
-<!-- Description: -->
+<!-- Description: Playate Development with NeoVim-->
 
 tags: playdate vim gamedev
 
-# Playdate development with NeoVim
+# Playate development with NeoVim
 
 I’m not a big fan of bloated IDEs, so I prefer working in the terminal with NeoVim (or vim, or vi). I recently bought an amazing tiny gaming platform called [Playdate](https://play.date/), which comes with an excellent SDK and simulator.
 
