@@ -13,7 +13,7 @@ _[Image from Wikipedia.org](https://en.wikipedia.org/wiki/Commodore_64)_
 
 Commodore International Corporation has re-introduced the legendary Commodore 64 -- an iconic machine that shaped an
 entire generation of computer enthusiasts. This modernized version is a dream for retro fans who grew up with the
-original.
+original. And of course, BASIC programming language nostalgists.
 
 ### What is inside:
 - A library of over **10,000** original games, plus extra RAM and a blazing 48 MHz and *Turbo Mode*!
