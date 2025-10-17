@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source "./layout/util.sh"
+source "./layout/tag2title.sh"
 
 # Break apart the LIST payload
 IFS='✂︎' read -r -a posts <<< "$LIST"
@@ -63,56 +64,6 @@ function nav() {
   return
 }
 
-function tag2title() {
-  case "$1" in
-    c)
-      echo "C"
-    ;;
-    data-structures)
-      echo "Data structures"
-    ;;
-    lua)
-      echo "Lua"
-    ;;
-    featured)
-      echo "Featured articles"
-    ;;
-    beginner)
-      echo "For the beginners"
-    ;;
-    misc)
-      echo "Miscellaneous"
-    ;;
-    algorithms)
-      echo "Algorithms"
-    ;;
-    love2d)
-      echo "Löve2D"
-    ;;
-    playdate)
-      echo "Playdate"
-    ;;
-    gamedev)
-      echo "Game Development"
-      ;;
-    vim)
-      echo "NeoVim/Vim"
-    ;;
-    web)
-      echo "Web Development"
-    ;;
-   humor)
-      echo "Humor"
-    ;;
-  design-patterns)
-      echo "Design patterns"
-    ;;
-    *)
-      echo "Timeline"
-    ;;
-  esac
-}
-
 function taglink() {
   title=$(tag2title "$1")
   url="$2"
@@ -161,6 +112,7 @@ cat << _EOF_
         $(taglink "gamedev")
         $(taglink "love2d")
         $(taglink "playdate")
+        $(taglink "zx")
         $(taglink "humor")
         $(taglink "misc")
       </nav>

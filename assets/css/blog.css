@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Perfect_DOS_VGA_437';
-  src: url('/assets/fonts/Perfect_DOS_VGA_437.woff2') format('woff2');
+  font-family: "Perfect_DOS_VGA_437";
+  src: url("/assets/fonts/Perfect_DOS_VGA_437.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -94,7 +94,8 @@ header {
   a {
     padding: 1ch;
 
-    &:link, &:visited {
+    &:link,
+    &:visited {
       color: light-dark(var(--color5), var(--color13));
       text-decoration: none;
     }
@@ -204,7 +205,6 @@ h6 {
   color: light-dark(var(--color6), var(--color13));
 }
 
-
 a {
   &:not(:is(:hover, :focus)) {
     text-decoration-color: color-mix(in srgb, currentColor, transparent 50%);
@@ -245,7 +245,7 @@ kbd {
   border: 0.125rem solid currentColor;
   display: inline-block;
   font-weight: 700;
-  padding: 0 .5ch;
+  padding: 0 0.5ch;
   line-height: 1.5;
   white-space: nowrap;
 }
@@ -267,7 +267,7 @@ video {
   display: block;
   border: thin solid var(--color-border);
   outline: thin solid var(--color-border);
-  outline-offset: .125rem;
+  outline-offset: 0.125rem;
   max-width: 100%;
   height: auto;
 }
@@ -353,7 +353,7 @@ ol > li > p {
 /* =================================== TOC ================================= */
 .headerlink {
   display: none;
-  padding: 0 .5ch;
+  padding: 0 0.5ch;
   text-decoration: none;
 }
 
@@ -378,9 +378,9 @@ ol > li > p {
     color: light-dark(var(--color1), var(--color14));
 
     &::before {
-      content: '>';
+      content: ">";
       display: inline-block;
-      margin-right: .5ch;
+      margin-right: 0.5ch;
       transform-origin: center;
     }
   }
@@ -451,7 +451,7 @@ img {
 
   &[src*="svg"]:not([src*="polysec"]) {
     @media screen and (prefers-color-scheme: dark) {
-      filter: invert(1) hue-rotate(173deg) brightness(.87);
+      filter: invert(1) hue-rotate(173deg) brightness(0.87);
     }
   }
 }
@@ -478,6 +478,10 @@ footer {
     page-break-after: auto;
     page-break-inside: avoid;
   }
+}
+
+math {
+  font-size: 200%;
 }
 
 /*.codehilite {*/
