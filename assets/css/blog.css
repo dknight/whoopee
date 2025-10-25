@@ -62,7 +62,6 @@
 
 body {
   font: normal 16px/2 monospace;
-  /*font: normal 20px/1.5 var(--display-font), monospace;*/
   letter-spacing: var(--letter-spacing);
   padding: 1ch 2ch;
   margin: 0 auto;
@@ -401,7 +400,6 @@ article:has(.toc-toggle:checked) .toc {
 
 code {
   background-color: var(--color-code);
-  font: normal 1.25rem/1 var(--display-font), monospace;
 }
 
 .toc {
@@ -435,7 +433,6 @@ table {
     text-align: start;
     border: thin solid var(--color-border);
     padding: 1ch;
-    font: normal 1.25rem/1 var(--display-font), monospace;
   }
 }
 
