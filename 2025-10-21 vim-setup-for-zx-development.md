@@ -2,7 +2,7 @@
 
 tags: zx vim
 
-# Setup NeoVim for ZX Spectrum development
+# Setup NeoVim for BASIC ZX Spectrum development
 
 Definitely, typing on the original ZX Spectrum keyboard gives a
 romantic retro charm. That’s not arguable. But if you want to speed
