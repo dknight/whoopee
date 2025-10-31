@@ -188,6 +188,10 @@ h6 {
       color: var(--color8);
     }
   }
+
+  code {
+    font: inherit;
+  }
 }
 
 h2 {
