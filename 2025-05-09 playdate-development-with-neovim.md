@@ -10,7 +10,7 @@ To make development easier, I created a [bash script called `pd.sh`](https://git
 you to run the Playdate Simulator directly from the terminal. Now, it's time to integrate it with NeoVim. In the
 near future, I may rewrite this shell script as a complete NeoVim plugin. But for now, here’s my current setup.
 
-If you haven't yet configured your NeoVim as a Lua IDE, check out [my blog post](https://dknight.github.io/2025-05-08-neovim-lua-ide/) to learn how to do it easily.
+If you haven't yet configured your NeoVim as a Lua IDE, check out [my blog post](/post/turn-neovim-nto-lua-ide.html) to learn how to do it easily.
 
 ## Preview
 
