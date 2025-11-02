@@ -119,8 +119,6 @@ local homedir = vim.fn.expand("$HOME")
 
 ## Step 4. Installing the Lazy Plugin Manager
 
-## Step 4. Installing the Lazy Plugin Manager
-
 NeoVim has an excellent plugin manager called [Lazy](https://github.com/folke/lazy.nvim), which is easy to install and
 use. You can follow the [official installation guide](https://lazy.folke.io/installation), but this article covers the
 same approach.
@@ -343,6 +341,51 @@ Watch the demo of the LS in action. Notice that after typing `table`, pressing <
 followed by <kbd>o</kbd> triggers autocompletion.
 
 ![Demonstration of NeoVim and Lua Language Server Protocol in action](/assets/img/nvim-recording.gif)
+
+## Step 5 only for NevVim 0.11+
+
+If you are using NeoVim 0.11+ there is built-in LSP and you have not mandatory to use
+`nvim-lspconfig`. Here is the full LSP configuration for NeoVim 0.11+
+
+```lua
+--init.lua
+
+-------------------------------------------------------------------------------
+-- Load LSP
+-------------------------------------------------------------------------------
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lua_ls_config = {
+    name = "lua_ls",
+    cmd = { "lua-language-server" },
+    root_dir = vim.fs.root(0, { "init.lua", ".git" }),
+    capabilities = capabilities,
+
+    settings = {
+        Lua = {
+            format = {
+                enable = true,
+            },
+        },
+    },
+
+    on_attach = function(client, bufnr)
+        -- format on save (real working solution)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format()
+            end,
+        })
+    end,
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "lua",
+    callback = function(event)
+        vim.lsp.start(lua_ls_config)
+    end,
+})
+```
 
 ## Step 6: Code formatting with editor config
 
