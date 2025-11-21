@@ -8,15 +8,15 @@
   color-scheme: dark;
 
   /* zx colors */
-  --color0: #000000;
+  --color0: #000;
 
-  --color1: #0000ff;
-  --color2: #ff0000;
-  --color3: #ff00ff;
-  --color4: #00ff00;
-  --color5: #00ffff;
-  --color6: #ffff00;
-  --color7: #ffffff;
+  --color1: #00f;
+  --color2: #f00;
+  --color3: #f0f;
+  --color4: #0f0;
+  --color5: #0ff;
+  --color6: #ff0;
+  --color7: #fff;
 
   --color8: #0000d8;
   --color9: #d80000;
@@ -252,7 +252,7 @@ kbd {
 }
 
 hr {
-  color: var(--color-border);
+  color: var(--color2);
 }
 
 blockquote {
