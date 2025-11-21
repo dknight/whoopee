@@ -162,7 +162,7 @@ main {
 
 h1 {
   color: var(--color-pri);
-  font: normal 1.5rem/1.25 var(--display-font), monospace;
+  font: normal 1.5rem/1.5 var(--display-font), monospace;
   margin: 2ch 0 1ch;
   text-wrap: balance;
 }
