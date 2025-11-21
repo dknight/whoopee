@@ -88,6 +88,7 @@ header {
   font: bold 1rem/1 var(--display-font), monospace;
   justify-self: end;
   gap: 1ch;
+  text-transform: uppercase;
 
   a {
     padding: 1ch;
