@@ -40,9 +40,10 @@ cat << __HEAD__
 <title>$title</title>
 <link rel="preload" href="/assets/fonts/zx-spectrum.woff2" as="font" type="font/woff2" blocking="render" fetchpriority="high">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/styles.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 <link rel="canonical" href="$canonical">
+
+<style>$(lightningcss --minify --bundle "./assets/css/styles.css")</style>
 </head>
 __HEAD__
 
