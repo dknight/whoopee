@@ -5,7 +5,7 @@ source "./layout/util.sh"
 function logo {
   img="<picture>"
   img="$img<source srcset=\"/assets/img/dragon-static-256.gif\" media=\"(prefers-reduced-motion: reduce)\">"
-  img="$img<img src=\"/assets/img/dragon-anim-256.gif\" width=\"256\" height=\"256\" alt=\"${BLOG_TITLE}\" class=\"logo\">"
+  img="$img<img src=\"/assets/img/dragon-anim-256.gif\" width=\"256\" height=\"256\" alt=\"${BLOG_TITLE}\" class=\"logo\" fetchpriority=\"high\">"
   img="$img</picture>"
   if [[ $(is_index) = 0 ]]; then
     echo "<a href=\"/\">$img</a>"
