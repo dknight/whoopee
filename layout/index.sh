@@ -118,9 +118,7 @@ cat << _EOF_
       </nav>
       <section class="articles">
         <h1>$(tag2title "$TAGNAME")</h1>
-        <ul class="list-reset">
-          $(by_year "$1")
-        </ul>
+        $(by_year "$1")
       </section>
     </main>
     $(source ./layout/footer.sh)
