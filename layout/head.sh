@@ -38,7 +38,7 @@ cat << __HEAD__
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'">
 <title>$title</title>
-<link rel="preload" href="/assets/fonts/zx-spectrum.woff2" as="font" type="font/woff2" blocking="render" fetchpriority="high">
+<link rel="preload" href="/assets/fonts/zx-spectrum.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 <link rel="canonical" href="$canonical">
