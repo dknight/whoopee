@@ -1,49 +1,48 @@
 @font-face {
-  font-family: "Perfect_DOS_VGA_437";
-  src: url("/assets/fonts/Perfect_DOS_VGA_437.woff2") format("woff2");
+  font-family: "zx-spectrum";
+  src: url("/assets/fonts/zx-spectrum.woff2") format("woff2");
   font-display: swap;
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
-  /* dos ibm colors */
-  --color0: #000;
-  --color1: #00a;
-  --color2: #0a0;
-  --color3: #0aa;
-  --color4: #a00;
-  --color5: #a0a;
-  --color6: #a50;
-  --color6b: #aa0;
-  --color7: #aaa;
-  --color7-custom: #ccc; /* better contrast */
-  --color8: #555;
-  --color9: #55f;
-  --color10: #5f5;
-  --color11: #5ff;
-  --color12: #f55;
-  --color13: #f5f;
-  --color14: #ff5;
-  --color15: #fff;
+  /* zx colors */
+  --color0: #000000;
 
-  --display-font: "Perfect_DOS_VGA_437";
-  --color-bg: light-dark(var(--color15), var(--color0));
-  --color-text: light-dark(var(--color0), var(--color7-custom));
-  --color-pri: light-dark(var(--color1), var(--color10));
-  --color-code: light-dark(var(--color15), var(--color0));
+  --color1: #0000ff;
+  --color2: #ff0000;
+  --color3: #ff00ff;
+  --color4: #00ff00;
+  --color5: #00ffff;
+  --color6: #ffff00;
+  --color7: #ffffff;
+
+  --color8: #0000d8;
+  --color9: #d80000;
+  --color10: #d800d8;
+  --color11: #00d800;
+  --color12: #00d8d8;
+  --color13: #d8d800;
+  --color14: #d8d8d8;
+
+  --display-font: "zx-spectrum";
+  --color-bg: var(--color0);
+  --color-text: var(--color14);
+  --color-pri: var(--color4);
+  --color-code: var(--color14);
   --color-border: var(--color3);
 
-  --color-tip: var(--color3);
+  --color-tip: var(--color5);
   --color-tip-text: var(--color0);
   --color-warning: var(--color6);
-  --color-warning-text: var(--color14);
+  --color-warning-text: var(--color0);
   --color-danger: var(--color4);
-  --color-danger-text: var(--color14);
+  --color-danger-text: var(--color6);
 
-  --letter-spacing: light-dark(0, 1px);
+  /* --letter-spacing: 2px; */
 
-  --focus-outline: 0.125rem solid light-dark(var(--color1), var(--color14));
+  --focus-outline: 0.125rem solid var(--color14);
 
   scroll-behavior: smooth;
   @media screen and (prefers-reduced-motion: reduce) {
@@ -53,10 +52,10 @@
 
 :focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 0.125rem;
+  outline-offset: 0.1875rem;
   + label {
     outline: var(--focus-outline);
-    outline-offset: 0.125rem;
+    outline-offset: 0.1875rem;
   }
 }
 
@@ -81,49 +80,47 @@ header {
   gap: 4ch;
   margin: 4ch 0;
   padding-bottom: 3ch;
-  border-bottom: 0.125rem solid var(--color-border);
+  border-bottom: 0.125rem solid var(--color2);
 }
 .mainmenu {
   align-items: center;
   display: flex;
-  font: normal 1.25rem/1 var(--display-font), monospace;
+  font: bold 1rem/1 var(--display-font), monospace;
   justify-self: end;
   gap: 1ch;
 
   a {
     padding: 1ch;
+    text-decoration: none;
 
-    &:link,
-    &:visited {
-      color: light-dark(var(--color5), var(--color13));
-      text-decoration: none;
-    }
-
-    &.active,
-    &:hover {
-      background-color: light-dark(var(--color5), var(--color13));
-      color: light-dark(var(--color15), var(--color0));
-    }
-
-    &.mainmenu-rss {
+    &.mainmenu-about {
       &:is(:link, :visited) {
-        color: light-dark(var(--color6), var(--color6b));
+        color: var(--color3);
       }
-      &.active,
-      &:hover {
-        background-color: light-dark(var(--color6), var(--color6b));
-        color: light-dark(var(--color15), var(--color0));
+
+      &:is(.active, :hover) {
+        background-color: var(--color3);
+        color: var(--color0);
       }
     }
 
     &.mainmenu-toolbox {
       &:is(:link, :visited) {
-        color: light-dark(var(--color1), var(--color11));
+        color: var(--color4);
       }
-      &.active,
-      &:hover {
-        background-color: light-dark(var(--color1), var(--color11));
-        color: light-dark(var(--color15), var(--color0));
+      &:is(.active, :hover) {
+        background-color: var(--color4);
+        color: var(--color0);
+      }
+    }
+
+    &.mainmenu-rss {
+      &:is(:link, :visited) {
+        color: var(--color6);
+      }
+      &:is(.active, :hover) {
+        background-color: var(--color6);
+        color: var(--color0);
       }
     }
   }
@@ -165,7 +162,7 @@ main {
 
 h1 {
   color: var(--color-pri);
-  font: normal 2rem/1.25 var(--display-font), monospace;
+  font: normal 1.5rem/1.25 var(--display-font), monospace;
   margin: 2ch 0 1ch;
   text-wrap: balance;
 }
@@ -175,7 +172,7 @@ h4,
 h5,
 h6 {
   color: var(--color-pri);
-  font: normal 1.5rem/1.5 var(--display-font), monospace;
+  font: normal 1.125rem/1.5 var(--display-font), monospace;
   text-wrap: balance;
 
   &:hover .headerlink {
@@ -199,13 +196,13 @@ h2 {
 }
 h3 {
   margin: 1.5ch 0 1ch;
-  color: light-dark(var(--color5), var(--color11));
+  color: var(--color11);
 }
 h4,
 h5,
 h6 {
   margin: 1ch 0;
-  color: light-dark(var(--color6), var(--color13));
+  color: var(--color13);
 }
 
 a {
@@ -214,21 +211,21 @@ a {
     text-underline-offset: 2px;
   }
   &:link {
-    color: light-dark(var(--color1), var(--color11));
+    color: var(--color5);
     text-underline-offset: 0.1875rem;
   }
   &:visited {
-    color: light-dark(var(--color5), var(--color3));
+    color: var(--color12);
   }
   &:active {
-    color: light-dark(var(--color4), var(--color13));
+    color: var(--color3);
   }
 }
 
 pre {
   box-sizing: border-box;
-  color: var(--color-text);
-  background-color: var(--color-code);
+  color: var(--color-code);
+  background-color: var(--color0);
   padding: 2ch;
   overflow-x: auto;
   tab-size: 4;
@@ -273,11 +270,6 @@ video {
   outline-offset: 0.125rem;
   max-width: 100%;
   height: auto;
-}
-
-/* TODO use when migrated to DOS font */
-ul li::marker {
-  /*content: "*";*/
 }
 
 /* footnotes */
@@ -378,7 +370,7 @@ ol > li > p {
     display: inline-block;
     padding: 1ch 0;
     margin: 1ch 0;
-    color: light-dark(var(--color1), var(--color14));
+    color: var(--color6);
 
     &::before {
       content: ">";
@@ -403,7 +395,7 @@ article:has(.toc-toggle:checked) .toc {
 }
 
 code {
-  background-color: var(--color-code);
+  background-color: var(--color-bg);
 }
 
 .toc {
@@ -430,7 +422,7 @@ table {
   border-spacing: 0.125rem;
 
   th {
-    color: light-dark(var(--color5), var(--color14));
+    color: var(--color14);
   }
   th,
   td {
@@ -445,16 +437,8 @@ table {
 }
 
 img {
-  /* width: 614px; */
-  /* height: auto; */ /* 372px; */
   max-width: 100%;
   display: block;
-
-  &[src*="svg"]:not([src*="polysec"]) {
-    @media screen and (prefers-color-scheme: dark) {
-      filter: invert(1) hue-rotate(173deg) brightness(0.87);
-    }
-  }
 }
 
 /* ================================ FOOTER ================================= */

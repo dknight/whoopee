@@ -3,7 +3,7 @@
 source "./layout/util.sh"
 
 function logo {
-  img="<img src=\"/assets/img/whoopee-logo.png\" width=\"128\" height=\"128\" alt=\"${BLOG_TITLE}\" class=\"logo\">"
+  img="<img src=\"/assets/img/dragon-anim-256.gif\" width=\"256\" height=\"256\" alt=\"${BLOG_TITLE}\" class=\"logo\">"
   if [[ $(is_index) = 0 ]]; then
     echo "<a href=\"/\">$img</a>"
   else
