@@ -103,7 +103,7 @@ print(Animal.TotalAnimals)
 -- OUTPUT: 10
 ```
 
-# Private fields and methods
+## Private fields and methods
 
 There are also no strictly private members in Lua; usually, private things that should not be accessed are prefixed with `_` (underscore).
 
