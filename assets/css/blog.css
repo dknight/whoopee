@@ -31,7 +31,7 @@
   --color-text: var(--color14);
   --color-pri: var(--color4);
   --color-code: var(--color14);
-  --color-border: var(--color3);
+  --color-border: var(--color8);
 
   --color-tip: var(--color5);
   --color-tip-text: var(--color0);
@@ -62,13 +62,15 @@
 body {
   font: normal 16px/2 monospace;
   letter-spacing: var(--letter-spacing);
-  padding: 1ch 2ch;
+  padding: 4rem;
   margin: 0 auto;
   box-sizing: border-box;
   background: var(--color-bg);
   color: var(--color-text);
   max-width: 80rem;
   width: 100%;
+  border-image: url("/assets/img/border.gif?245") 8 / 1.5rem round;
+  image-rendering: pixelated;
 }
 
 /* ================================ HEADER ================================= */
@@ -86,7 +88,7 @@ header {
   align-items: center;
   display: flex;
   font: bold 1rem/1 var(--display-font), monospace;
-  justify-self: end;
+  flex-wrap: wrap;
   gap: 1ch;
   text-transform: uppercase;
 
@@ -133,11 +135,12 @@ header {
   gap: 2ch;
   flex-wrap: wrap;
   white-space: nowrap;
-  line-height: 1;
 }
 .logo {
   image-rendering: pixelated;
   border: none;
+  max-width: 256px;
+  margin: 0 auto;
 }
 
 /* ================================= MAIN ================================== */
@@ -232,9 +235,7 @@ pre {
   tab-size: 4;
   width: 100%;
   line-height: 1.5;
-  border: thin solid var(--color-border);
-  outline: thin solid var(--color-border);
-  outline-offset: -0.25rem;
+  border: medium solid var(--color-border);
 
   &.break {
     white-space: break-spaces;
@@ -266,9 +267,7 @@ blockquote {
 
 video {
   display: block;
-  border: thin solid var(--color-border);
-  outline: thin solid var(--color-border);
-  outline-offset: 0.125rem;
+  border: medium solid var(--color-border);
   max-width: 100%;
   height: auto;
 }
@@ -300,7 +299,7 @@ ol > li > p {
   }
 
   .admonition-title {
-    font: normal 1.25rem/1.25 var(--display-font), monospace;
+    font: normal 1rem/1 var(--display-font), monospace;
     position: absolute;
     top: 0;
     left: 0;
@@ -419,16 +418,14 @@ code {
 /* ================================= TABLE ================================= */
 
 table {
-  border: thin solid var(--color-border);
-  border-spacing: 0.125rem;
-
+  border-collapse: collapse;
   th {
     color: var(--color14);
   }
   th,
   td {
     text-align: start;
-    border: thin solid var(--color-border);
+    border: medium solid var(--color-border);
     padding: 1ch;
   }
 }
@@ -469,10 +466,6 @@ footer {
 math {
   font-size: 200%;
 }
-
-/*.codehilite {*/
-/*  border: thin solid var(--color-border);*/
-/*}*/
 
 /* Special case for design patterns */
 @media screen and (max-width: 767px) {
