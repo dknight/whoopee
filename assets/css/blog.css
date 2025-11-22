@@ -80,7 +80,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   gap: 4ch;
-  margin: 4ch 0;
+  margin: 0 0 4ch;
   padding-bottom: 3ch;
   border-bottom: 0.125rem solid var(--color2);
 }
