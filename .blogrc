@@ -41,10 +41,10 @@ function post_hook() {
 
 	echo "Bundling CSS..."
 	lightningcss --minify --bundle "$DIST/assets/css/styles.css" > "$DIST/assets/css/styles.min.css"
-	rm -f \
-		"$DIST/assets/css/styles.css" \
-		"$DIST/assets/css/blog.css" \
-		"$DIST/assets/css/native.css"
+	for f in "$DIST/assets/css/"*.css; do
+		[ "$(basename "$f")" = "styles.min.css" ] || rm -f "$f"
+	done
+
 
 	echo "Minifying HTML..."
 	find "$DIST" -type f -name "*.html" -exec minhtml \
