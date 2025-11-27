@@ -91,6 +91,9 @@ header {
   flex-wrap: wrap;
   gap: 1ch;
   text-transform: uppercase;
+  transform: scale(1.125);
+  text-rendering: geometricPrecision;
+  transform-origin: 0 0;
 
   a {
     padding: 1ch;
@@ -318,6 +321,10 @@ ol > li > p {
 
     text-transform: uppercase;
     line-height: 1;
+
+    transform: scale(1.125);
+    text-rendering: geometricPrecision;
+    transform-origin: 0 0;
   }
 
   &.tip {
@@ -377,6 +384,9 @@ ol > li > p {
     padding: 1ch 0;
     margin: 1ch 0;
     color: var(--color6);
+    transform: scale(1.125);
+    text-rendering: geometricPrecision;
+    transform-origin: 0 0;
 
     &::before {
       content: ">";
