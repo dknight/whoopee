@@ -19,6 +19,7 @@ A curated list of useful links related to the Lua programming language. I regula
 - [Playdate](https://play.date/): A handheld console with a 1-bit display, supporting Lua for game development.
 - [@SquidGodDev](https://www.youtube.com/@SquidGodDev): YouTube channel about
   game development for Playdate platform.
+- [PICO-8](https://www.lexaloffle.com/pico-8.php): tiny virtual console for making games, demo scenes and small programs.
 
 ## Learning
 
