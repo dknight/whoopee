@@ -138,12 +138,6 @@ if [[ -z "$TAGNAME" ]]; then
   sitemap="$sitemap\t\t<lastmod>$DATE_NOW</lastmod>\n"
   sitemap="$sitemap\t</url>\n"
 
-  # About
-  sitemap="$sitemap\t<url>\n"
-  sitemap="$sitemap\t\t<loc>${BLOG_HOST}/me/</loc>\n"
-  sitemap="$sitemap\t\t<lastmod>2024-06-17</lastmod>\n"
-  sitemap="$sitemap\t</url>\n"
-
   # Puff
   sitemap="$sitemap\t<url>\n"
   sitemap="$sitemap\t\t<loc>${BLOG_HOST}/puff/</loc>\n"

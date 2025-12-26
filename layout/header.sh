@@ -19,12 +19,20 @@ function toolbox_link {
   fi
 }
 
+function about_link {
+  if [[ "$POST_URL" == *"about"* ]]; then
+   echo '<a class="mainmenu-about active">About</a>'
+  else
+    echo '<a href="/post/about.html" class="mainmenu-about">About</a>'
+  fi
+}
+
 cat << __HEADER__
   <header>
     $(logo)
     <nav class="mainmenu">
       $(toolbox_link)
-      <a href="/me/" class="mainmenu-about">About</a>
+      $(about_link)
       <a href="/feed.xml" class="mainmenu-rss">RSS</a>
     </nav>
   </header>

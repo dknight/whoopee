@@ -27,25 +27,14 @@ function to_index() {
 	fi
 }
 
-function feedback() {
-	if [[ $(is_skipped) = 0 ]]; then
-		echo "<h2>Feedback</h2>"
-		echo "<p>"
-		echo "For feedback, please check the <a href=\"/me/\">contacts</a> section."
-		echo "Before writing, please specify where you came from and who you are. Sometimes spammers go insane."
-		echo "Thank you in advance for your understanding."
-		echo "</p>"
-	fi
-}
-
 # space-separated skip pages on the index page, like SKIP="about.html"
-SKIP="lua-toolbox.html"
+SKIP_PATTERN="(lua-toolbox\.html|about\.html)"
 function is_skipped() {
-	if [[ "$POST_URL" =~ "$SKIP" ]]; then
-		echo 1
-	else
-		echo 0
-	fi
+    if [[ "$POST_URL" =~ $SKIP_PATTERN ]]; then
+        echo 1
+    else
+        echo 0
+    fi
 }
 
 DATE_NOW=$(date +"%Y-%m-%d")

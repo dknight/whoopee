@@ -29,13 +29,11 @@ python -m markdown \
     -x toc
 EOF
 )
+SUBMODULE_TO_COPY="./css-modern-dialog ./puff ./me"
 
-# BUILD_TIME=$(date +"%s")
-
-# Commands to run after succesful build
+# Commands to run after successful build
 function post_hook() {
-	to_copy="./me ./css-modern-dialog ./puff"
-	cp -r $to_copy "$DIST" && find  "$DIST" -name '.*' | xargs rm -rf
+	cp -r $SUBMODULE_TO_COPY "$DIST" && find  "$DIST" -name '.*' | xargs rm -rf
 	cp ./CNAME "$DIST"
 	mv "$DIST/assets/googlebb7539f50c5e493c.html" "$DIST/assets/404.html" "$DIST"
 
