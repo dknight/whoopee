@@ -19,7 +19,6 @@ cat << _EOF_
         <h1>$POST_TITLE</h1>
         $post_time
         $POST_CONTENTS
-        $(feedback)
       </article>
       $(to_index)
     </main>
