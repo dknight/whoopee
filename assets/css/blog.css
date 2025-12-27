@@ -12,14 +12,6 @@
   --color-1: #d1cfc7;
 
   --display-font: "zx-spectrum";
-
-  --color-tip: var(--color-1);
-  --color-tip-text: var(--color-0);
-  --color-warning: var(--color-1);
-  --color-warning-text: var(--color-0);
-  --color-danger: var(--color-1);
-  --color-danger-text: var(--color-0);
-
   --focus-outline: 0.125rem solid var(--color-1);
 
   scroll-behavior: smooth;
@@ -40,18 +32,12 @@
 body {
   font: normal 16px/2 monospace;
   color: var(--color-1);
-  padding: 4rem;
+  padding: 3vb 3vi;
   margin: 0 auto;
   box-sizing: border-box;
   background: var(--color-0);
-
-  @media screen and (max-width: 767px) {
-    padding: 1rem;
-  }
 }
-header,
-footer,
-main {
+:where(header, footer, main) {
   max-width: 80rem;
 }
 
@@ -60,11 +46,12 @@ main {
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 4ch;
   margin: 0 0 2ch;
-  padding-bottom: 3ch;
-  border-bottom: 0.125rem solid var(--color-1);
+  padding-block-end: 3ch;
+  border-block-end: 0.125rem solid var(--color-1);
 }
 .mainmenu {
   align-items: center;
@@ -86,13 +73,6 @@ header {
   }
 }
 
-.tags {
-  margin: 1ch 0 0;
-  display: inline-flex;
-  gap: 2ch;
-  flex-wrap: wrap;
-  white-space: nowrap;
-}
 .logo {
   image-rendering: pixelated;
   border: none;
@@ -104,6 +84,13 @@ header {
     height: 256px;
     margin: 0 auto;
   }
+}
+
+.tags {
+  display: inline-flex;
+  gap: 2ch;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 /* ================================= MAIN ================================== */
@@ -119,7 +106,7 @@ main {
 
       time {
         font-size: 1rem;
-        margin-right: 1ch;
+        margin-block-end: 1ch;
       }
     }
   }
@@ -128,18 +115,12 @@ main {
 /* ============================= COMMON TAGS =============================== */
 
 h1 {
-  color: var(--color-1);
   font: normal 1.5rem/1.5 var(--display-font), monospace;
   margin: 2ch 0 1ch;
   text-wrap: balance;
   text-rendering: geometricPrecision;
 }
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--color-1);
+:where(h2, h3, h4, h5, h6) {
   font: normal 1.25rem/1.5 var(--display-font), monospace;
   text-wrap: balance;
   text-rendering: geometricPrecision;
@@ -189,7 +170,6 @@ a {
 
 pre {
   box-sizing: border-box;
-  color: var(--color-1);
   background-color: var(--color-0);
   padding: 2ch;
   overflow-x: auto;
@@ -218,7 +198,7 @@ hr {
 }
 
 blockquote {
-  border-left: 0.25rem solid var(--color-1);
+  border-block-start: 0.25rem solid var(--color-1);
   padding: 0 0 0 2ch;
   margin: 0 0 0 4ch;
   ul {
@@ -262,8 +242,8 @@ ol > li > p {
   .admonition-title {
     font: normal 1rem/1 var(--display-font), monospace;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     padding: 0.25ch 1ch;
     width: 100%;
     box-sizing: border-box;
@@ -276,18 +256,18 @@ ol > li > p {
   }
 
   &.tip {
-    border-color: var(--color-tip);
+    border-color: var(--color-1);
     .admonition-title {
-      color: var(--color-tip-text);
-      background-color: var(--color-tip);
+      color: var(--color-0);
+      background-color: var(--color-1);
     }
   }
 
   &.warning {
-    border-color: var(--color-warning);
+    border-color: var(--color-1);
     .admonition-title {
-      color: var(--color-warning-text);
-      background-color: var(--color-warning);
+      color: var(--color-0);
+      background-color: var(--color-1);
       &::after {
         content: "!";
       }
@@ -295,10 +275,10 @@ ol > li > p {
   }
 
   &.danger {
-    border-color: var(--color-danger);
+    border-color: var(--color-1);
     .admonition-title {
-      color: var(--color-danger-text);
-      background-color: var(--color-danger);
+      color: var(--color-0);
+      background-color: var(--color-1);
       &::after {
         content: "!";
       }
@@ -337,7 +317,7 @@ ol > li > p {
     &::before {
       content: ">";
       display: inline-block;
-      margin-right: 0.5ch;
+      margin-block-end: 0.5ch;
       transform-origin: center;
     }
   }
@@ -380,10 +360,6 @@ code {
 
 table {
   border-collapse: collapse;
-
-  th {
-    color: var(--color-1);
-  }
 
   th,
   td {
