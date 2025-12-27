@@ -49,14 +49,11 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 4ch;
-  margin: 0 0 2ch;
-  padding-block-end: 3ch;
-  border-block-end: 0.125rem solid var(--color-1);
 }
 .mainmenu {
   align-items: center;
   display: flex;
-  font: bold 1.125rem/1 var(--display-font), monospace;
+  font: normal 2rem/1 var(--display-font);
   flex-wrap: wrap;
   gap: 1ch;
   text-transform: uppercase;
@@ -88,7 +85,7 @@ header {
 
 .tags {
   display: inline-flex;
-  gap: 2ch;
+  gap: 1ch 2ch;
   flex-wrap: wrap;
   white-space: nowrap;
 }
@@ -194,7 +191,9 @@ kbd {
 }
 
 hr {
-  color: var(--color-1);
+  background-color: var(--color-1);
+  height: 0.125rem;
+  margin-block: 2ch 2ch;
 }
 
 blockquote {
@@ -380,9 +379,7 @@ img {
 
 /* ================================ FOOTER ================================= */
 
-footer {
-  margin-top: 4ch;
-}
+/* footer {} */
 
 /* ================================ MEDIAS ================================= */
 

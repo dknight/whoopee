@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cat << __FOOTER__
+   <hr>
   <footer>
-    <hr>
     <p>
       &copy; 2022&mdash;$(date +%Y) <a href="/me/">xdknight</a>
       Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell

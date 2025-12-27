@@ -36,4 +36,5 @@ cat << __HEADER__
       <a href="/feed.xml" class="mainmenu-rss">RSS</a>
     </nav>
   </header>
+  <hr>
 __HEADER__
