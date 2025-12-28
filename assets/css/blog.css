@@ -193,7 +193,6 @@ kbd {
 
 hr {
   background-color: var(--color-1);
-  max-width: var(--max-content-width);
   height: 0.125rem;
   margin-block: 2ch 2ch;
 }
