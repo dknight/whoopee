@@ -58,22 +58,12 @@ Set up BASIC syntax through NeoVim/Vim’s **autocommand** feature.
 Add the snippet below to your `init.lua`, and you’re ready to go.
 
 ```lua
--- ZX emulator. Here I use fbzx; replace it if you different one.
-local zxEmulator = "fbzx"
-
--- Command to run the zmakebas compiler.
-local zmakebasCmd = "<cmd>!zmakebas -o %<.tap %"
-
--- Command to run the emulator. It may differ for other emulators;
--- adjust as needed.
-local zxCmd = "<cmd>!" .. zxEmulator .. " %<.tap"
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "basic" },
 	callback = function(args)
 		-- In BASIC, we usually type line numbers manually.
 		-- Set this to true if you want automatic line numbering,
-      -- during compilation.
+		-- during compilation.
 		vim.opt.number = false
 
 		-- Map the F5 key to save and compile.
@@ -102,9 +92,6 @@ Works for <kbd>Enter</kbd> in insert mode and <kbd>o</kbd> in normal mode.
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "basic" },
 	callback = function(_)
-
-		-- Rest of the keymaps from above
-
 		-- Auto increment line numbers
 		local autoincrement = function(opts)
 			local newline = opts.newline or false
@@ -115,22 +102,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 			end
 
 			local prev = tonumber(num)
-			local row = vim.api.nvim_win_get_cursor(0)[1]
 			local step = 10
 
-			if row > 1 then
-				local prevline = vim.api.nvim_buf_get_lines(
-					0, row - 2, row - 1, false
-				)[1]
-				local pnum = prevline:match("^%s*(%d+)")
-				if pnum then
-					pnum = tonumber(pnum)
-					step = prev - pnum
-				end
-			end
-
 			return string.format(
-				"%s\n%d\t",
+				"%s\n%04d",
 				newline and "\n" or "",
 				prev + step
 			)
@@ -150,7 +125,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 			end
 			vim.api.nvim_put(lines, "l", true, true)
 			vim.cmd("startinsert!")
-		end, { noremap = true })
+			end,{ noremap = true })
 	end,
 })
 
@@ -165,6 +140,57 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 ```
+
+## Bonus 2. Re-number BASIC lines
+
+***Updated 24.01.2026***
+
+```lua
+
+-- Beginning of the file --
+
+local function renumber_basic_lines()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+	local new_lines = {}
+	local number = 10
+	local step = 10
+
+	for _, line in ipairs(lines) do
+		if line:match("^%s*$") then
+			table.insert(new_lines, line)
+		else
+			-- remove existing leading line numbers
+			local stripped = line:gsub("^%s*%d+%s*", "")
+			table.insert(new_lines, string.format("%04d %s", number, stripped))
+			number = number + step
+		end
+	end
+
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, new_lines)
+end
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "basic" },
+	callback = function(_)
+		-- Auto increment line numbers
+		--
+		-- Same as above in Bonus 1 section.
+		--
+		vim.keymap.set(
+			"n",
+			"<leader>ln",
+			renumber_basic_lines,
+			{ buffer = true, desc = "Renumber BASIC lines" }
+		)
+	end
+})
+```
+
+## Full config file
+
+Get full config file [`zx.lua`](https://github.com/dknight/dotfiles/blob/main/zx.lua) from GitHUb.
 
 ## Usage
 
