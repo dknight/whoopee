@@ -148,8 +148,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 Bind to <kbd>&lt;leader&gt;</kbd> + <kbd>ln</kbd>.
 
 ```lua
-
--- Beginning of the file --
+--
+-- Beginning of the file.. --
+--
 
 local function renumber_basic_lines()
 	local bufnr = vim.api.nvim_get_current_buf()
