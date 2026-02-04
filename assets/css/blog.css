@@ -1,18 +1,22 @@
 @font-face {
-  font-family: "zx-spectrum";
-  src: url("/assets/fonts/zx-spectrum.woff2") format("woff2");
+  font-family: "NES";
+  src: url("/assets/fonts/nes.woff2") format("woff2");
   font-display: swap;
 }
+/* やったー    whoopee */
 
 :root {
   color-scheme: dark;
 
-  /* 1 bit color */
-  --color-0: #11101a;
-  --color-1: #d1cfc7;
+  --color-background: var(--color-1);
+  --color-text: var(--color-2);
+  --color-lua-toolbox: var(--color-12);
+  --color-about: var(--color-20);
+  --color-rss: var(--color-35);
+  --color-accent: var(--color-35);
 
-  --display-font: "zx-spectrum";
-  --focus-outline: 0.125rem solid var(--color-1);
+  --font-display: "NES", monospace;
+  --focus-outline: 0.125rem solid var(--color-accent);
   --max-content-width: 80rem;
 
   scroll-behavior: smooth;
@@ -32,11 +36,11 @@
 
 body {
   font: normal 16px/2 monospace;
-  color: var(--color-1);
+  color: var(--color-text);
   padding: 3vb 3vi;
   margin: 0 auto;
   box-sizing: border-box;
-  background: var(--color-0);
+  background: var(--color-background);
 }
 :where(header, footer, main) {
   max-width: var(--max-content-width);
@@ -50,37 +54,98 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 4ch;
+
+  .logo-link {
+    text-decoration: none;
+  }
 }
 .mainmenu {
   align-items: center;
   display: flex;
-  font: bold 1.125rem/1 var(--display-font);
+  font: normal 1rem/1 var(--font-display);
   flex-wrap: wrap;
   gap: 1ch;
   text-transform: uppercase;
   text-rendering: geometricPrecision;
 
+  @media screen and (max-width: 767px) {
+    margin: 0 auto;
+  }
+
   a {
     padding: 1ch;
     text-decoration: none;
+  }
 
-    &:is(.active, :hover) {
-      background-color: var(--color-1);
-      color: var(--color-0);
+  .mainmenu-toolbox {
+    color: var(--color-lua-toolbox);
+
+    &:is(:hover, .active) {
+      color: var(--color-background);
+      background-color: var(--color-lua-toolbox);
+    }
+  }
+
+  .mainmenu-about {
+    color: var(--color-about);
+
+    &:is(:hover, .active) {
+      color: var(--color-background);
+      background-color: var(--color-about);
+    }
+  }
+
+  .mainmenu-rss {
+    color: var(--color-rss);
+
+    &:is(:hover, .active) {
+      color: var(--color-background);
+      background-color: var(--color-rss);
     }
   }
 }
 
-.logo {
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  width: 8rem;
+  height: 8rem;
+  background: transparent url("/assets/img/cat-static.gif") no-repeat
+    center/contain;
   image-rendering: pixelated;
-  border: none;
-  width: 128px;
-  height: 128px;
+
+  &:hover {
+    background-image: url("/assets/img/cat-anim.gif");
+  }
 
   @media screen and (max-width: 767px) {
-    width: 256px;
-    height: 256px;
+    width: 16rem;
+    height: 16rem;
     margin: 0 auto;
+    padding-block-start: 4rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-block-end: 4rem;
+  }
+
+  span {
+    display: block;
+    margin-inline-start: 9rem;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    line-height: 1;
+    text-wrap: nowrap;
+    font-weight: bold;
+    background-clip: text;
+    background-image: linear-gradient(to top, var(--color-35), var(--color-34));
+    color: transparent;
+    text-decoration: none;
+
+    @media screen and (max-width: 767px) {
+      font-size: 4rem;
+      margin-inline-start: 0;
+      margin-block-end: -5rem;
+    }
   }
 }
 
@@ -108,20 +173,20 @@ main {
       }
     }
   }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-background);
+  }
 }
 
 /* ============================= COMMON TAGS =============================== */
 
-h1 {
-  font: normal 1.5rem/1.5 var(--display-font), monospace;
-  margin: 2ch 0 1ch;
+:where(h1, h2, h3, h4, h5, h6) {
+  font: normal 1rem/1.25 var(--font-display);
   text-wrap: balance;
   text-rendering: geometricPrecision;
-}
-:where(h2, h3, h4, h5, h6) {
-  font: normal 1.25rem/1.5 var(--display-font), monospace;
-  text-wrap: balance;
-  text-rendering: geometricPrecision;
+  text-transform: uppercase;
 
   &:hover .headerlink {
     display: inline-block;
@@ -130,15 +195,16 @@ h1 {
     &:visited,
     &:hover,
     &:active {
-      color: var(--color-1);
+      color: var(--color-text);
     }
-  }
 
-  code {
-    font: inherit;
+    code {
+      font: inherit;
+    }
   }
 }
 
+h1,
 h2 {
   margin: 2ch 0 1ch;
 }
@@ -154,10 +220,10 @@ h6 {
 }
 
 a {
-  color: var(--color-1);
+  color: var(--color-text);
 
   &:hover {
-    color: white;
+    color: var(--color-accent);
   }
 
   &:not(:is(:hover, :focus)) {
@@ -168,13 +234,13 @@ a {
 
 pre {
   box-sizing: border-box;
-  background-color: var(--color-0);
+  background-color: var(--color-background);
   padding: 2ch;
   overflow-x: auto;
   tab-size: 4;
   width: 100%;
   line-height: 1.5;
-  border: medium solid var(--color-1);
+  border: medium solid var(--color-text);
 
   &.break {
     white-space: break-spaces;
@@ -192,13 +258,14 @@ kbd {
 }
 
 hr {
-  background-color: var(--color-1);
+  background-color: var(--color-text);
   height: 0.125rem;
   margin-block: 2ch 2ch;
+  border: none;
 }
 
 blockquote {
-  border-block-start: 0.25rem solid var(--color-1);
+  border-block-start: 0.25rem solid var(--color-text);
   padding: 0 0 0 2ch;
   margin: 0 0 0 4ch;
   ul {
@@ -208,7 +275,7 @@ blockquote {
 
 video {
   display: block;
-  border: medium solid var(--color-1);
+  border: medium solid var(--color-text);
   max-width: 100%;
   height: auto;
 }
@@ -240,34 +307,35 @@ ol > li > p {
   }
 
   .admonition-title {
-    font: normal 1rem/1 var(--display-font), monospace;
+    font: normal 1rem/1 var(--font-display);
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
-    padding: 0.25ch 1ch;
+    padding: 0.25ch 1ch 0.5ch;
     width: 100%;
     box-sizing: border-box;
 
     background-color: currentColor;
-    color: var(--color-0);
+    color: var(--color-background);
     text-transform: uppercase;
     line-height: 1;
     text-rendering: geometricPrecision;
+    text-transform: uppercase;
   }
 
   &.tip {
-    border-color: var(--color-1);
+    border-color: var(--color-12);
     .admonition-title {
-      color: var(--color-0);
-      background-color: var(--color-1);
+      color: var(--color-text);
+      background-color: var(--color-12);
     }
   }
 
   &.warning {
-    border-color: var(--color-1);
+    border-color: var(--color-32);
     .admonition-title {
-      color: var(--color-0);
-      background-color: var(--color-1);
+      color: var(--color-text);
+      background-color: var(--color-32);
       &::after {
         content: "!";
       }
@@ -275,10 +343,10 @@ ol > li > p {
   }
 
   &.danger {
-    border-color: var(--color-1);
+    border-color: var(--color-24);
     .admonition-title {
-      color: var(--color-0);
-      background-color: var(--color-1);
+      color: var(--color-text);
+      background-color: var(--color-24);
       &::after {
         content: "!";
       }
@@ -306,13 +374,14 @@ ol > li > p {
   clip-path: polygon(0 0, 0 0, 0 0);
 
   + label {
-    font: normal 1.25rem/1 var(--display-font), monospace;
+    font: normal 1rem/1 var(--font-display);
     cursor: pointer;
     display: inline-block;
     padding: 1ch 0;
     margin: 1ch 0;
-    color: var(--color-1);
+    color: var(--color-text);
     text-rendering: geometricPrecision;
+    text-transform: uppercase;
 
     &::before {
       content: ">";
@@ -337,7 +406,7 @@ article:has(.toc-toggle:checked) .toc {
 }
 
 code {
-  background-color: var(--color-0);
+  background-color: var(--color-background);
 }
 
 .toc {
@@ -364,8 +433,12 @@ table {
   th,
   td {
     text-align: start;
-    border: medium solid var(--color-1);
+    border: medium solid var(--color-5);
     padding: 1ch;
+  }
+
+  th {
+    color: var(--color-12);
   }
 }
 

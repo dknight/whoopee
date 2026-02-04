@@ -34,11 +34,12 @@ cat << __HEAD__
 <meta name="author" content="Dmitri Smirnov">
 <meta property="og:type" content="website">
 <meta property="og:url" content="$canonical">
-<meta property="og:image" content="$BLOG_HOST/assets/img/whoopee-logo-black.png">
+<meta property="og:image" content="$BLOG_HOST/assets/img/cat-static.gif">
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'">
 <title>$title</title>
 <link rel="preload" href="/assets/fonts/zx-spectrum.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/img/cat-anim.gif" as="image" type="image/gif">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 <link rel="canonical" href="$canonical">

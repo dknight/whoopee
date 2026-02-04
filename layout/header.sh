@@ -3,9 +3,9 @@
 source "./layout/util.sh"
 
 function logo {
-  img="<img src=\"/assets/img/dra02.gif\" alt=\"Whoopee!\" class=\"logo\">"
+  img="<div class="logo-wrapper"><span>やったー!</span></div>"
   if [[ $(is_index) = 0 ]]; then
-    echo "<a href=\"/\">$img</a>"
+    echo "<a href=\"/\" class=\"logo-link\">$img</a>"
   else
     echo "$img"
   fi
