@@ -58,6 +58,10 @@ header {
   .logo-link {
     text-decoration: none;
   }
+
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
 }
 .mainmenu {
   align-items: center;
