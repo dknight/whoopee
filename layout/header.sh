@@ -3,7 +3,7 @@
 source "./layout/util.sh"
 
 function logo {
-  img="<div class="logo-wrapper"><span lang="ja">やったー!</span></div>"
+  img="<div class="logo-wrapper"><span lang="ja-Kana">やったー!</span></div>"
   if [[ $(is_index) = 0 ]]; then
     echo "<a href=\"/\" class=\"logo-link\">$img</a>"
   else
