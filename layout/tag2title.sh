@@ -45,7 +45,10 @@ function tag2title() {
   zx)
       echo "ZX Spectrum"
     ;;
-    *)
+  nes)
+      echo "NES"
+    ;;
+  *)
       echo "Timeline"
     ;;
   esac

@@ -11,11 +11,19 @@ function logo {
   fi
 }
 
-function toolbox_link {
+function lua_toolbox_link {
   if [[ "$POST_URL" == *"lua-toolbox"* ]]; then
-   echo '<a class="mainmenu-toolbox active">Lua Toolbox</a>'
+   echo '<a class="lua-mainmenu-toolbox active">Lua Toolbox</a>'
   else
-    echo '<a href="/post/lua-toolbox.html" class="mainmenu-toolbox">Lua Toolbox</a>'
+    echo '<a href="/post/lua-toolbox.html" class="lua-mainmenu-toolbox">Lua Toolbox</a>'
+  fi
+}
+
+function nes_toolbox_link {
+  if [[ "$POST_URL" == *"nes-toolbox"* ]]; then
+   echo '<a class="nes-mainmenu-toolbox active">NES Toolbox</a>'
+  else
+    echo '<a href="/post/nes-toolbox.html" class="nes-mainmenu-toolbox">NES Toolbox</a>'
   fi
 }
 
@@ -31,7 +39,8 @@ cat << __HEADER__
   <header>
     $(logo)
     <nav class="mainmenu">
-      $(toolbox_link)
+      $(nes_toolbox_link)
+      $(lua_toolbox_link)
       $(about_link)
       <a href="/feed.xml" class="mainmenu-rss">RSS</a>
     </nav>

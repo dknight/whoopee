@@ -11,6 +11,7 @@
   --color-background: var(--color-1);
   --color-text: var(--color-2);
   --color-lua-toolbox: var(--color-12);
+  --color-nes-toolbox: var(--color-43);
   --color-about: var(--color-20);
   --color-rss: var(--color-35);
   --color-accent: var(--color-35);
@@ -81,12 +82,21 @@ header {
     text-decoration: none;
   }
 
-  .mainmenu-toolbox {
+  .lua-mainmenu-toolbox {
     color: var(--color-lua-toolbox);
 
     &:is(:hover, .active) {
       color: var(--color-background);
       background-color: var(--color-lua-toolbox);
+    }
+  }
+
+  .nes-mainmenu-toolbox {
+    color: var(--color-nes-toolbox);
+
+    &:is(:hover, .active) {
+      color: var(--color-background);
+      background-color: var(--color-nes-toolbox);
     }
   }
 
@@ -112,10 +122,10 @@ header {
 .logo-wrapper {
   display: flex;
   align-items: center;
-  width: 8rem;
+  width: 24rem;
   height: 8rem;
-  background: transparent url("/assets/img/cat-static.gif") no-repeat
-    center/contain;
+  background: transparent url("/assets/img/cat-static.gif") no-repeat top
+    left/contain;
   image-rendering: pixelated;
 
   &:hover {

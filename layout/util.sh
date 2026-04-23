@@ -28,7 +28,7 @@ function to_index() {
 }
 
 # space-separated skip pages on the index page, like SKIP="about.html"
-SKIP_PATTERN="(lua-toolbox\.html|about\.html)"
+SKIP_PATTERN="(lua-toolbox\.html|about\.html|nes-toolbox\.html)"
 function is_skipped() {
     if [[ "$POST_URL" =~ $SKIP_PATTERN ]]; then
         echo 1

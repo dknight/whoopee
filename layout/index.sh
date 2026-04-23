@@ -113,6 +113,7 @@ cat << _EOF_
         $(taglink "love2d")
         $(taglink "playdate")
         $(taglink "zx")
+        $(taglink "nes")
         $(taglink "humor")
         $(taglink "misc")
       </nav>

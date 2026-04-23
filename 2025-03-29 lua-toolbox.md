@@ -2,7 +2,7 @@
 
 A curated list of useful links related to the Lua programming language. I regularly update this list.
 
-<em>Last update: <time>2025-12-13</time></em>
+_Last update: <time>2025-12-13</time>_
 
 ## General
 
