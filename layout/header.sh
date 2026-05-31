@@ -19,14 +19,6 @@ function lua_toolbox_link {
   fi
 }
 
-function nes_toolbox_link {
-  if [[ "$POST_URL" == *"nes-toolbox"* ]]; then
-   echo '<a class="nes-mainmenu-toolbox active">NES Toolbox</a>'
-  else
-    echo '<a href="/post/nes-toolbox.html" class="nes-mainmenu-toolbox">NES Toolbox</a>'
-  fi
-}
-
 function about_link {
   if [[ "$POST_URL" == *"about"* ]]; then
    echo '<a class="mainmenu-about active">About</a>'
@@ -39,7 +31,6 @@ cat << __HEADER__
   <header>
     $(logo)
     <nav class="mainmenu">
-      $(nes_toolbox_link)
       $(lua_toolbox_link)
       $(about_link)
       <a href="/feed.xml" class="mainmenu-rss">RSS</a>
