@@ -4,6 +4,10 @@ tags: zx vim
 
 # Setup NeoVim for BASIC ZX Spectrum development
 
+***Update 2024-06-10***
+
+Check my newly written [Neovim plugin](https://github.com/dknight/zx.nvim) for developing ZX Spectrum BASIC and Assembly programs.
+
 Definitely, typing on the original ZX Spectrum keyboard gives a
 romantic retro charm. That’s not arguable. But if you want to speed
 up development, testing, and overall DX, it makes sense to use
