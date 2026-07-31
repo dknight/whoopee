@@ -40,7 +40,7 @@ jobs:
       - name: Install Rust stuff
         run: |
           cargo install minhtml
-          cargo install lightningcss@1.0.0-alpha.65 --features="cli"
+          cargo install lightningcss@1.0.0-alpha.72 --features="cli"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.2'
