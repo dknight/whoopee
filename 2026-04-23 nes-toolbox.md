@@ -36,7 +36,7 @@ _Last update: <time>2026-04-24</time>_
  - "[Classic Game Programming on the NES: Make your own retro video game](https://www.amazon.com/Classic-Game-Programming-NES-retro/dp/1633438015)" by Tony Cruise.
  - "Programming the 6502" by Rodnay Zaks, ISBN 0895881357
 
-# Learning resources
+## Learning resources
 
 - [6502 Opcodes](https://6502.org/tutorials/6502opcodes.html) - list of 6502 opcodes and explanation.
 - [Easy 6502](https://skilldrick.github.io/easy6502/) - "one evening" online tutorial for 6502.
