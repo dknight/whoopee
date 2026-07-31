@@ -11,6 +11,14 @@ function logo {
   fi
 }
 
+function nes_toolbox_link {
+  if [[ "$POST_URL" == *"nes-toolbox"* ]]; then
+   echo '<a class="nes-mainmenu-toolbox active">NES Toolbox</a>'
+  else
+    echo '<a href="/post/nes-toolbox.html" class="nes-mainmenu-toolbox">NES Toolbox</a>'
+  fi
+}
+
 function lua_toolbox_link {
   if [[ "$POST_URL" == *"lua-toolbox"* ]]; then
    echo '<a class="lua-mainmenu-toolbox active">Lua Toolbox</a>'
@@ -31,6 +39,7 @@ cat << __HEADER__
   <header>
     $(logo)
     <nav class="mainmenu">
+      $(nes_toolbox_link)
       $(lua_toolbox_link)
       $(about_link)
       <a href="/feed.xml" class="mainmenu-rss">RSS</a>
