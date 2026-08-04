@@ -25,6 +25,8 @@ _Last update: <time>2026-04-24</time>_
 - [NEXTT](https://frankengraphics.itch.io/nexxt) — a great CHR and sprite editor for NES.
 - [YY-CHR](https://www.smwcentral.net/?p=section&a=details&id=27208) — a solid ROM-hacking and sprite editor.
 - [PPUX](https://tavuntu.itch.io/ppux) is a desktop NES graphics editor for working directly with ROM art data and custom project layouts.
+- [Pixel CHR Studio](https://github.com/skt001/pixel-chr-studio) - web-based CHR editor, extremely simple and runs on
+  every system inside the browser.
 
 ## Sound editors
 
