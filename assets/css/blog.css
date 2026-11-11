@@ -3,7 +3,6 @@
   src: url("/assets/fonts/nes.woff2") format("woff2");
   font-display: swap;
 }
-/* やったー    whoopee */
 
 :root {
   color-scheme: dark;
@@ -64,6 +63,7 @@ header {
     justify-content: center;
   }
 }
+
 .mainmenu {
   align-items: center;
   display: flex;
@@ -119,47 +119,13 @@ header {
   }
 }
 
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  width: 24rem;
-  height: 8rem;
-  background: transparent url("/assets/img/cat-static.gif") no-repeat top
-    left/contain;
+.header-logo {
   image-rendering: pixelated;
-
-  &:hover {
-    background-image: url("/assets/img/cat-anim.gif");
-  }
+  border: none;
+  width: 256px;
 
   @media screen and (max-width: 767px) {
-    width: 16rem;
-    height: 16rem;
-    margin: 0 auto;
-    padding-block-start: 4rem;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    margin-block-end: 4rem;
-  }
-
-  span {
-    display: block;
-    margin-inline-start: 9rem;
-    font-size: clamp(1.5rem, 5vw, 4rem);
-    line-height: 1;
-    text-wrap: nowrap;
-    font-weight: bold;
-    background-clip: text;
-    background-image: linear-gradient(to top, var(--color-35), var(--color-34));
-    color: transparent;
-    text-decoration: none;
-
-    @media screen and (max-width: 767px) {
-      font-size: 4rem;
-      margin-inline-start: 0;
-      margin-block-end: -5rem;
-    }
+    width: 100%;
   }
 }
 
