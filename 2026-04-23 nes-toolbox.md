@@ -27,6 +27,7 @@ _Last update: <time>2026-04-24</time>_
 - [PPUX](https://tavuntu.itch.io/ppux) is a desktop NES graphics editor for working directly with ROM art data and custom project layouts.
 - [Pixel CHR Studio](https://github.com/skt001/pixel-chr-studio) - web-based CHR editor, extremely simple and runs on
   every system inside the browser.
+- [NES CHR Tools for Aseprite](https://github.com/FlavioBrassesco/nes-chr-tools-for-aseprite) import/export [Aseprite](https://aseprite.org/) image to CHR format.
 
 ## Sound editors
 
