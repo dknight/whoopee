@@ -440,6 +440,7 @@ img {
     position: absolute;
     bottom: calc(-3vb + 4px);
     right: calc(-3vi + 4px);
+    image-rendering: pixelated;
   }
 }
 
