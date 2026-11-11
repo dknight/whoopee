@@ -433,7 +433,15 @@ img {
 
 /* ================================ FOOTER ================================= */
 
-/* footer {} */
+.page-footer {
+  position: relative;
+
+  .whoopee-cat {
+    position: absolute;
+    bottom: calc(-3vb + 4px);
+    right: calc(-3vi + 4px);
+  }
+}
 
 /* ================================ MEDIAS ================================= */
 

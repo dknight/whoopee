@@ -2,7 +2,7 @@
 
 cat << __FOOTER__
    <hr>
-  <footer>
+  <footer class="page-footer">
     <p>
       &copy; 2022&mdash;$(date +%Y) <a href="/me/">xdknight</a>
       Powered by <a href="https://github.com/hmngwy/jenny">Jenny</a> shell
@@ -21,5 +21,6 @@ cat << __FOOTER__
       Also, this page is fully accessible, responsive, and readable on any
       device without a single line of JavaScript.
     </p>
+    <img src="/assets/img/cat-new.gif" alt="Whoopee cat" class="whoopee-cat">
   </footer>
 __FOOTER__
