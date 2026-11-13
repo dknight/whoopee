@@ -21,6 +21,5 @@ cat << __FOOTER__
       Also, this page is fully accessible, responsive, and readable on any
       device without a single line of JavaScript.
     </p>
-    <img src="/assets/img/cat-new.gif" alt="Whoopee cat" class="whoopee-cat">
   </footer>
 __FOOTER__

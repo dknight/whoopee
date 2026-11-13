@@ -35,6 +35,7 @@
 }
 
 body {
+  position: relative;
   font: normal 16px/2 monospace;
   color: var(--color-text);
   padding: 3vb 3vi;
@@ -298,9 +299,7 @@ ol > li > p {
     background-color: currentColor;
     color: var(--color-background);
     text-transform: uppercase;
-    line-height: 1;
-    text-rendering: geometricPrecision;
-    text-transform: uppercase;
+      text-rendering: geometricPrecision;
   }
 
   &.tip {
@@ -433,15 +432,11 @@ img {
 
 /* ================================ FOOTER ================================= */
 
-.page-footer {
-  position: relative;
-
-  .whoopee-cat {
-    position: absolute;
-    bottom: calc(-3vb + 4px);
-    right: calc(-3vi + 4px);
-    image-rendering: pixelated;
-  }
+.whoopee-cat {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  image-rendering: pixelated;
 }
 
 /* ================================ MEDIAS ================================= */
