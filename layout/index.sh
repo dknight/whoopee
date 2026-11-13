@@ -123,7 +123,7 @@ cat << _EOF_
       </section>
     </main>
     $(source ./layout/footer.sh)
-    <img src="/assets/img/cat-new.gif" alt="Whoopee cat" class="whoopee-cat">
+    <img src="/assets/img/cat-new.gif" alt="Whoopee cat" class="whoopee-cat" width="64" height="64">
   </body>
 </html>
 _EOF_
